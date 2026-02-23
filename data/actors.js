@@ -262,3 +262,114 @@ const actors = [
     ],
     tags: ['dramatic-actor', 'fantasy']
   },
+  // ============================================================
+  // STRANGER THINGS ACTORS
+  // ============================================================
+  {
+    slug: 'millie-bobby-brown',
+    name: 'Millie Bobby Brown',
+    bio: 'Millie Bobby Brown is a British actress and producer born on February 19, 2004, in Marbella, Spain, to English parents. Her family moved to Bournemouth, England, then to Orlando, Florida, where she began pursuing acting at a young age, landing her first roles in the ABC series Once Upon a Time in Wonderland (2013) and the BBC series Intruders (2014).\n\nBrown became a global star at age twelve for her breakout role as Eleven in the Netflix series Stranger Things (2016-2025). Her powerful, largely non-verbal performance as a girl with telekinetic powers earned her two Primetime Emmy nominations for Outstanding Supporting Actress in a Drama Series, making her one of the youngest Emmy nominees in history.\n\nBeyond Stranger Things, Brown starred as Enola Holmes in the Netflix film series Enola Holmes (2020) and Enola Holmes 2 (2022). She also appeared in Godzilla: King of the Monsters (2019) and Godzilla vs. Kong (2021). Brown launched her own beauty brand, Florence by Mills, in 2019 and became the youngest person ever to be named a UNICEF Goodwill Ambassador.',
+    birthDate: '2004-02-19',
+    birthPlace: 'Marbella, Spain',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Millie_Bobby_Brown_by_Gage_Skidmore.jpg/440px-Millie_Bobby_Brown_by_Gage_Skidmore.jpg', alt: 'Millie Bobby Brown at San Diego Comic-Con', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'eleven', characterName: 'Eleven', showSlug: 'stranger-things', showTitle: 'Stranger Things', years: '2016-2025' }],
+    otherNotableRoles: ['Enola Holmes in Enola Holmes (2020) and Enola Holmes 2 (2022)', 'Madison Russell in Godzilla: King of the Monsters (2019) and Godzilla vs. Kong (2021)'],
+    awards: ['2x Primetime Emmy Nomination for Outstanding Supporting Actress in a Drama Series (Stranger Things)', 'Screen Actors Guild Award for Outstanding Ensemble in a Drama Series (Stranger Things)', 'UNICEF Goodwill Ambassador (youngest ever appointed)'],
+    socialLinks: { instagram: 'https://www.instagram.com/milliebobbybrown/', twitter: 'https://twitter.com/milabordelern', imdb: 'https://www.imdb.com/name/nm5611121/', wikipedia: 'https://en.wikipedia.org/wiki/Millie_Bobby_Brown' },
+    faqs: [
+      { question: 'What is Millie Bobby Brown best known for?', answer: 'Millie Bobby Brown is best known for playing Eleven in Stranger Things (2016-2025).' },
+      { question: 'How old was Millie Bobby Brown when Stranger Things started?', answer: 'She was 12 years old when the first season of Stranger Things premiered in July 2016.' },
+      { question: 'What is Florence by Mills?', answer: 'Florence by Mills is a clean beauty and skincare brand founded by Millie Bobby Brown in 2019, targeting Gen Z consumers.' }
+    ],
+    tags: ['dramatic-actress', 'young-actor', 'entrepreneur']
+  },
+  {
+    slug: 'finn-wolfhard',
+    name: 'Finn Wolfhard',
+    bio: 'Finn Wolfhard is a Canadian actor, musician, and director born on December 23, 2002, in Vancouver, British Columbia, Canada. He began acting at a young age, landing small television roles before his breakthrough in Stranger Things.\n\nWolfhard rose to fame as Mike Wheeler in the Netflix series Stranger Things (2016-2025), playing the de facto leader of the group of friends at the heart of the show. The role made him one of the most recognizable young actors in the world and earned him a Screen Actors Guild Award as part of the ensemble cast.\n\nBeyond Stranger Things, Wolfhard starred as Richie Tozier in the horror films It (2017) and It Chapter Two (2019), and voiced a character in the animated Ghostbusters: Afterlife (2021) and its sequel. He is also the lead vocalist and guitarist of the band The Aubreys (formerly Calpurnia) and made his directorial debut with the short film Night Shifts (2020).',
+    birthDate: '2002-12-23',
+    birthPlace: 'Vancouver, British Columbia, Canada',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Finn_Wolfhard_by_Gage_Skidmore.jpg/440px-Finn_Wolfhard_by_Gage_Skidmore.jpg', alt: 'Finn Wolfhard at San Diego Comic-Con', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'mike-wheeler', characterName: 'Mike Wheeler', showSlug: 'stranger-things', showTitle: 'Stranger Things', years: '2016-2025' }],
+    otherNotableRoles: ['Richie Tozier in It (2017) and It Chapter Two (2019)', 'Trevor Spengler in Ghostbusters: Afterlife (2021)', 'Voice of Pugsley Addams in The Addams Family (2019)'],
+    awards: ['Screen Actors Guild Award for Outstanding Ensemble in a Drama Series (Stranger Things)', 'Canadian Screen Award Nomination for Best Performance in a Children\'s or Youth Program'],
+    socialLinks: { instagram: 'https://www.instagram.com/finnwolfhardofficial/', twitter: 'https://twitter.com/FinnSkata', imdb: 'https://www.imdb.com/name/nm5765981/', wikipedia: 'https://en.wikipedia.org/wiki/Finn_Wolfhard' },
+    faqs: [
+      { question: 'What is Finn Wolfhard best known for?', answer: 'Finn Wolfhard is best known for playing Mike Wheeler in Stranger Things and Richie Tozier in It (2017).' },
+      { question: 'Is Finn Wolfhard in a band?', answer: 'Yes, he is the lead vocalist and guitarist of The Aubreys, and was previously in the band Calpurnia.' },
+      { question: 'Where is Finn Wolfhard from?', answer: 'He was born on December 23, 2002, in Vancouver, British Columbia, Canada.' }
+    ],
+    tags: ['young-actor', 'musician', 'director']
+  },
+  {
+    slug: 'gaten-matarazzo',
+    name: 'Gaten Matarazzo',
+    bio: 'Gaten John Matarazzo III is an American actor and singer born on September 8, 2002, in New Haven, Connecticut. Before Stranger Things, he performed on Broadway in productions of Priscilla, Queen of the Desert and Les Miserables as a child actor.\n\nMatarazzo became widely recognized for his role as Dustin Henderson in the Netflix series Stranger Things (2016-2025). His charismatic, comedic performance as the nerdy, toothless member of the friend group made Dustin one of the show\'s most beloved characters. Matarazzo has cleidocranial dysplasia, a condition that affects bone and teeth development, which was written into his character.\n\nBeyond Stranger Things, Matarazzo hosted the Netflix prank series Prank Encounters (2019-2021) and has continued his theater work. He has been an outspoken advocate for raising awareness about cleidocranial dysplasia and has used his platform to educate fans about the condition.',
+    birthDate: '2002-09-08',
+    birthPlace: 'New Haven, Connecticut, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Gaten_Matarazzo_by_Gage_Skidmore.jpg/440px-Gaten_Matarazzo_by_Gage_Skidmore.jpg', alt: 'Gaten Matarazzo at San Diego Comic-Con', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'dustin-henderson', characterName: 'Dustin Henderson', showSlug: 'stranger-things', showTitle: 'Stranger Things', years: '2016-2025' }],
+    otherNotableRoles: ['Host of Prank Encounters (2019-2021)', 'Gavroche in Les Miserables (Broadway)', 'Benjamin in Priscilla, Queen of the Desert (Broadway)'],
+    awards: ['Screen Actors Guild Award for Outstanding Ensemble in a Drama Series (Stranger Things)', 'Young Artist Award Nomination for Best Performance in a Digital Series'],
+    socialLinks: { instagram: 'https://www.instagram.com/gabordelern/', twitter: 'https://twitter.com/GatenM123', imdb: 'https://www.imdb.com/name/nm6069"; wikipedia: "https://en.wikipedia.org/wiki/Gaten_Matarazzo' },
+    faqs: [
+      { question: 'What is Gaten Matarazzo best known for?', answer: 'Gaten Matarazzo is best known for playing Dustin Henderson in Stranger Things (2016-2025).' },
+      { question: 'Does Gaten Matarazzo have cleidocranial dysplasia?', answer: 'Yes, Matarazzo has cleidocranial dysplasia, a condition affecting bone development. This was written into his character Dustin on Stranger Things.' },
+      { question: 'Was Gaten Matarazzo on Broadway?', answer: 'Yes, he appeared in Broadway productions of Les Miserables and Priscilla, Queen of the Desert before Stranger Things.' }
+    ],
+    tags: ['young-actor', 'broadway', 'advocate']
+  },
+  {
+    slug: 'joe-keery',
+    name: 'Joe Keery',
+    bio: 'Joseph David Keery is an American actor and musician born on April 24, 1992, in Newburyport, Massachusetts. He studied acting at The Theatre School at DePaul University in Chicago and appeared in numerous commercials and short films before his breakout role.\n\nKeery gained fame as Steve Harrington in the Netflix series Stranger Things (2016-2025). Originally conceived as a minor antagonist, Steve\'s popularity with audiences led to the character being expanded into a fan-favorite protector figure. Keery\'s transformation of Steve from high school bully to beloved babysitter became one of the show\'s signature character arcs.\n\nBeyond Stranger Things, Keery starred in the Ryan Reynolds film Free Guy (2021) and the horror-comedy Spree (2020). He also pursues music under the stage name Djo, releasing the albums Twenty Twenty (2019) and Decide (2022) to critical acclaim.',
+    birthDate: '1992-04-24',
+    birthPlace: 'Newburyport, Massachusetts, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Joe_Keery_by_Gage_Skidmore.jpg/440px-Joe_Keery_by_Gage_Skidmore.jpg', alt: 'Joe Keery at San Diego Comic-Con', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'steve-harrington', characterName: 'Steve Harrington', showSlug: 'stranger-things', showTitle: 'Stranger Things', years: '2016-2025' }],
+    otherNotableRoles: ['Keys in Free Guy (2021)', 'Kurt Kunkle in Spree (2020)', 'Musician as Djo'],
+    awards: ['Screen Actors Guild Award for Outstanding Ensemble in a Drama Series (Stranger Things)'],
+    socialLinks: { instagram: 'https://www.instagram.com/uncle_jezzy/', imdb: 'https://www.imdb.com/name/nm5462926/', wikipedia: 'https://en.wikipedia.org/wiki/Joe_Keery' },
+    faqs: [
+      { question: 'What is Joe Keery best known for?', answer: 'Joe Keery is best known for playing Steve Harrington in Stranger Things (2016-2025).' },
+      { question: 'Does Joe Keery make music?', answer: 'Yes, he records and performs music under the stage name Djo, releasing albums Twenty Twenty (2019) and Decide (2022).' },
+      { question: 'Was Steve Harrington supposed to be killed off?', answer: 'Steve was originally a minor antagonist, but Joe Keery\'s performance and the character\'s popularity led the Duffer Brothers to expand his role significantly.' }
+    ],
+    tags: ['dramatic-actor', 'musician', 'fan-favorite']
+  },
+  {
+    slug: 'david-harbour',
+    name: 'David Harbour',
+    bio: 'David Kenneth Harbour is an American actor born on April 10, 1975, in White Plains, New York. He studied drama at Dartmouth College and trained at the Yale School of Drama. Harbour spent years as a respected stage and character actor, appearing on Broadway and in films like Brokeback Mountain (2005) and Revolutionary Road (2008).\n\nHarbour achieved mainstream stardom as Jim Hopper, the gruff but lovable police chief of Hawkins, Indiana, in the Netflix series Stranger Things (2016-2025). His compelling portrayal of the flawed father figure earned him two Primetime Emmy nominations and a Critics\' Choice Award, making him one of the breakout stars of the series.\n\nBeyond Stranger Things, Harbour played Red Guardian / Alexei Shostakov in the Marvel film Black Widow (2021), starred in the title role of Hellboy (2019), and appeared in the action film Violent Night (2022) as Santa Claus. He married singer Lily Allen in 2020.',
+    birthDate: '1975-04-10',
+    birthPlace: 'White Plains, New York, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/David_Harbour_by_Gage_Skidmore.jpg/440px-David_Harbour_by_Gage_Skidmore.jpg', alt: 'David Harbour at San Diego Comic-Con', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'jim-hopper', characterName: 'Jim Hopper', showSlug: 'stranger-things', showTitle: 'Stranger Things', years: '2016-2025' }],
+    otherNotableRoles: ['Red Guardian in Black Widow (2021)', 'Hellboy in Hellboy (2019)', 'Santa Claus in Violent Night (2022)'],
+    awards: ['2x Primetime Emmy Nomination for Outstanding Supporting Actor in a Drama Series (Stranger Things)', 'Critics\' Choice Television Award for Best Supporting Actor in a Drama Series (Stranger Things)', 'Screen Actors Guild Award for Outstanding Ensemble in a Drama Series (Stranger Things)'],
+    socialLinks: { instagram: 'https://www.instagram.com/dabordelern/', twitter: 'https://twitter.com/DavidKHarbour', imdb: 'https://www.imdb.com/name/nm1092086/', wikipedia: 'https://en.wikipedia.org/wiki/David_Harbour' },
+    faqs: [
+      { question: 'What is David Harbour best known for?', answer: 'David Harbour is best known for playing Jim Hopper in Stranger Things (2016-2025).' },
+      { question: 'Is David Harbour in the MCU?', answer: 'Yes, he played Red Guardian / Alexei Shostakov in Black Widow (2021).' },
+      { question: 'Is David Harbour married?', answer: 'Yes, David Harbour married singer Lily Allen in September 2020 in Las Vegas.' }
+    ],
+    tags: ['dramatic-actor', 'character-actor']
+  },
+  {
+    slug: 'noah-schnapp',
+    name: 'Noah Schnapp',
+    bio: 'Noah Cameron Schnapp is an American actor born on October 3, 2004, in New York City, New York. He began acting at age six after attending an acting program at Westchester\'s Star Kidz and quickly landed professional roles, including voicing Charlie Brown in The Peanuts Movie (2015).\n\nSchnapp is best known for his role as Will Byers in the Netflix series Stranger Things (2016-2025). As the boy whose disappearance into the Upside Down drives the plot of the first season, Will became the emotional anchor of the series. Schnapp\'s performance was widely praised, particularly in later seasons where Will\'s personal struggles added new dimensions to the character.\n\nBeyond Stranger Things, Schnapp voiced Charlie Brown in The Peanuts Movie (2015) and appeared in films such as Bridge of Spies (2015, uncredited) and Abe (2019). He co-founded TBH, a sustainable snack food company, and enrolled at the University of Pennsylvania\'s Wharton School of Business.',
+    birthDate: '2004-10-03',
+    birthPlace: 'New York City, New York, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Noah_Schnapp_by_Gage_Skidmore.jpg/440px-Noah_Schnapp_by_Gage_Skidmore.jpg', alt: 'Noah Schnapp at San Diego Comic-Con', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'will-byers', characterName: 'Will Byers', showSlug: 'stranger-things', showTitle: 'Stranger Things', years: '2016-2025' }],
+    otherNotableRoles: ['Charlie Brown in The Peanuts Movie (2015, voice)', 'Roger Donovan in Bridge of Spies (2015)', 'Abe in Abe (2019)'],
+    awards: ['Screen Actors Guild Award for Outstanding Ensemble in a Drama Series (Stranger Things)'],
+    socialLinks: { instagram: 'https://www.instagram.com/noahschnapp/', twitter: 'https://twitter.com/Noah_Schnapp', imdb: 'https://www.imdb.com/name/nm6012429/', wikipedia: 'https://en.wikipedia.org/wiki/Noah_Schnapp' },
+    faqs: [
+      { question: 'What is Noah Schnapp best known for?', answer: 'Noah Schnapp is best known for playing Will Byers in Stranger Things (2016-2025).' },
+      { question: 'Did Noah Schnapp voice Charlie Brown?', answer: 'Yes, he voiced Charlie Brown in The Peanuts Movie (2015).' },
+      { question: 'What business did Noah Schnapp start?', answer: 'He co-founded TBH (To Be Honest), a sustainable hazelnut spread snack company.' }
+    ],
+    tags: ['young-actor', 'entrepreneur']
+  },
