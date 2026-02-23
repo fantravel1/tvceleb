@@ -1656,6 +1656,62 @@ button:focus-visible {
   .character-list-compact { grid-template-columns: repeat(4, 1fr); }
 }
 
+/* ========== QUOTES & TRIVIA ========== */
+.quotes-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.character-quote {
+  border-left: 4px solid var(--color-primary);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  position: relative;
+}
+
+.character-quote p {
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: var(--color-text);
+  line-height: 1.6;
+  margin: 0 0 var(--space-2);
+}
+
+.character-quote cite {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  font-style: normal;
+  display: block;
+}
+
+.trivia-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.trivia-item {
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  position: relative;
+  padding-left: var(--space-8);
+}
+
+.trivia-item::before {
+  content: "★";
+  position: absolute;
+  left: var(--space-3);
+  color: var(--color-primary);
+  font-size: var(--text-base);
+}
+
 /* ========== PRINT STYLES ========== */
 @media print {
   .header, .footer, .mobile-nav, .search-container, .youtube-facade { display: none; }

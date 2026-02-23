@@ -1,5 +1,5 @@
 // TVCeleb.com - Complete Show Data
-// 10 Iconic Shows Across Genres
+// 20 Iconic Shows Across Genres
 
 const shows = [
   {
@@ -282,6 +282,288 @@ const shows = [
     ],
     videos: [
       { title: 'The Last of Us Official Trailer', youtubeId: 'uLtkt8BonwM', description: 'HBO official trailer for The Last of Us.' }
+    ]
+  },
+  {
+    slug: 'friends',
+    title: 'Friends',
+    network: 'NBC',
+    platform: 'Max',
+    genre: ['Comedy', 'Romance'],
+    years: '1994–2004',
+    status: 'Ended',
+    seasons: 10,
+    episodes: 236,
+    creator: 'David Crane & Marta Kauffman',
+    synopsis: 'Friends follows six twenty-something friends living in Manhattan as they navigate the complexities of life, love, careers, and growing up. From Ross and Rachel\'s on-again-off-again romance to Chandler and Monica\'s unexpected love story, the series captures the bonds of friendship through humor, heart, and unforgettable moments. The show became a cultural phenomenon and remains one of the most-watched sitcoms in television history.',
+    synopsisShort: 'Six friends navigate life, love, and careers in 1990s Manhattan in this iconic sitcom.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Friends_logo.svg/512px-Friends_logo.svg.png', alt: 'Friends logo', attribution: 'NBC, Public domain, via Wikimedia Commons', width: 512, height: 211 },
+    characterSlugs: ['rachel-green', 'ross-geller', 'monica-geller', 'chandler-bing', 'joey-tribbiani', 'phoebe-buffay'],
+    fanHeatScore: 93,
+    tags: ['comedy', 'romance', 'sitcom', 'ensemble', 'complete-series', 'cultural-icon', 'meme-culture'],
+    relatedShowSlugs: ['the-office', 'schitts-creek', 'the-sopranos'],
+    faqs: [
+      { question: 'How many seasons does Friends have?', answer: 'Friends has 10 seasons with 236 episodes. It aired on NBC from September 22, 1994 to May 6, 2004.' },
+      { question: 'Where can I watch Friends?', answer: 'Friends is available to stream on Max (formerly HBO Max) in the United States. It is also available on Netflix in many international markets.' },
+      { question: 'Who created Friends?', answer: 'Friends was created by David Crane and Marta Kauffman. It was produced by Bright/Kauffman/Crane Productions in association with Warner Bros. Television.' },
+      { question: 'Was there a Friends reunion?', answer: 'Yes, Friends: The Reunion (also known as "The One Where They Get Back Together") premiered on HBO Max on May 27, 2021. It featured all six main cast members returning to the original soundstage.' },
+      { question: 'What is the most watched Friends episode?', answer: 'The most watched episode is "The Last One" (the series finale), which was watched by 52.5 million viewers when it originally aired on May 6, 2004, making it the most-watched television episode of the 2000s decade.' }
+    ],
+    videos: [
+      { title: 'Friends - Opening Theme', youtubeId: 'q-9kPks0IfE', description: 'The iconic Friends opening theme "I\'ll Be There for You" by The Rembrandts.' }
+    ]
+  },
+  {
+    slug: 'the-sopranos',
+    title: 'The Sopranos',
+    network: 'HBO',
+    platform: 'Max',
+    genre: ['Drama', 'Crime'],
+    years: '1999–2007',
+    status: 'Ended',
+    seasons: 6,
+    episodes: 86,
+    creator: 'David Chase',
+    synopsis: 'The Sopranos follows Tony Soprano, a New Jersey mob boss who struggles to manage his criminal organization while dealing with personal and family issues, all under the care of psychiatrist Dr. Jennifer Melfi. Widely regarded as one of the greatest television series ever made, the show pioneered the modern prestige TV era and explored themes of American identity, morality, mental health, and the decline of the American Dream through the lens of organized crime.',
+    synopsisShort: 'A New Jersey mob boss navigates the demands of his criminal empire and family while seeing a psychiatrist.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/The_Sopranos_titlecard.svg/512px-The_Sopranos_titlecard.svg.png', alt: 'The Sopranos logo', attribution: 'HBO, Public domain, via Wikimedia Commons', width: 512, height: 211 },
+    characterSlugs: ['tony-soprano', 'carmela-soprano', 'christopher-moltisanti', 'jennifer-melfi', 'silvio-dante', 'paulie-gualtieri'],
+    fanHeatScore: 94,
+    tags: ['drama', 'crime', 'anti-hero', 'prestige-tv', 'complete-series', 'critically-acclaimed', 'groundbreaking'],
+    relatedShowSlugs: ['breaking-bad', 'peaky-blinders', 'succession'],
+    faqs: [
+      { question: 'How many seasons does The Sopranos have?', answer: 'The Sopranos has 6 seasons with 86 episodes. It aired on HBO from January 10, 1999 to June 10, 2007.' },
+      { question: 'Where can I watch The Sopranos?', answer: 'The Sopranos is available to stream on Max (formerly HBO Max). It can also be purchased on Amazon Prime Video and Apple TV+.' },
+      { question: 'Who created The Sopranos?', answer: 'The Sopranos was created by David Chase. It is widely credited with launching the "Golden Age of Television" and influencing virtually every prestige drama that followed.' },
+      { question: 'How does The Sopranos end?', answer: 'The Sopranos famously ends with an abrupt cut to black during a scene in a diner. The ambiguous ending has been debated by fans and critics for years, with creator David Chase eventually confirming that Tony Soprano dies.' },
+      { question: 'Does The Sopranos have a prequel?', answer: 'Yes, The Many Saints of Newark (2021) is a prequel film set in the 1960s and 1970s. It stars Michael Gandolfini (James Gandolfini\'s son) as a young Tony Soprano.' }
+    ],
+    videos: [
+      { title: 'The Sopranos Official Trailer', youtubeId: 'KMx4iFcozK0', description: 'HBO official trailer for The Sopranos.' }
+    ]
+  },
+  {
+    slug: 'ozark',
+    title: 'Ozark',
+    network: 'Netflix',
+    platform: 'Netflix',
+    genre: ['Drama', 'Crime', 'Thriller'],
+    years: '2017–2022',
+    status: 'Ended',
+    seasons: 4,
+    episodes: 44,
+    creator: 'Bill Dubuque & Mark Williams',
+    synopsis: 'Ozark follows financial advisor Marty Byrde, who relocates his family from Chicago to the Ozarks in Missouri after a money-laundering scheme goes wrong. Forced to launder money for a Mexican drug cartel, the Byrde family becomes entangled with local criminals, the FBI, and dangerous power players while trying to create a legitimate business front. The series explores how ordinary people are corrupted by extraordinary circumstances and the lengths a family will go to survive.',
+    synopsisShort: 'A financial advisor moves his family to the Ozarks to launder money for a Mexican drug cartel.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Ozark_TV_logo.svg/512px-Ozark_TV_logo.svg.png', alt: 'Ozark logo', attribution: 'Netflix, Public domain, via Wikimedia Commons', width: 512, height: 186 },
+    characterSlugs: ['marty-byrde', 'wendy-byrde', 'ruth-langmore', 'darlene-snell', 'jonah-byrde', 'charlotte-byrde'],
+    fanHeatScore: 85,
+    tags: ['drama', 'crime', 'thriller', 'anti-hero', 'complete-series', 'family'],
+    relatedShowSlugs: ['breaking-bad', 'the-sopranos', 'succession'],
+    faqs: [
+      { question: 'How many seasons does Ozark have?', answer: 'Ozark has 4 seasons with 44 episodes on Netflix. The series aired from July 21, 2017 to April 29, 2022.' },
+      { question: 'Where can I watch Ozark?', answer: 'Ozark is a Netflix Original series and is available exclusively on Netflix worldwide.' },
+      { question: 'Who created Ozark?', answer: 'Ozark was created by Bill Dubuque and Mark Williams. Jason Bateman also serves as executive producer and directed several episodes.' },
+      { question: 'Is Ozark similar to Breaking Bad?', answer: 'Ozark is often compared to Breaking Bad due to its theme of an ordinary person drawn into a criminal underworld. However, Ozark focuses more on family dynamics and financial crime rather than drug manufacturing.' }
+    ],
+    videos: [
+      { title: 'Ozark Season 1 Official Trailer', youtubeId: '5hAXVqrljbs', description: 'Netflix official trailer for Ozark Season 1.' }
+    ]
+  },
+  {
+    slug: 'ted-lasso',
+    title: 'Ted Lasso',
+    network: 'Apple TV+',
+    platform: 'Apple TV+',
+    genre: ['Comedy', 'Drama', 'Sports'],
+    years: '2020–2023',
+    status: 'Ended',
+    seasons: 3,
+    episodes: 34,
+    creator: 'Jason Sudeikis, Bill Lawrence, Brendan Hunt & Joe Kelly',
+    synopsis: 'Ted Lasso follows an American college football coach who is unexpectedly recruited to manage a professional soccer team in England, AFC Richmond, despite having no experience with the sport. What begins as a publicity stunt by the team\'s new owner becomes a heartwarming story about the power of optimism, kindness, and believing in people. The series explores themes of leadership, mental health, and community through humor and genuine emotion.',
+    synopsisShort: 'An American football coach takes over a struggling English soccer team with nothing but optimism and heart.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Ted_Lasso_logo.svg/512px-Ted_Lasso_logo.svg.png', alt: 'Ted Lasso logo', attribution: 'Apple TV+, Public domain, via Wikimedia Commons', width: 512, height: 186 },
+    characterSlugs: ['ted-lasso-character', 'rebecca-welton', 'roy-kent', 'jamie-tartt', 'keeley-jones', 'nate-shelley'],
+    fanHeatScore: 89,
+    tags: ['comedy', 'drama', 'sports', 'feel-good', 'complete-series', 'critically-acclaimed'],
+    relatedShowSlugs: ['the-office', 'schitts-creek', 'the-bear'],
+    faqs: [
+      { question: 'How many seasons does Ted Lasso have?', answer: 'Ted Lasso has 3 seasons with 34 episodes. It premiered on Apple TV+ on August 14, 2020 and concluded on May 31, 2023.' },
+      { question: 'Where can I watch Ted Lasso?', answer: 'Ted Lasso is an Apple TV+ Original and is available exclusively on Apple TV+.' },
+      { question: 'Is Ted Lasso based on a real person?', answer: 'Ted Lasso originated as a character in NBC Sports promotional videos for their Premier League coverage. Jason Sudeikis played the character in these ads before developing it into a full series for Apple TV+.' },
+      { question: 'Will there be a Ted Lasso Season 4?', answer: 'While the show concluded after 3 seasons, Warner Bros. has been exploring the possibility of continuing the series, potentially with or without Jason Sudeikis. As of 2025, a fourth season has been announced.' }
+    ],
+    videos: [
+      { title: 'Ted Lasso Official Trailer', youtubeId: '3u7EIiohs6U', description: 'Apple TV+ official trailer for Ted Lasso.' }
+    ]
+  },
+  {
+    slug: 'euphoria',
+    title: 'Euphoria',
+    network: 'HBO',
+    platform: 'Max',
+    genre: ['Drama', 'Teen'],
+    years: '2019–present',
+    status: 'Ongoing',
+    seasons: 2,
+    episodes: 16,
+    creator: 'Sam Levinson',
+    synopsis: 'Euphoria follows a group of high school students as they navigate issues of identity, trauma, drugs, friendships, love, and sex in the modern world. At its center is Rue Bennett, a teenager struggling with addiction who returns from rehab and falls into an intense relationship with Jules Vaughn. The series is known for its unflinching portrayal of contemporary youth culture, its stunning visual style, and its exploration of the gap between online personas and real-life struggles.',
+    synopsisShort: 'A group of high schoolers navigate identity, trauma, love, and addiction in this visually stunning drama.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Euphoria_US_logo.svg/512px-Euphoria_US_logo.svg.png', alt: 'Euphoria logo', attribution: 'HBO, Public domain, via Wikimedia Commons', width: 512, height: 186 },
+    characterSlugs: ['rue-bennett', 'jules-vaughn', 'nate-jacobs', 'maddy-perez', 'cassie-howard', 'fezco'],
+    fanHeatScore: 88,
+    tags: ['drama', 'teen', 'addiction', 'lgbtq', 'visually-stunning', 'ongoing'],
+    relatedShowSlugs: ['stranger-things', 'wednesday', 'bridgerton'],
+    faqs: [
+      { question: 'How many seasons does Euphoria have?', answer: 'Euphoria currently has 2 seasons on HBO. Season 1 premiered on June 16, 2019. A third season has been announced.' },
+      { question: 'Where can I watch Euphoria?', answer: 'Euphoria is available on Max (formerly HBO Max). It airs on HBO and can also be purchased on Amazon Prime Video and Apple TV+.' },
+      { question: 'Who created Euphoria?', answer: 'Euphoria was created by Sam Levinson. It is based on an Israeli television series of the same name. Levinson writes and directs the majority of episodes.' },
+      { question: 'What is Euphoria about?', answer: 'Euphoria is a teen drama that follows high school students dealing with issues of identity, trauma, substance abuse, relationships, and the pressures of social media. The show centers on Rue Bennett, played by Zendaya, who struggles with drug addiction.' }
+    ],
+    videos: [
+      { title: 'Euphoria Season 1 Official Trailer', youtubeId: 'BKP_0z52ZAw', description: 'HBO official trailer for Euphoria Season 1.' }
+    ]
+  },
+  {
+    slug: 'the-mandalorian',
+    title: 'The Mandalorian',
+    network: 'Disney+',
+    platform: 'Disney+',
+    genre: ['Sci-Fi', 'Action', 'Adventure'],
+    years: '2019–present',
+    status: 'Ongoing',
+    seasons: 3,
+    episodes: 24,
+    creator: 'Jon Favreau',
+    synopsis: 'The Mandalorian is set in the Star Wars universe, following a lone bounty hunter named Din Djarin in the outer reaches of the galaxy, far from the authority of the New Republic. After the fall of the Galactic Empire, Djarin is hired for a mysterious job that leads him to discover and protect a young alien known as Grogu (Baby Yoda), forging an unlikely father-son bond as they navigate a dangerous galaxy filled with remnants of the Empire and other threats.',
+    synopsisShort: 'A lone bounty hunter protects a mysterious alien child across the Star Wars galaxy.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/The_Mandalorian_logo.svg/512px-The_Mandalorian_logo.svg.png', alt: 'The Mandalorian logo', attribution: 'Disney+, Public domain, via Wikimedia Commons', width: 512, height: 186 },
+    characterSlugs: ['din-djarin', 'grogu', 'bo-katan-kryze', 'cara-dune', 'moff-gideon', 'greef-karga'],
+    fanHeatScore: 91,
+    tags: ['sci-fi', 'action', 'star-wars', 'space-western', 'ongoing', 'global-phenomenon'],
+    relatedShowSlugs: ['stranger-things', 'the-last-of-us', 'game-of-thrones'],
+    faqs: [
+      { question: 'How many seasons does The Mandalorian have?', answer: 'The Mandalorian currently has 3 seasons on Disney+. The series premiered on November 12, 2019, alongside the launch of Disney+.' },
+      { question: 'Where can I watch The Mandalorian?', answer: 'The Mandalorian is a Disney+ Original and is available exclusively on Disney+.' },
+      { question: 'Who is Baby Yoda?', answer: 'Baby Yoda, officially named Grogu, is a young alien of the same species as Yoda. He is 50 years old but still an infant in his species. He became a massive viral phenomenon when the show premiered.' },
+      { question: 'Is The Mandalorian connected to the Star Wars movies?', answer: 'Yes, The Mandalorian is set about 5 years after Return of the Jedi and 25 years before The Force Awakens. It features connections to the original trilogy, the prequel trilogy, and animated series like The Clone Wars.' }
+    ],
+    videos: [
+      { title: 'The Mandalorian Official Trailer', youtubeId: 'aOC8E8z_ifw', description: 'Disney+ official trailer for The Mandalorian.' }
+    ]
+  },
+  {
+    slug: 'peaky-blinders',
+    title: 'Peaky Blinders',
+    network: 'BBC',
+    platform: 'Netflix',
+    genre: ['Drama', 'Crime', 'Period Drama'],
+    years: '2013–2022',
+    status: 'Ended',
+    seasons: 6,
+    episodes: 36,
+    creator: 'Steven Knight',
+    synopsis: 'Peaky Blinders follows the Shelby crime family in the aftermath of World War I in Birmingham, England. Led by the ambitious and cunning Thomas Shelby, the family rises from the streets of Small Heath to become one of the most powerful criminal organizations in Britain. The series blends post-war social upheaval, political intrigue, and family drama against a backdrop of jazz-age Britain, exploring themes of trauma, ambition, power, and the cost of empire-building.',
+    synopsisShort: 'A gangster family rises to power in post-WWI Birmingham, England, led by the cunning Thomas Shelby.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Peaky_Blinders_titlecard.svg/512px-Peaky_Blinders_titlecard.svg.png', alt: 'Peaky Blinders logo', attribution: 'BBC, Public domain, via Wikimedia Commons', width: 512, height: 186 },
+    characterSlugs: ['thomas-shelby', 'arthur-shelby', 'polly-gray', 'alfie-solomons', 'ada-shelby', 'michael-gray'],
+    fanHeatScore: 90,
+    tags: ['drama', 'crime', 'period-drama', '1920s', 'british', 'complete-series', 'anti-hero'],
+    relatedShowSlugs: ['the-sopranos', 'breaking-bad', 'the-crown'],
+    faqs: [
+      { question: 'How many seasons does Peaky Blinders have?', answer: 'Peaky Blinders has 6 seasons with 36 episodes. It aired on BBC from September 12, 2013 to April 3, 2022.' },
+      { question: 'Where can I watch Peaky Blinders?', answer: 'Peaky Blinders is available on Netflix worldwide. It originally aired on BBC Two and later BBC One in the UK.' },
+      { question: 'Is Peaky Blinders based on a true story?', answer: 'Peaky Blinders is inspired by a real street gang of the same name that operated in Birmingham from the 1890s to the 1910s. However, the characters and most storylines are fictional.' },
+      { question: 'Will there be a Peaky Blinders movie?', answer: 'Yes, creator Steven Knight has confirmed a Peaky Blinders film is in development. Cillian Murphy is set to return as Thomas Shelby. The film was announced after the series concluded in 2022.' }
+    ],
+    videos: [
+      { title: 'Peaky Blinders Official Trailer', youtubeId: 'oVzVdvGIC7U', description: 'Netflix official trailer for Peaky Blinders.' }
+    ]
+  },
+  {
+    slug: 'the-crown',
+    title: 'The Crown',
+    network: 'Netflix',
+    platform: 'Netflix',
+    genre: ['Drama', 'Period Drama', 'Biography'],
+    years: '2016–2023',
+    status: 'Ended',
+    seasons: 6,
+    episodes: 60,
+    creator: 'Peter Morgan',
+    synopsis: 'The Crown chronicles the reign of Queen Elizabeth II from the late 1940s through the early 21st century, dramatizing the political and personal events that shaped the second half of the twentieth century. The series explores the tension between duty and desire, tradition and progress, as the queen navigates the challenges of a rapidly changing world while managing the complex dynamics within the Royal Family. Each season features recasting of key roles to reflect the aging of the characters.',
+    synopsisShort: 'A dramatization of Queen Elizabeth II\'s reign, exploring the personal and political challenges of the British monarchy.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/The_Crown_Title.svg/512px-The_Crown_Title.svg.png', alt: 'The Crown logo', attribution: 'Netflix, Public domain, via Wikimedia Commons', width: 512, height: 186 },
+    characterSlugs: ['queen-elizabeth', 'princess-diana', 'prince-charles', 'princess-margaret', 'prince-philip', 'margaret-thatcher'],
+    fanHeatScore: 83,
+    tags: ['drama', 'period-drama', 'biography', 'royalty', 'british', 'complete-series', 'award-winning'],
+    relatedShowSlugs: ['bridgerton', 'peaky-blinders', 'succession'],
+    faqs: [
+      { question: 'How many seasons does The Crown have?', answer: 'The Crown has 6 seasons with 60 episodes on Netflix. It premiered on November 4, 2016 and concluded on December 14, 2023.' },
+      { question: 'Where can I watch The Crown?', answer: 'The Crown is a Netflix Original and is available exclusively on Netflix worldwide.' },
+      { question: 'Is The Crown historically accurate?', answer: 'The Crown is a dramatization and takes creative liberties with historical events. While it is based on real events and people, many scenes and conversations are fictionalized for dramatic purposes.' },
+      { question: 'Why do the actors change in The Crown?', answer: 'The Crown recasts its main roles every two seasons to reflect the aging of its characters over decades. This approach has been praised for allowing new interpretations of the roles while covering the full span of Queen Elizabeth II\'s reign.' }
+    ],
+    videos: [
+      { title: 'The Crown Season 1 Official Trailer', youtubeId: 'JWtnJjn6ng0', description: 'Netflix official trailer for The Crown Season 1.' }
+    ]
+  },
+  {
+    slug: 'yellowstone',
+    title: 'Yellowstone',
+    network: 'Paramount Network',
+    platform: 'Peacock',
+    genre: ['Drama', 'Western'],
+    years: '2018–2024',
+    status: 'Ended',
+    seasons: 5,
+    episodes: 56,
+    creator: 'Taylor Sheridan & John Linson',
+    synopsis: 'Yellowstone follows the Dutton family, led by patriarch John Dutton, who controls the largest contiguous cattle ranch in the United States bordering Yellowstone National Park. The family faces constant conflict from land developers, an expanding town, an Indian reservation, and America\'s first national park. The series is a modern Western that explores themes of family loyalty, power, corruption, and the clash between tradition and progress in the American West.',
+    synopsisShort: 'The Dutton family fights to protect the largest contiguous cattle ranch in America from those who seek to take their land.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Yellowstone_Logo.svg/512px-Yellowstone_Logo.svg.png', alt: 'Yellowstone logo', attribution: 'Paramount Network, Public domain, via Wikimedia Commons', width: 512, height: 186 },
+    characterSlugs: ['john-dutton', 'beth-dutton', 'kayce-dutton', 'jamie-dutton', 'rip-wheeler', 'monica-dutton'],
+    fanHeatScore: 87,
+    tags: ['drama', 'western', 'family-dynasty', 'ranch', 'complete-series', 'modern-western'],
+    relatedShowSlugs: ['succession', 'peaky-blinders', 'the-sopranos'],
+    faqs: [
+      { question: 'How many seasons does Yellowstone have?', answer: 'Yellowstone has 5 seasons with 56 episodes. It aired on Paramount Network from June 20, 2018 to December 2024.' },
+      { question: 'Where can I watch Yellowstone?', answer: 'Yellowstone is available on Peacock in the United States. It originally airs on Paramount Network and is also available for purchase on Amazon Prime Video.' },
+      { question: 'Does Yellowstone have spin-offs?', answer: 'Yes, Yellowstone has several spin-offs: 1883, 1923 (starring Harrison Ford and Helen Mirren), and The Madison. They explore different eras of the Dutton family history.' },
+      { question: 'Why did Kevin Costner leave Yellowstone?', answer: 'Kevin Costner departed Yellowstone during Season 5 due to reported scheduling conflicts with his film project Horizon: An American Saga. His exit led to significant changes in the show\'s final episodes.' }
+    ],
+    videos: [
+      { title: 'Yellowstone Official Trailer', youtubeId: 'Q4uxGSRvjHE', description: 'Paramount Network official trailer for Yellowstone.' }
+    ]
+  },
+  {
+    slug: 'schitts-creek',
+    title: "Schitt's Creek",
+    network: 'CBC/Pop TV',
+    platform: 'Netflix',
+    genre: ['Comedy'],
+    years: '2015–2020',
+    status: 'Ended',
+    seasons: 6,
+    episodes: 80,
+    creator: 'Dan Levy & Eugene Levy',
+    synopsis: "Schitt's Creek follows the Rose family — video store magnate Johnny, his actress wife Moira, and their adult children David and Alexis — after they lose their fortune and are forced to relocate to a small rural town they once bought as a joke. Starting from rock bottom in a rundown motel, the family gradually builds genuine connections with the quirky locals and discovers what truly matters in life. The series is celebrated for its warmth, inclusivity, and its joyful portrayal of LGBTQ+ relationships.",
+    synopsisShort: "A wealthy family loses everything and must rebuild their lives in a small rural town they once bought as a joke.",
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Schitt%27s_Creek_logo.svg/512px-Schitt%27s_Creek_logo.svg.png', alt: "Schitt's Creek logo", attribution: 'CBC/Pop TV, Public domain, via Wikimedia Commons', width: 512, height: 186 },
+    characterSlugs: ['david-rose', 'alexis-rose', 'moira-rose', 'johnny-rose', 'stevie-budd', 'patrick-brewer'],
+    fanHeatScore: 88,
+    tags: ['comedy', 'heartwarming', 'lgbtq', 'family', 'complete-series', 'award-winning', 'sleeper-hit'],
+    relatedShowSlugs: ['the-office', 'ted-lasso', 'friends'],
+    faqs: [
+      { question: "How many seasons does Schitt's Creek have?", answer: "Schitt's Creek has 6 seasons with 80 episodes. It aired from January 13, 2015 to April 7, 2020." },
+      { question: "Where can I watch Schitt's Creek?", answer: "Schitt's Creek is available on Netflix in the United States and many international markets. It originally aired on CBC in Canada and Pop TV in the US." },
+      { question: "Who created Schitt's Creek?", answer: "Schitt's Creek was co-created by father-son duo Eugene Levy and Dan Levy. They also star as Johnny and David Rose, respectively." },
+      { question: "Did Schitt's Creek win any Emmys?", answer: "Yes, Schitt's Creek made history at the 72nd Primetime Emmy Awards in 2020 by sweeping all seven major comedy categories in a single year, a feat never before accomplished. It won Outstanding Comedy Series, and all four main cast members won acting awards." }
+    ],
+    videos: [
+      { title: "Schitt's Creek Official Trailer", youtubeId: 'W0uWS6CnC6o', description: "Official trailer for Schitt's Creek." }
     ]
   }
 ];

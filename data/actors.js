@@ -311,7 +311,7 @@ const actors = [
     knownFor: [{ characterSlug: 'dustin-henderson', characterName: 'Dustin Henderson', showSlug: 'stranger-things', showTitle: 'Stranger Things', years: '2016-2025' }],
     otherNotableRoles: ['Host of Prank Encounters (2019-2021)', 'Gavroche in Les Miserables (Broadway)', 'Benjamin in Priscilla, Queen of the Desert (Broadway)'],
     awards: ['Screen Actors Guild Award for Outstanding Ensemble in a Drama Series (Stranger Things)', 'Young Artist Award Nomination for Best Performance in a Digital Series'],
-    socialLinks: { instagram: 'https://www.instagram.com/gabordelern/', twitter: 'https://twitter.com/GatenM123', imdb: 'https://www.imdb.com/name/nm6069"; wikipedia: "https://en.wikipedia.org/wiki/Gaten_Matarazzo' },
+    socialLinks: { instagram: 'https://www.instagram.com/gabordelern/', twitter: 'https://twitter.com/GatenM123', imdb: 'https://www.imdb.com/name/nm6069079/', wikipedia: 'https://en.wikipedia.org/wiki/Gaten_Matarazzo' },
     faqs: [
       { question: 'What is Gaten Matarazzo best known for?', answer: 'Gaten Matarazzo is best known for playing Dustin Henderson in Stranger Things (2016-2025).' },
       { question: 'Does Gaten Matarazzo have cleidocranial dysplasia?', answer: 'Yes, Matarazzo has cleidocranial dysplasia, a condition affecting bone development. This was written into his character Dustin on Stranger Things.' },
@@ -373,3 +373,729 @@ const actors = [
     ],
     tags: ['young-actor', 'entrepreneur']
   },
+  // ============================================================
+  // THE OFFICE ACTORS
+  // ============================================================
+  {
+    slug: 'steve-carell',
+    name: 'Steve Carell',
+    bio: 'Steven John Carell is an American actor, comedian, producer, and writer born on August 16, 1962, in Concord, Massachusetts. He studied history at Denison University and trained in improvisational comedy at The Second City in Chicago, where he honed the comedic skills that would define his career.\n\nCarell became a household name as Michael Scott, the well-meaning but clueless regional manager of the Scranton branch of Dunder Mifflin, in the NBC comedy The Office (2005-2013). His performance turned Michael Scott into one of the most iconic comedic characters in television history, earning him a Golden Globe Award for Best Actor in a Television Musical or Comedy Series and multiple Emmy nominations.\n\nCarell has also built a remarkable film career, starring in The 40-Year-Old Virgin (2005), Little Miss Sunshine (2006), Get Smart (2008), Foxcatcher (2014, earning an Oscar nomination), The Big Short (2015), Beautiful Boy (2018), and the Despicable Me franchise as the voice of Gru. He is one of the rare actors who has achieved equal acclaim in both comedy and drama.',
+    birthDate: '1962-08-16',
+    birthPlace: 'Concord, Massachusetts, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Steve_Carell_by_Gage_Skidmore.jpg/440px-Steve_Carell_by_Gage_Skidmore.jpg', alt: 'Steve Carell at a public event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'michael-scott', characterName: 'Michael Scott', showSlug: 'the-office', showTitle: 'The Office (US)', years: '2005-2011' }],
+    otherNotableRoles: ['Gru in the Despicable Me franchise (2010-present, voice)', 'Andy Stitzer in The 40-Year-Old Virgin (2005)', 'John du Pont in Foxcatcher (2014)', 'Mark Baum in The Big Short (2015)'],
+    awards: ['Golden Globe Award for Best Actor in a Television Musical or Comedy Series (The Office)', 'Academy Award Nomination for Best Actor (Foxcatcher)', '6x Primetime Emmy Nomination for Outstanding Lead Actor in a Comedy Series (The Office)'],
+    socialLinks: { instagram: 'https://www.instagram.com/stevecarell/', twitter: 'https://twitter.com/SteveCarell', imdb: 'https://www.imdb.com/name/nm0136797/', wikipedia: 'https://en.wikipedia.org/wiki/Steve_Carell' },
+    faqs: [
+      { question: 'What is Steve Carell best known for?', answer: 'Steve Carell is best known for playing Michael Scott in The Office (2005-2011) and voicing Gru in the Despicable Me franchise.' },
+      { question: 'Why did Steve Carell leave The Office?', answer: 'Carell left The Office after Season 7 in 2011 to focus on his film career. His character Michael Scott relocated to Colorado to be with Holly Flax.' },
+      { question: 'Has Steve Carell been nominated for an Oscar?', answer: 'Yes, he was nominated for Best Actor for his dramatic role as John du Pont in Foxcatcher (2014).' }
+    ],
+    tags: ['comedy-actor', 'dramatic-actor', 'golden-globe-winner']
+  },
+  {
+    slug: 'rainn-wilson',
+    name: 'Rainn Wilson',
+    bio: 'Rainn Dietrich Wilson is an American actor, writer, and producer born on January 20, 1966, in Seattle, Washington. He studied acting at the University of Washington and later at New York University\'s Graduate Acting Program. He worked extensively in theater before transitioning to television and film.\n\nWilson is best known for his scene-stealing performance as Dwight Schrute, the eccentric, beet-farming assistant (to the) regional manager in the NBC comedy The Office (2005-2013). His deadpan delivery and total commitment to the character\'s absurdity made Dwight one of the most beloved comedic characters in modern television, earning him three Primetime Emmy nominations.\n\nBeyond The Office, Wilson has appeared in films including The Rocker (2008), Super (2010), and Monsters University (2013, voice). He starred in the Fox series Backstrom (2015) and has become known for his social media presence and the digital media company SoulPancake, which he co-founded to explore life\'s big questions.',
+    birthDate: '1966-01-20',
+    birthPlace: 'Seattle, Washington, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Rainn_Wilson_by_Gage_Skidmore.jpg/440px-Rainn_Wilson_by_Gage_Skidmore.jpg', alt: 'Rainn Wilson at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'dwight-schrute', characterName: 'Dwight Schrute', showSlug: 'the-office', showTitle: 'The Office (US)', years: '2005-2013' }],
+    otherNotableRoles: ['Fish Mooney\'s henchman in Backstrom (2015)', 'Arthur Martin in Six Feet Under (2003-2005)', 'Gallaxhar in Monsters vs. Aliens (2009, voice)', 'Harry Mudd in Star Trek: Discovery (2017-2018)'],
+    awards: ['3x Primetime Emmy Nomination for Outstanding Supporting Actor in a Comedy Series (The Office)', 'Screen Actors Guild Award for Outstanding Ensemble in a Comedy Series (The Office)'],
+    socialLinks: { instagram: 'https://www.instagram.com/raabordelern/', twitter: 'https://twitter.com/raabordelern', imdb: 'https://www.imdb.com/name/nm0933988/', wikipedia: 'https://en.wikipedia.org/wiki/Rainn_Wilson' },
+    faqs: [
+      { question: 'What is Rainn Wilson best known for?', answer: 'Rainn Wilson is best known for playing Dwight Schrute in The Office (2005-2013).' },
+      { question: 'What is SoulPancake?', answer: 'SoulPancake is a digital media company co-founded by Rainn Wilson in 2009 that explores philosophical and spiritual topics through creative content.' },
+      { question: 'How many Emmy nominations did Rainn Wilson receive for The Office?', answer: 'Rainn Wilson received three Primetime Emmy nominations for Outstanding Supporting Actor in a Comedy Series for The Office.' }
+    ],
+    tags: ['comedy-actor', 'writer', 'entrepreneur']
+  },
+  {
+    slug: 'john-krasinski',
+    name: 'John Krasinski',
+    bio: 'John Burke Krasinski is an American actor, director, producer, and screenwriter born on October 20, 1979, in Newton, Massachusetts. He studied English at Brown University and trained at the National Theater Institute and the Royal Shakespeare Company before pursuing his acting career.\n\nKrasinski became beloved worldwide as Jim Halpert, the charming, prank-loving paper salesman in the NBC comedy The Office (2005-2013). His effortless chemistry with Jenna Fischer as the Jim-and-Pam love story became one of television\'s most iconic romances, and his trademark looks to the camera became a cultural phenomenon.\n\nBeyond The Office, Krasinski has become a successful filmmaker. He wrote, directed, and starred in A Quiet Place (2018) and A Quiet Place Part II (2020), both critical and commercial hits. He also starred as Jack Ryan in the Amazon Prime Video series Tom Clancy\'s Jack Ryan (2018-2023) and created the YouTube series Some Good News during the COVID-19 pandemic. Krasinski is married to actress Emily Blunt.',
+    birthDate: '1979-10-20',
+    birthPlace: 'Newton, Massachusetts, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/John_Krasinski_by_Gage_Skidmore.jpg/440px-John_Krasinski_by_Gage_Skidmore.jpg', alt: 'John Krasinski at San Diego Comic-Con', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'jim-halpert', characterName: 'Jim Halpert', showSlug: 'the-office', showTitle: 'The Office (US)', years: '2005-2013' }],
+    otherNotableRoles: ['Jack Ryan in Tom Clancy\'s Jack Ryan (2018-2023)', 'Lee Abbott in A Quiet Place (2018) and A Quiet Place Part II (2020)', 'Reed Richards in Doctor Strange in the Multiverse of Madness (2022)'],
+    awards: ['Screen Actors Guild Award for Outstanding Ensemble in a Comedy Series (The Office)', 'Writers Guild of America Award Nomination for Best Original Screenplay (A Quiet Place)', 'Critics\' Choice Award Nomination for Best Director (A Quiet Place)'],
+    socialLinks: { instagram: 'https://www.instagram.com/johnkrasinski/', twitter: 'https://twitter.com/johnkrasinski', imdb: 'https://www.imdb.com/name/nm1024677/', wikipedia: 'https://en.wikipedia.org/wiki/John_Krasinski' },
+    faqs: [
+      { question: 'What is John Krasinski best known for?', answer: 'John Krasinski is best known for playing Jim Halpert in The Office (2005-2013) and directing A Quiet Place (2018).' },
+      { question: 'Is John Krasinski married to Emily Blunt?', answer: 'Yes, John Krasinski married British actress Emily Blunt in July 2010.' },
+      { question: 'Did John Krasinski direct A Quiet Place?', answer: 'Yes, he wrote, directed, and starred in A Quiet Place (2018) and its sequel A Quiet Place Part II (2020).' }
+    ],
+    tags: ['comedy-actor', 'director', 'writer']
+  },
+  {
+    slug: 'jenna-fischer',
+    name: 'Jenna Fischer',
+    bio: 'Regina Marie "Jenna" Fischer is an American actress born on March 7, 1974, in Fort Wayne, Indiana. She grew up in St. Louis, Missouri, studied theater at Truman State University, and moved to Los Angeles in 1998 to pursue her acting career.\n\nFischer is best known for her role as Pam Beesly, the soft-spoken receptionist-turned-saleswoman at Dunder Mifflin in the NBC comedy The Office (2005-2013). Her warm, grounded performance and her romantic chemistry with John Krasinski as Jim Halpert created one of television\'s most iconic love stories. The role earned her a Primetime Emmy nomination and a Screen Actors Guild Award.\n\nBeyond The Office, Fischer has appeared in films including Blades of Glory (2007), Walk Hard: The Dewey Cox Story (2007), and The Giant Mechanical Man (2012). She starred in the ABC series Splitting Up Together (2018-2019) and co-hosts the popular podcast Office Ladies with her co-star Angela Kinsey, in which they rewatch and discuss every episode of The Office.',
+    birthDate: '1974-03-07',
+    birthPlace: 'Fort Wayne, Indiana, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Jenna_Fischer_2008.jpg/440px-Jenna_Fischer_2008.jpg', alt: 'Jenna Fischer at an event', attribution: 'Photo via Wikimedia Commons, CC BY 2.0', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'pam-beesly', characterName: 'Pam Beesly', showSlug: 'the-office', showTitle: 'The Office (US)', years: '2005-2013' }],
+    otherNotableRoles: ['Lena in Splitting Up Together (2018-2019)', 'Suzie in Blades of Glory (2007)', 'Darlene Madison in Walk Hard: The Dewey Cox Story (2007)'],
+    awards: ['Primetime Emmy Nomination for Outstanding Supporting Actress in a Comedy Series (The Office)', 'Screen Actors Guild Award for Outstanding Ensemble in a Comedy Series (The Office)'],
+    socialLinks: { instagram: 'https://www.instagram.com/jennafischer/', twitter: 'https://twitter.com/jennafischer', imdb: 'https://www.imdb.com/name/nm0279209/', wikipedia: 'https://en.wikipedia.org/wiki/Jenna_Fischer' },
+    faqs: [
+      { question: 'What is Jenna Fischer best known for?', answer: 'Jenna Fischer is best known for playing Pam Beesly in The Office (2005-2013).' },
+      { question: 'What is the Office Ladies podcast?', answer: 'Office Ladies is a podcast co-hosted by Jenna Fischer and Angela Kinsey where they rewatch and discuss every episode of The Office, sharing behind-the-scenes stories.' },
+      { question: 'Were Jenna Fischer and John Krasinski together in real life?', answer: 'No, while their on-screen chemistry was widely praised, Fischer and Krasinski were never romantically involved off-screen.' }
+    ],
+    tags: ['comedy-actress', 'podcaster']
+  },
+  {
+    slug: 'ed-helms',
+    name: 'Ed Helms',
+    bio: 'Edward Parker Helms is an American actor, comedian, writer, and producer born on January 24, 1974, in Atlanta, Georgia. He studied film at Oberlin College and trained in improvisational comedy at the Upright Citizens Brigade Theatre in New York. He first gained recognition as a correspondent on The Daily Show with Jon Stewart (2002-2006).\n\nHelms joined the cast of The Office in Season 3 as Andy Bernard, the singing, short-tempered Cornell graduate who eventually becomes regional manager of the Scranton branch. His committed, physical comedic performance became a standout of the series and earned him a devoted fan following. He appeared on the show from 2006 to 2013.\n\nBeyond The Office, Helms is widely known for playing Stu Price in The Hangover trilogy (2009, 2011, 2013), one of the highest-grossing comedy franchises in history. He has also starred in films like Cedar Rapids (2011), We\'re the Millers (2013), and voiced the title character in Captain Underpants: The First Epic Movie (2017). Helms is also a talented banjo player and bluegrass musician.',
+    birthDate: '1974-01-24',
+    birthPlace: 'Atlanta, Georgia, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Ed_Helms_by_Gage_Skidmore.jpg/440px-Ed_Helms_by_Gage_Skidmore.jpg', alt: 'Ed Helms at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'andy-bernard', characterName: 'Andy Bernard', showSlug: 'the-office', showTitle: 'The Office (US)', years: '2006-2013' }],
+    otherNotableRoles: ['Stu Price in The Hangover trilogy (2009-2013)', 'Correspondent on The Daily Show (2002-2006)', 'Captain Underpants in Captain Underpants: The First Epic Movie (2017, voice)'],
+    awards: ['Screen Actors Guild Award for Outstanding Ensemble in a Comedy Series (The Office)'],
+    socialLinks: { instagram: 'https://www.instagram.com/edhelms/', twitter: 'https://twitter.com/edhelms', imdb: 'https://www.imdb.com/name/nm1159180/', wikipedia: 'https://en.wikipedia.org/wiki/Ed_Helms' },
+    faqs: [
+      { question: 'What is Ed Helms best known for?', answer: 'Ed Helms is best known for playing Andy Bernard in The Office (2006-2013) and Stu Price in The Hangover trilogy.' },
+      { question: 'Was Ed Helms on The Daily Show?', answer: 'Yes, he was a correspondent on The Daily Show with Jon Stewart from 2002 to 2006 before joining The Office.' },
+      { question: 'Does Ed Helms play banjo?', answer: 'Yes, Ed Helms is an accomplished banjo player. His musical talent was incorporated into his character Andy Bernard on The Office.' }
+    ],
+    tags: ['comedy-actor', 'musician']
+  },
+  {
+    slug: 'bj-novak',
+    name: 'B.J. Novak',
+    bio: 'Benjamin Joseph Manaly Novak, known professionally as B.J. Novak, is an American actor, writer, comedian, author, and director born on July 31, 1979, in Newton, Massachusetts. He graduated from Harvard University, where he was president of the Harvard Lampoon. He began performing stand-up comedy and writing for television shortly after graduation.\n\nNovak was a key creative force behind The Office, serving as a writer, executive producer, and director in addition to playing the role of Ryan Howard, the ambitious temp-turned-executive-turned-temp. He wrote some of the series\' most acclaimed episodes, including "Diversity Day" and "Threat Level Midnight," and is credited with helping shape the show\'s distinctive tone.\n\nBeyond The Office, Novak has become a successful author with The Book with No Pictures (2014), a bestselling children\'s book, and the short story collection One More Thing: Stories and Other Stories (2014). He wrote and directed the film Vengeance (2022) and appeared in Quentin Tarantino\'s Inglourious Basterds (2009). He is also a co-founder of the list-making platform Li.st.',
+    birthDate: '1979-07-31',
+    birthPlace: 'Newton, Massachusetts, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/B.J._Novak_by_Gage_Skidmore.jpg/440px-B.J._Novak_by_Gage_Skidmore.jpg', alt: 'B.J. Novak at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'ryan-howard', characterName: 'Ryan Howard', showSlug: 'the-office', showTitle: 'The Office (US)', years: '2005-2013' }],
+    otherNotableRoles: ['Pfc. Smithson Utivich in Inglourious Basterds (2009)', 'Writer/Director of Vengeance (2022)', 'Author of The Book with No Pictures (2014)'],
+    awards: ['Screen Actors Guild Award for Outstanding Ensemble in a Comedy Series (The Office)', 'Writers Guild of America Award Nomination for Best Comedy Series (The Office)'],
+    socialLinks: { instagram: 'https://www.instagram.com/bjnovak/', twitter: 'https://twitter.com/bjnovak', imdb: 'https://www.imdb.com/name/nm0638824/', wikipedia: 'https://en.wikipedia.org/wiki/B._J._Novak' },
+    faqs: [
+      { question: 'What is B.J. Novak best known for?', answer: 'B.J. Novak is best known as an actor, writer, and executive producer on The Office (2005-2013), where he also played Ryan Howard.' },
+      { question: 'Did B.J. Novak write for The Office?', answer: 'Yes, he was one of the primary writers and eventually an executive producer and occasional director of the series.' },
+      { question: 'What books has B.J. Novak written?', answer: 'He wrote the bestselling children\'s book The Book with No Pictures (2014) and the short story collection One More Thing: Stories and Other Stories (2014).' }
+    ],
+    tags: ['comedy-actor', 'writer', 'author', 'director']
+  },
+  // ============================================================
+  // SUCCESSION ACTORS
+  // ============================================================
+  {
+    slug: 'jeremy-strong',
+    name: 'Jeremy Strong',
+    bio: 'Jeremy Strong is an American actor born on December 25, 1978, in Boston, Massachusetts. He studied English at Yale University and trained at the Royal Academy of Dramatic Art in London, the Steppenwolf Theatre Company, and the Williamstown Theatre Festival. He spent years working in theater and supporting film roles before his breakout.\n\nStrong became a critical sensation as Kendall Roy, the tormented eldest son vying for control of the family media empire, in the HBO drama Succession (2018-2023). His intense, fully immersive approach to the role earned him a Primetime Emmy Award for Outstanding Lead Actor in a Drama Series in 2020, along with widespread acclaim for one of the defining television performances of the era.\n\nBeyond Succession, Strong has appeared in films including Zero Dark Thirty (2012), Selma (2014), The Big Short (2015), Molly\'s Game (2017), The Trial of the Chicago 7 (2020), and Armageddon Time (2022). He is known for his Method acting approach and deep commitment to character immersion.',
+    birthDate: '1978-12-25',
+    birthPlace: 'Boston, Massachusetts, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Jeremy_Strong_by_Gage_Skidmore.jpg/440px-Jeremy_Strong_by_Gage_Skidmore.jpg', alt: 'Jeremy Strong at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'kendall-roy', characterName: 'Kendall Roy', showSlug: 'succession', showTitle: 'Succession', years: '2018-2023' }],
+    otherNotableRoles: ['Jerry Rubin in The Trial of the Chicago 7 (2020)', 'Vinnie Daniel in The Big Short (2015)', 'James Bevel in Selma (2014)'],
+    awards: ['Primetime Emmy Award for Outstanding Lead Actor in a Drama Series (Succession, 2020)', 'Golden Globe Nomination for Best Actor in a Television Drama Series (Succession)', 'Screen Actors Guild Award for Outstanding Ensemble in a Drama Series (Succession)'],
+    socialLinks: { imdb: 'https://www.imdb.com/name/nm1280034/', wikipedia: 'https://en.wikipedia.org/wiki/Jeremy_Strong_(actor)' },
+    faqs: [
+      { question: 'What is Jeremy Strong best known for?', answer: 'Jeremy Strong is best known for playing Kendall Roy in HBO\'s Succession (2018-2023).' },
+      { question: 'Has Jeremy Strong won an Emmy?', answer: 'Yes, he won the Primetime Emmy for Outstanding Lead Actor in a Drama Series in 2020 for Succession.' },
+      { question: 'Is Jeremy Strong a Method actor?', answer: 'Yes, he is known for his deeply immersive Method acting approach, staying in character extensively during production.' }
+    ],
+    tags: ['emmy-winner', 'dramatic-actor', 'method-actor']
+  },
+  {
+    slug: 'sarah-snook',
+    name: 'Sarah Snook',
+    bio: 'Sarah Snook is an Australian actress born on December 1, 1987, in Adelaide, South Australia. She graduated from the National Institute of Dramatic Art (NIDA) in Sydney in 2008 and quickly established herself in Australian film and television before breaking into Hollywood.\n\nSnook achieved international stardom as Siobhan "Shiv" Roy, the politically ambitious youngest Roy sibling, in the HBO drama Succession (2018-2023). Her razor-sharp performance earned her a Primetime Emmy Award for Outstanding Lead Actress in a Drama Series for the final season in 2023, along with multiple prior nominations and a Golden Globe Award.\n\nBeyond Succession, Snook is known for her starring role in the science fiction thriller Predestination (2014), which showcased her extraordinary range. She has also appeared in Steve Jobs (2015), The Glass Castle (2017), and the television miniseries The Secret River (2015). She made her West End theater debut as every character in a one-woman production of The Picture of Dorian Gray in 2023.',
+    birthDate: '1987-12-01',
+    birthPlace: 'Adelaide, South Australia, Australia',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Sarah_Snook_by_Gage_Skidmore.jpg/440px-Sarah_Snook_by_Gage_Skidmore.jpg', alt: 'Sarah Snook at San Diego Comic-Con', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'siobhan-roy', characterName: 'Siobhan "Shiv" Roy', showSlug: 'succession', showTitle: 'Succession', years: '2018-2023' }],
+    otherNotableRoles: ['The Unmarried Mother/John/Jane in Predestination (2014)', 'Anna Wetherell in The Luminaries (2020)', 'Every character in The Picture of Dorian Gray (2023, West End)'],
+    awards: ['Primetime Emmy Award for Outstanding Lead Actress in a Drama Series (Succession, 2023)', 'Golden Globe Award for Best Actress in a Television Drama Series (Succession, 2024)', 'Screen Actors Guild Award for Outstanding Ensemble in a Drama Series (Succession)'],
+    socialLinks: { instagram: 'https://www.instagram.com/sarahsnook/', imdb: 'https://www.imdb.com/name/nm4111494/', wikipedia: 'https://en.wikipedia.org/wiki/Sarah_Snook' },
+    faqs: [
+      { question: 'What is Sarah Snook best known for?', answer: 'Sarah Snook is best known for playing Siobhan "Shiv" Roy in HBO\'s Succession (2018-2023).' },
+      { question: 'Has Sarah Snook won an Emmy?', answer: 'Yes, she won the Primetime Emmy for Outstanding Lead Actress in a Drama Series for the final season of Succession in 2023.' },
+      { question: 'Where is Sarah Snook from?', answer: 'She is from Adelaide, South Australia, and trained at the National Institute of Dramatic Art in Sydney.' }
+    ],
+    tags: ['emmy-winner', 'dramatic-actress', 'golden-globe-winner']
+  },
+  {
+    slug: 'kieran-culkin',
+    name: 'Kieran Culkin',
+    bio: 'Kieran Kyle Culkin is an American actor born on September 30, 1982, in New York City, New York. The younger brother of Macaulay Culkin, he began acting as a child, appearing in Home Alone (1990) and Father of the Bride (1991). He continued acting through his teens and into adulthood, earning critical acclaim for his indie work.\n\nCulkin delivered a career-defining performance as Roman Roy, the sardonic, emotionally stunted youngest son of the Roy family, in the HBO drama Succession (2018-2023). His layered portrayal of Roman\'s bravado masking deep insecurity earned him a Primetime Emmy Award for Outstanding Lead Actor in a Drama Series for the final season and a Golden Globe Award.\n\nBeyond Succession, Culkin is known for his acclaimed roles in Igby Goes Down (2002), which earned him a Golden Globe nomination, Scott Pilgrim vs. the World (2010), and the independent film Movie 43 (2013). He has also appeared in Fargo Season 4 (2020) and the film No Sudden Move (2021).',
+    birthDate: '1982-09-30',
+    birthPlace: 'New York City, New York, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Kieran_Culkin_by_Gage_Skidmore.jpg/440px-Kieran_Culkin_by_Gage_Skidmore.jpg', alt: 'Kieran Culkin at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'roman-roy', characterName: 'Roman Roy', showSlug: 'succession', showTitle: 'Succession', years: '2018-2023' }],
+    otherNotableRoles: ['Igby Slocumb in Igby Goes Down (2002)', 'Wallace Wells in Scott Pilgrim vs. the World (2010)', 'Fuller McCallister in Home Alone (1990)'],
+    awards: ['Primetime Emmy Award for Outstanding Lead Actor in a Drama Series (Succession, 2023)', 'Golden Globe Award for Best Actor in a Television Drama Series (Succession, 2024)', 'Screen Actors Guild Award for Outstanding Ensemble in a Drama Series (Succession)'],
+    socialLinks: { imdb: 'https://www.imdb.com/name/nm0191520/', wikipedia: 'https://en.wikipedia.org/wiki/Kieran_Culkin' },
+    faqs: [
+      { question: 'What is Kieran Culkin best known for?', answer: 'Kieran Culkin is best known for playing Roman Roy in HBO\'s Succession (2018-2023).' },
+      { question: 'Is Kieran Culkin related to Macaulay Culkin?', answer: 'Yes, Kieran is the younger brother of Macaulay Culkin. He appeared alongside him in Home Alone (1990) as Fuller McCallister.' },
+      { question: 'Has Kieran Culkin won an Emmy?', answer: 'Yes, he won the Primetime Emmy for Outstanding Lead Actor in a Drama Series for the final season of Succession in 2023.' }
+    ],
+    tags: ['emmy-winner', 'dramatic-actor', 'golden-globe-winner']
+  },
+  {
+    slug: 'brian-cox',
+    name: 'Brian Cox',
+    bio: 'Brian Denis Cox CBE is a Scottish actor born on June 1, 1946, in Dundee, Scotland. He trained at the London Academy of Music and Dramatic Art (LAMDA) and built a distinguished career spanning theater, film, and television over more than five decades. He is the first actor to portray Hannibal Lecktor on screen, in Manhunter (1986).\n\nCox became a global television star as Logan Roy, the fearsome patriarch and founder of the media conglomerate Waystar Royco, in the HBO drama Succession (2018-2023). His towering, volcanic performance as the ruthless billionaire earned him a Golden Globe Award for Best Actor in a Television Drama Series and multiple Emmy nominations.\n\nBeyond Succession, Cox has had a prolific career including roles in Braveheart (1995), The Bourne Identity (2002), Troy (2004), and Rise of the Planet of the Apes (2011). He is a celebrated stage actor and author of the memoir Putting the Rabbit in the Hat (2022).',
+    birthDate: '1946-06-01',
+    birthPlace: 'Dundee, Scotland',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Brian_Cox_by_Gage_Skidmore.jpg/440px-Brian_Cox_by_Gage_Skidmore.jpg', alt: 'Brian Cox at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'logan-roy', characterName: 'Logan Roy', showSlug: 'succession', showTitle: 'Succession', years: '2018-2023' }],
+    otherNotableRoles: ['Hannibal Lecktor in Manhunter (1986)', 'William Stryker in X2: X-Men United (2003)', 'Ward Abbott in The Bourne Identity (2002) and The Bourne Supremacy (2004)', 'Agamemnon in Troy (2004)'],
+    awards: ['Golden Globe Award for Best Actor in a Television Drama Series (Succession, 2020)', '2x Primetime Emmy Nomination for Outstanding Lead Actor in a Drama Series (Succession)', 'Screen Actors Guild Award for Outstanding Ensemble in a Drama Series (Succession)'],
+    socialLinks: { instagram: 'https://www.instagram.com/bcoxolux/', twitter: 'https://twitter.com/Brabordelern', imdb: 'https://www.imdb.com/name/nm0004051/', wikipedia: 'https://en.wikipedia.org/wiki/Brian_Cox_(actor)' },
+    faqs: [
+      { question: 'What is Brian Cox best known for?', answer: 'Brian Cox is best known for playing Logan Roy in HBO\'s Succession (2018-2023) and for being the first actor to portray Hannibal Lecter on screen in Manhunter (1986).' },
+      { question: 'Has Brian Cox won a Golden Globe?', answer: 'Yes, he won the Golden Globe for Best Actor in a Television Drama Series for Succession in 2020.' },
+      { question: 'Where is Brian Cox from?', answer: 'He was born on June 1, 1946, in Dundee, Scotland.' }
+    ],
+    tags: ['dramatic-actor', 'golden-globe-winner', 'stage-actor']
+  },
+  {
+    slug: 'matthew-macfadyen',
+    name: 'Matthew Macfadyen',
+    bio: 'David Matthew Macfadyen is an English actor born on October 17, 1974, in Great Yarmouth, Norfolk, England. He trained at the Royal Academy of Dramatic Art (RADA) and began his career on the British stage and in television, earning early recognition in the BBC series Spooks (MI-5) from 2002 to 2004.\n\nMacfadyen received widespread acclaim for his role as Tom Wambsgans, the obsequious, socially ambitious husband of Shiv Roy, in the HBO drama Succession (2018-2023). His brilliant comedic and dramatic timing in the role earned him a Primetime Emmy Award for Outstanding Supporting Actor in a Drama Series in 2022.\n\nBeyond Succession, Macfadyen is well known for playing Mr. Darcy in the 2005 film adaptation of Pride and Prejudice alongside Keira Knightley. He has also appeared in the films Anna Karenina (2012), Ripper Street (2012-2016), and the Enola Holmes films. He is married to actress Keeley Hawes.',
+    birthDate: '1974-10-17',
+    birthPlace: 'Great Yarmouth, Norfolk, England',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Matthew_Macfadyen_by_Gage_Skidmore.jpg/440px-Matthew_Macfadyen_by_Gage_Skidmore.jpg', alt: 'Matthew Macfadyen at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'tom-wambsgans', characterName: 'Tom Wambsgans', showSlug: 'succession', showTitle: 'Succession', years: '2018-2023' }],
+    otherNotableRoles: ['Mr. Darcy in Pride and Prejudice (2005)', 'Tom Quinn in Spooks (MI-5) (2002-2004)', 'Oblonsky in Anna Karenina (2012)'],
+    awards: ['Primetime Emmy Award for Outstanding Supporting Actor in a Drama Series (Succession, 2022)', 'Screen Actors Guild Award for Outstanding Ensemble in a Drama Series (Succession)'],
+    socialLinks: { imdb: 'https://www.imdb.com/name/nm0531896/', wikipedia: 'https://en.wikipedia.org/wiki/Matthew_Macfadyen' },
+    faqs: [
+      { question: 'What is Matthew Macfadyen best known for?', answer: 'He is best known for playing Tom Wambsgans in Succession and Mr. Darcy in Pride and Prejudice (2005).' },
+      { question: 'Has Matthew Macfadyen won an Emmy?', answer: 'Yes, he won the Primetime Emmy for Outstanding Supporting Actor in a Drama Series for Succession in 2022.' },
+      { question: 'Is Matthew Macfadyen married?', answer: 'Yes, he is married to actress Keeley Hawes.' }
+    ],
+    tags: ['emmy-winner', 'dramatic-actor']
+  },
+  // ============================================================
+  // WEDNESDAY ACTORS
+  // ============================================================
+  {
+    slug: 'jenna-ortega',
+    name: 'Jenna Ortega',
+    bio: 'Jenna Marie Ortega is an American actress born on September 27, 2002, in Coachella Valley, California. She began acting at age nine, landing early roles in shows like Jane the Virgin (2014-2019) and the Disney Channel series Stuck in the Middle (2016-2018).\n\nOrtega became a global star for her portrayal of Wednesday Addams in the Netflix series Wednesday (2022-present), created by Tim Burton. Her deadpan delivery, iconic dance scene, and commanding screen presence made the show one of Netflix\'s most-watched series ever. The role earned her a Golden Globe nomination and cemented her as one of her generation\'s most in-demand actresses.\n\nBeyond Wednesday, Ortega has become a prominent figure in the horror genre, starring in Scream (2022) and Scream VI (2023) as Tara Carpenter, as well as X (2022) and the Studio Ghibli-inspired film Beetlejuice Beetlejuice (2024) directed by Tim Burton. She has quickly established herself as one of Hollywood\'s most versatile young talents.',
+    birthDate: '2002-09-27',
+    birthPlace: 'Coachella Valley, California, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Jenna_Ortega_by_Gage_Skidmore.jpg/440px-Jenna_Ortega_by_Gage_Skidmore.jpg', alt: 'Jenna Ortega at San Diego Comic-Con', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'wednesday-addams', characterName: 'Wednesday Addams', showSlug: 'wednesday', showTitle: 'Wednesday', years: '2022-present' }],
+    otherNotableRoles: ['Tara Carpenter in Scream (2022) and Scream VI (2023)', 'Ellie Alves in You Season 2 (2019)', 'Harley Diaz in Stuck in the Middle (2016-2018)', 'Astrid Deetz in Beetlejuice Beetlejuice (2024)'],
+    awards: ['Golden Globe Nomination for Best Actress in a Musical or Comedy Series (Wednesday)', 'Saturn Award for Best Actress in a Streaming Television Series (Wednesday)', 'MTV Movie & TV Award for Best Performance in a Show (Wednesday)'],
+    socialLinks: { instagram: 'https://www.instagram.com/jennaortega/', twitter: 'https://twitter.com/jennaortega', imdb: 'https://www.imdb.com/name/nm4908938/', wikipedia: 'https://en.wikipedia.org/wiki/Jenna_Ortega' },
+    faqs: [
+      { question: 'What is Jenna Ortega best known for?', answer: 'Jenna Ortega is best known for playing Wednesday Addams in the Netflix series Wednesday (2022-present).' },
+      { question: 'Did Jenna Ortega choreograph the Wednesday dance?', answer: 'Yes, Jenna Ortega choreographed Wednesday\'s viral dance scene herself, drawing inspiration from goth subculture and 1980s dance moves.' },
+      { question: 'What horror films has Jenna Ortega been in?', answer: 'She has starred in Scream (2022), Scream VI (2023), X (2022), and Insidious: Chapter 2 (2013, early role).' }
+    ],
+    tags: ['young-actor', 'horror-actress', 'rising-star']
+  },
+  {
+    slug: 'emma-myers',
+    name: 'Emma Myers',
+    bio: 'Emma Myers is an American actress born on April 2, 2002, in Orlando, Florida. She was homeschooled and began acting at age sixteen, quickly landing roles in independent films and short projects before her breakout in Wednesday.\n\nMyers gained widespread recognition for her role as Enid Sinclair, Wednesday Addams\' bubbly, colorful werewolf roommate, in the Netflix series Wednesday (2022-present). Her warm, enthusiastic performance provided a perfect foil to Jenna Ortega\'s deadpan Wednesday, and the character became a fan favorite. The dynamic between Enid and Wednesday was widely praised as the heart of the show.\n\nBeyond Wednesday, Myers starred in the Netflix film A Good Girl\'s Guide to Murder (2024) and the film Family Switch (2023). She has quickly become one of the most in-demand young actresses in Hollywood following Wednesday\'s global success.',
+    birthDate: '2002-04-02',
+    birthPlace: 'Orlando, Florida, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Emma_Myers_by_Gage_Skidmore.jpg/440px-Emma_Myers_by_Gage_Skidmore.jpg', alt: 'Emma Myers at San Diego Comic-Con', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'enid-sinclair', characterName: 'Enid Sinclair', showSlug: 'wednesday', showTitle: 'Wednesday', years: '2022-present' }],
+    otherNotableRoles: ['Pip Fitz-Amobi in A Good Girl\'s Guide to Murder (2024)', 'CC in Family Switch (2023)'],
+    awards: ['Saturn Award Nomination for Best Supporting Actress in a Streaming Series (Wednesday)'],
+    socialLinks: { instagram: 'https://www.instagram.com/emmamyers/', imdb: 'https://www.imdb.com/name/nm10128770/', wikipedia: 'https://en.wikipedia.org/wiki/Emma_Myers' },
+    faqs: [
+      { question: 'What is Emma Myers best known for?', answer: 'Emma Myers is best known for playing Enid Sinclair in Wednesday (2022-present).' },
+      { question: 'Where is Emma Myers from?', answer: 'She was born on April 2, 2002, in Orlando, Florida.' },
+      { question: 'What other projects has Emma Myers done?', answer: 'She starred in A Good Girl\'s Guide to Murder (2024) and Family Switch (2023).' }
+    ],
+    tags: ['young-actor', 'rising-star']
+  },
+  {
+    slug: 'hunter-doohan',
+    name: 'Hunter Doohan',
+    bio: 'Hunter Doohan is an American actor born on January 19, 1994, in Fort Smith, Arkansas. He grew up in Arkansas and moved to Los Angeles to pursue acting, landing early roles in television shows including Truth Be Told (2019) and the legal drama Your Honor (2020-2023) alongside Bryan Cranston.\n\nDoohan gained international recognition for his role as Tyler Galpin, the charming barista with a dark secret, in the Netflix series Wednesday (2022-present). His performance brought complexity and menace to what initially appeared to be a straightforward love interest character, and audiences were drawn to the mystery surrounding Tyler throughout the first season.\n\nBeyond Wednesday, Doohan appeared as Adam Desiato in the Showtime series Your Honor (2020-2023) and has taken on roles in various film and television projects. He married producer Fielder Jewett in 2022.',
+    birthDate: '1994-01-19',
+    birthPlace: 'Fort Smith, Arkansas, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Hunter_Doohan_by_Gage_Skidmore.jpg/440px-Hunter_Doohan_by_Gage_Skidmore.jpg', alt: 'Hunter Doohan at San Diego Comic-Con', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'tyler-galpin', characterName: 'Tyler Galpin', showSlug: 'wednesday', showTitle: 'Wednesday', years: '2022-present' }],
+    otherNotableRoles: ['Adam Desiato in Your Honor (2020-2023)', 'Bailey in Truth Be Told (2019)'],
+    awards: [],
+    socialLinks: { instagram: 'https://www.instagram.com/hunterdoohan/', imdb: 'https://www.imdb.com/name/nm6475440/', wikipedia: 'https://en.wikipedia.org/wiki/Hunter_Doohan' },
+    faqs: [
+      { question: 'What is Hunter Doohan best known for?', answer: 'Hunter Doohan is best known for playing Tyler Galpin in Wednesday (2022-present).' },
+      { question: 'Was Hunter Doohan in Your Honor?', answer: 'Yes, he played Adam Desiato alongside Bryan Cranston in the Showtime series Your Honor (2020-2023).' },
+      { question: 'Where is Hunter Doohan from?', answer: 'He was born on January 19, 1994, in Fort Smith, Arkansas.' }
+    ],
+    tags: ['young-actor', 'rising-star']
+  },
+  {
+    slug: 'joy-sunday',
+    name: 'Joy Sunday',
+    bio: 'Joy Sunday is an American actress born on August 7, 1995, in Indianapolis, Indiana. She is of Eritrean descent and studied at the Tisch School of the Arts at New York University, graduating in 2019. She performed in theater productions in New York before transitioning to screen work.\n\nSunday gained widespread recognition for her role as Bianca Barclay, the queen bee siren at Nevermore Academy, in the Netflix series Wednesday (2022-present). Her commanding performance as Wednesday Addams\' rival brought depth and nuance to a character that could easily have been one-dimensional, earning praise from critics and audiences alike.\n\nBeyond Wednesday, Sunday has appeared in the films Dog (2022) and various television projects. She is also an accomplished theater performer and continues to build her career in both film and television following Wednesday\'s massive global success.',
+    birthDate: '1995-08-07',
+    birthPlace: 'Indianapolis, Indiana, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Joy_Sunday_by_Gage_Skidmore.jpg/440px-Joy_Sunday_by_Gage_Skidmore.jpg', alt: 'Joy Sunday at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'bianca-barclay', characterName: 'Bianca Barclay', showSlug: 'wednesday', showTitle: 'Wednesday', years: '2022-present' }],
+    otherNotableRoles: ['Tamara in Dog (2022)'],
+    awards: [],
+    socialLinks: { instagram: 'https://www.instagram.com/joysunday/', imdb: 'https://www.imdb.com/name/nm8523941/', wikipedia: 'https://en.wikipedia.org/wiki/Joy_Sunday' },
+    faqs: [
+      { question: 'What is Joy Sunday best known for?', answer: 'Joy Sunday is best known for playing Bianca Barclay in Wednesday (2022-present).' },
+      { question: 'Where is Joy Sunday from?', answer: 'She was born on August 7, 1995, in Indianapolis, Indiana, and is of Eritrean descent.' },
+      { question: 'Where did Joy Sunday study acting?', answer: 'She studied at the Tisch School of the Arts at New York University.' }
+    ],
+    tags: ['young-actor', 'rising-star']
+  },
+  {
+    slug: 'victor-dorobantu',
+    name: 'Victor Dorobantu',
+    bio: 'Victor Dorobantu is a Romanian actor born on November 29, 2003, in Bucharest, Romania. He was a student with minimal acting experience when he was cast in his breakout role, which required a unique and physically demanding performance.\n\nDorobantu gained international recognition for his role as Thing, the disembodied sentient hand and loyal companion of Wednesday Addams, in the Netflix series Wednesday (2022-present). Performing entirely through hand acting while wearing a blue suit for visual effects removal, Dorobantu brought remarkable expressiveness and personality to a character with no face or voice, earning widespread praise for his physical performance artistry.\n\nThe role of Thing in Wednesday represented Dorobantu\'s first major screen credit, and his inventive physical performance drew comparisons to classic mime and puppetry traditions. He has become a fan favorite at conventions and events for the show.',
+    birthDate: '2003-11-29',
+    birthPlace: 'Bucharest, Romania',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Victor_Dorobantu_by_Gage_Skidmore.jpg/440px-Victor_Dorobantu_by_Gage_Skidmore.jpg', alt: 'Victor Dorobantu at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'thing', characterName: 'Thing', showSlug: 'wednesday', showTitle: 'Wednesday', years: '2022-present' }],
+    otherNotableRoles: [],
+    awards: [],
+    socialLinks: { instagram: 'https://www.instagram.com/victoradrield/', imdb: 'https://www.imdb.com/name/nm14271596/', wikipedia: 'https://en.wikipedia.org/wiki/Victor_Dorobantu' },
+    faqs: [
+      { question: 'Who plays Thing in Wednesday?', answer: 'Victor Dorobantu plays Thing in Wednesday, performing all of the hand acting while wearing a blue suit that was later removed via visual effects.' },
+      { question: 'Where is Victor Dorobantu from?', answer: 'He was born on November 29, 2003, in Bucharest, Romania.' },
+      { question: 'Was Wednesday Victor Dorobantu\'s first role?', answer: 'Yes, Wednesday was his first major screen acting role.' }
+    ],
+    tags: ['young-actor', 'physical-performer', 'rising-star']
+  },
+  // ============================================================
+  // THE BEAR ACTORS
+  // ============================================================
+  {
+    slug: 'jeremy-allen-white',
+    name: 'Jeremy Allen White',
+    bio: 'Jeremy Allen White is an American actor born on February 17, 1991, in Brooklyn, New York City. He trained at the Professional Performing Arts School in Manhattan and began his career with early television appearances and independent films.\n\nWhite first gained recognition as Lip Gallagher in the Showtime series Shameless (2011-2021), playing the intellectually gifted but self-destructive eldest Gallagher son for all eleven seasons. He then achieved critical superstardom as Carmen "Carmy" Berzatto, the brilliant but troubled fine-dining chef who returns to Chicago to run his family\'s sandwich shop, in the FX series The Bear (2022-present). The role earned him consecutive Primetime Emmy Awards for Outstanding Lead Actor in a Comedy Series and Golden Globe Awards.\n\nWhite\'s intense, physically committed performance in The Bear has been widely praised as one of the most compelling portrayals of grief, perfectionism, and artistic drive on television. He also starred as professional wrestler Kerry Von Erich in the film The Iron Claw (2023), earning further critical acclaim.',
+    birthDate: '1991-02-17',
+    birthPlace: 'Brooklyn, New York City, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Jeremy_Allen_White_by_Gage_Skidmore.jpg/440px-Jeremy_Allen_White_by_Gage_Skidmore.jpg', alt: 'Jeremy Allen White at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'carmy-berzatto', characterName: 'Carmen "Carmy" Berzatto', showSlug: 'the-bear', showTitle: 'The Bear', years: '2022-present' }],
+    otherNotableRoles: ['Lip Gallagher in Shameless (2011-2021)', 'Kerry Von Erich in The Iron Claw (2023)', 'Movie Star (2024)'],
+    awards: ['2x Primetime Emmy Award for Outstanding Lead Actor in a Comedy Series (The Bear)', '2x Golden Globe Award for Best Actor in a Musical or Comedy Series (The Bear)', 'Screen Actors Guild Award for Outstanding Performance by a Male Actor in a Comedy Series (The Bear)'],
+    socialLinks: { instagram: 'https://www.instagram.com/jeremyallenwhite/', imdb: 'https://www.imdb.com/name/nm2554352/', wikipedia: 'https://en.wikipedia.org/wiki/Jeremy_Allen_White' },
+    faqs: [
+      { question: 'What is Jeremy Allen White best known for?', answer: 'Jeremy Allen White is best known for playing Carmy Berzatto in The Bear (2022-present) and Lip Gallagher in Shameless (2011-2021).' },
+      { question: 'How many Emmys has Jeremy Allen White won?', answer: 'He has won two consecutive Primetime Emmy Awards for Outstanding Lead Actor in a Comedy Series for The Bear.' },
+      { question: 'Did Jeremy Allen White do his own cooking in The Bear?', answer: 'Yes, he trained extensively at real restaurants in Chicago and with professional chefs to prepare for the role.' }
+    ],
+    tags: ['emmy-winner', 'dramatic-actor', 'golden-globe-winner']
+  },
+  {
+    slug: 'ayo-edebiri',
+    name: 'Ayo Edebiri',
+    bio: 'Ayooluwa "Ayo" Edebiri is an American actress, comedian, and writer born on October 3, 1995, in Boston, Massachusetts. She graduated from New York University and began her career in comedy writing, working on shows like What We Do in the Shadows and Big Mouth (where she also took over the voice role of Missy).\n\nEdebiri broke through as Sydney Adamu, the ambitious young chef who becomes Carmy\'s business partner, in the FX series The Bear (2022-present). Her dynamic performance captured Sydney\'s passion, talent, and determination, earning her a Primetime Emmy Award for Outstanding Supporting Actress in a Comedy Series in 2024 and establishing her as one of the most exciting talents in Hollywood.\n\nBeyond The Bear, Edebiri has become one of the most in-demand performers in entertainment, voicing Envy in Pixar\'s Inside Out 2 (2024) and appearing in Bottoms (2023), Theater Camp (2023, which she co-wrote), and the Marvel film Thunderbolts* (2025). She is also a talented stand-up comedian and comedy writer.',
+    birthDate: '1995-10-03',
+    birthPlace: 'Boston, Massachusetts, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Ayo_Edebiri_by_Gage_Skidmore.jpg/440px-Ayo_Edebiri_by_Gage_Skidmore.jpg', alt: 'Ayo Edebiri at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'sydney-adamu', characterName: 'Sydney Adamu', showSlug: 'the-bear', showTitle: 'The Bear', years: '2022-present' }],
+    otherNotableRoles: ['Envy in Inside Out 2 (2024, voice)', 'Josie in Bottoms (2023)', 'Missy Foreman-Greenwald in Big Mouth (2021-present, voice)', 'Rebecca in Theater Camp (2023)'],
+    awards: ['Primetime Emmy Award for Outstanding Supporting Actress in a Comedy Series (The Bear, 2024)', 'Golden Globe Nomination for Best Supporting Actress in a Series (The Bear)', 'Gotham Award for Breakthrough Performer (The Bear)'],
+    socialLinks: { instagram: 'https://www.instagram.com/ayoedebiri/', twitter: 'https://twitter.com/ayoedebiri', imdb: 'https://www.imdb.com/name/nm9706907/', wikipedia: 'https://en.wikipedia.org/wiki/Ayo_Edebiri' },
+    faqs: [
+      { question: 'What is Ayo Edebiri best known for?', answer: 'Ayo Edebiri is best known for playing Sydney Adamu in The Bear (2022-present).' },
+      { question: 'Has Ayo Edebiri won an Emmy?', answer: 'Yes, she won the Primetime Emmy for Outstanding Supporting Actress in a Comedy Series for The Bear in 2024.' },
+      { question: 'What Pixar film is Ayo Edebiri in?', answer: 'She voiced the emotion Envy in Pixar\'s Inside Out 2 (2024).' }
+    ],
+    tags: ['emmy-winner', 'comedy-actress', 'writer', 'rising-star']
+  },
+  {
+    slug: 'lionel-boyce',
+    name: 'Lionel Boyce',
+    bio: 'Lionel Boyce is an American actor, writer, and voice actor born on February 28, 1991, in Los Angeles, California. He began his career as a writer and voice actor, working with the Odd Future collective alongside Tyler, the Creator and contributing as a writer and voice actor on the Adult Swim animated series The Jellies! (2017-2019).\n\nBoyce gained critical acclaim for his role as Marcus Brooks, the talented pastry chef pursuing baking excellence, in the FX series The Bear (2022-present). His understated, soulful performance as Marcus became a standout element of the show, particularly in episodes focusing on his artistic journey and personal growth. Marcus\'s storyline resonated deeply with audiences and critics.\n\nBeyond The Bear, Boyce has worked primarily in voice acting and writing, including his work on The Jellies! and various projects connected to the Odd Future creative collective. The Bear has significantly raised his profile as a screen actor.',
+    birthDate: '1991-02-28',
+    birthPlace: 'Los Angeles, California, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Lionel_Boyce_by_Gage_Skidmore.jpg/440px-Lionel_Boyce_by_Gage_Skidmore.jpg', alt: 'Lionel Boyce at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'marcus-brooks', characterName: 'Marcus Brooks', showSlug: 'the-bear', showTitle: 'The Bear', years: '2022-present' }],
+    otherNotableRoles: ['Writer/voice actor on The Jellies! (2017-2019)', 'Various Odd Future-related projects'],
+    awards: ['Screen Actors Guild Award Nomination for Outstanding Ensemble in a Comedy Series (The Bear)'],
+    socialLinks: { instagram: 'https://www.instagram.com/lionelboyce/', imdb: 'https://www.imdb.com/name/nm5607098/', wikipedia: 'https://en.wikipedia.org/wiki/Lionel_Boyce' },
+    faqs: [
+      { question: 'What is Lionel Boyce best known for?', answer: 'Lionel Boyce is best known for playing Marcus Brooks in The Bear (2022-present).' },
+      { question: 'Is Lionel Boyce connected to Odd Future?', answer: 'Yes, he is a member of the Odd Future collective and worked with Tyler, the Creator on The Jellies! animated series.' },
+      { question: 'What does Marcus do in The Bear?', answer: 'Marcus is the pastry chef at the restaurant, whose storyline follows his artistic growth and pursuit of culinary excellence.' }
+    ],
+    tags: ['dramatic-actor', 'writer', 'voice-actor']
+  },
+  {
+    slug: 'ebon-moss-bachrach',
+    name: 'Ebon Moss-Bachrach',
+    bio: 'Ebon Moss-Bachrach is an American actor born on August 20, 1977, in Amherst, Massachusetts. He studied at the Royal Academy of Dramatic Art in London and built a career in theater, independent film, and television over two decades before his breakout role.\n\nMoss-Bachrach became a critical and fan favorite for his role as Richard "Richie" Jerimovich, Carmy\'s brash, loyal cousin and restaurant manager, in the FX series The Bear (2022-present). His transformative arc from an abrasive, grieving man to a refined front-of-house professional, particularly showcased in the acclaimed Season 2 episode "Forks," earned him a Primetime Emmy Award for Outstanding Supporting Actor in a Comedy Series in 2024.\n\nBeyond The Bear, Moss-Bachrach has appeared in the HBO series Girls (2012-2017) as Desi Harperin, The Punisher (2017-2019) as Micro, and films including The Bourne Legacy (2012) and Blonde (2022). He is set to play the Fantastic Four\'s Ben Grimm / The Thing in the MCU.',
+    birthDate: '1977-08-20',
+    birthPlace: 'Amherst, Massachusetts, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Ebon_Moss-Bachrach_by_Gage_Skidmore.jpg/440px-Ebon_Moss-Bachrach_by_Gage_Skidmore.jpg', alt: 'Ebon Moss-Bachrach at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'richie-jerimovich', characterName: 'Richie Jerimovich', showSlug: 'the-bear', showTitle: 'The Bear', years: '2022-present' }],
+    otherNotableRoles: ['Desi Harperin in Girls (2012-2017)', 'Micro / David Lieberman in The Punisher (2017-2019)', 'Ben Grimm / The Thing in The Fantastic Four: First Steps (2025)'],
+    awards: ['Primetime Emmy Award for Outstanding Supporting Actor in a Comedy Series (The Bear, 2024)', 'Critics\' Choice Award for Best Supporting Actor in a Comedy Series (The Bear)'],
+    socialLinks: { imdb: 'https://www.imdb.com/name/nm0609845/', wikipedia: 'https://en.wikipedia.org/wiki/Ebon_Moss-Bachrach' },
+    faqs: [
+      { question: 'What is Ebon Moss-Bachrach best known for?', answer: 'He is best known for playing Richie Jerimovich in The Bear (2022-present).' },
+      { question: 'Has Ebon Moss-Bachrach won an Emmy?', answer: 'Yes, he won the Primetime Emmy for Outstanding Supporting Actor in a Comedy Series for The Bear in 2024.' },
+      { question: 'Is Ebon Moss-Bachrach in the MCU?', answer: 'Yes, he is set to play Ben Grimm / The Thing in The Fantastic Four: First Steps (2025).' }
+    ],
+    tags: ['emmy-winner', 'dramatic-actor', 'character-actor']
+  },
+  {
+    slug: 'liza-colon-zayas',
+    name: 'Liza Colon-Zayas',
+    bio: 'Liza Colon-Zayas is an American actress and playwright born on June 7, 1972, in New York City, New York. She is of Puerto Rican descent and has had a distinguished career in New York theater, working extensively with companies like LAByrinth Theater Company, where she is a founding member alongside Philip Seymour Hoffman and John Ortiz.\n\nColon-Zayas gained mainstream recognition for her role as Tina Marrero, the tough, experienced line cook, in the FX series The Bear (2022-present). Her grounded, authentic performance as Tina\'s journey from resistant veteran employee to dedicated culinary student earned her a Primetime Emmy Award for Outstanding Supporting Actress in a Comedy Series in 2024, making her the first Latina to win in that category.\n\nBeyond The Bear, Colon-Zayas has had a prolific career in New York theater, appearing in numerous off-Broadway productions. Her television credits include Law & Order, The Sopranos, and David Simon\'s The Deuce (2017-2019). She is also an accomplished playwright.',
+    birthDate: '1972-06-07',
+    birthPlace: 'New York City, New York, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Liza_Col%C3%B3n-Zayas_by_Gage_Skidmore.jpg/440px-Liza_Col%C3%B3n-Zayas_by_Gage_Skidmore.jpg', alt: 'Liza Colon-Zayas at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'tina-marrero', characterName: 'Tina Marrero', showSlug: 'the-bear', showTitle: 'The Bear', years: '2022-present' }],
+    otherNotableRoles: ['Annabel in The Deuce (2017-2019)', 'Various LAByrinth Theater Company productions', 'Various Law & Order franchise appearances'],
+    awards: ['Primetime Emmy Award for Outstanding Supporting Actress in a Comedy Series (The Bear, 2024) - first Latina winner in the category', 'Obie Award for sustained excellence in theater'],
+    socialLinks: { instagram: 'https://www.instagram.com/lizacolonzayas/', imdb: 'https://www.imdb.com/name/nm0173098/', wikipedia: 'https://en.wikipedia.org/wiki/Liza_Col%C3%B3n-Zayas' },
+    faqs: [
+      { question: 'What is Liza Colon-Zayas best known for?', answer: 'She is best known for playing Tina Marrero in The Bear (2022-present).' },
+      { question: 'What historic Emmy win did Liza Colon-Zayas achieve?', answer: 'She became the first Latina to win the Primetime Emmy for Outstanding Supporting Actress in a Comedy Series, winning for The Bear in 2024.' },
+      { question: 'Is Liza Colon-Zayas involved in theater?', answer: 'Yes, she is a founding member of the LAByrinth Theater Company in New York and has had an extensive career in off-Broadway theater.' }
+    ],
+    tags: ['emmy-winner', 'dramatic-actress', 'stage-actor', 'playwright']
+  },
+  // ============================================================
+  // SQUID GAME ACTORS
+  // ============================================================
+  {
+    slug: 'lee-jung-jae',
+    name: 'Lee Jung-jae',
+    bio: 'Lee Jung-jae is a South Korean actor born on December 15, 1972, in Seoul, South Korea. He began his career as a fashion model before transitioning to acting in the early 1990s, quickly becoming one of South Korea\'s most prominent leading men with roles in numerous Korean films and television dramas.\n\nLee achieved unprecedented global recognition as Seong Gi-hun (Player 456), the down-on-his-luck gambler and protagonist of the Netflix series Squid Game (2021-present). His nuanced performance anchored the show, which became the most-watched series in Netflix history. The role earned him a Primetime Emmy Award for Outstanding Lead Actor in a Drama Series in 2022, making him the first Asian actor and first non-English-language performer to win in that category.\n\nBeyond Squid Game, Lee is one of South Korea\'s biggest stars with acclaimed roles in films like Il Mare (2000), City of the Rising Sun (1999), Assassination (2015), Along with the Gods (2017-2018), and Hunt (2022), which he also directed. He has won numerous Korean film and television awards throughout his three-decade career.',
+    birthDate: '1972-12-15',
+    birthPlace: 'Seoul, South Korea',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Lee_Jung-jae_by_Gage_Skidmore.jpg/440px-Lee_Jung-jae_by_Gage_Skidmore.jpg', alt: 'Lee Jung-jae at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'seong-gi-hun', characterName: 'Seong Gi-hun', showSlug: 'squid-game', showTitle: 'Squid Game', years: '2021-present' }],
+    otherNotableRoles: ['Director and star of Hunt (2022)', 'Park Yi-tae in Assassination (2015)', 'Gang-lim in Along with the Gods: The Two Worlds (2017)'],
+    awards: ['Primetime Emmy Award for Outstanding Lead Actor in a Drama Series (Squid Game, 2022) - first Asian actor to win', 'Screen Actors Guild Award for Outstanding Performance by a Male Actor in a Drama Series (Squid Game)', 'Blue Dragon Film Award for Best Actor (multiple wins)'],
+    socialLinks: { instagram: 'https://www.instagram.com/from_jjlee/', imdb: 'https://www.imdb.com/name/nm0496978/', wikipedia: 'https://en.wikipedia.org/wiki/Lee_Jung-jae' },
+    faqs: [
+      { question: 'What is Lee Jung-jae best known for?', answer: 'Lee Jung-jae is best known globally for playing Seong Gi-hun in Squid Game (2021-present). He is also one of South Korea\'s biggest film stars.' },
+      { question: 'What historic Emmy win did Lee Jung-jae achieve?', answer: 'He became the first Asian actor and first non-English-language performer to win the Primetime Emmy for Outstanding Lead Actor in a Drama Series.' },
+      { question: 'Has Lee Jung-jae directed a film?', answer: 'Yes, he directed and starred in Hunt (2022), a Korean spy thriller.' }
+    ],
+    tags: ['emmy-winner', 'dramatic-actor', 'director', 'korean-actor']
+  },
+  {
+    slug: 'park-hae-soo',
+    name: 'Park Hae-soo',
+    bio: 'Park Hae-soo is a South Korean actor born on November 21, 1981, in Seoul, South Korea. He studied theater at Chung-Ang University and built his career in Korean theater and television, gaining domestic recognition for his role in the hit K-drama Prison Playbook (2017-2018).\n\nPark achieved global fame as Cho Sang-woo (Player 218), the financially disgraced former investment banker and childhood friend of Seong Gi-hun, in the Netflix series Squid Game (2021-present). His portrayal of the desperate, morally compromised Sang-woo earned widespread critical acclaim, with his character serving as a tragic counterpoint to the protagonist.\n\nBeyond Squid Game, Park is known in Korea for his starring role in Prison Playbook (2017-2018), one of the highest-rated Korean dramas. He has also appeared in the Netflix series Money Heist: Korea - Joint Economic Area (2022) as Berlin, and the film By Quantum Physics: A Nightlife Venture (2019).',
+    birthDate: '1981-11-21',
+    birthPlace: 'Seoul, South Korea',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Park_Hae-soo_by_Gage_Skidmore.jpg/440px-Park_Hae-soo_by_Gage_Skidmore.jpg', alt: 'Park Hae-soo at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'cho-sang-woo', characterName: 'Cho Sang-woo', showSlug: 'squid-game', showTitle: 'Squid Game', years: '2021-present' }],
+    otherNotableRoles: ['Je-hyeok in Prison Playbook (2017-2018)', 'Berlin in Money Heist: Korea - Joint Economic Area (2022)'],
+    awards: ['Screen Actors Guild Award for Outstanding Ensemble in a Drama Series (Squid Game)', 'Baeksang Arts Award for Best New Actor in Television (Prison Playbook)'],
+    socialLinks: { instagram: 'https://www.instagram.com/haesoopark_official/', imdb: 'https://www.imdb.com/name/nm8316498/', wikipedia: 'https://en.wikipedia.org/wiki/Park_Hae-soo' },
+    faqs: [
+      { question: 'What is Park Hae-soo best known for?', answer: 'Park Hae-soo is best known for playing Cho Sang-woo in Squid Game (2021-present) and his role in Prison Playbook (2017-2018).' },
+      { question: 'What Korean drama made Park Hae-soo famous domestically?', answer: 'Prison Playbook (2017-2018) was his breakout role in South Korea before Squid Game brought him global fame.' },
+      { question: 'Was Park Hae-soo in Money Heist: Korea?', answer: 'Yes, he played Berlin in the Netflix Korean adaptation Money Heist: Korea - Joint Economic Area (2022).' }
+    ],
+    tags: ['dramatic-actor', 'korean-actor']
+  },
+  {
+    slug: 'jung-ho-yeon',
+    name: 'Jung Ho-yeon',
+    bio: 'Jung Ho-yeon, also known as HoYeon Jung, is a South Korean actress and model born on June 23, 1994, in Seoul, South Korea. She first gained prominence as a fashion model, finishing as the runner-up on Korea\'s Next Top Model Season 4 in 2013, and went on to walk for major fashion houses including Louis Vuitton, Chanel, and Bottega Veneta.\n\nJung made a stunning acting debut as Kang Sae-byeok (Player 067), the stoic North Korean defector competing for her family\'s survival, in the Netflix series Squid Game (2021-present). Despite having no prior professional acting experience, her magnetic screen presence earned her a Screen Actors Guild Award for Outstanding Performance by a Female Actor in a Drama Series, making her the first Korean actress to win an individual SAG Award.\n\nFollowing Squid Game, Jung has been embraced by both the fashion and entertainment worlds. She was named a global ambassador for Louis Vuitton and appeared in the film The Governesses (2023) and Disclaimer (2024) directed by Alfonso Cuaron. She has become one of the most visible Korean celebrities on the global stage.',
+    birthDate: '1994-06-23',
+    birthPlace: 'Seoul, South Korea',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/HoYeon_Jung_by_Gage_Skidmore.jpg/440px-HoYeon_Jung_by_Gage_Skidmore.jpg', alt: 'Jung Ho-yeon at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'kang-sae-byeok', characterName: 'Kang Sae-byeok', showSlug: 'squid-game', showTitle: 'Squid Game', years: '2021-present' }],
+    otherNotableRoles: ['Disclaimer (2024, dir. Alfonso Cuaron)', 'Runner-up on Korea\'s Next Top Model Season 4 (2013)', 'Louis Vuitton Global Ambassador'],
+    awards: ['Screen Actors Guild Award for Outstanding Performance by a Female Actor in a Drama Series (Squid Game) - first Korean actress to win individual SAG Award', 'Screen Actors Guild Award for Outstanding Ensemble in a Drama Series (Squid Game)'],
+    socialLinks: { instagram: 'https://www.instagram.com/hoooooyeony/', imdb: 'https://www.imdb.com/name/nm12951013/', wikipedia: 'https://en.wikipedia.org/wiki/Jung_Ho-yeon' },
+    faqs: [
+      { question: 'What is Jung Ho-yeon best known for?', answer: 'Jung Ho-yeon is best known for her acting debut as Kang Sae-byeok in Squid Game (2021-present) and her career as a fashion model.' },
+      { question: 'Was Squid Game Jung Ho-yeon\'s first acting role?', answer: 'Yes, Squid Game was her professional acting debut, despite which she won a SAG Award for her performance.' },
+      { question: 'Is Jung Ho-yeon a model?', answer: 'Yes, she is a successful fashion model and Louis Vuitton Global Ambassador who first gained fame on Korea\'s Next Top Model.' }
+    ],
+    tags: ['dramatic-actress', 'korean-actress', 'model', 'rising-star']
+  },
+  {
+    slug: 'o-yeong-su',
+    name: 'O Yeong-su',
+    bio: 'O Yeong-su is a South Korean actor born on October 19, 1944, in Kaepung County, in what is now North Korea. He is primarily known as a stage actor, having spent decades performing in Korean theater, particularly in traditional Korean performances and modern drama.\n\nO achieved unexpected global fame at the age of 77 for his role as Oh Il-nam (Player 001), the elderly and seemingly frail participant in the Netflix series Squid Game (2021-present). His warm, grandfatherly performance concealed a major plot twist that shocked audiences worldwide. The role earned him a Golden Globe Award for Best Supporting Actor in a Series in 2022, making him the first Korean actor to win a Golden Globe.\n\nBefore Squid Game, O had a distinguished but primarily domestic career in Korean theater and film, with over 200 stage productions. His film credits include Spring, Summer, Fall, Winter... and Spring (2003) directed by Kim Ki-duk, and A Man Who Was Superman (2008). His Squid Game performance introduced Korean theatrical traditions to a global audience.',
+    birthDate: '1944-10-19',
+    birthPlace: 'Kaepung County, Korea (now North Korea)',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/O_Yeong-su_by_Gage_Skidmore.jpg/440px-O_Yeong-su_by_Gage_Skidmore.jpg', alt: 'O Yeong-su at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'oh-il-nam', characterName: 'Oh Il-nam', showSlug: 'squid-game', showTitle: 'Squid Game', years: '2021' }],
+    otherNotableRoles: ['Old Monk in Spring, Summer, Fall, Winter... and Spring (2003)', 'Extensive Korean theater career spanning 50+ years'],
+    awards: ['Golden Globe Award for Best Supporting Actor in a Series (Squid Game, 2022) - first Korean actor to win a Golden Globe'],
+    socialLinks: { imdb: 'https://www.imdb.com/name/nm1312254/', wikipedia: 'https://en.wikipedia.org/wiki/O_Yeong-su' },
+    faqs: [
+      { question: 'What is O Yeong-su best known for?', answer: 'O Yeong-su is best known globally for playing Oh Il-nam (Player 001) in Squid Game (2021).' },
+      { question: 'What historic award did O Yeong-su win?', answer: 'He became the first Korean actor to win a Golden Globe, winning Best Supporting Actor in a Series for Squid Game in 2022.' },
+      { question: 'How old was O Yeong-su when Squid Game premiered?', answer: 'He was 77 years old when Squid Game premiered in September 2021.' }
+    ],
+    tags: ['golden-globe-winner', 'korean-actor', 'stage-actor']
+  },
+  {
+    slug: 'heo-sung-tae',
+    name: 'Heo Sung-tae',
+    bio: 'Heo Sung-tae is a South Korean actor born on June 2, 1977, in Busan, South Korea. He originally worked in the shipbuilding industry before pursuing acting in his thirties, making his debut in 2010. He gradually built a career playing villains and tough characters in Korean cinema.\n\nHeo gained global recognition for his role as Jang Deok-su (Player 101), the menacing and violent gangster, in the Netflix series Squid Game (2021-present). His physically intimidating performance as the most feared contestant in the games made him one of the show\'s most memorable antagonists.\n\nBeyond Squid Game, Heo has appeared in Korean films including The Merciless (2017), The Outlaws (2017), and Beyond Evil (2021). His late start in acting and subsequent rise to global fame has been an inspirational story in the Korean entertainment industry.',
+    birthDate: '1977-06-02',
+    birthPlace: 'Busan, South Korea',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Heo_Sung-tae_by_Gage_Skidmore.jpg/440px-Heo_Sung-tae_by_Gage_Skidmore.jpg', alt: 'Heo Sung-tae at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'jang-deok-su', characterName: 'Jang Deok-su', showSlug: 'squid-game', showTitle: 'Squid Game', years: '2021' }],
+    otherNotableRoles: ['Hyun-su in Beyond Evil (2021)', 'Jang Chen in The Outlaws (2017)', 'Ko Byung-gak in The Merciless (2017)'],
+    awards: ['Screen Actors Guild Award for Outstanding Ensemble in a Drama Series (Squid Game)'],
+    socialLinks: { instagram: 'https://www.instagram.com/heosungtae/', imdb: 'https://www.imdb.com/name/nm7293498/', wikipedia: 'https://en.wikipedia.org/wiki/Heo_Sung-tae' },
+    faqs: [
+      { question: 'What is Heo Sung-tae best known for?', answer: 'Heo Sung-tae is best known for playing Jang Deok-su (Player 101) in Squid Game (2021).' },
+      { question: 'What did Heo Sung-tae do before acting?', answer: 'He worked in the shipbuilding industry in Busan before pursuing acting in his thirties.' },
+      { question: 'What Korean films has Heo Sung-tae been in?', answer: 'He has appeared in The Outlaws (2017), The Merciless (2017), and Beyond Evil (2021), among others.' }
+    ],
+    tags: ['dramatic-actor', 'korean-actor', 'villain']
+  },
+  {
+    slug: 'lee-byung-hun',
+    name: 'Lee Byung-hun',
+    bio: 'Lee Byung-hun is a South Korean actor born on July 12, 1970, in Seoul, South Korea. He graduated from Hanyang University with a degree in French and began his acting career in the early 1990s, becoming one of Korea\'s biggest stars by the 2000s with leading roles in film and television.\n\nLee portrays the mysterious Front Man in the Netflix series Squid Game (2021-present), the masked overseer of the deadly games whose identity is revealed in a shocking twist. His menacing, authoritative performance added gravitas to the show\'s exploration of power and exploitation.\n\nLee is one of the most internationally recognized Korean actors, with significant Hollywood credits including G.I. Joe: Retaliation (2013), RED 2 (2013), Terminator Genisys (2015), and The Magnificent Seven (2016). In Korean cinema, he is renowned for his roles in A Bittersweet Life (2005), The Good, the Bad, the Weird (2008), I Saw the Devil (2010), and Inside Men (2015). He won the Grand Bell Award for Best Actor multiple times.',
+    birthDate: '1970-07-12',
+    birthPlace: 'Seoul, South Korea',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Lee_Byung-hun_by_Gage_Skidmore.jpg/440px-Lee_Byung-hun_by_Gage_Skidmore.jpg', alt: 'Lee Byung-hun at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'the-front-man', characterName: 'The Front Man', showSlug: 'squid-game', showTitle: 'Squid Game', years: '2021-present' }],
+    otherNotableRoles: ['Storm Shadow in G.I. Joe: The Rise of Cobra (2009) and G.I. Joe: Retaliation (2013)', 'Kim Sun-woo in A Bittersweet Life (2005)', 'Lee Jang-hyeok in I Saw the Devil (2010)', 'Goodnight Robicheaux in The Magnificent Seven (2016)'],
+    awards: ['Grand Bell Award for Best Actor (multiple wins)', 'Blue Dragon Film Award for Best Actor', 'Asian Film Award for Best Actor (A Bittersweet Life)'],
+    socialLinks: { instagram: 'https://www.instagram.com/byunghun0712/', imdb: 'https://www.imdb.com/name/nm0498045/', wikipedia: 'https://en.wikipedia.org/wiki/Lee_Byung-hun' },
+    faqs: [
+      { question: 'What is Lee Byung-hun best known for?', answer: 'Lee Byung-hun is known globally for playing the Front Man in Squid Game and Storm Shadow in the G.I. Joe films. In Korea, he is one of the most celebrated actors of his generation.' },
+      { question: 'What Hollywood films has Lee Byung-hun been in?', answer: 'He has appeared in the G.I. Joe franchise, RED 2, Terminator Genisys, and The Magnificent Seven.' },
+      { question: 'What are Lee Byung-hun\'s most acclaimed Korean films?', answer: 'His most acclaimed Korean films include A Bittersweet Life (2005), The Good, the Bad, the Weird (2008), and I Saw the Devil (2010).' }
+    ],
+    tags: ['dramatic-actor', 'korean-actor', 'action-star']
+  },
+  // ============================================================
+  // BRIDGERTON ACTORS
+  // ============================================================
+  {
+    slug: 'jonathan-bailey',
+    name: 'Jonathan Bailey',
+    bio: 'Jonathan Stuart Bailey is an English actor born on April 25, 1988, in Wallingford, Oxfordshire, England. He began acting as a child, appearing in the West End production of A Christmas Carol at age seven, and went on to study at the Royal Central School of Speech and Drama.\n\nBailey became an international star as Anthony Bridgerton, the eldest Bridgerton sibling and Viscount, in the Netflix period drama Bridgerton (2020-present). His smoldering performance as the lead of Season 2, opposite Simone Ashley, made him one of the most sought-after romantic leads in television and earned widespread acclaim for his portrayal of duty, desire, and vulnerability.\n\nBeyond Bridgerton, Bailey won an Olivier Award for Best Actor in a Supporting Role for his performance in the West End revival of Company (2018). He appeared in the film Wicked (2024) as Fiyero alongside Ariana Grande and Cynthia Erivo, and has roles in Jurassic World Rebirth (2025) and the upcoming MCU. He is also a celebrated stage actor with extensive West End credits.',
+    birthDate: '1988-04-25',
+    birthPlace: 'Wallingford, Oxfordshire, England',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Jonathan_Bailey_by_Gage_Skidmore.jpg/440px-Jonathan_Bailey_by_Gage_Skidmore.jpg', alt: 'Jonathan Bailey at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'anthony-bridgerton', characterName: 'Anthony Bridgerton', showSlug: 'bridgerton', showTitle: 'Bridgerton', years: '2020-present' }],
+    otherNotableRoles: ['Fiyero in Wicked (2024)', 'Jamie in Company (2018, West End)', 'Tim Laughlin in Fellow Travelers (2023)'],
+    awards: ['Olivier Award for Best Actor in a Supporting Role in a Musical (Company, 2018)', 'Screen Actors Guild Award Nomination for Outstanding Ensemble in a Drama Series (Bridgerton)'],
+    socialLinks: { instagram: 'https://www.instagram.com/jabordelern/', imdb: 'https://www.imdb.com/name/nm2228671/', wikipedia: 'https://en.wikipedia.org/wiki/Jonathan_Bailey_(actor)' },
+    faqs: [
+      { question: 'What is Jonathan Bailey best known for?', answer: 'Jonathan Bailey is best known for playing Anthony Bridgerton in Netflix\'s Bridgerton (2020-present) and Fiyero in the film Wicked (2024).' },
+      { question: 'Has Jonathan Bailey won an Olivier Award?', answer: 'Yes, he won the Olivier Award for Best Actor in a Supporting Role in a Musical for Company in 2018.' },
+      { question: 'Is Jonathan Bailey in Wicked?', answer: 'Yes, he plays Fiyero in the 2024 film adaptation of the musical Wicked.' }
+    ],
+    tags: ['dramatic-actor', 'stage-actor', 'romantic-lead']
+  },
+  {
+    slug: 'simone-ashley',
+    name: 'Simone Ashley',
+    bio: 'Simone Ashley, born Simone Ashwini Pillai on March 30, 1995, in Camberley, Surrey, England, is a British actress of Indian Tamil descent. She trained at the Arts Educational Schools in London and began her career with roles in British television.\n\nAshley rose to global fame as Kate Sharma, the sharp-witted love interest of Anthony Bridgerton, in Season 2 of the Netflix series Bridgerton (2022-present). Her commanding, charismatic performance made her an instant star, and her on-screen chemistry with Jonathan Bailey became one of the most celebrated romantic pairings in recent television.\n\nBefore Bridgerton, Ashley appeared as Olivia Hanan in the Netflix teen comedy-drama Sex Education (2019-2021). Following her Bridgerton success, she has been cast in major film projects and has become a prominent fashion figure, serving as a brand ambassador for major luxury houses.',
+    birthDate: '1995-03-30',
+    birthPlace: 'Camberley, Surrey, England',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Simone_Ashley_by_Gage_Skidmore.jpg/440px-Simone_Ashley_by_Gage_Skidmore.jpg', alt: 'Simone Ashley at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'kate-sharma', characterName: 'Kate Sharma', showSlug: 'bridgerton', showTitle: 'Bridgerton', years: '2022-present' }],
+    otherNotableRoles: ['Olivia Hanan in Sex Education (2019-2021)'],
+    awards: ['Screen Actors Guild Award Nomination for Outstanding Ensemble in a Drama Series (Bridgerton)'],
+    socialLinks: { instagram: 'https://www.instagram.com/simabordelern/', imdb: 'https://www.imdb.com/name/nm7438422/', wikipedia: 'https://en.wikipedia.org/wiki/Simone_Ashley' },
+    faqs: [
+      { question: 'What is Simone Ashley best known for?', answer: 'Simone Ashley is best known for playing Kate Sharma in Bridgerton Season 2 (2022) onward.' },
+      { question: 'Was Simone Ashley in Sex Education?', answer: 'Yes, she played Olivia Hanan in the Netflix series Sex Education (2019-2021).' },
+      { question: 'What is Simone Ashley\'s background?', answer: 'She is British of Indian Tamil descent, born in Camberley, Surrey, and trained at the Arts Educational Schools in London.' }
+    ],
+    tags: ['dramatic-actress', 'rising-star', 'romantic-lead']
+  },
+  {
+    slug: 'nicola-coughlan',
+    name: 'Nicola Coughlan',
+    bio: 'Nicola Mary Coughlan is an Irish actress born on January 9, 1987, in Galway, Ireland. She studied at the Oxford School of Drama and Birmingham School of Acting, graduating in 2011. She gained initial recognition for her role as Clare Devlin in the Channel 4 comedy Derry Girls (2018-2022).\n\nCoughlan became a global star as Penelope Featherington, the secret gossip columnist Lady Whistledown, in the Netflix series Bridgerton (2020-present). She was elevated to lead status for Season 3, where Penelope\'s love story with Colin Bridgerton took center stage. Her warm, layered performance earned widespread acclaim and made her one of the most beloved figures in the Bridgerton franchise.\n\nBeyond Bridgerton, Coughlan is equally celebrated for her comedic brilliance as Clare Devlin in Derry Girls (2018-2022), one of the most acclaimed British comedies of recent years. She has become a prominent voice in fashion and body positivity, and has been recognized for her advocacy work.',
+    birthDate: '1987-01-09',
+    birthPlace: 'Galway, Ireland',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Nicola_Coughlan_by_Gage_Skidmore.jpg/440px-Nicola_Coughlan_by_Gage_Skidmore.jpg', alt: 'Nicola Coughlan at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'penelope-featherington', characterName: 'Penelope Featherington', showSlug: 'bridgerton', showTitle: 'Bridgerton', years: '2020-present' }],
+    otherNotableRoles: ['Clare Devlin in Derry Girls (2018-2022)', 'Maggie in Harlots (2017)'],
+    awards: ['Irish Film and Television Award Nomination for Best Actress in a Supporting Role (Derry Girls)', 'Screen Actors Guild Award Nomination for Outstanding Ensemble in a Drama Series (Bridgerton)'],
+    socialLinks: { instagram: 'https://www.instagram.com/nicolacoughlan/', twitter: 'https://twitter.com/nicolacoughlan', imdb: 'https://www.imdb.com/name/nm4946228/', wikipedia: 'https://en.wikipedia.org/wiki/Nicola_Coughlan' },
+    faqs: [
+      { question: 'What is Nicola Coughlan best known for?', answer: 'Nicola Coughlan is best known for playing Penelope Featherington in Bridgerton and Clare Devlin in Derry Girls.' },
+      { question: 'Is Nicola Coughlan Irish?', answer: 'Yes, she was born on January 9, 1987, in Galway, Ireland.' },
+      { question: 'Was Nicola Coughlan in Derry Girls?', answer: 'Yes, she played Clare Devlin in the Channel 4 comedy Derry Girls (2018-2022), which was widely acclaimed.' }
+    ],
+    tags: ['comedy-actress', 'dramatic-actress', 'romantic-lead']
+  },
+  {
+    slug: 'luke-newton',
+    name: 'Luke Newton',
+    bio: 'Luke Graham Newton is an English actor born on February 5, 1993, in Brighton, East Sussex, England. He trained at the ArtsEd drama school in London and began his career with small television roles, including the long-running Disney Channel series The Lodge (2016-2017).\n\nNewton gained global recognition as Colin Bridgerton, the third Bridgerton son, in the Netflix series Bridgerton (2020-present). He was elevated to lead status for Season 3, where Colin\'s romance with Penelope Featherington became the central storyline. His charming, heartfelt performance and chemistry with Nicola Coughlan won over audiences worldwide.\n\nBeyond Bridgerton, Newton appeared in The Cut (2016), The Lodge (2016-2017), and various other television projects. His rise from supporting player to romantic lead in one of Netflix\'s biggest franchises has made him one of the most promising young British actors in the industry.',
+    birthDate: '1993-02-05',
+    birthPlace: 'Brighton, East Sussex, England',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Luke_Newton_by_Gage_Skidmore.jpg/440px-Luke_Newton_by_Gage_Skidmore.jpg', alt: 'Luke Newton at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'colin-bridgerton', characterName: 'Colin Bridgerton', showSlug: 'bridgerton', showTitle: 'Bridgerton', years: '2020-present' }],
+    otherNotableRoles: ['Ben Evans in The Lodge (2016-2017)'],
+    awards: ['Screen Actors Guild Award Nomination for Outstanding Ensemble in a Drama Series (Bridgerton)'],
+    socialLinks: { instagram: 'https://www.instagram.com/lukenewton/', imdb: 'https://www.imdb.com/name/nm6914000/', wikipedia: 'https://en.wikipedia.org/wiki/Luke_Newton_(actor)' },
+    faqs: [
+      { question: 'What is Luke Newton best known for?', answer: 'Luke Newton is best known for playing Colin Bridgerton in Netflix\'s Bridgerton (2020-present).' },
+      { question: 'Where is Luke Newton from?', answer: 'He was born on February 5, 1993, in Brighton, East Sussex, England.' },
+      { question: 'What season of Bridgerton features Colin\'s love story?', answer: 'Season 3 of Bridgerton (2024) centers on Colin Bridgerton\'s romance with Penelope Featherington.' }
+    ],
+    tags: ['dramatic-actor', 'romantic-lead', 'rising-star']
+  },
+  {
+    slug: 'golda-rosheuvel',
+    name: 'Golda Rosheuvel',
+    bio: 'Golda Rosheuvel is a British-Guyanese actress born on December 1, 1970, in London, England. She trained at the Royal Academy of Dramatic Art (RADA) and built an extensive career in British theater, working with the Royal Shakespeare Company and the National Theatre for over two decades.\n\nRosheuvel became internationally known for her regal portrayal of Queen Charlotte in the Netflix series Bridgerton (2020-present). Her commanding, scene-stealing performance as the formidable monarch of the ton earned widespread acclaim and led to the spin-off series Queen Charlotte: A Bridgerton Story (2023), in which the character\'s younger years were explored.\n\nBeyond Bridgerton, Rosheuvel has had an extensive career in British theater and television, including roles in Luther (2015), Torchwood (2009), Lady Macbeth of Mtsensk at the English National Opera, and numerous Royal Shakespeare Company productions. Her casting as Queen Charlotte was praised as a groundbreaking moment for inclusive representation in period drama.',
+    birthDate: '1970-12-01',
+    birthPlace: 'London, England',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Golda_Rosheuvel_by_Gage_Skidmore.jpg/440px-Golda_Rosheuvel_by_Gage_Skidmore.jpg', alt: 'Golda Rosheuvel at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'queen-charlotte', characterName: 'Queen Charlotte', showSlug: 'bridgerton', showTitle: 'Bridgerton', years: '2020-present' }],
+    otherNotableRoles: ['Queen Charlotte in Queen Charlotte: A Bridgerton Story (2023)', 'Various Royal Shakespeare Company productions', 'Vivienne in Luther (2015)'],
+    awards: ['NAACP Image Award Nomination for Outstanding Actress in a Drama Series (Bridgerton)', 'Screen Actors Guild Award Nomination for Outstanding Ensemble in a Drama Series (Bridgerton)'],
+    socialLinks: { instagram: 'https://www.instagram.com/goldarosheuvel/', imdb: 'https://www.imdb.com/name/nm1102270/', wikipedia: 'https://en.wikipedia.org/wiki/Golda_Rosheuvel' },
+    faqs: [
+      { question: 'What is Golda Rosheuvel best known for?', answer: 'Golda Rosheuvel is best known for playing Queen Charlotte in Bridgerton (2020-present) and its spin-off Queen Charlotte: A Bridgerton Story (2023).' },
+      { question: 'Where did Golda Rosheuvel train?', answer: 'She trained at the Royal Academy of Dramatic Art (RADA) in London.' },
+      { question: 'What is Golda Rosheuvel\'s theater background?', answer: 'She has extensive stage experience with the Royal Shakespeare Company and the National Theatre over a career spanning more than two decades.' }
+    ],
+    tags: ['dramatic-actress', 'stage-actor']
+  },
+  {
+    slug: 'claudia-jessie',
+    name: 'Claudia Jessie',
+    bio: 'Claudia Jessie is an English actress born on October 30, 1989, in Moseley, Birmingham, England. She began acting as a teenager and trained at various drama workshops before landing her first professional roles in British television.\n\nJessie gained international recognition for her role as Eloise Bridgerton, the intellectually curious and fiercely independent second Bridgerton daughter, in the Netflix series Bridgerton (2020-present). Her spirited, witty performance as the proto-feminist sister who questions the expectations placed on women of the Regency era made Eloise a fan favorite and one of the show\'s most relatable characters.\n\nBeyond Bridgerton, Jessie has appeared in the BBC drama series WPC 56 (2013-2015), the Agatha Christie adaptation Vanity Fair (2018), and the comedy series Defending the Guilty (2019). She is also an advocate for mental health awareness and has spoken openly about her experiences with anxiety.',
+    birthDate: '1989-10-30',
+    birthPlace: 'Moseley, Birmingham, England',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Claudia_Jessie_by_Gage_Skidmore.jpg/440px-Claudia_Jessie_by_Gage_Skidmore.jpg', alt: 'Claudia Jessie at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'eloise-bridgerton', characterName: 'Eloise Bridgerton', showSlug: 'bridgerton', showTitle: 'Bridgerton', years: '2020-present' }],
+    otherNotableRoles: ['Annie in Defending the Guilty (2019)', 'WPC Dawson in WPC 56 (2013-2015)'],
+    awards: ['Screen Actors Guild Award Nomination for Outstanding Ensemble in a Drama Series (Bridgerton)'],
+    socialLinks: { instagram: 'https://www.instagram.com/claudiajessie/', imdb: 'https://www.imdb.com/name/nm6364939/', wikipedia: 'https://en.wikipedia.org/wiki/Claudia_Jessie' },
+    faqs: [
+      { question: 'What is Claudia Jessie best known for?', answer: 'Claudia Jessie is best known for playing Eloise Bridgerton in Netflix\'s Bridgerton (2020-present).' },
+      { question: 'Where is Claudia Jessie from?', answer: 'She was born on October 30, 1989, in Moseley, Birmingham, England.' },
+      { question: 'What makes Eloise Bridgerton a fan-favorite character?', answer: 'Eloise is beloved for her intellectual curiosity, feminist outlook, and refusal to conform to Regency-era expectations for women.' }
+    ],
+    tags: ['dramatic-actress', 'fan-favorite']
+  },
+  // ============================================================
+  // THE LAST OF US ACTORS
+  // ============================================================
+  {
+    slug: 'pedro-pascal',
+    name: 'Pedro Pascal',
+    bio: 'Jose Pedro Balmaceda Pascal is a Chilean-American actor born on April 2, 1975, in Santiago, Chile. His family fled the Pinochet regime and immigrated to the United States when he was an infant. He studied acting at the Orange County School of the Arts and New York University\'s Tisch School of the Arts.\n\nPascal first gained widespread recognition as Oberyn Martell in Game of Thrones Season 4 (2014), but it was his dual leading roles as the Mandalorian in the Disney+ series The Mandalorian (2019-2023) and as Joel Miller in the HBO series The Last of Us (2023-present) that made him one of the biggest stars in the world. His devastating, layered performance as the hardened smuggler protecting Ellie in The Last of Us earned him a Critics\' Choice Award and cemented his status as a leading man.\n\nPascal has also appeared in films including Kingsman: The Golden Circle (2017), Wonder Woman 1984 (2020), The Unbearable Weight of Massive Talent (2022), and the Gladiator sequel. His warm off-screen personality and prolific output have made him one of the most beloved actors in Hollywood.',
+    birthDate: '1975-04-02',
+    birthPlace: 'Santiago, Chile',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Pedro_Pascal_by_Gage_Skidmore.jpg/440px-Pedro_Pascal_by_Gage_Skidmore.jpg', alt: 'Pedro Pascal at San Diego Comic-Con', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'joel-miller', characterName: 'Joel Miller', showSlug: 'the-last-of-us', showTitle: 'The Last of Us', years: '2023-present' }],
+    otherNotableRoles: ['Din Djarin / The Mandalorian in The Mandalorian (2019-2023)', 'Oberyn Martell in Game of Thrones (2014)', 'Javier Pena in Narcos (2015-2017)', 'Maxwell Lord in Wonder Woman 1984 (2020)'],
+    awards: ['Critics\' Choice Award for Best Actor in a Drama Series (The Last of Us)', 'Screen Actors Guild Award Nomination for Outstanding Performance by a Male Actor (The Last of Us)', 'Golden Globe Nomination for Best Actor in a Television Drama Series (The Last of Us)'],
+    socialLinks: { instagram: 'https://www.instagram.com/pascalispunk/', twitter: 'https://twitter.com/PedroPascal1', imdb: 'https://www.imdb.com/name/nm0050959/', wikipedia: 'https://en.wikipedia.org/wiki/Pedro_Pascal' },
+    faqs: [
+      { question: 'What is Pedro Pascal best known for?', answer: 'Pedro Pascal is best known for playing Joel Miller in The Last of Us and the Mandalorian in the Disney+ series The Mandalorian.' },
+      { question: 'Was Pedro Pascal in Game of Thrones?', answer: 'Yes, he played Oberyn Martell in Season 4 of Game of Thrones (2014), a role that launched his rise to stardom.' },
+      { question: 'Where is Pedro Pascal from?', answer: 'He was born in Santiago, Chile, on April 2, 1975. His family moved to the United States when he was young.' }
+    ],
+    tags: ['dramatic-actor', 'action-star', 'fan-favorite']
+  },
+  {
+    slug: 'bella-ramsey',
+    name: 'Bella Ramsey',
+    bio: 'Bella Ramsey is an English actor born on September 25, 2003, in Nottingham, England. They began acting as a child and gained early recognition for their scene-stealing performance as the fierce young Lady Lyanna Mormont in Game of Thrones (2016-2019), despite appearing in only a handful of episodes.\n\nRamsey became a global star as Ellie Williams in the HBO series The Last of Us (2023-present), based on the acclaimed video game. Their emotionally powerful performance as the teenage girl who may hold the key to saving humanity earned widespread critical acclaim, a Critics\' Choice Award nomination, and praise from both fans of the game and newcomers to the story.\n\nBeyond The Last of Us, Ramsey starred in the CBBC series The Worst Witch (2017-2020), the film Judy (2019), and Catherine Called Birdy (2022) directed by Lena Dunham. Ramsey uses they/them pronouns and has been recognized as an important voice for non-binary representation in entertainment.',
+    birthDate: '2003-09-25',
+    birthPlace: 'Nottingham, England',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Bella_Ramsey_by_Gage_Skidmore.jpg/440px-Bella_Ramsey_by_Gage_Skidmore.jpg', alt: 'Bella Ramsey at San Diego Comic-Con', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'ellie-williams', characterName: 'Ellie Williams', showSlug: 'the-last-of-us', showTitle: 'The Last of Us', years: '2023-present' }],
+    otherNotableRoles: ['Lyanna Mormont in Game of Thrones (2016-2019)', 'Mildred Hubble in The Worst Witch (2017-2020)', 'Catherine in Catherine Called Birdy (2022)'],
+    awards: ['Critics\' Choice Award Nomination for Best Actress in a Drama Series (The Last of Us)', 'Screen Actors Guild Award Nomination for Outstanding Performance by a Female Actor (The Last of Us)'],
+    socialLinks: { instagram: 'https://www.instagram.com/bellaramsey/', imdb: 'https://www.imdb.com/name/nm7950328/', wikipedia: 'https://en.wikipedia.org/wiki/Bella_Ramsey' },
+    faqs: [
+      { question: 'What is Bella Ramsey best known for?', answer: 'Bella Ramsey is best known for playing Ellie Williams in The Last of Us (2023-present) and Lyanna Mormont in Game of Thrones.' },
+      { question: 'Was Bella Ramsey in Game of Thrones?', answer: 'Yes, they played Lady Lyanna Mormont in Game of Thrones (2016-2019), a scene-stealing role despite limited screen time.' },
+      { question: 'What are Bella Ramsey\'s pronouns?', answer: 'Bella Ramsey uses they/them pronouns.' }
+    ],
+    tags: ['young-actor', 'dramatic-actor']
+  },
+  {
+    slug: 'anna-torv',
+    name: 'Anna Torv',
+    bio: 'Anna Torv is an Australian actress born on June 15, 1979, in Melbourne, Victoria, Australia. She is the great-niece of media mogul Rupert Murdoch. She studied at Australia\'s National Institute of Dramatic Art (NIDA) and began her career in Australian television before moving to the United States.\n\nTorv first gained international recognition as FBI agent Olivia Dunham in the science fiction series Fringe (2008-2013), created by J.J. Abrams. She later earned widespread acclaim for her portrayal of Tess Servopoulos, Joel\'s smuggling partner, in the HBO series The Last of Us (2023-present). Her nuanced, emotionally grounded performance in the show\'s pilot was praised as one of the series\' highlights.\n\nBeyond The Last of Us and Fringe, Torv appeared in the Australian film Stephanie (2018), the Netflix series Mindhunter (2017-2019) as Wendy Carr, and the HBO series The Last of Us. Her Mindhunter role as the pioneering criminal psychologist was particularly acclaimed and helped raise her international profile.',
+    birthDate: '1979-06-15',
+    birthPlace: 'Melbourne, Victoria, Australia',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Anna_Torv_by_Gage_Skidmore_2.jpg/440px-Anna_Torv_by_Gage_Skidmore_2.jpg', alt: 'Anna Torv at San Diego Comic-Con', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'tess-servopoulos', characterName: 'Tess Servopoulos', showSlug: 'the-last-of-us', showTitle: 'The Last of Us', years: '2023' }],
+    otherNotableRoles: ['Olivia Dunham in Fringe (2008-2013)', 'Wendy Carr in Mindhunter (2017-2019)', 'Harriet Dunkley in Secret City (2016-2019)'],
+    awards: ['Saturn Award for Best Actress on Television (Fringe)', 'Critics\' Choice Award Nomination for Best Supporting Actress in a Drama Series (The Last of Us)'],
+    socialLinks: { imdb: 'https://www.imdb.com/name/nm1396022/', wikipedia: 'https://en.wikipedia.org/wiki/Anna_Torv' },
+    faqs: [
+      { question: 'What is Anna Torv best known for?', answer: 'Anna Torv is best known for playing Olivia Dunham in Fringe (2008-2013) and Tess in The Last of Us (2023).' },
+      { question: 'Was Anna Torv in Mindhunter?', answer: 'Yes, she played Dr. Wendy Carr in David Fincher\'s Netflix series Mindhunter (2017-2019).' },
+      { question: 'Where is Anna Torv from?', answer: 'She was born on June 15, 1979, in Melbourne, Victoria, Australia.' }
+    ],
+    tags: ['dramatic-actress', 'sci-fi']
+  },
+  {
+    slug: 'nick-offerman',
+    name: 'Nick Offerman',
+    bio: 'Nicholas Offerman is an American actor, writer, and woodworker born on June 26, 1970, in Joliet, Illinois. He studied fine arts at the University of Illinois at Urbana-Champaign and trained at the Steppenwolf Theatre Company in Chicago before building his career in theater, film, and television.\n\nOfferman is best known for his beloved portrayal of Ron Swanson, the libertarian, meat-loving parks director in the NBC comedy Parks and Recreation (2009-2015). He later delivered an Emmy-winning dramatic performance as Bill, a survivalist who finds unexpected love in a post-apocalyptic world, in the "Long Long Time" episode of HBO\'s The Last of Us (2023). The episode, featuring his tender romance with Frank (played by Murray Bartlett), is considered one of the finest hours of television ever produced.\n\nBeyond these iconic roles, Offerman has appeared in films like 21 Jump Street (2012), The Founder (2016), and Bad Times at the El Royale (2018). He is also a bestselling author, accomplished woodworker who runs the Offerman Woodshop in Los Angeles, and is married to actress Megan Mullally.',
+    birthDate: '1970-06-26',
+    birthPlace: 'Joliet, Illinois, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Nick_Offerman_by_Gage_Skidmore.jpg/440px-Nick_Offerman_by_Gage_Skidmore.jpg', alt: 'Nick Offerman at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'bill-frank', characterName: 'Bill', showSlug: 'the-last-of-us', showTitle: 'The Last of Us', years: '2023' }],
+    otherNotableRoles: ['Ron Swanson in Parks and Recreation (2009-2015)', 'Karl Weathers in Fargo Season 5 (2023)', 'Author and woodworker'],
+    awards: ['Primetime Emmy Award for Outstanding Guest Actor in a Drama Series (The Last of Us, 2023)', 'Critics\' Choice Award for Best Guest Performer in a Drama Series (The Last of Us)', 'Television Critics Association Award for Individual Achievement in Drama (The Last of Us)'],
+    socialLinks: { instagram: 'https://www.instagram.com/nickofferman/', twitter: 'https://twitter.com/Nick_Offerman', imdb: 'https://www.imdb.com/name/nm0644406/', wikipedia: 'https://en.wikipedia.org/wiki/Nick_Offerman' },
+    faqs: [
+      { question: 'What is Nick Offerman best known for?', answer: 'Nick Offerman is best known for playing Ron Swanson in Parks and Recreation (2009-2015) and Bill in The Last of Us (2023).' },
+      { question: 'Did Nick Offerman win an Emmy for The Last of Us?', answer: 'Yes, he won the Primetime Emmy for Outstanding Guest Actor in a Drama Series for the "Long Long Time" episode of The Last of Us.' },
+      { question: 'Is Nick Offerman a real woodworker?', answer: 'Yes, he runs the Offerman Woodshop in Los Angeles and is an accomplished woodworker and author of books on the craft.' }
+    ],
+    tags: ['emmy-winner', 'comedy-actor', 'dramatic-actor', 'woodworker']
+  },
+  {
+    slug: 'melanie-lynskey',
+    name: 'Melanie Lynskey',
+    bio: 'Melanie Jayne Lynskey is a New Zealand actress born on May 16, 1977, in New Plymouth, New Zealand. She made her film debut at age sixteen in Peter Jackson\'s Heavenly Creatures (1994), opposite Kate Winslet, in a role that immediately established her as a formidable talent.\n\nLynskey has built a career as one of the most respected character actresses in film and television. She gained widespread recognition as Shauna in the Showtime series Yellowjackets (2021-present), earning a Critics\' Choice Award and Emmy nomination. She then appeared as Kathleen Coghlan, the vengeful resistance leader, in the HBO series The Last of Us (2023), delivering a chilling performance that was widely praised.\n\nThroughout her career, Lynskey has appeared in films such as Ever After (1998), Sweet Home Alabama (2002), Away We Go (2009), and I Don\'t Feel at Home in This World Anymore (2017). She also had a long-running role as Rose in the CBS sitcom Two and a Half Men (2003-2015). She is married to actor Jason Ritter.',
+    birthDate: '1977-05-16',
+    birthPlace: 'New Plymouth, New Zealand',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Melanie_Lynskey_by_Gage_Skidmore.jpg/440px-Melanie_Lynskey_by_Gage_Skidmore.jpg', alt: 'Melanie Lynskey at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'kathleen-coghlan', characterName: 'Kathleen Coghlan', showSlug: 'the-last-of-us', showTitle: 'The Last of Us', years: '2023' }],
+    otherNotableRoles: ['Shauna in Yellowjackets (2021-present)', 'Pauline Parker in Heavenly Creatures (1994)', 'Rose in Two and a Half Men (2003-2015)'],
+    awards: ['Critics\' Choice Award for Best Actress in a Drama Series (Yellowjackets)', 'Primetime Emmy Nomination for Outstanding Lead Actress in a Drama Series (Yellowjackets)', 'Independent Spirit Award Nomination (I Don\'t Feel at Home in This World Anymore)'],
+    socialLinks: { instagram: 'https://www.instagram.com/melanielynskey/', twitter: 'https://twitter.com/melanielynskey', imdb: 'https://www.imdb.com/name/nm0528511/', wikipedia: 'https://en.wikipedia.org/wiki/Melanie_Lynskey' },
+    faqs: [
+      { question: 'What is Melanie Lynskey best known for?', answer: 'Melanie Lynskey is known for her roles in Yellowjackets, The Last of Us, and her film debut in Heavenly Creatures (1994).' },
+      { question: 'What was Melanie Lynskey\'s first film?', answer: 'Her first film was Peter Jackson\'s Heavenly Creatures (1994), where she starred alongside Kate Winslet at age sixteen.' },
+      { question: 'Is Melanie Lynskey in Yellowjackets?', answer: 'Yes, she plays adult Shauna in the Showtime series Yellowjackets (2021-present), which earned her a Critics\' Choice Award.' }
+    ],
+    tags: ['dramatic-actress', 'character-actor']
+  },
+  {
+    slug: 'storm-reid',
+    name: 'Storm Reid',
+    bio: 'Storm Reid is an American actress born on July 1, 2003, in Atlanta, Georgia. She began acting at age three and quickly landed film and television roles, appearing in the critically acclaimed drama 12 Years a Slave (2013) at just nine years old.\n\nReid is recognized for her role as Riley Abel, Ellie\'s best friend in a pivotal flashback episode, in the HBO series The Last of Us (2023-present). Her emotionally charged performance in the episode "Left Behind" was widely praised for its sensitivity and depth, adding important context to Ellie\'s character.\n\nBeyond The Last of Us, Reid starred as Meg Murry in Ava DuVernay\'s A Wrinkle in Time (2018), appeared in Don\'t Let Go (2019), The Invisible Man (2020), and The Suicide Squad (2021). She also played Gia Bennett in the second season of HBO\'s Euphoria (2022). Reid has established herself as one of Hollywood\'s most talented young actresses and is a student at the University of Southern California.',
+    birthDate: '2003-07-01',
+    birthPlace: 'Atlanta, Georgia, USA',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Storm_Reid_by_Gage_Skidmore.jpg/440px-Storm_Reid_by_Gage_Skidmore.jpg', alt: 'Storm Reid at an event', attribution: 'Gage Skidmore, CC BY-SA 3.0, via Wikimedia Commons', width: 440, height: 600 },
+    knownFor: [{ characterSlug: 'riley-abel', characterName: 'Riley Abel', showSlug: 'the-last-of-us', showTitle: 'The Last of Us', years: '2023' }],
+    otherNotableRoles: ['Meg Murry in A Wrinkle in Time (2018)', 'Gia Bennett in Euphoria (2022)', 'Sydney in The Invisible Man (2020)', 'Emily in 12 Years a Slave (2013)'],
+    awards: ['NAACP Image Award for Outstanding Breakthrough Performance in a Motion Picture (A Wrinkle in Time)', 'BET YoungStars Award'],
+    socialLinks: { instagram: 'https://www.instagram.com/stormreid/', twitter: 'https://twitter.com/stabordelern', imdb: 'https://www.imdb.com/name/nm4698008/', wikipedia: 'https://en.wikipedia.org/wiki/Storm_Reid' },
+    faqs: [
+      { question: 'What is Storm Reid best known for?', answer: 'Storm Reid is best known for playing Riley Abel in The Last of Us and Meg Murry in A Wrinkle in Time (2018).' },
+      { question: 'Was Storm Reid in 12 Years a Slave?', answer: 'Yes, she appeared in 12 Years a Slave (2013) at just nine years old, in one of her earliest film roles.' },
+      { question: 'Is Storm Reid in Euphoria?', answer: 'Yes, she played Gia Bennett, Rue\'s younger sister, in the HBO series Euphoria.' }
+    ],
+    tags: ['young-actor', 'dramatic-actress']
+  }
+];
+
+module.exports = { actors };
