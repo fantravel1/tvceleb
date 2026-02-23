@@ -1,0 +1,12 @@
+{
+  "name": "tvceleb",
+  "version": "1.0.0",
+  "description": "TVCeleb.com - The Global TV Character & Fan Ecosystem Directory",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js --watch"
+  },
+  "keywords": ["tv", "characters", "fandom", "fan ecosystem"],
+  "author": "TVCeleb",
+  "license": "ISC"
+}
