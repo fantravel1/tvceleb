@@ -1506,6 +1506,35 @@ function buildSearchIndex() {
     });
   });
 
+  // Add genres to search index
+  const searchGenres = [...new Set(shows.flatMap(s => s.genre))];
+  searchGenres.forEach(g => {
+    const genreShows = shows.filter(s => s.genre.includes(g));
+    index.push({
+      type: 'genre', name: g, url: `/genres/${getGenreSlug(g)}/`,
+      tags: [g], description: `${genreShows.length} shows in ${g}: ${genreShows.map(s => s.title).join(', ')}`
+    });
+  });
+
+  // Add networks to search index
+  const searchNetworks = [...new Set(shows.map(s => s.network))];
+  searchNetworks.forEach(n => {
+    const networkShows = shows.filter(s => s.network === n);
+    index.push({
+      type: 'network', name: n, url: `/networks/${getNetworkSlug(n)}/`,
+      tags: [n], description: `${networkShows.length} shows on ${n}: ${networkShows.map(s => s.title).join(', ')}`
+    });
+  });
+
+  // Add curated lists to search index
+  const searchLists = getCuratedLists();
+  searchLists.forEach(l => {
+    index.push({
+      type: 'list', name: l.title, url: `/lists/${l.slug}/`,
+      tags: ['list', 'curated'], description: l.description
+    });
+  });
+
   writeFile(path.join(OUT_DIR, 'search-index.json'), JSON.stringify(index));
 }
 

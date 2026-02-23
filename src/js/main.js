@@ -118,46 +118,41 @@
     if (!searchIndex || !searchResults) return;
 
     var q = query.toLowerCase();
-    var results = { shows: [], characters: [], actors: [] };
+    var results = { shows: [], characters: [], actors: [], genres: [], networks: [], lists: [] };
 
+    var typeMap = { show: 'shows', character: 'characters', actor: 'actors', genre: 'genres', network: 'networks', list: 'lists' };
     searchIndex.forEach(function(item) {
-      var searchText = (item.name + ' ' + (item.show || '') + ' ' + (item.tags || []).join(' ')).toLowerCase();
+      var searchText = (item.name + ' ' + (item.show || '') + ' ' + (item.tags || []).join(' ') + ' ' + (item.description || '')).toLowerCase();
       if (searchText.indexOf(q) !== -1) {
-        if (item.type === 'show') results.shows.push(item);
-        else if (item.type === 'character') results.characters.push(item);
-        else if (item.type === 'actor') results.actors.push(item);
+        var bucket = typeMap[item.type];
+        if (bucket && results[bucket]) results[bucket].push(item);
       }
     });
 
-    var total = results.shows.length + results.characters.length + results.actors.length;
+    var total = results.shows.length + results.characters.length + results.actors.length + results.genres.length + results.networks.length + results.lists.length;
     var html = '<p class="search-results-count">' + total + ' result' + (total !== 1 ? 's' : '') + ' for "' + escapeHtml(query) + '"</p>';
 
-    if (results.characters.length > 0) {
-      html += '<div class="search-result-group"><h2>Characters (' + results.characters.length + ')</h2><div class="card-grid">';
-      results.characters.forEach(function(item) {
-        html += renderSearchCard(item);
-      });
-      html += '</div></div>';
-    }
+    var sections = [
+      { key: 'characters', label: 'Characters' },
+      { key: 'shows', label: 'Shows' },
+      { key: 'actors', label: 'Actors' },
+      { key: 'genres', label: 'Genres' },
+      { key: 'networks', label: 'Networks' },
+      { key: 'lists', label: 'Lists' }
+    ];
 
-    if (results.shows.length > 0) {
-      html += '<div class="search-result-group"><h2>Shows (' + results.shows.length + ')</h2><div class="card-grid">';
-      results.shows.forEach(function(item) {
-        html += renderSearchCard(item);
-      });
-      html += '</div></div>';
-    }
-
-    if (results.actors.length > 0) {
-      html += '<div class="search-result-group"><h2>Actors (' + results.actors.length + ')</h2><div class="card-grid">';
-      results.actors.forEach(function(item) {
-        html += renderSearchCard(item);
-      });
-      html += '</div></div>';
-    }
+    sections.forEach(function(section) {
+      if (results[section.key].length > 0) {
+        html += '<div class="search-result-group"><h2>' + section.label + ' (' + results[section.key].length + ')</h2><div class="card-grid">';
+        results[section.key].forEach(function(item) {
+          html += renderSearchCard(item);
+        });
+        html += '</div></div>';
+      }
+    });
 
     if (total === 0) {
-      html += '<div style="text-align:center;padding:3rem 0;"><p style="font-size:1.25rem;color:var(--color-text-secondary);">No results found for "' + escapeHtml(query) + '"</p><p style="color:var(--color-text-muted);margin-top:0.5rem;">Try searching for a character name, show title, or actor.</p></div>';
+      html += '<div style="text-align:center;padding:3rem 0;"><p style="font-size:1.25rem;color:var(--color-text-secondary);">No results found for "' + escapeHtml(query) + '"</p><p style="color:var(--color-text-muted);margin-top:0.5rem;">Try searching for a character name, show title, actor, genre, or network.</p></div>';
     }
 
     searchResults.innerHTML = html;
