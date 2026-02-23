@@ -11,7 +11,13 @@ const path = require('path');
 const { shows } = require('./data/shows');
 let characters, actors;
 try { characters = require('./data/characters').characters; } catch(e) { characters = []; console.warn('Warning: characters.js not found yet'); }
-try { actors = require('./data/actors').actors; } catch(e) { actors = []; console.warn('Warning: actors.js not found yet'); }
+// Try combined actors first, fall back to original
+try { actors = require('./data/actors-combined').actors; } catch(e) {
+  try { actors = require('./data/actors').actors; } catch(e2) { actors = []; console.warn('Warning: actors.js not found yet'); }
+}
+// Load quotes and trivia if available
+let quotesData = {};
+try { quotesData = require('./data/quotes').quotes; } catch(e) { /* optional */ }
 
 const SITE_URL = 'https://tvceleb.com';
 const SITE_NAME = 'TVCeleb.com';
@@ -100,6 +106,9 @@ function headerHtml() {
 <a href="/shows/" class="nav-link">Shows</a>
 <a href="/characters/" class="nav-link">Characters</a>
 <a href="/actors/" class="nav-link">Actors</a>
+<a href="/genres/" class="nav-link">Genres</a>
+<a href="/networks/" class="nav-link">Networks</a>
+<a href="/lists/" class="nav-link">Lists</a>
 <a href="/search/" class="nav-link nav-search-btn" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></a>
 </nav>
 <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
@@ -112,6 +121,9 @@ function headerHtml() {
 <a href="/shows/" class="mobile-nav-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>Shows</a>
 <a href="/characters/" class="mobile-nav-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Characters</a>
 <a href="/actors/" class="mobile-nav-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>Actors</a>
+<a href="/genres/" class="mobile-nav-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0118 0"/><path d="M4 11a9 9 0 0018 0"/><circle cx="13" cy="11" r="3"/></svg>Genres</a>
+<a href="/networks/" class="mobile-nav-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Networks</a>
+<a href="/lists/" class="mobile-nav-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>Lists</a>
 <a href="/search/" class="mobile-nav-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Search</a>
 </nav>`;
 }
@@ -138,6 +150,9 @@ ${shows.slice(0, 5).map(s => `<a href="/shows/${s.slug}/">${escapeHtml(s.title)}
 <a href="/shows/">All Shows</a>
 <a href="/characters/">All Characters</a>
 <a href="/actors/">All Actors</a>
+<a href="/genres/">Browse by Genre</a>
+<a href="/networks/">Browse by Network</a>
+<a href="/lists/">Curated Lists</a>
 <a href="/search/">Search</a>
 </div>
 </nav>
@@ -763,6 +778,8 @@ ${relatedChars.map(ch => characterCard(ch)).join('\n')}
 </div>
 </section>` : ''}
 
+${quotesSection(character)}
+
 ${faqSectionHtml(character.faqs)}
 
 ${character.image?.attribution ? `<aside class="content-section" style="padding-top:var(--space-4);"><p style="font-size:var(--text-xs);color:var(--color-text-muted);">Photo: ${escapeHtml(character.image.attribution)}</p></aside>` : ''}
@@ -949,6 +966,518 @@ function build404Page() {
   }));
 }
 
+// ========== GENRE PAGES ==========
+
+function getGenreSlug(genre) {
+  return genre.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
+function getGenreDescription(genre) {
+  const descriptions = {
+    'Drama': 'Explore the most compelling TV dramas featuring complex characters, intricate storylines, and powerful performances that define the golden age of television.',
+    'Comedy': 'Discover the funniest TV comedies that have made audiences laugh for decades, from workplace sitcoms to heartfelt comedic gems.',
+    'Crime': 'Dive into the world of TV crime dramas featuring antiheroes, mob bosses, and the thin line between law and lawlessness.',
+    'Thriller': 'Experience the most gripping TV thrillers that keep you on the edge of your seat with suspense, twists, and high stakes.',
+    'Sci-Fi': 'Explore sci-fi TV series that push the boundaries of imagination with parallel dimensions, space travel, and futuristic technology.',
+    'Fantasy': 'Enter the world of fantasy TV shows featuring epic battles, mythical creatures, and richly imagined worlds.',
+    'Romance': 'Discover the most captivating TV romances that have captured hearts worldwide, from period dramas to modern love stories.',
+    'Horror': 'Explore the scariest TV horror series featuring supernatural creatures, psychological terror, and spine-chilling mysteries.',
+    'Action': 'Discover action-packed TV series featuring epic battles, daring adventures, and thrilling stunts.',
+    'Adventure': 'Explore TV adventures that take viewers on incredible journeys across galaxies, kingdoms, and uncharted territories.',
+    'Satire': 'Discover TV satires that use sharp wit and dark humor to comment on power, wealth, and modern society.',
+    'Sports': 'Explore TV shows centered on sports, teamwork, and the spirit of competition.',
+    'Survival': 'Discover intense survival TV dramas where characters must fight for their lives against impossible odds.',
+    'Western': 'Explore modern and classic TV westerns featuring rugged landscapes, family dynasties, and frontier justice.',
+    'Period Drama': 'Step back in time with TV period dramas featuring lavish costumes, historical settings, and timeless stories.',
+    'Biography': 'Discover TV biographical dramas that bring real historical figures and events to vivid life on screen.',
+    'Teen': 'Explore teen TV dramas that capture the intensity of adolescence, identity, and growing up in the modern world.',
+    'Mockumentary': 'Discover TV mockumentaries that blend documentary-style filmmaking with scripted comedy for uniquely hilarious results.',
+    'Post-Apocalyptic': 'Explore post-apocalyptic TV series set in worlds devastated by catastrophe, where survival is the only goal.',
+  };
+  return descriptions[genre] || `Explore the best ${genre} TV shows, characters, and fan communities on TVCeleb.com.`;
+}
+
+function buildGenresDirectory() {
+  console.log('Building: Genres Directory');
+  const allGenres = [...new Set(shows.flatMap(s => s.genre))].sort();
+  const bc = [{ label: 'Home', url: '/' }, { label: 'Genres' }];
+
+  const content = `<section class="section">
+<div class="container">
+<div class="section-header">
+<h1 class="section-title">Browse by Genre</h1>
+<p class="section-subtitle">Explore ${allGenres.length} TV genres and discover shows, characters, and fan communities</p>
+</div>
+<div class="card-grid">
+${allGenres.map(genre => {
+  const genreShows = shows.filter(s => s.genre.includes(genre));
+  const genreChars = characters.filter(c => {
+    const show = getShow(c.showSlug);
+    return show && show.genre.includes(genre);
+  });
+  return `<a href="/genres/${getGenreSlug(genre)}/" class="card">
+<div class="card-body">
+<h3 class="card-title">${escapeHtml(genre)}</h3>
+<p class="card-subtitle">${genreShows.length} Show${genreShows.length !== 1 ? 's' : ''} &middot; ${genreChars.length} Characters</p>
+<p class="card-description">${escapeHtml(getGenreDescription(genre).substring(0, 120))}...</p>
+</div>
+</a>`;
+}).join('\n')}
+</div>
+</div>
+</section>`;
+
+  const genreFaqs = [
+    { question: 'What TV genres does TVCeleb.com cover?', answer: `TVCeleb.com covers ${allGenres.length} genres including ${allGenres.slice(0, 5).join(', ')}, and more. Each genre page features all shows and characters within that genre.` },
+    { question: 'How are TV shows categorized by genre?', answer: 'TV shows on TVCeleb.com can belong to multiple genres. For example, a show might be both Drama and Crime. We tag each show with all applicable genres to help you discover new favorites.' },
+  ];
+
+  const jsonLd = [jsonLdBreadcrumbs(bc)];
+  const faqLd = jsonLdFaqPage(genreFaqs);
+  if (faqLd) jsonLd.push(faqLd);
+
+  writeFile(path.join(OUT_DIR, 'genres', 'index.html'), layout({
+    title: 'TV Genres - Browse Shows by Genre',
+    description: `Browse ${allGenres.length} TV genres on TVCeleb.com. Explore drama, comedy, thriller, sci-fi, and more with full character and fan ecosystem coverage.`,
+    canonical: SITE_URL + '/genres/',
+    breadcrumbsHtml: breadcrumbsComponent(bc),
+    jsonLd,
+    content: content + faqSectionHtml(genreFaqs)
+  }));
+}
+
+function buildGenrePage(genre) {
+  const slug = getGenreSlug(genre);
+  console.log(`Building: Genre - ${genre}`);
+  const genreShows = shows.filter(s => s.genre.includes(genre));
+  const genreChars = characters.filter(c => {
+    const show = getShow(c.showSlug);
+    return show && show.genre.includes(genre);
+  }).sort((a, b) => (b.fanHeatIndex?.overall || 0) - (a.fanHeatIndex?.overall || 0));
+
+  const bc = [{ label: 'Home', url: '/' }, { label: 'Genres', url: '/genres/' }, { label: genre }];
+
+  const faqs = [
+    { question: `What are the best ${genre} TV shows?`, answer: `TVCeleb.com covers ${genreShows.length} ${genre} shows including ${genreShows.slice(0, 3).map(s => s.title).join(', ')}${genreShows.length > 3 ? ' and more' : ''}. Each show page features detailed character profiles and fan ecosystem mapping.` },
+    { question: `How many ${genre} characters are on TVCeleb.com?`, answer: `There are currently ${genreChars.length} characters from ${genre} TV shows on TVCeleb.com, each with detailed character arcs, fan community links, and Fan Heat Index scores.` },
+  ];
+
+  const content = `
+<section class="page-hero">
+<div class="container">
+<div class="page-hero-content" style="align-items:center;">
+<div class="page-hero-info" style="flex:1;">
+<h1>${escapeHtml(genre)} TV Shows &amp; Characters</h1>
+<p class="hero-description">${escapeHtml(getGenreDescription(genre))}</p>
+<div class="hero-stats" style="margin-top:var(--space-4);">
+<div class="hero-stat"><div class="hero-stat-number">${genreShows.length}</div><div class="hero-stat-label">Shows</div></div>
+<div class="hero-stat"><div class="hero-stat-number">${genreChars.length}</div><div class="hero-stat-label">Characters</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="container">
+<section class="content-section" id="shows" aria-labelledby="genre-shows-heading">
+<h2 id="genre-shows-heading">${escapeHtml(genre)} Shows (${genreShows.length})</h2>
+<div class="card-grid">
+${genreShows.map(s => showCard(s)).join('\n')}
+</div>
+</section>
+
+${genreChars.length > 0 ? `<section class="content-section" id="characters" aria-labelledby="genre-chars-heading">
+<h2 id="genre-chars-heading">Top ${escapeHtml(genre)} Characters (${genreChars.length})</h2>
+<div class="card-grid">
+${genreChars.slice(0, 24).map(ch => characterCard(ch)).join('\n')}
+</div>
+</section>` : ''}
+
+${faqSectionHtml(faqs)}
+</div>`;
+
+  const jsonLd = [jsonLdBreadcrumbs(bc)];
+  const faqLd = jsonLdFaqPage(faqs);
+  if (faqLd) jsonLd.push(faqLd);
+
+  writeFile(path.join(OUT_DIR, 'genres', slug, 'index.html'), layout({
+    title: `${genre} TV Shows - Best ${genre} Series & Characters`,
+    description: `Explore ${genreShows.length} ${genre} TV shows and ${genreChars.length} characters on TVCeleb.com. ${getGenreDescription(genre).substring(0, 100)}`,
+    canonical: `${SITE_URL}/genres/${slug}/`,
+    breadcrumbsHtml: breadcrumbsComponent(bc),
+    jsonLd,
+    content
+  }));
+}
+
+// ========== NETWORK PAGES ==========
+
+function getNetworkSlug(network) {
+  return network.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
+function getNetworkDescription(network) {
+  const descriptions = {
+    'HBO': 'Home Box Office is the premium cable network behind some of the most acclaimed series in television history, from The Sopranos to Game of Thrones.',
+    'Netflix': 'Netflix is the world\'s leading streaming entertainment service with original series that have redefined global television.',
+    'NBC': 'NBC is one of the oldest American television networks, home to iconic comedies and dramas that have shaped popular culture.',
+    'AMC': 'AMC Networks is known for groundbreaking dramas that have pushed the boundaries of television storytelling.',
+    'FX': 'FX Networks is known for bold, critically acclaimed original programming that consistently pushes creative boundaries.',
+    'BBC': 'The BBC is the world\'s oldest and largest national broadcaster, producing iconic British television for global audiences.',
+    'Disney+': 'Disney+ is the streaming home for content from Disney, Pixar, Marvel, Star Wars, and National Geographic.',
+    'Apple TV+': 'Apple TV+ features critically acclaimed original series and films from the world\'s most creative storytellers.',
+    'Paramount Network': 'Paramount Network is known for programming that captures the spirit of American storytelling and the modern West.',
+    'CBC/Pop TV': 'CBC (Canadian Broadcasting Corporation) and Pop TV bring Canadian content and sleeper hits to audiences worldwide.',
+  };
+  return descriptions[network] || `Explore TV shows from ${network} and their characters, fan communities, and ecosystems.`;
+}
+
+function buildNetworksDirectory() {
+  console.log('Building: Networks Directory');
+  const allNetworks = [...new Set(shows.map(s => s.network))].sort();
+  const bc = [{ label: 'Home', url: '/' }, { label: 'Networks' }];
+
+  const content = `<section class="section">
+<div class="container">
+<div class="section-header">
+<h1 class="section-title">Browse by Network</h1>
+<p class="section-subtitle">Explore TV shows organized by network and streaming platform</p>
+</div>
+<div class="card-grid">
+${allNetworks.map(network => {
+  const networkShows = shows.filter(s => s.network === network);
+  return `<a href="/networks/${getNetworkSlug(network)}/" class="card">
+<div class="card-body">
+<h3 class="card-title">${escapeHtml(network)}</h3>
+<p class="card-subtitle">${networkShows.length} Show${networkShows.length !== 1 ? 's' : ''}</p>
+<p class="card-description">${escapeHtml(getNetworkDescription(network).substring(0, 120))}...</p>
+<div class="card-meta" style="margin-top:var(--space-3);">
+${networkShows.slice(0, 3).map(s => `<span class="tag">${escapeHtml(s.title)}</span>`).join('')}
+</div>
+</div>
+</a>`;
+}).join('\n')}
+</div>
+</div>
+</section>`;
+
+  writeFile(path.join(OUT_DIR, 'networks', 'index.html'), layout({
+    title: 'TV Networks - Browse Shows by Network & Platform',
+    description: `Browse TV shows by network on TVCeleb.com. Explore series from HBO, Netflix, NBC, AMC, and more with full character and fan ecosystem coverage.`,
+    canonical: SITE_URL + '/networks/',
+    breadcrumbsHtml: breadcrumbsComponent(bc),
+    jsonLd: [jsonLdBreadcrumbs(bc)],
+    content
+  }));
+}
+
+function buildNetworkPage(network) {
+  const slug = getNetworkSlug(network);
+  console.log(`Building: Network - ${network}`);
+  const networkShows = shows.filter(s => s.network === network);
+  const networkChars = characters.filter(c => {
+    const show = getShow(c.showSlug);
+    return show && show.network === network;
+  }).sort((a, b) => (b.fanHeatIndex?.overall || 0) - (a.fanHeatIndex?.overall || 0));
+
+  const bc = [{ label: 'Home', url: '/' }, { label: 'Networks', url: '/networks/' }, { label: network }];
+
+  const faqs = [
+    { question: `What shows does ${network} have on TVCeleb.com?`, answer: `TVCeleb.com covers ${networkShows.length} ${network} shows: ${networkShows.map(s => s.title).join(', ')}. Each show page features detailed character profiles and fan ecosystem mapping.` },
+    { question: `How many characters from ${network} shows are featured?`, answer: `There are ${networkChars.length} characters from ${network} shows on TVCeleb.com, each with Fan Heat Index scores, character arcs, and fan community links.` },
+  ];
+
+  const content = `
+<section class="page-hero">
+<div class="container">
+<div class="page-hero-content" style="align-items:center;">
+<div class="page-hero-info" style="flex:1;">
+<h1>${escapeHtml(network)} TV Shows</h1>
+<p class="hero-description">${escapeHtml(getNetworkDescription(network))}</p>
+<div class="hero-stats" style="margin-top:var(--space-4);">
+<div class="hero-stat"><div class="hero-stat-number">${networkShows.length}</div><div class="hero-stat-label">Shows</div></div>
+<div class="hero-stat"><div class="hero-stat-number">${networkChars.length}</div><div class="hero-stat-label">Characters</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="container">
+<section class="content-section" id="shows" aria-labelledby="network-shows-heading">
+<h2 id="network-shows-heading">${escapeHtml(network)} Shows (${networkShows.length})</h2>
+<div class="card-grid">
+${networkShows.map(s => showCard(s)).join('\n')}
+</div>
+</section>
+
+${networkChars.length > 0 ? `<section class="content-section" id="characters" aria-labelledby="network-chars-heading">
+<h2 id="network-chars-heading">Top ${escapeHtml(network)} Characters</h2>
+<div class="leaderboard">
+${networkChars.slice(0, 15).map((ch, i) => `<a href="/characters/${ch.slug}/" class="leaderboard-item">
+<span class="leaderboard-rank ${i < 3 ? 'top-3' : ''}">${i + 1}</span>
+<div class="leaderboard-info"><span class="leaderboard-name">${escapeHtml(ch.name)}</span><span class="leaderboard-show">${escapeHtml(ch.showTitle)}</span></div>
+<div class="leaderboard-score">${fanHeatBadge(ch.fanHeatIndex?.overall || 0)}</div>
+</a>`).join('\n')}
+</div>
+</section>` : ''}
+
+${faqSectionHtml(faqs)}
+</div>`;
+
+  const jsonLd = [jsonLdBreadcrumbs(bc)];
+  const faqLd = jsonLdFaqPage(faqs);
+  if (faqLd) jsonLd.push(faqLd);
+
+  writeFile(path.join(OUT_DIR, 'networks', slug, 'index.html'), layout({
+    title: `${network} TV Shows - Characters & Fan Communities`,
+    description: `Explore ${networkShows.length} ${network} TV shows and ${networkChars.length} characters on TVCeleb.com. ${getNetworkDescription(network).substring(0, 100)}`,
+    canonical: `${SITE_URL}/networks/${slug}/`,
+    breadcrumbsHtml: breadcrumbsComponent(bc),
+    jsonLd,
+    content
+  }));
+}
+
+// ========== CURATED LIST PAGES ==========
+
+function getCuratedLists() {
+  return [
+    {
+      slug: 'greatest-tv-villains',
+      title: 'Greatest TV Villains of All Time',
+      description: 'The most iconic, terrifying, and complex villains in television history. These antagonists elevated their shows and became cultural touchstones.',
+      intro: 'Television has given us some of the most memorable villains in storytelling history. From cunning drug lords to ruthless mob bosses, these characters are defined by their complexity, menace, and the performances that brought them to life.',
+      tags: ['villain', 'antagonist', 'anti-hero'],
+      filterFn: (ch) => {
+        const villainSlugs = ['gus-fring', 'cersei-lannister', 'nate-jacobs', 'jang-deok-su', 'moff-gideon', 'the-front-man', 'tony-soprano', 'thomas-shelby', 'logan-roy'];
+        return villainSlugs.includes(ch.slug);
+      },
+      faqs: [
+        { question: 'Who is the greatest TV villain of all time?', answer: 'While opinions vary, characters like Gus Fring from Breaking Bad, Cersei Lannister from Game of Thrones, and Tony Soprano from The Sopranos consistently rank among the greatest TV villains ever. Their complexity and memorable performances set the standard for television antagonists.' },
+        { question: 'What makes a great TV villain?', answer: 'The best TV villains are complex characters with clear motivations, compelling backstories, and nuanced performances. They challenge the protagonist in meaningful ways and often blur the line between hero and villain, making viewers question their own moral compass.' },
+      ]
+    },
+    {
+      slug: 'most-iconic-tv-duos',
+      title: 'Most Iconic TV Duos & Partnerships',
+      description: 'The greatest partnerships in TV history - from crime partners to unlikely friendships, these duos defined their shows.',
+      intro: 'Some of television\'s greatest moments come from the chemistry between two characters. These iconic duos have captivated audiences with their dynamic relationships, whether built on friendship, rivalry, or something more complex.',
+      tags: ['duo', 'partnership', 'chemistry'],
+      customEntries: [
+        { name: 'Walter White & Jesse Pinkman', show: 'Breaking Bad', slugs: ['walter-white', 'jesse-pinkman'], description: 'The teacher-student meth partnership that became TV\'s most complex relationship.' },
+        { name: 'Joel & Ellie', show: 'The Last of Us', slugs: ['joel-miller', 'ellie-williams'], description: 'A surrogate father-daughter bond forged in a post-apocalyptic world.' },
+        { name: 'Din Djarin & Grogu', show: 'The Mandalorian', slugs: ['din-djarin', 'grogu'], description: 'The bounty hunter and Baby Yoda became the galaxy\'s most beloved duo.' },
+        { name: 'Ross & Rachel', show: 'Friends', slugs: ['ross-geller', 'rachel-green'], description: 'TV\'s most famous will-they-won\'t-they romance spanning 10 seasons.' },
+        { name: 'David & Patrick', show: "Schitt's Creek", slugs: ['david-rose', 'patrick-brewer'], description: 'A love story that became one of TV\'s most celebrated LGBTQ+ romances.' },
+        { name: 'Ted & Rebecca', show: 'Ted Lasso', slugs: ['ted-lasso-character', 'rebecca-welton'], description: 'An unlikely friendship built on mutual respect that transformed AFC Richmond.' },
+        { name: 'Carmy & Sydney', show: 'The Bear', slugs: ['carmy-berzatto', 'sydney-adamu'], description: 'Chef partners pushing each other toward culinary greatness and personal growth.' },
+        { name: 'Tony & Dr. Melfi', show: 'The Sopranos', slugs: ['tony-soprano', 'jennifer-melfi'], description: 'The groundbreaking therapist-patient dynamic that anchored prestige TV.' },
+      ],
+      faqs: [
+        { question: 'What are the most iconic TV duos?', answer: 'Some of the most iconic TV duos include Walter White & Jesse Pinkman (Breaking Bad), Joel & Ellie (The Last of Us), Ross & Rachel (Friends), and Din Djarin & Grogu (The Mandalorian). These partnerships defined their respective shows.' },
+        { question: 'Why are TV duos so popular?', answer: 'TV duos resonate because they represent fundamental human relationships - mentorship, friendship, romance, and rivalry. The dynamic between two characters creates tension, humor, and emotional depth that single characters can\'t achieve alone.' },
+      ]
+    },
+    {
+      slug: 'best-character-arcs',
+      title: 'Best Character Arcs in TV History',
+      description: 'Characters who underwent the most dramatic and compelling transformations in television history.',
+      intro: 'The greatest character arcs in television take familiar characters and transform them in ways that are surprising yet inevitable. These characters evolved, devolved, or revolutionized themselves across their series, creating some of the most memorable journeys in TV history.',
+      tags: ['character-arc', 'transformation', 'development'],
+      filterFn: (ch) => {
+        const arcSlugs = ['walter-white', 'jesse-pinkman', 'jamie-tartt', 'nate-shelley', 'jaime-lannister', 'steve-harrington', 'ruth-langmore', 'david-rose', 'kendall-roy', 'thomas-shelby', 'daenerys-targaryen', 'beth-dutton'];
+        return arcSlugs.includes(ch.slug);
+      },
+      faqs: [
+        { question: 'What is the best character arc in TV history?', answer: 'Walter White\'s transformation from mild-mannered chemistry teacher to ruthless drug lord Heisenberg in Breaking Bad is widely considered the greatest character arc in TV history. Other standout arcs include Jaime Lannister in Game of Thrones, Jamie Tartt in Ted Lasso, and Jesse Pinkman in Breaking Bad.' },
+        { question: 'What makes a great character arc?', answer: 'A great character arc involves meaningful, believable change driven by the character\'s experiences and choices. The best arcs feel both surprising and inevitable, with each step of the transformation feeling earned and organic to the story.' },
+      ]
+    },
+    {
+      slug: 'fan-favorite-characters',
+      title: 'Fan Favorite Characters - Highest Fan Heat Index',
+      description: 'The characters with the most passionate fan followings, measured by our Fan Heat Index scoring system.',
+      intro: 'The Fan Heat Index measures fandom activity across engagement, social media presence, meme velocity, fan art density, and fandom longevity. These characters have the most passionate, active, and creative fan communities in all of television.',
+      tags: ['fan-favorite', 'popular', 'trending'],
+      filterFn: (ch) => (ch.fanHeatIndex?.overall || 0) >= 88,
+      faqs: [
+        { question: 'What is the Fan Heat Index?', answer: 'The Fan Heat Index is TVCeleb.com\'s scoring system that measures a character\'s fandom activity on a scale of 0-100. It combines five sub-scores: engagement, social activity, meme velocity, fan art density, and fandom longevity.' },
+        { question: 'Which TV character has the highest Fan Heat Index?', answer: 'Characters like Grogu (Baby Yoda) from The Mandalorian, Tony Soprano from The Sopranos, and Thomas Shelby from Peaky Blinders consistently rank among the highest Fan Heat scores due to their massive, active fan communities.' },
+      ]
+    },
+    {
+      slug: 'best-tv-antiheroes',
+      title: 'Greatest TV Antiheroes',
+      description: 'The morally complex protagonists who blurred the line between hero and villain, redefining television storytelling.',
+      intro: 'The antihero revolution changed television forever. These morally ambiguous protagonists made audiences root for characters who lie, cheat, steal, and worse. Their complexity redefined what a TV lead could be.',
+      tags: ['anti-hero', 'complex', 'morally-ambiguous'],
+      filterFn: (ch) => {
+        const antiHeroSlugs = ['walter-white', 'tony-soprano', 'thomas-shelby', 'marty-byrde', 'wendy-byrde', 'ruth-langmore', 'beth-dutton', 'kendall-roy', 'rue-bennett', 'seong-gi-hun'];
+        return antiHeroSlugs.includes(ch.slug);
+      },
+      faqs: [
+        { question: 'Who is the greatest TV antihero?', answer: 'Tony Soprano is often credited as the original TV antihero who launched the Golden Age of Television. Walter White from Breaking Bad is frequently cited as the greatest antihero arc. Thomas Shelby, Marty Byrde, and Rue Bennett are modern examples of the archetype.' },
+        { question: 'What defines a TV antihero?', answer: 'A TV antihero is a protagonist who lacks conventional heroic qualities. They may be morally ambiguous, self-interested, or outright villainous, yet the show frames them as the central character audiences follow and often root for despite their flaws.' },
+      ]
+    },
+    {
+      slug: 'best-comedy-characters',
+      title: 'Funniest TV Characters of All Time',
+      description: 'The most hilarious TV characters who made us laugh until we cried, from sitcom legends to dark comedy icons.',
+      intro: 'Comedy is subjective, but these characters have proven their ability to make audiences laugh across generations. From Michael Scott\'s cringe-worthy antics to Moira Rose\'s theatrical vocabulary, these are the characters who defined TV comedy.',
+      tags: ['comedy', 'funny', 'hilarious'],
+      filterFn: (ch) => {
+        const comedySlugs = ['michael-scott', 'dwight-schrute', 'chandler-bing', 'joey-tribbiani', 'phoebe-buffay', 'moira-rose', 'david-rose', 'ted-lasso-character', 'roy-kent', 'paulie-gualtieri', 'richie-jerimovich', 'alfie-solomons'];
+        return comedySlugs.includes(ch.slug);
+      },
+      faqs: [
+        { question: 'Who is the funniest TV character ever?', answer: 'Characters like Michael Scott (The Office), Chandler Bing (Friends), and Moira Rose (Schitt\'s Creek) are frequently cited as the funniest TV characters of all time. Each brought a unique style of humor that has become iconic.' },
+        { question: 'What makes a TV character funny?', answer: 'The funniest TV characters often combine relatable human flaws with exaggerated personality traits. Great comedic characters work because they are written with consistency, performed with commitment, and placed in situations that naturally generate humor.' },
+      ]
+    },
+  ];
+}
+
+function buildListsDirectory() {
+  console.log('Building: Lists Directory');
+  const lists = getCuratedLists();
+  const bc = [{ label: 'Home', url: '/' }, { label: 'Lists' }];
+
+  const content = `<section class="section">
+<div class="container">
+<div class="section-header">
+<h1 class="section-title">Curated Lists</h1>
+<p class="section-subtitle">Handpicked collections of TV's greatest characters, moments, and achievements</p>
+</div>
+<div class="card-grid">
+${lists.map(list => `<a href="/lists/${list.slug}/" class="card">
+<div class="card-body">
+<h3 class="card-title">${escapeHtml(list.title)}</h3>
+<p class="card-description">${escapeHtml(list.description)}</p>
+</div>
+</a>`).join('\n')}
+</div>
+</div>
+</section>`;
+
+  writeFile(path.join(OUT_DIR, 'lists', 'index.html'), layout({
+    title: 'Curated TV Lists - Best Characters, Duos, Villains & More',
+    description: 'Explore curated lists of the greatest TV characters, iconic duos, best villain, top antiheroes, and more on TVCeleb.com.',
+    canonical: SITE_URL + '/lists/',
+    breadcrumbsHtml: breadcrumbsComponent(bc),
+    jsonLd: [jsonLdBreadcrumbs(bc)],
+    content
+  }));
+}
+
+function buildListPage(list) {
+  console.log(`Building: List - ${list.title}`);
+  const bc = [{ label: 'Home', url: '/' }, { label: 'Lists', url: '/lists/' }, { label: list.title }];
+
+  let listItems = [];
+
+  if (list.filterFn) {
+    listItems = characters.filter(list.filterFn).sort((a, b) => (b.fanHeatIndex?.overall || 0) - (a.fanHeatIndex?.overall || 0));
+  }
+
+  const content = `
+<section class="page-hero">
+<div class="container">
+<div class="page-hero-content" style="align-items:center;">
+<div class="page-hero-info" style="flex:1;">
+<h1>${escapeHtml(list.title)}</h1>
+<p class="hero-description">${escapeHtml(list.intro)}</p>
+</div>
+</div>
+</div>
+</section>
+
+<div class="container">
+${list.customEntries ? `<section class="content-section" id="entries" aria-labelledby="entries-heading">
+<h2 id="entries-heading">The List</h2>
+<div class="leaderboard">
+${list.customEntries.map((entry, i) => {
+  const primaryChar = getCharacter(entry.slugs[0]);
+  return `<div class="leaderboard-item" style="cursor:default;">
+<span class="leaderboard-rank ${i < 3 ? 'top-3' : ''}">${i + 1}</span>
+<div class="leaderboard-info">
+<span class="leaderboard-name">${escapeHtml(entry.name)}</span>
+<span class="leaderboard-show">${escapeHtml(entry.show)}</span>
+<span style="display:block;margin-top:4px;font-size:var(--text-sm);color:var(--color-text-muted);">${escapeHtml(entry.description)}</span>
+</div>
+${primaryChar ? `<div class="leaderboard-score">${fanHeatBadge(primaryChar.fanHeatIndex?.overall || 0)}</div>` : ''}
+</div>`;
+}).join('\n')}
+</div>
+<div class="card-grid" style="margin-top:var(--space-6);">
+${list.customEntries.flatMap(e => e.slugs).map(getCharacter).filter(Boolean).map(ch => characterCard(ch)).join('\n')}
+</div>
+</section>` : ''}
+
+${listItems.length > 0 ? `<section class="content-section" id="rankings" aria-labelledby="rankings-heading">
+<h2 id="rankings-heading">Rankings</h2>
+<div class="leaderboard">
+${listItems.map((ch, i) => `<a href="/characters/${ch.slug}/" class="leaderboard-item">
+<span class="leaderboard-rank ${i < 3 ? 'top-3' : ''}">${i + 1}</span>
+<div class="leaderboard-info"><span class="leaderboard-name">${escapeHtml(ch.name)}</span><span class="leaderboard-show">${escapeHtml(ch.showTitle)}</span></div>
+<div class="leaderboard-score">${fanHeatBadge(ch.fanHeatIndex?.overall || 0)}</div>
+</a>`).join('\n')}
+</div>
+<div class="card-grid" style="margin-top:var(--space-6);">
+${listItems.map(ch => characterCard(ch)).join('\n')}
+</div>
+</section>` : ''}
+
+${faqSectionHtml(list.faqs)}
+</div>`;
+
+  const jsonLd = [jsonLdBreadcrumbs(bc)];
+  const faqLd = jsonLdFaqPage(list.faqs);
+  if (faqLd) jsonLd.push(faqLd);
+
+  writeFile(path.join(OUT_DIR, 'lists', list.slug, 'index.html'), layout({
+    title: `${list.title} - TVCeleb.com`,
+    description: list.description,
+    canonical: `${SITE_URL}/lists/${list.slug}/`,
+    breadcrumbsHtml: breadcrumbsComponent(bc),
+    jsonLd,
+    content
+  }));
+}
+
+// ========== QUOTES & TRIVIA SECTION (added to character pages) ==========
+
+function quotesSection(character) {
+  const charQuotes = quotesData[character.slug];
+  if (!charQuotes || (!charQuotes.quotes?.length && !charQuotes.trivia?.length)) return '';
+
+  let html = '';
+
+  if (charQuotes.quotes && charQuotes.quotes.length > 0) {
+    html += `<section class="content-section" id="quotes" aria-labelledby="quotes-heading">
+<h2 id="quotes-heading">Memorable Quotes</h2>
+<div class="quotes-list">
+${charQuotes.quotes.map(q => `<blockquote class="character-quote">
+<p>"${escapeHtml(q.text)}"</p>
+${q.context ? `<cite>— ${escapeHtml(character.name)}, ${escapeHtml(q.context)}</cite>` : `<cite>— ${escapeHtml(character.name)}</cite>`}
+</blockquote>`).join('\n')}
+</div>
+</section>`;
+  }
+
+  if (charQuotes.trivia && charQuotes.trivia.length > 0) {
+    html += `<section class="content-section" id="trivia" aria-labelledby="trivia-heading">
+<h2 id="trivia-heading">Trivia &amp; Fun Facts</h2>
+<ul class="trivia-list">
+${charQuotes.trivia.map(t => `<li class="trivia-item">${escapeHtml(t)}</li>`).join('\n')}
+</ul>
+</section>`;
+  }
+
+  return html;
+}
+
 function buildSearchIndex() {
   console.log('Building: Search Index');
   const index = [];
@@ -988,11 +1517,26 @@ function buildSitemap() {
     { loc: '/characters/', priority: '0.9', changefreq: 'weekly' },
     { loc: '/actors/', priority: '0.8', changefreq: 'weekly' },
     { loc: '/search/', priority: '0.7', changefreq: 'monthly' },
+    { loc: '/genres/', priority: '0.8', changefreq: 'weekly' },
+    { loc: '/networks/', priority: '0.8', changefreq: 'weekly' },
+    { loc: '/lists/', priority: '0.8', changefreq: 'weekly' },
   ];
 
   shows.forEach(s => urls.push({ loc: `/shows/${s.slug}/`, priority: '0.8', changefreq: 'weekly' }));
   characters.forEach(c => urls.push({ loc: `/characters/${c.slug}/`, priority: '0.8', changefreq: 'weekly' }));
   actors.forEach(a => urls.push({ loc: `/actors/${a.slug}/`, priority: '0.7', changefreq: 'monthly' }));
+
+  // Genre pages
+  const sitemapGenres = [...new Set(shows.flatMap(s => s.genre))];
+  sitemapGenres.forEach(g => urls.push({ loc: `/genres/${getGenreSlug(g)}/`, priority: '0.7', changefreq: 'weekly' }));
+
+  // Network pages
+  const sitemapNetworks = [...new Set(shows.map(s => s.network))];
+  sitemapNetworks.forEach(n => urls.push({ loc: `/networks/${getNetworkSlug(n)}/`, priority: '0.7', changefreq: 'weekly' }));
+
+  // List pages
+  const sitemapLists = getCuratedLists();
+  sitemapLists.forEach(l => urls.push({ loc: `/lists/${l.slug}/`, priority: '0.7', changefreq: 'monthly' }));
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -1056,6 +1600,21 @@ function build() {
   actors.forEach(a => buildActorPage(a));
   buildSearchPage();
   build404Page();
+
+  // Build genre pages
+  buildGenresDirectory();
+  const allGenres = [...new Set(shows.flatMap(s => s.genre))].sort();
+  allGenres.forEach(g => buildGenrePage(g));
+
+  // Build network pages
+  buildNetworksDirectory();
+  const allNetworks = [...new Set(shows.map(s => s.network))].sort();
+  allNetworks.forEach(n => buildNetworkPage(n));
+
+  // Build curated list pages
+  buildListsDirectory();
+  const lists = getCuratedLists();
+  lists.forEach(l => buildListPage(l));
 
   // Build assets
   buildSearchIndex();
