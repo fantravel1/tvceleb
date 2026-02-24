@@ -41,6 +41,7 @@ Allow: /
 
 # Sitemaps
 Sitemap: https://tvceleb.com/sitemap.xml
+Sitemap: https://tvceleb.com/sitemap-images.xml
 
 # Host
 Host: https://tvceleb.com

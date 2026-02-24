@@ -70,7 +70,7 @@ function layout(opts) {
 <meta name="description" content="${escapeHtml(description)}">
 <link rel="canonical" href="${escapeHtml(canonical)}">
 <link rel="alternate" hreflang="en" href="${escapeHtml(canonical)}">
-<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta property="og:title" content="${escapeHtml(fullTitle)}">
 <meta property="og:description" content="${escapeHtml(description)}">
 <meta property="og:url" content="${escapeHtml(canonical)}">
@@ -94,6 +94,7 @@ ${ogImage ? `<meta property="og:image:width" content="440">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/styles.css">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="alternate" type="text/plain" href="${SITE_URL}/llms.txt" title="LLM content">
 ${jsonLd.map(ld => `<script type="application/ld+json">${ld}</script>`).join('\n')}
 </head>
 <body class="${bodyClass}">
@@ -349,6 +350,18 @@ function jsonLdVideo(video, showSlug) {
     "thumbnailUrl": `https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`,
     "embedUrl": `https://www.youtube-nocookie.com/embed/${video.youtubeId}`,
     "uploadDate": uploadDate
+  });
+}
+
+function jsonLdSpeakable(url, cssSelectors) {
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": url,
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": cssSelectors
+    }
   });
 }
 
@@ -695,12 +708,19 @@ ${faqSectionHtml(show.faqs)}
   const faqLd = jsonLdFaqPage(show.faqs);
   if (faqLd) jsonLd.push(faqLd);
   show.videos?.forEach(v => { const vld = jsonLdVideo(v, show.slug); if (vld) jsonLd.push(vld); });
+  jsonLd.push(jsonLdSpeakable(`${SITE_URL}/shows/${show.slug}/`, ['h1', '.character-arc', '.faq-answer']));
+
+  // Use show image if available, otherwise use first character's image
+  const showOgImage = show.image?.src || (showCharacters[0]?.image?.src) || null;
+  const showOgImageAlt = show.image?.alt || (showCharacters[0] ? `${showCharacters[0].actorName} as ${showCharacters[0].name} in ${show.title}` : show.title);
 
   writeFile(path.join(OUT_DIR, 'shows', show.slug, 'index.html'), layout({
     title: `${show.title} - Characters, Fan Ecosystem & Community`,
     description: `Explore ${show.title} (${show.years}) on TVCeleb.com. ${show.synopsisShort} Browse ${(show.characterSlugs || []).length} characters, fan communities, and more.`,
     canonical: `${SITE_URL}/shows/${show.slug}/`,
     ogType: 'video.tv_show',
+    ogImage: showOgImage,
+    ogImageAlt: showOgImageAlt,
     breadcrumbsHtml: breadcrumbsComponent(bc),
     jsonLd,
     content
@@ -842,6 +862,7 @@ ${character.image?.attribution ? `<aside class="content-section" style="padding-
   const faqLd = jsonLdFaqPage(character.faqs);
   if (faqLd) jsonLd.push(faqLd);
   character.videos?.forEach(v => { const vld = jsonLdVideo(v, character.showSlug); if (vld) jsonLd.push(vld); });
+  jsonLd.push(jsonLdSpeakable(`${SITE_URL}/characters/${character.slug}/`, ['h1', '.character-arc', '.faq-answer']));
 
   const descArc = character.characterArc ? character.characterArc.substring(0, 140).replace(/\n/g, ' ') + '...' : '';
 
@@ -970,6 +991,7 @@ ${actor.image?.attribution ? `<aside class="content-section" style="padding-top:
   const jsonLd = [jsonLdActor(actor), jsonLdBreadcrumbs(bc)];
   const faqLd = jsonLdFaqPage(actor.faqs);
   if (faqLd) jsonLd.push(faqLd);
+  jsonLd.push(jsonLdSpeakable(`${SITE_URL}/actors/${actor.slug}/`, ['h1', '.actor-bio', '.faq-answer']));
 
   writeFile(path.join(OUT_DIR, 'actors', actor.slug, 'index.html'), layout({
     title: `${actor.name} - TV Roles, Career & Fan Community`,
@@ -1735,6 +1757,55 @@ ${urls.map(u => `<url><loc>${SITE_URL}${u.loc}</loc><lastmod>${u.lastmod}</lastm
   writeFile(path.join(OUT_DIR, 'sitemap.xml'), xml);
 }
 
+function buildImageSitemap() {
+  console.log('Building: sitemap-images.xml');
+  const entries = [];
+
+  // Character images
+  characters.forEach(c => {
+    if (c.image?.src) {
+      entries.push({
+        loc: `${SITE_URL}/characters/${c.slug}/`,
+        images: [{
+          src: c.image.src.startsWith('http') ? c.image.src : SITE_URL + c.image.src,
+          title: c.image.alt || `${c.name} from ${c.showTitle}`,
+          caption: c.image.credit ? `Photo: ${c.image.credit}` : `${c.actorName} as ${c.name} in ${c.showTitle}`
+        }]
+      });
+    }
+  });
+
+  // Actor images
+  actors.forEach(a => {
+    if (a.image?.src) {
+      entries.push({
+        loc: `${SITE_URL}/actors/${a.slug}/`,
+        images: [{
+          src: a.image.src.startsWith('http') ? a.image.src : SITE_URL + a.image.src,
+          title: a.image.alt || a.name,
+          caption: a.image.credit ? `Photo: ${a.image.credit}` : `${a.name} - actor profile`
+        }]
+      });
+    }
+  });
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${entries.map(e => `<url>
+<loc>${escapeHtml(e.loc)}</loc>
+${e.images.map(img => `<image:image>
+<image:loc>${escapeHtml(img.src)}</image:loc>
+<image:title>${escapeHtml(img.title)}</image:title>
+<image:caption>${escapeHtml(img.caption)}</image:caption>
+</image:image>`).join('\n')}
+</url>`).join('\n')}
+</urlset>`;
+
+  writeFile(path.join(OUT_DIR, 'sitemap-images.xml'), xml);
+  console.log(`  Image sitemap: ${entries.length} pages with images`);
+}
+
 function buildRobotsTxt() {
   console.log('Building: robots.txt');
   writeFile(path.join(OUT_DIR, 'robots.txt'), `# TVCeleb.com Robots.txt
@@ -1780,6 +1851,7 @@ Allow: /
 
 # Sitemaps
 Sitemap: ${SITE_URL}/sitemap.xml
+Sitemap: ${SITE_URL}/sitemap-images.xml
 
 # Host
 Host: ${SITE_URL}
@@ -1823,6 +1895,69 @@ ${showsList}
 For inquiries about TVCeleb.com, visit ${SITE_URL}/about/
 `;
   writeFile(path.join(OUT_DIR, 'llms.txt'), content);
+}
+
+function buildLlmsFullTxt() {
+  console.log('Building: llms-full.txt');
+  const sections = [];
+
+  sections.push(`# TVCeleb.com - Complete Content Index
+
+> TVCeleb.com is the world's largest repository of TV character fan sites, fan social media & aggregated content.
+
+Site statistics: ${shows.length} shows, ${characters.length} characters, ${actors.length} actors.
+
+---`);
+
+  // All shows with full details
+  sections.push(`\n## All TV Shows\n`);
+  shows.forEach(s => {
+    const showChars = (s.characterSlugs || []).map(getCharacter).filter(Boolean);
+    sections.push(`### ${s.title}
+- Network: ${s.network}
+- Years: ${s.years}
+- Seasons: ${s.seasons} | Episodes: ${s.episodes}
+- Status: ${s.status}
+- Genres: ${(s.genre || []).join(', ')}
+- Fan Heat Score: ${s.fanHeatScore}/100
+- Synopsis: ${s.synopsis || s.synopsisShort || ''}
+- Characters: ${showChars.map(c => c.name).join(', ')}
+- URL: ${SITE_URL}/shows/${s.slug}/
+`);
+  });
+
+  // All characters with full details
+  sections.push(`\n## All Characters\n`);
+  characters.forEach(c => {
+    sections.push(`### ${c.name} (${c.showTitle})
+- Played by: ${c.actorName}
+- Seasons: ${c.seasons || 'N/A'}
+- Fan Heat Score: ${c.fanHeatIndex?.overall || 'N/A'}/100
+- Character Arc: ${c.characterArc || ''}
+- URL: ${SITE_URL}/characters/${c.slug}/
+`);
+    if (c.faqs && c.faqs.length > 0) {
+      sections.push(`**FAQs:**`);
+      c.faqs.forEach(faq => {
+        sections.push(`- Q: ${faq.question}\n  A: ${faq.answer}`);
+      });
+      sections.push('');
+    }
+  });
+
+  // All actors with full details
+  sections.push(`\n## All Actors\n`);
+  actors.forEach(a => {
+    const roles = (a.knownFor || []).map(r => `${r.characterName} in ${r.showTitle}`).join(', ');
+    sections.push(`### ${a.name}
+- Known for: ${roles}
+- Bio: ${a.bio || ''}
+- URL: ${SITE_URL}/actors/${a.slug}/
+`);
+  });
+
+  writeFile(path.join(OUT_DIR, 'llms-full.txt'), sections.join('\n'));
+  console.log(`  llms-full.txt: comprehensive content for ${shows.length} shows, ${characters.length} characters, ${actors.length} actors`);
 }
 
 function copyStaticFiles() {
@@ -2113,8 +2248,10 @@ function build() {
   // Build assets
   buildSearchIndex();
   buildSitemap();
+  buildImageSitemap();
   buildRobotsTxt();
   buildLlmsTxt();
+  buildLlmsFullTxt();
 
   // Count output files
   let fileCount = 0;
