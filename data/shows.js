@@ -1,5 +1,5 @@
 // TVCeleb.com - Complete Show Data
-// 20 Iconic Shows Across Genres
+// 38 Iconic Shows Across Genres
 
 const shows = [
   {
@@ -864,6 +864,239 @@ const shows = [
     videos: [
       { title: 'Shogun Official Trailer — FX', youtubeId: '0lMFayjJhJY', description: 'Official trailer for Shogun on FX.' },
       { title: 'Shogun Extended Trailer — FX', youtubeId: 'nRaHiGWdEJQ', description: 'Extended trailer for Shogun on FX featuring key scenes from the series.' }
+    ]
+  }
+  ,
+  {
+    slug: 'dexter',
+    title: 'Dexter',
+    network: 'Showtime',
+    platform: 'Paramount+',
+    genre: ['Drama', 'Crime', 'Thriller'],
+    years: '2006–2013',
+    status: 'Ended',
+    seasons: 8,
+    episodes: 96,
+    creator: 'James Manos Jr.',
+    synopsis: 'Dexter follows Dexter Morgan, a forensic blood spatter analyst for the Miami Metro Police Department who moonlights as a serial killer targeting other murderers. Guided by a moral code instilled by his adoptive father Harry, Dexter channels his dark urges into eliminating criminals who have escaped the justice system. The series explores themes of duality, morality, and the nature of evil as Dexter navigates his double life, maintaining relationships and a family while secretly pursuing his lethal hobby. Over eight seasons, Dexter faces increasingly dangerous adversaries while struggling to understand his own humanity.',
+    synopsisShort: 'A forensic blood spatter analyst leads a secret double life as a serial killer who targets other murderers.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Placeholder.svg/512px-Placeholder.svg.png', alt: 'Dexter logo', attribution: 'Showtime Networks', width: 512, height: 186 },
+    characterSlugs: ['dexter-morgan', 'debra-morgan', 'rita-bennett', 'sergeant-doakes', 'hannah-mckay', 'trinity-killer'],
+    fanHeatScore: 88,
+    tags: ['anti-hero', 'crime', 'serial-killer', 'complete-series', 'critically-acclaimed', 'dark'],
+    relatedShowSlugs: ['breaking-bad', 'the-sopranos', 'homeland', 'true-detective'],
+    faqs: [
+      { question: 'How many seasons does Dexter have?', answer: 'Dexter has 8 seasons with 96 episodes total. The original series aired on Showtime from October 1, 2006 to September 22, 2013. A revival limited series, Dexter: New Blood, aired in 2021-2022.' },
+      { question: 'Where can I watch Dexter?', answer: 'Dexter is available to stream on Paramount+ in the US. It can also be purchased on Amazon Prime Video, Apple TV+, and Google Play.' },
+      { question: 'Is Dexter based on a book?', answer: 'Yes, Dexter is based on the novel Darkly Dreaming Dexter by Jeff Lindsay, published in 2004. The show diverged significantly from the book series after the first season.' },
+      { question: 'What is Dexter: New Blood?', answer: 'Dexter: New Blood is a 10-episode limited series revival that aired in 2021-2022 on Showtime. Set 10 years after the original series finale, it follows Dexter living under an assumed identity in a small town in upstate New York.' }
+    ],
+    videos: [
+      { title: 'Dexter Official Trailer — Showtime', youtubeId: 'YQeUmSD1c3g', description: 'Official trailer for Dexter on Showtime.' },
+      { title: 'Dexter Season 4 Trailer', youtubeId: 'I0p8kkWmm0M', description: 'Trailer for the critically acclaimed fourth season of Dexter featuring the Trinity Killer.' }
+    ]
+  },
+  {
+    slug: 'the-walking-dead',
+    title: 'The Walking Dead',
+    network: 'AMC',
+    platform: 'Netflix',
+    genre: ['Drama', 'Horror', 'Thriller'],
+    years: '2010–2022',
+    status: 'Ended',
+    seasons: 11,
+    episodes: 177,
+    creator: 'Frank Darabont',
+    synopsis: 'The Walking Dead follows sheriff\'s deputy Rick Grimes as he awakens from a coma to discover a world overrun by zombies, known as "walkers." He reunites with his family and a band of survivors, leading them through a post-apocalyptic landscape where the living are often more dangerous than the dead. Over eleven seasons, the series explores the collapse and rebuilding of civilization, examining how ordinary people respond to extraordinary circumstances and what it means to maintain humanity in a world that has lost it. Based on Robert Kirkman\'s comic book series, the show became a cultural phenomenon and one of the most-watched cable television series in history.',
+    synopsisShort: 'Survivors navigate a post-apocalyptic world overrun by zombies, facing threats from both the dead and the living.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Placeholder.svg/512px-Placeholder.svg.png', alt: 'The Walking Dead logo', attribution: 'AMC Networks', width: 512, height: 186 },
+    characterSlugs: ['rick-grimes', 'daryl-dixon', 'michonne-twd', 'negan', 'carol-peletier', 'glenn-rhee'],
+    fanHeatScore: 85,
+    tags: ['horror', 'post-apocalyptic', 'ensemble', 'complete-series', 'comic-adaptation', 'zombies'],
+    relatedShowSlugs: ['stranger-things', 'the-last-of-us', 'game-of-thrones'],
+    faqs: [
+      { question: 'How many seasons does The Walking Dead have?', answer: 'The Walking Dead has 11 seasons with 177 episodes. It aired on AMC from October 31, 2010 to November 20, 2022, making it one of the longest-running horror series on television.' },
+      { question: 'Where can I watch The Walking Dead?', answer: 'The Walking Dead is available on Netflix in many regions. It originally aired on AMC and can also be purchased on Amazon Prime Video, Apple TV+, and Google Play.' },
+      { question: 'Does The Walking Dead have spin-offs?', answer: 'Yes, The Walking Dead has spawned several spin-offs including Fear the Walking Dead (2015-2023), The Walking Dead: World Beyond (2020-2021), The Walking Dead: Dead City (2023-), The Walking Dead: Daryl Dixon (2023-), and The Walking Dead: The Ones Who Live (2024).' },
+      { question: 'Is The Walking Dead based on a comic book?', answer: 'Yes, The Walking Dead is based on the comic book series of the same name by Robert Kirkman, Tony Moore, and Charlie Adlard, published by Image Comics from 2003 to 2019. The show follows the comics but makes significant changes to characters and storylines.' }
+    ],
+    videos: [
+      { title: 'The Walking Dead Official Comic-Con Trailer', youtubeId: 'R1v0uFms68U', description: 'Official Comic-Con trailer for The Walking Dead on AMC.' },
+      { title: 'The Walking Dead Final Season Trailer', youtubeId: 'JqFr-GwNxso', description: 'Official trailer for the final season of The Walking Dead.' }
+    ]
+  },
+  {
+    slug: 'only-murders',
+    title: 'Only Murders in the Building',
+    network: 'Hulu',
+    platform: 'Hulu',
+    genre: ['Comedy', 'Mystery', 'Crime'],
+    years: '2021–present',
+    status: 'Ongoing',
+    seasons: 4,
+    episodes: 42,
+    creator: 'Steve Martin & John Hoffman',
+    synopsis: 'Only Murders in the Building follows three strangers — retired actor Charles-Haden Savage, struggling Broadway director Oliver Putnam, and young artist Mabel Mora — who share an obsession with true crime podcasts and live in the same Upper West Side apartment building, the Arconia. When a mysterious death occurs in their building, the trio decides to start their own true-crime podcast while investigating the murder. Each season brings a new mystery within and around the Arconia, attracting an ever-expanding cast of colorful suspects and celebrity guest stars. The show blends humor, heart, and genuine whodunit suspense in a love letter to New York City and the art of storytelling.',
+    synopsisShort: 'Three true-crime-obsessed neighbors investigate murders in their Upper West Side apartment building while recording a podcast.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Placeholder.svg/512px-Placeholder.svg.png', alt: 'Only Murders in the Building logo', attribution: 'Hulu / 20th Television', width: 512, height: 186 },
+    characterSlugs: ['charles-haden-savage', 'oliver-putnam', 'mabel-mora', 'howard-morris'],
+    fanHeatScore: 84,
+    tags: ['comedy', 'mystery', 'crime', 'ongoing', 'ensemble', 'new-york', 'critically-acclaimed'],
+    relatedShowSlugs: ['fleabag', 'ted-lasso', 'abbott-elementary', 'schitts-creek'],
+    faqs: [
+      { question: 'How many seasons does Only Murders in the Building have?', answer: 'Only Murders in the Building has 4 seasons as of 2024, with a total of approximately 42 episodes. The show premiered on Hulu on August 31, 2021, and has been renewed for additional seasons.' },
+      { question: 'Where can I watch Only Murders in the Building?', answer: 'Only Murders in the Building is available exclusively on Hulu in the United States and on Disney+ internationally.' },
+      { question: 'Who created Only Murders in the Building?', answer: 'Only Murders in the Building was created by Steve Martin and John Hoffman. Steve Martin also stars in the series alongside Martin Short and Selena Gomez.' },
+      { question: 'Is Only Murders in the Building a true story?', answer: 'No, Only Murders in the Building is entirely fictional, though it draws on the real atmosphere of New York City\'s Upper West Side and the cultural phenomenon of true-crime podcasts.' }
+    ],
+    videos: [
+      { title: 'Only Murders in the Building Season 1 Trailer', youtubeId: 'BtVn8kPJBPo', description: 'Official trailer for Season 1 of Only Murders in the Building on Hulu.' },
+      { title: 'Only Murders in the Building Season 4 Trailer', youtubeId: 'HQYqpJoRZxk', description: 'Official trailer for Season 4 of Only Murders in the Building.' }
+    ]
+  },
+  {
+    slug: 'loki',
+    title: 'Loki',
+    network: 'Disney+',
+    platform: 'Disney+',
+    genre: ['Sci-Fi', 'Fantasy', 'Adventure'],
+    years: '2021–2023',
+    status: 'Ended',
+    seasons: 2,
+    episodes: 12,
+    creator: 'Michael Waldron',
+    synopsis: 'Loki follows a variant of the God of Mischief after he escapes with the Tesseract during the time heist in Avengers: Endgame, creating an alternate timeline. Captured by the Time Variance Authority (TVA), an organization that exists outside of time and monitors the timeline, Loki is recruited to help fix the timeline and stop a greater threat. The series explores themes of identity, free will, and destiny as Loki confronts alternate versions of himself and uncovers the truth behind the TVA. In its second season, Loki faces the unraveling of the multiverse and must make the ultimate sacrifice to protect all of reality.',
+    synopsisShort: 'The God of Mischief is recruited by the Time Variance Authority to fix the timeline and discovers the truth about the multiverse.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Placeholder.svg/512px-Placeholder.svg.png', alt: 'Loki Disney+ logo', attribution: 'Marvel Studios / Disney+', width: 512, height: 186 },
+    characterSlugs: ['loki-laufeyson', 'mobius-mmarvel', 'sylvie', 'he-who-remains'],
+    fanHeatScore: 89,
+    tags: ['sci-fi', 'fantasy', 'mcu', 'complete-series', 'time-travel', 'multiverse', 'superhero'],
+    relatedShowSlugs: ['the-mandalorian', 'andor', 'stranger-things', 'arcane'],
+    faqs: [
+      { question: 'How many seasons does Loki have?', answer: 'Loki has 2 seasons with a total of 12 episodes. Season 1 premiered on June 9, 2021, and Season 2 premiered on October 5, 2023, on Disney+.' },
+      { question: 'Where can I watch Loki?', answer: 'Loki is available exclusively on Disney+. It is a Marvel Studios production and part of the Marvel Cinematic Universe.' },
+      { question: 'Do I need to watch the MCU movies to understand Loki?', answer: 'While Loki can be enjoyed on its own, familiarity with the MCU — particularly the Avengers films and Thor movies — enriches the viewing experience. The series begins directly after events in Avengers: Endgame.' },
+      { question: 'Is there a Loki Season 3?', answer: 'Loki Season 2 concluded with what appears to be a definitive ending for the character\'s arc. While Marvel has not officially announced a third season, the events of Loki Season 2 will impact other MCU projects.' }
+    ],
+    videos: [
+      { title: 'Loki Official Trailer — Disney+', youtubeId: 'nW948Va-l10', description: 'Official trailer for Marvel Studios\' Loki on Disney+.' },
+      { title: 'Loki Season 2 Official Trailer', youtubeId: 'bT7BjVJAvNs', description: 'Official trailer for Loki Season 2 on Disney+.' }
+    ]
+  },
+  {
+    slug: 'andor',
+    title: 'Andor',
+    network: 'Disney+',
+    platform: 'Disney+',
+    genre: ['Sci-Fi', 'Drama', 'Thriller'],
+    years: '2022–present',
+    status: 'Ongoing',
+    seasons: 1,
+    episodes: 12,
+    creator: 'Tony Gilroy',
+    synopsis: 'Andor is a prequel series set in the Star Wars universe, following Cassian Andor in the five years leading up to the events of Rogue One: A Star Wars Story. The series chronicles the birth of the Rebel Alliance, exploring how ordinary people are radicalized into fighting against the oppressive Galactic Empire. Through intersecting storylines, it follows Cassian\'s transformation from a cynical thief into a committed revolutionary, while also examining the Empire\'s growing authoritarianism through the eyes of ambitious Imperial Security Bureau officer Dedra Meero. Widely praised as one of the most mature and politically sophisticated Star Wars stories ever told.',
+    synopsisShort: 'A thief\'s journey from self-interest to rebellion against the Galactic Empire in the years before Rogue One.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Placeholder.svg/512px-Placeholder.svg.png', alt: 'Andor Disney+ logo', attribution: 'Lucasfilm / Disney+', width: 512, height: 186 },
+    characterSlugs: ['cassian-andor', 'luthen-rael', 'mon-mothma', 'dedra-meero'],
+    fanHeatScore: 87,
+    tags: ['sci-fi', 'star-wars', 'ongoing', 'critically-acclaimed', 'political', 'rebellion', 'prequel'],
+    relatedShowSlugs: ['the-mandalorian', 'loki', 'severance'],
+    faqs: [
+      { question: 'How many seasons does Andor have?', answer: 'Andor has 1 season with 12 episodes so far. Season 1 premiered on September 21, 2022 on Disney+. Season 2, which will be the final season, is expected to cover the remaining years before Rogue One.' },
+      { question: 'Where can I watch Andor?', answer: 'Andor is available exclusively on Disney+. It is produced by Lucasfilm as part of the Star Wars franchise.' },
+      { question: 'Do I need to watch other Star Wars content to understand Andor?', answer: 'No, Andor is designed to be accessible to newcomers. While it connects to Rogue One and the broader Star Wars universe, it tells a self-contained story about political resistance and personal transformation.' },
+      { question: 'Who created Andor?', answer: 'Andor was created by Tony Gilroy, who also co-wrote Rogue One: A Star Wars Story. Gilroy is known for writing the Bourne franchise and directing Michael Clayton.' }
+    ],
+    videos: [
+      { title: 'Andor Official Trailer — Disney+', youtubeId: 'cKOegEuCcfw', description: 'Official trailer for Andor on Disney+.' },
+      { title: 'Andor Season 2 Announcement Trailer', youtubeId: 'x0kSBTx2OOA', description: 'Official announcement trailer for Andor Season 2.' }
+    ]
+  },
+  {
+    slug: 'true-detective',
+    title: 'True Detective',
+    network: 'HBO',
+    platform: 'Max',
+    genre: ['Drama', 'Crime', 'Mystery'],
+    years: '2014–2024',
+    status: 'Ended',
+    seasons: 4,
+    episodes: 30,
+    creator: 'Nic Pizzolatto',
+    synopsis: 'True Detective is an anthology crime drama series that tells self-contained stories across seasons, each set in a different location with new characters and casts. Season 1, widely regarded as a landmark in television, follows Louisiana detectives Rust Cohle and Marty Hart as they pursue a serial killer over seventeen years. Season 2 shifts to California\'s industrial corridor; Season 3 examines a child abduction case in the Ozarks; and Season 4, subtitled Night Country, follows two detectives investigating the disappearance of research scientists in Alaska. The series is renowned for its literary storytelling, philosophical depth, and atmospheric cinematography.',
+    synopsisShort: 'An anthology series where detectives unravel dark crimes across different American landscapes and time periods.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Placeholder.svg/512px-Placeholder.svg.png', alt: 'True Detective logo', attribution: 'HBO', width: 512, height: 186 },
+    characterSlugs: ['rust-cohle', 'marty-hart', 'liz-danvers'],
+    fanHeatScore: 86,
+    tags: ['crime', 'mystery', 'anthology', 'complete-series', 'critically-acclaimed', 'philosophical', 'noir'],
+    relatedShowSlugs: ['the-sopranos', 'breaking-bad', 'homeland', 'dexter'],
+    faqs: [
+      { question: 'How many seasons does True Detective have?', answer: 'True Detective has 4 seasons with 30 episodes total. It premiered on HBO on January 12, 2014. Each season is a self-contained story with different characters and settings.' },
+      { question: 'Where can I watch True Detective?', answer: 'True Detective is available on Max (formerly HBO Max). It originally aired on HBO and can also be purchased on Amazon Prime Video, Apple TV+, and Google Play.' },
+      { question: 'Do you need to watch True Detective seasons in order?', answer: 'No, each season of True Detective is a standalone story with entirely new characters, settings, and mysteries. You can watch any season independently, though Season 1 is widely considered the best starting point.' },
+      { question: 'Why is True Detective Season 1 so highly regarded?', answer: 'True Detective Season 1 is considered a landmark in television thanks to its atmospheric direction by Cary Joji Fukunaga, career-best performances by Matthew McConaughey and Woody Harrelson, philosophical dialogue, and the iconic six-minute tracking shot in episode 4.' }
+    ],
+    videos: [
+      { title: 'True Detective Season 1 Official Trailer — HBO', youtubeId: 'fVQUcaO4AvE', description: 'Official trailer for True Detective Season 1 on HBO.' },
+      { title: 'True Detective: Night Country Official Trailer', youtubeId: '_mhKgCTbYMk', description: 'Official trailer for True Detective Season 4: Night Country starring Jodie Foster.' }
+    ]
+  },
+  {
+    slug: 'black-mirror',
+    title: 'Black Mirror',
+    network: 'Channel 4 / Netflix',
+    platform: 'Netflix',
+    genre: ['Sci-Fi', 'Drama', 'Thriller'],
+    years: '2011–present',
+    status: 'Ongoing',
+    seasons: 7,
+    episodes: 27,
+    creator: 'Charlie Brooker',
+    synopsis: 'Black Mirror is a British anthology series that explores the dark side of technology and modern society. Each standalone episode presents a self-contained story set in an alternative present or near future, examining how technology can amplify humanity\'s worst instincts. From social media obsession and surveillance states to artificial intelligence and virtual reality, the show holds up a dark mirror to the ways technology reshapes human behavior, relationships, and society. Created by satirist Charlie Brooker, the series is celebrated for its prescient themes, twist endings, and ability to make viewers question their own relationship with technology.',
+    synopsisShort: 'A dark anthology series exploring the unintended consequences of technology on humanity.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Placeholder.svg/512px-Placeholder.svg.png', alt: 'Black Mirror logo', attribution: 'Netflix / Endemol Shine Group', width: 512, height: 186 },
+    characterSlugs: ['bee-black-mirror', 'lacie-pound', 'ash-starr'],
+    fanHeatScore: 83,
+    tags: ['sci-fi', 'anthology', 'ongoing', 'technology', 'dystopian', 'critically-acclaimed', 'british'],
+    relatedShowSlugs: ['stranger-things', 'severance', 'loki'],
+    faqs: [
+      { question: 'How many seasons does Black Mirror have?', answer: 'Black Mirror has 7 seasons (called "series" in British television) with 27 episodes plus an interactive film, Bandersnatch. It originally aired on Channel 4 (2011-2014) before moving to Netflix (2016-present).' },
+      { question: 'Where can I watch Black Mirror?', answer: 'Black Mirror is available on Netflix globally. The first two series originally aired on Channel 4 in the UK before the show moved to Netflix starting with Series 3.' },
+      { question: 'Do you need to watch Black Mirror in order?', answer: 'No, each episode of Black Mirror is a standalone story with different characters, settings, and themes. You can watch episodes in any order, though some fans recommend starting with standout episodes like "The Entire History of You," "White Bear," or "Nosedive."' },
+      { question: 'Who created Black Mirror?', answer: 'Black Mirror was created by Charlie Brooker, a British broadcaster, writer, and satirist. Brooker writes or co-writes most episodes and serves as executive producer alongside Annabel Jones.' }
+    ],
+    videos: [
+      { title: 'Black Mirror Season 6 Official Trailer', youtubeId: 'kXikNxOjA3c', description: 'Official trailer for Black Mirror Season 6 on Netflix.' },
+      { title: 'Black Mirror — Nosedive Clip', youtubeId: 'R32qWdOWrTo', description: 'Clip from the acclaimed episode Nosedive starring Bryce Dallas Howard.' }
+    ]
+  },
+  {
+    slug: 'homeland',
+    title: 'Homeland',
+    network: 'Showtime',
+    platform: 'Paramount+',
+    genre: ['Drama', 'Thriller', 'Espionage'],
+    years: '2011–2020',
+    status: 'Ended',
+    seasons: 8,
+    episodes: 96,
+    creator: 'Howard Gordon & Alex Gansa',
+    synopsis: 'Homeland follows CIA officer Carrie Mathison, who, while battling bipolar disorder, becomes convinced that Marine Sergeant Nicholas Brody has been turned by al-Qaeda during his eight years in captivity. Her obsessive investigation sets off a chain of events spanning eight seasons of geopolitical intrigue, counterterrorism operations, and personal sacrifice. Under the mentorship of veteran CIA officer Saul Berenson, Carrie navigates the morally ambiguous world of intelligence gathering, from the streets of Beirut to the corridors of power in Washington, D.C. Based on the Israeli series Prisoners of War, Homeland earned widespread acclaim for its nuanced portrayal of the War on Terror and its complex, flawed protagonist.',
+    synopsisShort: 'A brilliant but volatile CIA officer pursues terrorists while battling her own mental health challenges.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Placeholder.svg/512px-Placeholder.svg.png', alt: 'Homeland logo', attribution: 'Showtime Networks', width: 512, height: 186 },
+    characterSlugs: ['carrie-mathison', 'nicholas-brody', 'saul-berenson', 'peter-quinn'],
+    fanHeatScore: 81,
+    tags: ['thriller', 'espionage', 'complete-series', 'critically-acclaimed', 'cia', 'political', 'award-winning'],
+    relatedShowSlugs: ['breaking-bad', 'true-detective', 'dexter', 'the-sopranos'],
+    faqs: [
+      { question: 'How many seasons does Homeland have?', answer: 'Homeland has 8 seasons with 96 episodes total. The series aired on Showtime from October 2, 2011 to April 26, 2020.' },
+      { question: 'Where can I watch Homeland?', answer: 'Homeland is available on Paramount+ in the US. It can also be purchased on Amazon Prime Video, Apple TV+, and Google Play.' },
+      { question: 'Is Homeland based on a true story?', answer: 'No, Homeland is based on the Israeli television series Prisoners of War (Hatufim) created by Gideon Raff. While it draws on real-world geopolitics and the War on Terror, the characters and specific events are fictional.' },
+      { question: 'Did Homeland win any awards?', answer: 'Yes, Homeland won numerous awards including the Emmy Award for Outstanding Drama Series (2012), Golden Globe for Best Television Series – Drama (2012 and 2013), and Claire Danes won the Emmy for Outstanding Lead Actress in a Drama Series twice.' }
+    ],
+    videos: [
+      { title: 'Homeland Season 1 Official Trailer — Showtime', youtubeId: 'KZRpZCBiXMU', description: 'Official trailer for Homeland Season 1 on Showtime.' },
+      { title: 'Homeland Final Season Trailer', youtubeId: 'lxHWaIE8tVg', description: 'Official trailer for the eighth and final season of Homeland.' }
     ]
   }
 ];
