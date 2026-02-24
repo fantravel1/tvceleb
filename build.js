@@ -52,9 +52,14 @@ function writeFile(filePath, content) {
 // ========== LAYOUT TEMPLATE ==========
 
 function layout(opts) {
-  const { title, description, canonical, ogType = 'website', ogImage, breadcrumbsHtml, jsonLd = [], bodyClass = '', content } = opts;
+  const { title, description, canonical, ogType = 'website', ogImage, ogImageAlt, breadcrumbsHtml, jsonLd = [], bodyClass = '', content } = opts;
 
   const fullTitle = title.includes('TVCeleb') ? title : `${title} | TVCeleb.com`;
+  const DEFAULT_OG_IMAGE = `${SITE_URL}/favicon.ico`;
+  const resolvedOgImage = ogImage
+    ? (ogImage.startsWith('http') ? ogImage : SITE_URL + ogImage)
+    : DEFAULT_OG_IMAGE;
+  const resolvedOgImageAlt = ogImageAlt || fullTitle;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -71,13 +76,16 @@ function layout(opts) {
 <meta property="og:url" content="${escapeHtml(canonical)}">
 <meta property="og:type" content="${escapeHtml(ogType)}">
 <meta property="og:site_name" content="${SITE_NAME}">
-${ogImage ? `<meta property="og:image" content="${escapeHtml(ogImage.startsWith('http') ? ogImage : SITE_URL + ogImage)}">
-<meta property="og:image:width" content="440">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="${escapeHtml(resolvedOgImage)}">
+<meta property="og:image:alt" content="${escapeHtml(resolvedOgImageAlt)}">
+${ogImage ? `<meta property="og:image:width" content="440">
 <meta property="og:image:height" content="600">` : ''}
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="${ogImage ? 'summary_large_image' : 'summary'}">
 <meta name="twitter:title" content="${escapeHtml(fullTitle)}">
 <meta name="twitter:description" content="${escapeHtml(description)}">
-${ogImage ? `<meta name="twitter:image" content="${escapeHtml(ogImage.startsWith('http') ? ogImage : SITE_URL + ogImage)}">` : ''}
+<meta name="twitter:image" content="${escapeHtml(resolvedOgImage)}">
+<meta name="twitter:image:alt" content="${escapeHtml(resolvedOgImageAlt)}">
 <meta name="author" content="TVCeleb.com">
 <meta property="article:publisher" content="${SITE_URL}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -328,8 +336,11 @@ function jsonLdActor(actor) {
   });
 }
 
-function jsonLdVideo(video) {
+function jsonLdVideo(video, showSlug) {
   if (!video) return null;
+  // Use show premiere date if available, otherwise use a reasonable default
+  const show = showSlug ? getShow(showSlug) : null;
+  const uploadDate = show?.yearStart ? `${show.yearStart}-01-01` : '2020-01-01';
   return JSON.stringify({
     "@context": "https://schema.org",
     "@type": "VideoObject",
@@ -337,7 +348,7 @@ function jsonLdVideo(video) {
     "description": video.description || '',
     "thumbnailUrl": `https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`,
     "embedUrl": `https://www.youtube-nocookie.com/embed/${video.youtubeId}`,
-    "uploadDate": "2020-01-01"
+    "uploadDate": uploadDate
   });
 }
 
@@ -597,12 +608,25 @@ ${shows.map(s => showCard(s)).join('\n')}
 </div>
 </section>`;
 
+  const itemListLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "All TV Shows on TVCeleb.com",
+    "numberOfItems": shows.length,
+    "itemListElement": shows.map((s, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": s.title,
+      "url": `${SITE_URL}/shows/${s.slug}/`
+    }))
+  });
+
   writeFile(path.join(OUT_DIR, 'shows', 'index.html'), layout({
     title: 'All TV Shows - Browse the Complete Directory',
     description: `Browse all ${shows.length} TV shows on TVCeleb.com. Filter by genre and explore character fan ecosystems for each show.`,
     canonical: SITE_URL + '/shows/',
     breadcrumbsHtml: breadcrumbsComponent(bc),
-    jsonLd: [jsonLdBreadcrumbs(bc)],
+    jsonLd: [jsonLdBreadcrumbs(bc), itemListLd],
     content
   }));
 }
@@ -670,7 +694,7 @@ ${faqSectionHtml(show.faqs)}
   const jsonLd = [jsonLdTvSeries(show), jsonLdBreadcrumbs(bc)];
   const faqLd = jsonLdFaqPage(show.faqs);
   if (faqLd) jsonLd.push(faqLd);
-  show.videos?.forEach(v => { const vld = jsonLdVideo(v); if (vld) jsonLd.push(vld); });
+  show.videos?.forEach(v => { const vld = jsonLdVideo(v, show.slug); if (vld) jsonLd.push(vld); });
 
   writeFile(path.join(OUT_DIR, 'shows', show.slug, 'index.html'), layout({
     title: `${show.title} - Characters, Fan Ecosystem & Community`,
@@ -710,12 +734,25 @@ ${sortedChars.map(ch => {
 </div>
 </section>`;
 
+  const charListLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "All TV Characters on TVCeleb.com",
+    "numberOfItems": sortedChars.length,
+    "itemListElement": sortedChars.slice(0, 50).map((c, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": c.name,
+      "url": `${SITE_URL}/characters/${c.slug}/`
+    }))
+  });
+
   writeFile(path.join(OUT_DIR, 'characters', 'index.html'), layout({
     title: 'All TV Characters - The Global Character Index',
     description: `Browse all ${characters.length} TV characters on TVCeleb.com. Discover character arcs, fan ecosystems, and community hubs across ${shows.length} shows.`,
     canonical: SITE_URL + '/characters/',
     breadcrumbsHtml: breadcrumbsComponent(bc),
-    jsonLd: [jsonLdBreadcrumbs(bc)],
+    jsonLd: [jsonLdBreadcrumbs(bc), charListLd],
     content
   }));
 }
@@ -804,7 +841,7 @@ ${character.image?.attribution ? `<aside class="content-section" style="padding-
   const jsonLd = [jsonLdCharacter(character), jsonLdBreadcrumbs(bc)];
   const faqLd = jsonLdFaqPage(character.faqs);
   if (faqLd) jsonLd.push(faqLd);
-  character.videos?.forEach(v => { const vld = jsonLdVideo(v); if (vld) jsonLd.push(vld); });
+  character.videos?.forEach(v => { const vld = jsonLdVideo(v, character.showSlug); if (vld) jsonLd.push(vld); });
 
   const descArc = character.characterArc ? character.characterArc.substring(0, 140).replace(/\n/g, ' ') + '...' : '';
 
@@ -814,6 +851,7 @@ ${character.image?.attribution ? `<aside class="content-section" style="padding-
     canonical: `${SITE_URL}/characters/${character.slug}/`,
     ogType: 'profile',
     ogImage: character.image?.src,
+    ogImageAlt: character.image?.alt || `${character.name} from ${character.showTitle}`,
     breadcrumbsHtml: breadcrumbsComponent(bc),
     jsonLd,
     content
@@ -836,12 +874,25 @@ ${actors.map(a => actorCard(a)).join('\n')}
 </div>
 </section>`;
 
+  const actorListLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "All TV Actors on TVCeleb.com",
+    "numberOfItems": actors.length,
+    "itemListElement": actors.slice(0, 50).map((a, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": a.name,
+      "url": `${SITE_URL}/actors/${a.slug}/`
+    }))
+  });
+
   writeFile(path.join(OUT_DIR, 'actors', 'index.html'), layout({
     title: 'All Actors - TV Actor Directory',
     description: `Browse all ${actors.length} TV actors on TVCeleb.com. Discover their iconic roles, career highlights, and fan communities.`,
     canonical: SITE_URL + '/actors/',
     breadcrumbsHtml: breadcrumbsComponent(bc),
-    jsonLd: [jsonLdBreadcrumbs(bc)],
+    jsonLd: [jsonLdBreadcrumbs(bc), actorListLd],
     content
   }));
 }
@@ -926,6 +977,7 @@ ${actor.image?.attribution ? `<aside class="content-section" style="padding-top:
     canonical: `${SITE_URL}/actors/${actor.slug}/`,
     ogType: 'profile',
     ogImage: actor.image?.src,
+    ogImageAlt: actor.image?.alt || actor.name,
     breadcrumbsHtml: breadcrumbsComponent(bc),
     jsonLd,
     content
