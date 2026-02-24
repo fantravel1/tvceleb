@@ -1,0 +1,11 @@
+/* TEAM */
+Site: TVCeleb.com
+URL: https://tvceleb.com
+Description: The world's largest repository of TV character fan sites, fan social media & aggregated content. Explore characters, fan communities, and ecosystems across every TV show.
+
+/* SITE */
+Standards: HTML5, CSS3, JavaScript
+Components: Static Site Generator (Node.js)
+Software: GitHub Pages
+Language: English
+Doctype: HTML5

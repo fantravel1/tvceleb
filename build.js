@@ -71,6 +71,7 @@ function layout(opts) {
 <link rel="canonical" href="${escapeHtml(canonical)}">
 <link rel="alternate" hreflang="en" href="${escapeHtml(canonical)}">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="theme-color" content="#6366f1">
 <meta property="og:title" content="${escapeHtml(fullTitle)}">
 <meta property="og:description" content="${escapeHtml(description)}">
 <meta property="og:url" content="${escapeHtml(canonical)}">
@@ -88,9 +89,14 @@ ${ogImage ? `<meta property="og:image:width" content="440">
 <meta name="twitter:image:alt" content="${escapeHtml(resolvedOgImageAlt)}">
 <meta name="author" content="TVCeleb.com">
 <meta property="article:publisher" content="${SITE_URL}">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://upload.wikimedia.org">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://upload.wikimedia.org">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/styles.css">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -275,16 +281,20 @@ function jsonLdTvSeries(show) {
     } : null;
   }).filter(Boolean);
 
+  const today = new Date().toISOString().split('T')[0];
   return JSON.stringify({
     "@context": "https://schema.org",
     "@type": "TVSeries",
     "name": show.title,
     "url": `${SITE_URL}/shows/${show.slug}/`,
     "description": show.synopsisShort || show.synopsis,
+    "inLanguage": "en",
     "genre": show.genre,
     "numberOfSeasons": show.seasons,
     "numberOfEpisodes": show.episodes,
     "startDate": show.years.split('–')[0],
+    "datePublished": today,
+    "dateModified": today,
     "productionCompany": { "@type": "Organization", "name": show.network },
     ...(charActors.length > 0 ? { "actor": charActors } : {}),
     "aggregateRating": { "@type": "AggregateRating", "ratingValue": (show.fanHeatScore / 10).toFixed(1), "bestRating": "10", "ratingCount": Math.floor(show.fanHeatScore * 100) }
@@ -293,12 +303,16 @@ function jsonLdTvSeries(show) {
 
 function jsonLdCharacter(character) {
   const actor = getActor(character.actorSlug);
+  const today = new Date().toISOString().split('T')[0];
   return JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Person",
     "name": character.name,
     "url": `${SITE_URL}/characters/${character.slug}/`,
     "description": character.characterArc ? character.characterArc.substring(0, 200) + '...' : '',
+    "datePublished": today,
+    "dateModified": today,
+    "mainEntityOfPage": `${SITE_URL}/characters/${character.slug}/`,
     "performerIn": {
       "@type": "TVSeries",
       "name": character.showTitle,
@@ -1978,6 +1992,32 @@ function copyStaticFiles() {
 
   // Favicon (simple placeholder SVG converted to base64 ICO substitute)
   writeFile(path.join(OUT_DIR, 'favicon.ico'), '');
+
+  // manifest.json (PWA)
+  writeFile(path.join(OUT_DIR, 'manifest.json'), JSON.stringify({
+    "name": "TVCeleb.com",
+    "short_name": "TVCeleb",
+    "description": SITE_DESCRIPTION,
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#6366f1",
+    "icons": [{ "src": "/favicon.ico", "sizes": "48x48", "type": "image/x-icon" }]
+  }, null, 2));
+
+  // humans.txt
+  writeFile(path.join(OUT_DIR, 'humans.txt'), `/* TEAM */
+Site: TVCeleb.com
+URL: ${SITE_URL}
+Description: ${SITE_DESCRIPTION}
+
+/* SITE */
+Standards: HTML5, CSS3, JavaScript
+Components: Static Site Generator (Node.js)
+Software: GitHub Pages
+Language: English
+Doctype: HTML5
+`);
 }
 
 // ========== MAIN BUILD ==========
