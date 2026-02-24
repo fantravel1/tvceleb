@@ -108,6 +108,7 @@ function headerHtml() {
 <a href="/actors/" class="nav-link">Actors</a>
 <a href="/genres/" class="nav-link">Genres</a>
 <a href="/networks/" class="nav-link">Networks</a>
+<a href="/decades/" class="nav-link">Decades</a>
 <a href="/lists/" class="nav-link">Lists</a>
 <a href="/search/" class="nav-link nav-search-btn" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></a>
 </nav>
@@ -123,6 +124,7 @@ function headerHtml() {
 <a href="/actors/" class="mobile-nav-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>Actors</a>
 <a href="/genres/" class="mobile-nav-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0118 0"/><path d="M4 11a9 9 0 0018 0"/><circle cx="13" cy="11" r="3"/></svg>Genres</a>
 <a href="/networks/" class="mobile-nav-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Networks</a>
+<a href="/decades/" class="mobile-nav-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Decades</a>
 <a href="/lists/" class="mobile-nav-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>Lists</a>
 <a href="/search/" class="mobile-nav-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Search</a>
 </nav>`;
@@ -152,6 +154,7 @@ ${shows.slice(0, 5).map(s => `<a href="/shows/${s.slug}/">${escapeHtml(s.title)}
 <a href="/actors/">All Actors</a>
 <a href="/genres/">Browse by Genre</a>
 <a href="/networks/">Browse by Network</a>
+<a href="/decades/">Browse by Decade</a>
 <a href="/lists/">Curated Lists</a>
 <a href="/search/">Search</a>
 </div>
@@ -159,7 +162,7 @@ ${shows.slice(0, 5).map(s => `<a href="/shows/${s.slug}/">${escapeHtml(s.title)}
 <nav class="footer-nav" aria-label="About">
 <h3>About</h3>
 <div class="footer-links">
-<a href="/">Home</a>
+<a href="/about/">About TVCeleb</a>
 <a href="/search/">Search TVCeleb</a>
 </div>
 </nav>
@@ -1328,12 +1331,82 @@ function getCuratedLists() {
       intro: 'Comedy is subjective, but these characters have proven their ability to make audiences laugh across generations. From Michael Scott\'s cringe-worthy antics to Moira Rose\'s theatrical vocabulary, these are the characters who defined TV comedy.',
       tags: ['comedy', 'funny', 'hilarious'],
       filterFn: (ch) => {
-        const comedySlugs = ['michael-scott', 'dwight-schrute', 'chandler-bing', 'joey-tribbiani', 'phoebe-buffay', 'moira-rose', 'david-rose', 'ted-lasso-character', 'roy-kent', 'paulie-gualtieri', 'richie-jerimovich', 'alfie-solomons'];
+        const comedySlugs = ['michael-scott', 'dwight-schrute', 'chandler-bing', 'joey-tribbiani', 'phoebe-buffay', 'moira-rose', 'david-rose', 'ted-lasso-character', 'roy-kent', 'paulie-gualtieri', 'richie-jerimovich', 'alfie-solomons', 'ava-coleman', 'louis-litt'];
         return comedySlugs.includes(ch.slug);
       },
       faqs: [
         { question: 'Who is the funniest TV character ever?', answer: 'Characters like Michael Scott (The Office), Chandler Bing (Friends), and Moira Rose (Schitt\'s Creek) are frequently cited as the funniest TV characters of all time. Each brought a unique style of humor that has become iconic.' },
         { question: 'What makes a TV character funny?', answer: 'The funniest TV characters often combine relatable human flaws with exaggerated personality traits. Great comedic characters work because they are written with consistency, performed with commitment, and placed in situations that naturally generate humor.' },
+      ]
+    },
+    {
+      slug: 'best-tv-couples',
+      title: 'Best TV Couples of All Time',
+      description: 'The most beloved, passionate, and unforgettable romantic relationships in television history.',
+      intro: 'From slow-burn romances to love-at-first-sight pairings, these TV couples captured hearts and defined what on-screen chemistry looks like. Whether they ended happily or tragically, their love stories remain iconic.',
+      tags: ['romance', 'couples', 'love-story'],
+      customEntries: [
+        { name: 'Harvey & Donna', show: 'Suits', slugs: ['harvey-specter', 'donna-paulsen'], description: 'Years of unresolved tension that became one of TV\'s most anticipated payoffs.' },
+        { name: 'Ross & Rachel', show: 'Friends', slugs: ['ross-geller', 'rachel-green'], description: 'The original will-they-won\'t-they that defined a generation of sitcom romance.' },
+        { name: 'Mike & Rachel', show: 'Suits', slugs: ['mike-ross', 'rachel-zane'], description: 'A romance complicated by secrets, tested by prison, and sealed at the altar.' },
+        { name: 'Jimmy & Kim', show: 'Better Call Saul', slugs: ['jimmy-mcgill', 'kim-wexler'], description: 'A love story between two lawyers whose mutual appetite for deception led to tragedy.' },
+        { name: 'David & Patrick', show: "Schitt's Creek", slugs: ['david-rose', 'patrick-brewer'], description: 'A tender, joyful love story that became one of TV\'s most celebrated LGBTQ+ romances.' },
+        { name: 'Hughie & Starlight', show: 'The Boys', slugs: ['hughie-campbell', 'starlight'], description: 'An unlikely romance between a vigilante and a superhero, defying sides in a corrupt world.' },
+        { name: 'Vi & Caitlyn', show: 'Arcane', slugs: ['vi-arcane', 'caitlyn-arcane'], description: 'A love story that crosses class lines in a divided city, celebrated by fans worldwide.' },
+        { name: 'Fleabag & The Priest', show: 'Fleabag', slugs: ['fleabag', 'the-priest'], description: 'A forbidden romance between a woman in crisis and a man of faith, ending in devastating beauty.' },
+      ],
+      faqs: [
+        { question: 'What are the best TV couples of all time?', answer: 'Some of the most beloved TV couples include Ross & Rachel (Friends), Harvey & Donna (Suits), David & Patrick (Schitt\'s Creek), Jimmy & Kim (Better Call Saul), and Fleabag & The Priest (Fleabag). Each pair brought unique chemistry and emotional depth to their shows.' },
+        { question: 'What makes a great TV couple?', answer: 'Great TV couples have undeniable chemistry, face meaningful obstacles that test their bond, and evolve together throughout the series. The best pairings feel authentic and make audiences emotionally invested in their outcome.' },
+      ]
+    },
+    {
+      slug: 'best-animated-characters',
+      title: 'Best Characters in Animated TV',
+      description: 'The most compelling characters from animated television series, proving that animation is a medium, not a genre.',
+      intro: 'Animation allows storytelling unbounded by the limits of live action. These characters from animated series are as complex, compelling, and emotionally resonant as any live-action counterpart — often surpassing them in visual artistry and narrative ambition.',
+      tags: ['animated', 'animation'],
+      filterFn: (ch) => {
+        const animSlugs = ['jinx', 'vi-arcane', 'caitlyn-arcane', 'grogu'];
+        return animSlugs.includes(ch.slug);
+      },
+      faqs: [
+        { question: 'What are the best animated TV shows for adults?', answer: 'Arcane (League of Legends) is widely considered one of the best animated series ever made. Other acclaimed animated shows include Invincible, Castlevania, and Primal. These shows prove that animation can tell sophisticated, mature stories.' },
+        { question: 'Is Arcane the best animated TV show?', answer: 'Arcane is frequently cited as one of the greatest animated series in television history. Its stunning animation by Fortiche Production, complex characters like Jinx and Vi, and emotionally devastating storytelling earned universal critical acclaim and multiple awards.' },
+      ]
+    },
+    {
+      slug: 'most-powerful-tv-women',
+      title: 'Most Powerful Women in TV',
+      description: 'The strongest, most commanding female characters in television history — leaders, fighters, strategists, and survivors.',
+      intro: 'These women commanded empires, led revolutions, broke barriers, and shaped the course of their shows. From queens and managing partners to teachers and rebels, they represent the best of female character writing in television.',
+      tags: ['powerful', 'women', 'leader'],
+      filterFn: (ch) => {
+        const womenSlugs = ['daenerys-targaryen', 'cersei-lannister', 'jessica-pearson', 'kim-wexler', 'ruth-langmore', 'wendy-byrde', 'beth-dutton', 'queen-charlotte', 'queen-elizabeth', 'starlight', 'eleven', 'donna-paulsen', 'lady-mariko', 'barbara-howard', 'fleabag', 'janine-teagues', 'jinx', 'vi-arcane', 'helly-riggs', 'rhaenyra-targaryen'];
+        return womenSlugs.includes(ch.slug);
+      },
+      faqs: [
+        { question: 'Who are the most powerful women in TV?', answer: 'Some of the most powerful women in TV include Daenerys Targaryen (Game of Thrones), Kim Wexler (Better Call Saul), Jessica Pearson (Suits), Ruth Langmore (Ozark), and Beth Dutton (Yellowstone). Each commanded their respective shows with strength, intelligence, and complexity.' },
+        { question: 'Has representation of women in TV improved?', answer: 'Yes, significantly. From the complex antiheroes of prestige drama to the leaders of workplace comedies, modern TV features more diverse, nuanced, and powerful female characters than ever before. Shows like Better Call Saul, Abbott Elementary, and Arcane have set new standards.' },
+      ]
+    },
+    {
+      slug: 'best-tv-mentors',
+      title: 'Greatest TV Mentors & Teachers',
+      description: 'The mentors who shaped heroes, taught lessons, and left lasting impacts on TV\'s greatest characters.',
+      intro: 'Behind every great TV character is often a mentor who guided, challenged, and inspired them. These teachers, bosses, and father figures shaped the heroes and antiheroes we love, sometimes through wisdom and sometimes through hard lessons.',
+      tags: ['mentor', 'teacher', 'guide'],
+      customEntries: [
+        { name: 'Harvey Specter to Mike Ross', show: 'Suits', slugs: ['harvey-specter', 'mike-ross'], description: 'A mentor who took a chance on a brilliant fraud and forged a brotherhood.' },
+        { name: 'Ted Lasso to AFC Richmond', show: 'Ted Lasso', slugs: ['ted-lasso-character', 'jamie-tartt'], description: 'The coach who proved that believing in people matters more than winning.' },
+        { name: 'Barbara Howard to Janine', show: 'Abbott Elementary', slugs: ['barbara-howard', 'janine-teagues'], description: 'A veteran teacher showing a young idealist how to make a lasting difference.' },
+        { name: 'Jessica Pearson to Harvey', show: 'Suits', slugs: ['jessica-pearson', 'harvey-specter'], description: 'The managing partner who pulled Harvey from the mailroom and made him who he is.' },
+        { name: 'Mike Ehrmantraut to Nacho', show: 'Better Call Saul', slugs: ['mike-ehrmantraut-bcs', 'nacho-varga'], description: 'A reluctant mentor in the criminal underworld, bound by respect and tragedy.' },
+        { name: 'Toranaga to Blackthorne', show: 'Shogun', slugs: ['toranaga', 'john-blackthorne'], description: 'A feudal lord who taught a European navigator to see Japan — and himself — clearly.' },
+      ],
+      faqs: [
+        { question: 'Who are the best mentors in TV?', answer: 'The greatest TV mentors include Harvey Specter (Suits), Ted Lasso (Ted Lasso), Barbara Howard (Abbott Elementary), and Jessica Pearson (Suits). These characters guided others through professional and personal growth, leaving lasting impacts.' },
+        { question: 'Why are mentor relationships so compelling on TV?', answer: 'Mentor relationships resonate because they reflect universal experiences of learning, growing, and being shaped by those who believe in us. The best TV mentorships feature complex power dynamics, genuine growth, and emotional stakes.' },
       ]
     },
   ];
@@ -1535,6 +1608,21 @@ function buildSearchIndex() {
     });
   });
 
+  // Add decades to search index
+  const searchDecades = getDecades();
+  searchDecades.forEach(d => {
+    index.push({
+      type: 'decade', name: `TV Shows of the ${d.label}`, url: `/decades/${d.decade}s/`,
+      tags: ['decade', d.label], description: `${d.shows.length} shows from the ${d.label}: ${d.shows.map(s => s.title).join(', ')}`
+    });
+  });
+
+  // Add about page to search index
+  index.push({
+    type: 'page', name: 'About TVCeleb.com', url: '/about/',
+    tags: ['about', 'info'], description: 'Learn about TVCeleb.com, the Fan Heat Index, and our mission to catalog TV fandom.'
+  });
+
   writeFile(path.join(OUT_DIR, 'search-index.json'), JSON.stringify(index));
 }
 
@@ -1549,6 +1637,8 @@ function buildSitemap() {
     { loc: '/genres/', priority: '0.8', changefreq: 'weekly' },
     { loc: '/networks/', priority: '0.8', changefreq: 'weekly' },
     { loc: '/lists/', priority: '0.8', changefreq: 'weekly' },
+    { loc: '/decades/', priority: '0.8', changefreq: 'weekly' },
+    { loc: '/about/', priority: '0.6', changefreq: 'monthly' },
   ];
 
   shows.forEach(s => urls.push({ loc: `/shows/${s.slug}/`, priority: '0.8', changefreq: 'weekly' }));
@@ -1566,6 +1656,10 @@ function buildSitemap() {
   // List pages
   const sitemapLists = getCuratedLists();
   sitemapLists.forEach(l => urls.push({ loc: `/lists/${l.slug}/`, priority: '0.7', changefreq: 'monthly' }));
+
+  // Decade pages
+  const sitemapDecades = getDecades();
+  sitemapDecades.forEach(d => urls.push({ loc: `/decades/${d.decade}s/`, priority: '0.7', changefreq: 'monthly' }));
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -1604,6 +1698,221 @@ function copyStaticFiles() {
 }
 
 // ========== MAIN BUILD ==========
+
+// ========== DECADE PAGES ==========
+
+function getPremiereYear(show) {
+  const m = show.years && show.years.match(/(\d{4})/);
+  return m ? parseInt(m[1], 10) : null;
+}
+
+function getDecade(year) {
+  return Math.floor(year / 10) * 10;
+}
+
+function getDecades() {
+  const decadeMap = {};
+  shows.forEach(s => {
+    const year = getPremiereYear(s);
+    if (!year) return;
+    const decade = getDecade(year);
+    if (!decadeMap[decade]) decadeMap[decade] = [];
+    decadeMap[decade].push(s);
+  });
+  return Object.keys(decadeMap).map(Number).sort().map(d => ({
+    decade: d,
+    label: `${d}s`,
+    shows: decadeMap[d].sort((a, b) => (getPremiereYear(a) || 0) - (getPremiereYear(b) || 0))
+  }));
+}
+
+function buildDecadesDirectory() {
+  console.log('Building: Decades Directory');
+  const decades = getDecades();
+  const bc = [{ label: 'Home', url: '/' }, { label: 'Decades' }];
+
+  const content = `<section class="section">
+<div class="container">
+<div class="section-header">
+<h1 class="section-title">Browse by Decade</h1>
+<p class="section-subtitle">Explore TV shows organized by the decade they premiered</p>
+</div>
+<div class="card-grid">
+${decades.map(d => `<a href="/decades/${d.decade}s/" class="card">
+<div class="card-body">
+<h3 class="card-title">The ${d.label}</h3>
+<p class="card-description">${d.shows.length} show${d.shows.length !== 1 ? 's' : ''}: ${d.shows.slice(0, 4).map(s => s.title).join(', ')}${d.shows.length > 4 ? '...' : ''}</p>
+</div>
+</a>`).join('\n')}
+</div>
+</div>
+</section>`;
+
+  writeFile(path.join(OUT_DIR, 'decades', 'index.html'), layout({
+    title: 'Browse TV Shows by Decade',
+    description: 'Explore TV shows organized by decade. From 1990s classics to 2020s hits, browse the best television from every era.',
+    canonical: SITE_URL + '/decades/',
+    breadcrumbsHtml: breadcrumbsComponent(bc),
+    jsonLd: [jsonLdBreadcrumbs(bc)],
+    content
+  }));
+}
+
+function buildDecadePage(decadeInfo) {
+  const { decade, label, shows: decadeShows } = decadeInfo;
+  console.log(`Building: Decade - ${label}`);
+  const bc = [{ label: 'Home', url: '/' }, { label: 'Decades', url: '/decades/' }, { label: `The ${label}` }];
+
+  const decadeChars = characters.filter(c => decadeShows.some(s => s.slug === c.showSlug))
+    .sort((a, b) => (b.fanHeatIndex?.overall || 0) - (a.fanHeatIndex?.overall || 0));
+
+  const decadeDescriptions = {
+    1990: 'The 1990s saw the rise of must-see TV with shows that became cultural phenomena. From the coffee shop conversations of Friends to the genre-defining mob drama of The Sopranos, this decade laid the groundwork for the Golden Age of Television.',
+    2000: 'The 2000s brought the rise of prestige television and long-form storytelling. Workplace comedies found new life through the mockumentary format, and serialized dramas began attracting cinematic talent.',
+    2010: 'The 2010s were defined by peak TV — an explosion of quality television across broadcast, cable, and the rise of streaming platforms. Fantasy epics, crime dramas, and innovative comedies competed for attention in an era of unprecedented choice.',
+    2020: 'The 2020s have been shaped by streaming wars, pandemic-era production, and a new wave of global television. International hits, animated masterpieces, and bold new takes on familiar genres have defined this decade so far.'
+  };
+
+  const faqs = [
+    { question: `What are the best TV shows from the ${label}?`, answer: `The ${label} featured outstanding shows including ${decadeShows.slice(0, 5).map(s => s.title).join(', ')}. These shows defined the television landscape of their era and continue to influence TV today.` },
+    { question: `How many shows from the ${label} are on TVCeleb?`, answer: `TVCeleb currently features ${decadeShows.length} show${decadeShows.length !== 1 ? 's' : ''} that premiered in the ${label}, with ${decadeChars.length} characters across those shows.` }
+  ];
+
+  const content = `
+<section class="page-hero">
+<div class="container">
+<div class="page-hero-content" style="align-items:center;">
+<div class="page-hero-info" style="flex:1;">
+<h1>TV Shows of the ${label}</h1>
+<p class="hero-description">${escapeHtml(decadeDescriptions[decade] || `Explore ${decadeShows.length} TV shows that premiered in the ${label}.`)}</p>
+<div class="hero-stats">
+<div class="stat"><span class="stat-value">${decadeShows.length}</span><span class="stat-label">Shows</span></div>
+<div class="stat"><span class="stat-value">${decadeChars.length}</span><span class="stat-label">Characters</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="container">
+<section class="content-section" id="shows" aria-labelledby="decade-shows-heading">
+<h2 id="decade-shows-heading">${label} Shows (${decadeShows.length})</h2>
+<div class="card-grid">
+${decadeShows.map(s => showCard(s)).join('\n')}
+</div>
+</section>
+
+${decadeChars.length > 0 ? `<section class="content-section" id="characters" aria-labelledby="decade-chars-heading">
+<h2 id="decade-chars-heading">Top ${label} Characters</h2>
+<div class="leaderboard">
+${decadeChars.slice(0, 20).map((ch, i) => `<a href="/characters/${ch.slug}/" class="leaderboard-item">
+<span class="leaderboard-rank ${i < 3 ? 'top-3' : ''}">${i + 1}</span>
+<div class="leaderboard-info"><span class="leaderboard-name">${escapeHtml(ch.name)}</span><span class="leaderboard-show">${escapeHtml(ch.showTitle)}</span></div>
+<div class="leaderboard-score">${fanHeatBadge(ch.fanHeatIndex?.overall || 0)}</div>
+</a>`).join('\n')}
+</div>
+</section>` : ''}
+
+${faqSectionHtml(faqs)}
+</div>`;
+
+  const jsonLd = [jsonLdBreadcrumbs(bc)];
+  const faqLd = jsonLdFaqPage(faqs);
+  if (faqLd) jsonLd.push(faqLd);
+
+  writeFile(path.join(OUT_DIR, 'decades', `${decade}s`, 'index.html'), layout({
+    title: `Best TV Shows of the ${label} - Characters & Fan Communities`,
+    description: `Explore ${decadeShows.length} TV shows from the ${label} and ${decadeChars.length} characters on TVCeleb.com. ${(decadeDescriptions[decade] || '').substring(0, 100)}`,
+    canonical: `${SITE_URL}/decades/${decade}s/`,
+    breadcrumbsHtml: breadcrumbsComponent(bc),
+    jsonLd,
+    content
+  }));
+}
+
+// ========== ABOUT PAGE ==========
+
+function buildAboutPage() {
+  console.log('Building: About Page');
+  const bc = [{ label: 'Home', url: '/' }, { label: 'About' }];
+
+  const totalQuotes = Object.values(quotesData).reduce((sum, d) => sum + (d.quotes?.length || 0), 0);
+  const totalTrivia = Object.values(quotesData).reduce((sum, d) => sum + (d.trivia?.length || 0), 0);
+  const allGenres = [...new Set(shows.flatMap(s => s.genre))];
+  const allNetworks = [...new Set(shows.map(s => s.network))];
+
+  const faqs = [
+    { question: 'What is TVCeleb.com?', answer: 'TVCeleb.com is the world\'s largest repository of TV character fan sites, fan social media, and aggregated content. We provide comprehensive profiles for characters, actors, and shows with fan community links, quotes, trivia, and curated content.' },
+    { question: 'How is the Fan Heat Index calculated?', answer: 'The Fan Heat Index measures fandom activity on a scale of 0-100 using five dimensions: engagement (community activity), social activity (social media presence), meme velocity (viral content spread), fan art density (creative output), and fandom longevity (sustained interest over time).' },
+    { question: 'How many shows and characters does TVCeleb cover?', answer: `TVCeleb currently covers ${shows.length} TV shows, ${characters.length} characters, and ${actors.length} actors, with new content added regularly.` },
+    { question: 'Can I suggest a show or character to add?', answer: 'We are always expanding our coverage. TVCeleb is an open-source project and we welcome contributions and suggestions from the fan community.' }
+  ];
+
+  const content = `
+<section class="page-hero">
+<div class="container">
+<div class="page-hero-content" style="align-items:center;">
+<div class="page-hero-info" style="flex:1;">
+<h1>About TVCeleb.com</h1>
+<p class="hero-description">The Living Archive of TV Fandom Worldwide. We catalog every TV character's fan ecosystem — from Reddit communities and TikTok edits to fan art, theories, and viral moments.</p>
+</div>
+</div>
+</div>
+</section>
+
+<div class="container">
+<section class="content-section" id="stats" aria-labelledby="stats-heading">
+<h2 id="stats-heading">TVCeleb by the Numbers</h2>
+<div class="hero-stats" style="flex-wrap:wrap;gap:var(--space-4);">
+<div class="stat"><span class="stat-value">${shows.length}</span><span class="stat-label">TV Shows</span></div>
+<div class="stat"><span class="stat-value">${characters.length}</span><span class="stat-label">Characters</span></div>
+<div class="stat"><span class="stat-value">${actors.length}</span><span class="stat-label">Actors</span></div>
+<div class="stat"><span class="stat-value">${allGenres.length}</span><span class="stat-label">Genres</span></div>
+<div class="stat"><span class="stat-value">${allNetworks.length}</span><span class="stat-label">Networks</span></div>
+<div class="stat"><span class="stat-value">${totalQuotes}</span><span class="stat-label">Quotes</span></div>
+<div class="stat"><span class="stat-value">${totalTrivia}</span><span class="stat-label">Trivia Facts</span></div>
+</div>
+</section>
+
+<section class="content-section" id="mission" aria-labelledby="mission-heading">
+<h2 id="mission-heading">Our Mission</h2>
+<div style="max-width:75ch;">
+<p style="margin-bottom:var(--space-4);color:var(--color-text-secondary);line-height:1.7;">TVCeleb.com exists to celebrate and catalog the incredible fan communities that form around television characters. Every great TV character inspires a universe of fan activity — from Reddit discussions and fan theories to TikTok edits, fan art, and memes. We bring all of that together in one place.</p>
+<p style="margin-bottom:var(--space-4);color:var(--color-text-secondary);line-height:1.7;">Each character profile on TVCeleb includes detailed arc summaries, key episodes, fan ecosystem links (Reddit, TikTok, YouTube, fan wikis, and more), our proprietary Fan Heat Index score, FAQs, and curated video content. We aim to be the definitive starting point for anyone exploring a TV character's fandom.</p>
+<p style="color:var(--color-text-secondary);line-height:1.7;">Whether you're a longtime fan looking for your community or a newcomer discovering a show for the first time, TVCeleb helps you find the conversations, creativity, and connections that make TV fandom special.</p>
+</div>
+</section>
+
+<section class="content-section" id="fhi" aria-labelledby="fhi-heading">
+<h2 id="fhi-heading">Understanding the Fan Heat Index</h2>
+<div style="max-width:75ch;">
+<p style="margin-bottom:var(--space-4);color:var(--color-text-secondary);line-height:1.7;">The Fan Heat Index (FHI) is our proprietary scoring system that measures the vitality of a character's fandom on a scale of 0 to 100. It combines five dimensions:</p>
+<ul style="list-style:disc;padding-left:var(--space-6);color:var(--color-text-secondary);line-height:2;">
+<li><strong>Engagement</strong> — Community activity levels across forums and discussion platforms</li>
+<li><strong>Social Activity</strong> — Presence and activity on social media platforms</li>
+<li><strong>Meme Velocity</strong> — How quickly and widely character-related memes and viral content spread</li>
+<li><strong>Fan Art Density</strong> — Volume and quality of fan-created artwork and creative content</li>
+<li><strong>Fandom Longevity</strong> — Sustained fan interest over time, beyond initial premiere hype</li>
+</ul>
+</div>
+</section>
+
+${faqSectionHtml(faqs)}
+</div>`;
+
+  const jsonLd = [jsonLdBreadcrumbs(bc)];
+  const faqLd = jsonLdFaqPage(faqs);
+  if (faqLd) jsonLd.push(faqLd);
+
+  writeFile(path.join(OUT_DIR, 'about', 'index.html'), layout({
+    title: 'About TVCeleb.com - The Living Archive of TV Fandom',
+    description: `TVCeleb.com is the world's largest repository of TV character fan sites. Covering ${shows.length} shows, ${characters.length} characters, and ${actors.length} actors with fan community links, quotes, and curated content.`,
+    canonical: SITE_URL + '/about/',
+    breadcrumbsHtml: breadcrumbsComponent(bc),
+    jsonLd,
+    content
+  }));
+}
 
 function build() {
   console.log('=== TVCeleb.com Build Started ===');
@@ -1644,6 +1953,14 @@ function build() {
   buildListsDirectory();
   const lists = getCuratedLists();
   lists.forEach(l => buildListPage(l));
+
+  // Build decade pages
+  buildDecadesDirectory();
+  const decades = getDecades();
+  decades.forEach(d => buildDecadePage(d));
+
+  // Build about page
+  buildAboutPage();
 
   // Build assets
   buildSearchIndex();
