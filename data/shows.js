@@ -1,5 +1,5 @@
 // TVCeleb.com - Complete Show Data
-// 20 Iconic Shows Across Genres
+// 38 Iconic Shows Across Genres
 
 const shows = [
   {
@@ -564,6 +564,539 @@ const shows = [
     ],
     videos: [
       { title: "Schitt's Creek Official Trailer", youtubeId: 'W0uWS6CnC6o', description: "Official trailer for Schitt's Creek." }
+    ]
+  },
+  {
+    slug: 'severance',
+    title: 'Severance',
+    network: 'Apple TV+',
+    platform: 'Apple TV+',
+    genre: ['Sci-Fi', 'Thriller', 'Drama'],
+    years: '2022–present',
+    status: 'Ongoing',
+    seasons: 2,
+    episodes: 19,
+    creator: 'Dan Erickson',
+    synopsis: 'Severance explores a world where employees of the biotechnology corporation Lumon Industries undergo a surgical procedure called "severance" that divides their memories between their work and personal lives. Mark Scout, a team lead in Lumon\'s mysterious Macrodata Refinement department, begins to unravel a web of conspiracies both inside and outside the severed floor. As Mark\'s "innie" and "outie" selves each pursue the truth from their respective sides, the show raises profound questions about identity, free will, corporate control, and what it means to be whole.',
+    synopsisShort: 'Employees of a mysterious corporation undergo a procedure that separates their work and personal memories, uncovering dark secrets.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Severance_Logo.svg/512px-Severance_Logo.svg.png', alt: 'Severance logo', attribution: 'Apple TV+, Public domain, via Wikimedia Commons', width: 512, height: 186 },
+    characterSlugs: ['mark-scout', 'helly-riggs', 'irving-bailiff', 'dylan-george', 'ms-cobel', 'burt-goodman'],
+    fanHeatScore: 92,
+    tags: ['sci-fi', 'thriller', 'mystery', 'corporate', 'psychological', 'ongoing', 'critically-acclaimed'],
+    relatedShowSlugs: ['the-last-of-us', 'stranger-things', 'succession'],
+    faqs: [
+      { question: 'How many seasons does Severance have?', answer: 'Severance currently has 2 seasons on Apple TV+. The first season premiered on February 18, 2022, with 9 episodes. Season 2 premiered on January 17, 2025, with 10 episodes.' },
+      { question: 'Where can I watch Severance?', answer: 'Severance is an Apple TV+ Original and is available exclusively on Apple TV+. A subscription to Apple TV+ is required to watch the series.' },
+      { question: 'Who created Severance?', answer: 'Severance was created by Dan Erickson and directed by Ben Stiller (who also executive produces) and Aoife McArdle. The show is produced by Endeavor Content and Fifth Season.' },
+      { question: 'What is the severance procedure in the show?', answer: 'The severance procedure is a fictional surgical operation that implants a chip in the brain to completely separate a person\'s work memories from their personal memories. "Innies" only exist at work with no knowledge of their outside lives, while "outies" have no memory of what happens during work hours.' },
+      { question: 'What is Lumon Industries in Severance?', answer: 'Lumon Industries is the mysterious biotechnology corporation at the center of the show. Founded by the revered Kier Eagan, Lumon practices a cult-like corporate culture and developed the severance procedure. The true nature of the company\'s work, especially in the Macrodata Refinement department, is one of the show\'s central mysteries.' }
+    ],
+    videos: [
+      { title: 'Severance Official Trailer — Apple TV+', youtubeId: 'xEQP4VVuyrY', description: 'Official trailer for Severance Season 1 on Apple TV+.' },
+      { title: 'Severance Season 2 Official Trailer', youtubeId: 'EOPM5MFmGgM', description: 'Official trailer for Severance Season 2 on Apple TV+.' }
+    ]
+  },
+  {
+    slug: 'house-of-the-dragon',
+    title: 'House of the Dragon',
+    network: 'HBO',
+    platform: 'Max',
+    genre: ['Fantasy', 'Drama'],
+    years: '2022–present',
+    status: 'Ongoing',
+    seasons: 2,
+    episodes: 18,
+    creator: 'Ryan Condal & George R.R. Martin',
+    synopsis: 'House of the Dragon is set approximately 200 years before the events of Game of Thrones and chronicles the Targaryen civil war known as the Dance of the Dragons. When King Viserys I names his daughter Rhaenyra as heir to the Iron Throne over his son Aegon, it ignites a brutal succession crisis that tears the Targaryen dynasty apart. With dragons on both sides, the realm descends into one of the bloodiest conflicts in Westeros history, pitting family members against one another in a devastating war for the crown.',
+    synopsisShort: 'The Targaryen dynasty tears itself apart in a brutal civil war over succession to the Iron Throne, 200 years before Game of Thrones.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/House_of_the_Dragon_Logo.svg/512px-House_of_the_Dragon_Logo.svg.png', alt: 'House of the Dragon logo', attribution: 'HBO, Public domain, via Wikimedia Commons', width: 512, height: 186 },
+    characterSlugs: ['rhaenyra-targaryen', 'daemon-targaryen', 'alicent-hightower', 'otto-hightower', 'aemond-targaryen', 'criston-cole'],
+    fanHeatScore: 90,
+    tags: ['fantasy', 'epic', 'dragons', 'succession', 'prequel', 'ongoing', 'book-adaptation'],
+    relatedShowSlugs: ['game-of-thrones', 'the-last-of-us', 'bridgerton'],
+    faqs: [
+      { question: 'How many seasons does House of the Dragon have?', answer: 'House of the Dragon currently has 2 seasons on HBO. The first season premiered on August 21, 2022, and Season 2 premiered on June 16, 2024.' },
+      { question: 'Where can I watch House of the Dragon?', answer: 'House of the Dragon is available on Max (formerly HBO Max). It airs on HBO and can also be purchased on Amazon Prime Video and Apple TV+.' },
+      { question: 'Is House of the Dragon a prequel to Game of Thrones?', answer: 'Yes, House of the Dragon is a prequel set approximately 200 years before Game of Thrones. It is based on George R.R. Martin\'s book Fire & Blood and focuses on the Targaryen civil war known as the Dance of the Dragons.' },
+      { question: 'Who are the Greens and Blacks in House of the Dragon?', answer: 'The Greens refer to the faction supporting Aegon II Targaryen and Queen Alicent Hightower, while the Blacks support Princess Rhaenyra Targaryen\'s claim to the Iron Throne. These factions are the two sides of the Targaryen civil war.' },
+      { question: 'Do I need to watch Game of Thrones before House of the Dragon?', answer: 'No, House of the Dragon can be enjoyed as a standalone series. While knowledge of Game of Thrones adds context about the Targaryen dynasty and the world of Westeros, the show tells its own complete story set centuries earlier.' }
+    ],
+    videos: [
+      { title: 'House of the Dragon Official Trailer (HBO)', youtubeId: 'DotnJ7tTA34', description: 'Official trailer for House of the Dragon Season 1 on HBO.' },
+      { title: 'House of the Dragon Season 2 Official Trailer', youtubeId: 'lpuSGfmMRss', description: 'Official trailer for House of the Dragon Season 2 on HBO.' }
+    ]
+  },
+  {
+    slug: 'the-white-lotus',
+    title: 'The White Lotus',
+    network: 'HBO',
+    platform: 'Max',
+    genre: ['Comedy', 'Drama', 'Satire'],
+    years: '2021–present',
+    status: 'Ongoing',
+    seasons: 3,
+    episodes: 21,
+    creator: 'Mike White',
+    synopsis: 'The White Lotus is an anthology series set at various locations of the fictional White Lotus luxury resort chain. Each season follows a new set of wealthy guests and the resort staff who serve them over the course of a week, peeling back layers of privilege, dysfunction, and moral decay beneath the veneer of paradise. The show uses dark comedy and biting social satire to explore themes of wealth inequality, colonialism, toxic relationships, and the corrosive effects of unchecked privilege, all building toward shocking and often deadly conclusions.',
+    synopsisShort: 'Wealthy guests at a luxury resort chain reveal their darkest secrets in this satirical anthology exploring privilege and moral decay.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/The_White_Lotus_Title.svg/512px-The_White_Lotus_Title.svg.png', alt: 'The White Lotus logo', attribution: 'HBO, Public domain, via Wikimedia Commons', width: 512, height: 186 },
+    characterSlugs: ['tanya-mcquoid', 'harper-spiller', 'ethan-spiller', 'daphne-sullivan', 'jennifer-coolidge-white-lotus', 'portia'],
+    fanHeatScore: 87,
+    tags: ['comedy', 'drama', 'satire', 'anthology', 'social-commentary', 'ongoing', 'critically-acclaimed', 'award-winning'],
+    relatedShowSlugs: ['succession', 'the-bear', 'fleabag'],
+    faqs: [
+      { question: 'How many seasons does The White Lotus have?', answer: 'The White Lotus currently has 3 seasons on HBO. Season 1 premiered on July 11, 2021 (set in Hawaii), Season 2 on October 30, 2022 (set in Sicily), and Season 3 in 2025 (set in Thailand).' },
+      { question: 'Where can I watch The White Lotus?', answer: 'The White Lotus is available on Max (formerly HBO Max). It airs on HBO and can also be purchased on Amazon Prime Video and Apple TV+.' },
+      { question: 'Is The White Lotus an anthology series?', answer: 'Yes, The White Lotus is an anthology series. Each season features a mostly new cast of characters at a different White Lotus resort location, though some characters have appeared across multiple seasons.' },
+      { question: 'Who created The White Lotus?', answer: 'The White Lotus was created, written, and directed by Mike White. Originally conceived as a limited series, its success led HBO to renew it as an ongoing anthology.' },
+      { question: 'Did Jennifer Coolidge win an Emmy for The White Lotus?', answer: 'Yes, Jennifer Coolidge won the Emmy Award for Outstanding Supporting Actress in a Limited or Anthology Series for her role as Tanya McQuoid in Season 1 and Season 2. Her performance became one of the most celebrated aspects of the show.' }
+    ],
+    videos: [
+      { title: 'The White Lotus Official Trailer (HBO)', youtubeId: 'TGLq7_MonZ4', description: 'Official trailer for The White Lotus Season 1 on HBO.' },
+      { title: 'The White Lotus Season 2 Official Trailer', youtubeId: 'RIGmKrbDxNo', description: 'Official trailer for The White Lotus Season 2 on HBO.' }
+    ]
+  },
+  {
+    slug: 'suits',
+    title: 'Suits',
+    network: 'USA Network',
+    platform: 'Netflix',
+    genre: ['Drama', 'Legal'],
+    years: '2011–2019',
+    status: 'Ended',
+    seasons: 9,
+    episodes: 134,
+    creator: 'Aaron Korsh',
+    synopsis: 'Suits follows Mike Ross, a brilliant college dropout with an eidetic memory, who lands a job as an associate at one of New York City\'s top law firms despite never having attended law school. Hired by the legendary closer Harvey Specter, Mike must keep his secret while navigating high-stakes corporate law, office politics, and complex legal cases. The series explores themes of loyalty, ambition, ethics, and the blurred line between doing what is legal and what is right, all set against the cutthroat world of Manhattan corporate law.',
+    synopsisShort: 'A college dropout with a photographic memory secretly works as a lawyer at a top New York City firm alongside a legendary closer.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Suits_Logo.svg/512px-Suits_Logo.svg.png', alt: 'Suits logo', attribution: 'USA Network, Public domain, via Wikimedia Commons', width: 512, height: 186 },
+    characterSlugs: ['harvey-specter', 'mike-ross', 'jessica-pearson', 'louis-litt', 'donna-paulsen', 'rachel-zane'],
+    fanHeatScore: 88,
+    tags: ['drama', 'legal', 'corporate', 'complete-series', 'meme-culture', 'sleeper-hit'],
+    relatedShowSlugs: ['succession', 'breaking-bad', 'the-sopranos'],
+    faqs: [
+      { question: 'How many seasons does Suits have?', answer: 'Suits has 9 seasons with 134 episodes. It aired on USA Network from June 23, 2011 to September 25, 2019.' },
+      { question: 'Where can I watch Suits?', answer: 'Suits is available on Netflix, where it became a viral sensation in 2023, breaking streaming records years after its original run ended. It is also available on Peacock in the United States.' },
+      { question: 'Why did Suits become popular again on Netflix?', answer: 'Suits experienced a massive resurgence in popularity when it was added to Netflix in 2023, partly driven by renewed interest following Meghan Markle\'s (who played Rachel Zane) marriage to Prince Harry. It became the most-streamed show across all platforms that year.' },
+      { question: 'Who created Suits?', answer: 'Suits was created by Aaron Korsh. The show was produced by Hypnotic Films and Universal Cable Productions for USA Network.' },
+      { question: 'Is there a Suits spin-off?', answer: 'Yes, Suits: L.A. is a spin-off series that was developed following the original show\'s massive streaming success. The spin-off follows a new set of characters in the Los Angeles legal world.' }
+    ],
+    videos: [
+      { title: 'Suits Official Trailer — USA Network', youtubeId: '85z53bMkvhQ', description: 'Official trailer for Suits on USA Network.' },
+      { title: 'Harvey Specter Best Moments | Suits', youtubeId: 'YFHD7kuAqu4', description: 'Compilation of Harvey Specter\'s most iconic moments from Suits.' }
+    ]
+  },
+  {
+    slug: 'better-call-saul',
+    title: 'Better Call Saul',
+    network: 'AMC',
+    platform: 'Netflix',
+    genre: ['Drama', 'Crime'],
+    years: '2015–2022',
+    status: 'Ended',
+    seasons: 6,
+    episodes: 63,
+    creator: 'Vince Gilligan & Peter Gould',
+    synopsis: 'Better Call Saul is the prequel to Breaking Bad, tracing the transformation of earnest lawyer Jimmy McGill into the morally flexible criminal attorney Saul Goodman. Set primarily in Albuquerque, New Mexico, the series follows Jimmy as he navigates the legal profession while living in the shadow of his brilliant but resentful brother Chuck. Alongside Jimmy\'s story, the show chronicles the parallel journey of former cop turned fixer Mike Ehrmantraut and the rise of the cartel figures who will later play pivotal roles in Breaking Bad. The series is a masterful character study exploring how good intentions, wounded pride, and small compromises can lead to irreversible moral decline.',
+    synopsisShort: 'The origin story of Breaking Bad\'s Saul Goodman, tracing a small-time lawyer\'s transformation into a criminal attorney.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Better_Call_Saul_logo.svg/512px-Better_Call_Saul_logo.svg.png', alt: 'Better Call Saul logo', attribution: 'AMC Networks, Public domain, via Wikimedia Commons', width: 512, height: 186 },
+    characterSlugs: ['jimmy-mcgill', 'kim-wexler', 'mike-ehrmantraut-bcs', 'chuck-mcgill', 'nacho-varga', 'lalo-salamanca'],
+    fanHeatScore: 93,
+    tags: ['drama', 'crime', 'prequel', 'anti-hero', 'complete-series', 'critically-acclaimed', 'character-study'],
+    relatedShowSlugs: ['breaking-bad', 'the-sopranos', 'ozark'],
+    faqs: [
+      { question: 'How many seasons does Better Call Saul have?', answer: 'Better Call Saul has 6 seasons with 63 episodes. It aired on AMC from February 8, 2015 to August 15, 2022.' },
+      { question: 'Where can I watch Better Call Saul?', answer: 'Better Call Saul is available on Netflix in many regions worldwide. It originally aired on AMC and can also be purchased on Amazon Prime Video and Apple TV+.' },
+      { question: 'Do I need to watch Breaking Bad before Better Call Saul?', answer: 'While Better Call Saul can be enjoyed on its own, watching Breaking Bad first provides valuable context for many characters and plot points. The series serves as a prequel, so knowledge of Breaking Bad enriches the viewing experience significantly.' },
+      { question: 'Who created Better Call Saul?', answer: 'Better Call Saul was created by Vince Gilligan and Peter Gould, who were both key creative forces behind Breaking Bad. The show was produced by Sony Pictures Television for AMC.' },
+      { question: 'Is Better Call Saul as good as Breaking Bad?', answer: 'Better Call Saul is widely regarded by critics as equal to or even surpassing Breaking Bad in quality. It holds a 98% approval rating on Rotten Tomatoes and received numerous Emmy nominations throughout its run, though it notably never won the Outstanding Drama Series award.' }
+    ],
+    videos: [
+      { title: 'Better Call Saul Official Trailer (AMC)', youtubeId: 'HN4oydykJFc', description: 'Official trailer for Better Call Saul Season 1 on AMC.' },
+      { title: 'Better Call Saul Final Season Trailer', youtubeId: 'u5_ITt2LM0A', description: 'Official trailer for Better Call Saul\'s final season on AMC.' }
+    ]
+  },
+  {
+    slug: 'the-boys',
+    title: 'The Boys',
+    network: 'Amazon Prime Video',
+    platform: 'Amazon Prime Video',
+    genre: ['Action', 'Sci-Fi', 'Satire'],
+    years: '2019–present',
+    status: 'Ongoing',
+    seasons: 4,
+    episodes: 32,
+    creator: 'Eric Kripke',
+    synopsis: 'The Boys is set in a world where superheroes are managed by the powerful corporation Vought International and are celebrated as celebrities, but behind the polished public image, many of them are corrupt, reckless, and morally bankrupt. When Hughie Campbell\'s girlfriend is killed by a careless superhero, he joins a ragtag group of vigilantes led by the ruthless Billy Butcher, whose mission is to expose and take down corrupt superheroes — especially the terrifyingly powerful and psychopathic Homelander. The series is a darkly comedic and ultraviolent deconstruction of superhero culture that satirizes celebrity worship, corporate greed, media manipulation, and political extremism.',
+    synopsisShort: 'A group of vigilantes takes on corrupt superheroes controlled by a powerful corporation in this ultraviolent satirical series.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/The_Boys_logo.svg/512px-The_Boys_logo.svg.png', alt: 'The Boys logo', attribution: 'Amazon Studios, Public domain, via Wikimedia Commons', width: 512, height: 186 },
+    characterSlugs: ['billy-butcher', 'homelander', 'hughie-campbell', 'starlight-annie-january', 'frenchie', 'kimiko'],
+    fanHeatScore: 91,
+    tags: ['action', 'satire', 'superhero', 'dark-comedy', 'ultraviolent', 'social-commentary', 'ongoing'],
+    relatedShowSlugs: ['stranger-things', 'the-mandalorian', 'the-last-of-us'],
+    faqs: [
+      { question: 'How many seasons does The Boys have?', answer: 'The Boys currently has 4 seasons on Amazon Prime Video. The series premiered on July 26, 2019. Season 5 has been announced as the final season.' },
+      { question: 'Where can I watch The Boys?', answer: 'The Boys is an Amazon Original series and is available exclusively on Amazon Prime Video worldwide.' },
+      { question: 'Is The Boys based on a comic book?', answer: 'Yes, The Boys is based on the comic book series of the same name by Garth Ennis and Darick Robertson, published by Wildstorm and later Dynamite Entertainment. The show adapts the premise but makes significant changes to characters and storylines.' },
+      { question: 'Who created The Boys TV series?', answer: 'The Boys TV series was developed by Eric Kripke, who is best known for creating Supernatural. Kripke serves as showrunner and executive producer.' },
+      { question: 'Does The Boys have spin-off shows?', answer: 'Yes, The Boys has expanded into a franchise. Gen V is a spin-off set at a college for young superheroes, and The Boys: Mexico is another planned spin-off. The animated anthology The Boys Presents: Diabolical also explores the universe.' }
+    ],
+    videos: [
+      { title: 'The Boys Official Trailer — Amazon Prime Video', youtubeId: 'tcrNsIaQkb4', description: 'Official trailer for The Boys Season 1 on Amazon Prime Video.' },
+      { title: 'The Boys Season 4 Official Trailer', youtubeId: 'MNfdi8PDK8E', description: 'Official trailer for The Boys Season 4 on Amazon Prime Video.' }
+    ]
+  },
+  {
+    slug: 'fleabag',
+    title: 'Fleabag',
+    network: 'Amazon Prime Video',
+    platform: 'Amazon Prime Video',
+    genre: ['Comedy', 'Drama'],
+    years: '2016–2019',
+    status: 'Ended',
+    seasons: 2,
+    episodes: 12,
+    creator: 'Phoebe Waller-Bridge',
+    synopsis: 'Fleabag follows an unnamed, dry-witted woman navigating life in London after a personal tragedy. Known only as Fleabag, she copes with grief, dysfunctional family relationships, and a chaotic love life by breaking the fourth wall and speaking directly to the audience with brutal honesty and razor-sharp humor. Season 2 introduces the Hot Priest, whose forbidden relationship with Fleabag becomes the emotional centerpiece of the series. Originally adapted from Phoebe Waller-Bridge\'s one-woman stage show, the series is celebrated as one of the finest comedies ever produced, blending laugh-out-loud moments with devastating emotional depth.',
+    synopsisShort: 'A sharp-witted woman in London navigates grief, family dysfunction, and love while breaking the fourth wall with the audience.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Fleabag_Title.svg/512px-Fleabag_Title.svg.png', alt: 'Fleabag logo', attribution: 'Amazon Studios/BBC, Public domain, via Wikimedia Commons', width: 512, height: 186 },
+    characterSlugs: ['fleabag-character', 'claire-fleabag', 'the-priest', 'godmother', 'martin-fleabag', 'dad-fleabag'],
+    fanHeatScore: 89,
+    tags: ['comedy', 'drama', 'fourth-wall', 'british', 'complete-series', 'critically-acclaimed', 'award-winning', 'feminist'],
+    relatedShowSlugs: ['schitts-creek', 'ted-lasso', 'the-bear'],
+    faqs: [
+      { question: 'How many seasons does Fleabag have?', answer: 'Fleabag has 2 seasons with 12 episodes total (6 episodes each). Season 1 premiered on July 21, 2016, and Season 2 on March 4, 2019.' },
+      { question: 'Where can I watch Fleabag?', answer: 'Fleabag is available on Amazon Prime Video worldwide. In the UK, it originally aired on BBC Three. It can also be purchased on Apple TV+ and Google Play.' },
+      { question: 'Will there be a Fleabag Season 3?', answer: 'No, creator and star Phoebe Waller-Bridge has confirmed that Fleabag is finished after 2 seasons. She has stated that the story is complete and she has no plans to continue it.' },
+      { question: 'Who created Fleabag?', answer: 'Fleabag was created by and stars Phoebe Waller-Bridge. It is based on her one-woman stage show that debuted at the Edinburgh Festival Fringe in 2013. Waller-Bridge writes and stars in the series.' },
+      { question: 'Did Fleabag win any Emmys?', answer: 'Yes, Fleabag won six Emmy Awards in 2019, including Outstanding Comedy Series, Outstanding Lead Actress (Phoebe Waller-Bridge), Outstanding Writing, and Outstanding Directing. It was one of the most celebrated shows at the 71st Primetime Emmy Awards.' }
+    ],
+    videos: [
+      { title: 'Fleabag Official Trailer — Amazon Prime Video', youtubeId: 'I5Uv6cb9YRs', description: 'Official trailer for Fleabag on Amazon Prime Video.' },
+      { title: 'Fleabag Season 2 Official Trailer', youtubeId: 'aX2ViKQFL_k', description: 'Official trailer for Fleabag Season 2 on Amazon Prime Video.' }
+    ]
+  },
+  {
+    slug: 'abbott-elementary',
+    title: 'Abbott Elementary',
+    network: 'ABC',
+    platform: 'Hulu',
+    genre: ['Comedy', 'Mockumentary'],
+    years: '2021–present',
+    status: 'Ongoing',
+    seasons: 3,
+    episodes: 47,
+    creator: 'Quinta Brunson',
+    synopsis: 'Abbott Elementary is a workplace mockumentary set at a fictional underfunded public elementary school in Philadelphia. The series follows a group of dedicated but under-resourced teachers who, despite the odds stacked against them, are determined to help their students succeed. Led by the passionate second-grade teacher Janine Teagues, the ensemble cast navigates bureaucratic obstacles, limited budgets, and the well-intentioned but often incompetent leadership of Principal Ava Coleman, all while finding humor, camaraderie, and purpose in their daily work. The show is a love letter to public school teachers and the communities they serve.',
+    synopsisShort: 'Dedicated teachers at an underfunded Philadelphia public school navigate obstacles with humor and heart in this workplace mockumentary.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Abbott_Elementary_Logo.svg/512px-Abbott_Elementary_Logo.svg.png', alt: 'Abbott Elementary logo', attribution: 'ABC, Public domain, via Wikimedia Commons', width: 512, height: 186 },
+    characterSlugs: ['janine-teagues', 'gregory-eddie', 'ava-coleman', 'melissa-schemmenti', 'barbara-howard', 'jacob-hill'],
+    fanHeatScore: 85,
+    tags: ['comedy', 'mockumentary', 'workplace', 'education', 'ensemble', 'ongoing', 'award-winning'],
+    relatedShowSlugs: ['the-office', 'schitts-creek', 'ted-lasso'],
+    faqs: [
+      { question: 'How many seasons does Abbott Elementary have?', answer: 'Abbott Elementary currently has 3 seasons on ABC. The series premiered on December 7, 2021, and has been renewed for a fourth season.' },
+      { question: 'Where can I watch Abbott Elementary?', answer: 'Abbott Elementary airs on ABC and is available to stream on Hulu in the United States. It is also available on Disney+ in international markets.' },
+      { question: 'Who created Abbott Elementary?', answer: 'Abbott Elementary was created by Quinta Brunson, who also stars as Janine Teagues. Brunson drew inspiration from her mother, who was a teacher in Philadelphia. The show is produced by Warner Bros. Television and 20th Television.' },
+      { question: 'Did Abbott Elementary win any Emmys?', answer: 'Yes, Abbott Elementary has won multiple Emmy Awards, including Outstanding Writing for a Comedy Series for Quinta Brunson and Outstanding Supporting Actress for Sheryl Lee Ralph. It was nominated for Outstanding Comedy Series in its first season.' },
+      { question: 'Is Abbott Elementary based on a real school?', answer: 'Abbott Elementary is not based on a specific real school, but creator Quinta Brunson named it after her sixth-grade teacher, Mrs. Abbott, from Mastery Charter School in Philadelphia. The show reflects real challenges faced by underfunded public schools.' }
+    ],
+    videos: [
+      { title: 'Abbott Elementary Official Trailer (ABC)', youtubeId: 'MLAG0_eCHKs', description: 'Official trailer for Abbott Elementary Season 1 on ABC.' },
+      { title: 'Abbott Elementary Season 2 Trailer', youtubeId: 'KN-GiJMZSvo', description: 'Official trailer for Abbott Elementary Season 2 on ABC.' }
+    ]
+  },
+  {
+    slug: 'arcane',
+    title: 'Arcane',
+    network: 'Netflix',
+    platform: 'Netflix',
+    genre: ['Animation', 'Action', 'Fantasy'],
+    years: '2021–present',
+    status: 'Ongoing',
+    seasons: 2,
+    episodes: 18,
+    creator: 'Christian Linke & Alex Yee',
+    synopsis: 'Arcane is set in the utopian city of Piltover and its oppressed underground counterpart, Zaun, within the universe of the popular video game League of Legends. The series follows two sisters, Vi and Jinx (formerly Powder), who find themselves on opposing sides of a brewing war between the two cities. As Piltover\'s elite harness a powerful new technology called Hextech, and Zaun\'s undercity boils with resentment and revolution, the sisters\' fractured bond becomes the emotional core of an epic conflict that reshapes their world. Arcane is celebrated for its groundbreaking animation by Fortiche Production, complex characters, and emotionally devastating storytelling.',
+    synopsisShort: 'Two sisters torn apart by conflict find themselves on opposing sides of a war between the utopian Piltover and the oppressed Zaun.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Arcane_Logo.svg/512px-Arcane_Logo.svg.png', alt: 'Arcane logo', attribution: 'Netflix/Riot Games, Public domain, via Wikimedia Commons', width: 512, height: 186 },
+    characterSlugs: ['vi-arcane', 'jinx-powder', 'caitlyn-kiramman', 'jayce-talis', 'viktor-arcane', 'silco'],
+    fanHeatScore: 90,
+    tags: ['animation', 'action', 'fantasy', 'video-game-adaptation', 'visually-stunning', 'ongoing', 'critically-acclaimed'],
+    relatedShowSlugs: ['stranger-things', 'the-last-of-us', 'the-boys'],
+    faqs: [
+      { question: 'How many seasons does Arcane have?', answer: 'Arcane has 2 seasons on Netflix. Season 1 premiered on November 6, 2021, and Season 2 premiered on November 9, 2024. Each season has 9 episodes released in 3-episode acts.' },
+      { question: 'Where can I watch Arcane?', answer: 'Arcane is a Netflix Original series and is available exclusively on Netflix worldwide. It was co-produced by Riot Games and animated by Fortiche Production.' },
+      { question: 'Do I need to play League of Legends to understand Arcane?', answer: 'No, Arcane is designed to be accessible to viewers with no knowledge of League of Legends. While it features characters from the game and is set in the same universe, the show tells a self-contained story with its own narrative.' },
+      { question: 'Who created Arcane?', answer: 'Arcane was created by Christian Linke and Alex Yee at Riot Games. The animation was produced by the French studio Fortiche Production. The show was in development for over six years before its premiere.' },
+      { question: 'Why is Arcane considered a groundbreaking animated series?', answer: 'Arcane is celebrated for its unique visual style that blends 3D CGI with hand-painted textures and 2D art, creating an aesthetic unlike any other animated series. It was the first streaming series to win the Annie Award for Best Animated Series and has been praised for elevating the standard of video game adaptations.' }
+    ],
+    videos: [
+      { title: 'Arcane Official Trailer — Netflix', youtubeId: 'fXmAurh012s', description: 'Official trailer for Arcane Season 1 on Netflix.' },
+      { title: 'Arcane Season 2 Official Trailer', youtubeId: 'bllW1Yi4dOQ', description: 'Official trailer for Arcane Season 2 on Netflix.' }
+    ]
+  },
+  {
+    slug: 'shogun',
+    title: 'Shogun',
+    network: 'FX',
+    platform: 'Hulu',
+    genre: ['Drama', 'Period Drama', 'War'],
+    years: '2024–present',
+    status: 'Ongoing',
+    seasons: 1,
+    episodes: 10,
+    creator: 'Rachel Kondo & Justin Marks',
+    synopsis: 'Shogun is set in 1600s Japan during a period of political upheaval as five regents vie for control of the country following the death of the Taiko. When English sailor John Blackthorne is shipwrecked on the shores of Japan, he becomes entangled in the schemes of Lord Yoshii Toranaga, a cunning political leader fighting for his survival against a coalition of rival lords. As Blackthorne navigates an alien culture with the aid of his translator Lady Mariko, the series weaves a tapestry of war, political intrigue, forbidden romance, and clashing civilizations. Based on James Clavell\'s bestselling 1975 novel, Shogun is a sweeping epic that immerses viewers in feudal Japan with stunning authenticity and emotional depth.',
+    synopsisShort: 'An English sailor shipwrecked in 1600s Japan becomes entangled in a power struggle that will shape the nation\'s future.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Shogun_FX_Logo.svg/512px-Shogun_FX_Logo.svg.png', alt: 'Shogun FX logo', attribution: 'FX Networks, Public domain, via Wikimedia Commons', width: 512, height: 186 },
+    characterSlugs: ['john-blackthorne', 'lord-toranaga', 'lady-mariko', 'kashigi-yabushige', 'toda-hiromatsu', 'usami-fuji'],
+    fanHeatScore: 93,
+    tags: ['drama', 'period-drama', 'war', 'historical', 'book-adaptation', 'japan', 'ongoing', 'critically-acclaimed', 'award-winning'],
+    relatedShowSlugs: ['game-of-thrones', 'house-of-the-dragon', 'peaky-blinders'],
+    faqs: [
+      { question: 'How many seasons does Shogun have?', answer: 'Shogun currently has 1 season with 10 episodes on FX. The series premiered on February 27, 2024. Originally planned as a limited series, it was renewed for additional seasons following its critical and commercial success.' },
+      { question: 'Where can I watch Shogun?', answer: 'Shogun is available on Hulu in the United States and on Disney+ internationally. It is an FX production that premiered with its first two episodes simultaneously.' },
+      { question: 'Is Shogun based on a book?', answer: 'Yes, Shogun is based on the 1975 bestselling novel by James Clavell. The novel was previously adapted as a television miniseries in 1980 starring Richard Chamberlain. The 2024 FX adaptation is a more faithful and expanded retelling.' },
+      { question: 'Did Shogun win any Emmy Awards?', answer: 'Yes, Shogun made television history at the 76th Primetime Emmy Awards in 2024, winning a record-breaking 18 Emmy Awards including Outstanding Drama Series, Outstanding Lead Actor (Hiroyuki Sanada), and Outstanding Lead Actress (Anna Sawai). It set the record for most Emmy wins by a series in a single year.' },
+      { question: 'Is Shogun historically accurate?', answer: 'Shogun is inspired by real historical events and figures from Japan\'s Sengoku period. Lord Toranaga is based on Tokugawa Ieyasu, and John Blackthorne is based on English navigator William Adams. However, the show is a work of fiction that takes creative liberties with historical events.' }
+    ],
+    videos: [
+      { title: 'Shogun Official Trailer — FX', youtubeId: '0lMFayjJhJY', description: 'Official trailer for Shogun on FX.' },
+      { title: 'Shogun Extended Trailer — FX', youtubeId: 'nRaHiGWdEJQ', description: 'Extended trailer for Shogun on FX featuring key scenes from the series.' }
+    ]
+  }
+  ,
+  {
+    slug: 'dexter',
+    title: 'Dexter',
+    network: 'Showtime',
+    platform: 'Paramount+',
+    genre: ['Drama', 'Crime', 'Thriller'],
+    years: '2006–2013',
+    status: 'Ended',
+    seasons: 8,
+    episodes: 96,
+    creator: 'James Manos Jr.',
+    synopsis: 'Dexter follows Dexter Morgan, a forensic blood spatter analyst for the Miami Metro Police Department who moonlights as a serial killer targeting other murderers. Guided by a moral code instilled by his adoptive father Harry, Dexter channels his dark urges into eliminating criminals who have escaped the justice system. The series explores themes of duality, morality, and the nature of evil as Dexter navigates his double life, maintaining relationships and a family while secretly pursuing his lethal hobby. Over eight seasons, Dexter faces increasingly dangerous adversaries while struggling to understand his own humanity.',
+    synopsisShort: 'A forensic blood spatter analyst leads a secret double life as a serial killer who targets other murderers.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Placeholder.svg/512px-Placeholder.svg.png', alt: 'Dexter logo', attribution: 'Showtime Networks', width: 512, height: 186 },
+    characterSlugs: ['dexter-morgan', 'debra-morgan', 'rita-bennett', 'sergeant-doakes', 'hannah-mckay', 'trinity-killer'],
+    fanHeatScore: 88,
+    tags: ['anti-hero', 'crime', 'serial-killer', 'complete-series', 'critically-acclaimed', 'dark'],
+    relatedShowSlugs: ['breaking-bad', 'the-sopranos', 'homeland', 'true-detective'],
+    faqs: [
+      { question: 'How many seasons does Dexter have?', answer: 'Dexter has 8 seasons with 96 episodes total. The original series aired on Showtime from October 1, 2006 to September 22, 2013. A revival limited series, Dexter: New Blood, aired in 2021-2022.' },
+      { question: 'Where can I watch Dexter?', answer: 'Dexter is available to stream on Paramount+ in the US. It can also be purchased on Amazon Prime Video, Apple TV+, and Google Play.' },
+      { question: 'Is Dexter based on a book?', answer: 'Yes, Dexter is based on the novel Darkly Dreaming Dexter by Jeff Lindsay, published in 2004. The show diverged significantly from the book series after the first season.' },
+      { question: 'What is Dexter: New Blood?', answer: 'Dexter: New Blood is a 10-episode limited series revival that aired in 2021-2022 on Showtime. Set 10 years after the original series finale, it follows Dexter living under an assumed identity in a small town in upstate New York.' }
+    ],
+    videos: [
+      { title: 'Dexter Official Trailer — Showtime', youtubeId: 'YQeUmSD1c3g', description: 'Official trailer for Dexter on Showtime.' },
+      { title: 'Dexter Season 4 Trailer', youtubeId: 'I0p8kkWmm0M', description: 'Trailer for the critically acclaimed fourth season of Dexter featuring the Trinity Killer.' }
+    ]
+  },
+  {
+    slug: 'the-walking-dead',
+    title: 'The Walking Dead',
+    network: 'AMC',
+    platform: 'Netflix',
+    genre: ['Drama', 'Horror', 'Thriller'],
+    years: '2010–2022',
+    status: 'Ended',
+    seasons: 11,
+    episodes: 177,
+    creator: 'Frank Darabont',
+    synopsis: 'The Walking Dead follows sheriff\'s deputy Rick Grimes as he awakens from a coma to discover a world overrun by zombies, known as "walkers." He reunites with his family and a band of survivors, leading them through a post-apocalyptic landscape where the living are often more dangerous than the dead. Over eleven seasons, the series explores the collapse and rebuilding of civilization, examining how ordinary people respond to extraordinary circumstances and what it means to maintain humanity in a world that has lost it. Based on Robert Kirkman\'s comic book series, the show became a cultural phenomenon and one of the most-watched cable television series in history.',
+    synopsisShort: 'Survivors navigate a post-apocalyptic world overrun by zombies, facing threats from both the dead and the living.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Placeholder.svg/512px-Placeholder.svg.png', alt: 'The Walking Dead logo', attribution: 'AMC Networks', width: 512, height: 186 },
+    characterSlugs: ['rick-grimes', 'daryl-dixon', 'michonne-twd', 'negan', 'carol-peletier', 'glenn-rhee'],
+    fanHeatScore: 85,
+    tags: ['horror', 'post-apocalyptic', 'ensemble', 'complete-series', 'comic-adaptation', 'zombies'],
+    relatedShowSlugs: ['stranger-things', 'the-last-of-us', 'game-of-thrones'],
+    faqs: [
+      { question: 'How many seasons does The Walking Dead have?', answer: 'The Walking Dead has 11 seasons with 177 episodes. It aired on AMC from October 31, 2010 to November 20, 2022, making it one of the longest-running horror series on television.' },
+      { question: 'Where can I watch The Walking Dead?', answer: 'The Walking Dead is available on Netflix in many regions. It originally aired on AMC and can also be purchased on Amazon Prime Video, Apple TV+, and Google Play.' },
+      { question: 'Does The Walking Dead have spin-offs?', answer: 'Yes, The Walking Dead has spawned several spin-offs including Fear the Walking Dead (2015-2023), The Walking Dead: World Beyond (2020-2021), The Walking Dead: Dead City (2023-), The Walking Dead: Daryl Dixon (2023-), and The Walking Dead: The Ones Who Live (2024).' },
+      { question: 'Is The Walking Dead based on a comic book?', answer: 'Yes, The Walking Dead is based on the comic book series of the same name by Robert Kirkman, Tony Moore, and Charlie Adlard, published by Image Comics from 2003 to 2019. The show follows the comics but makes significant changes to characters and storylines.' }
+    ],
+    videos: [
+      { title: 'The Walking Dead Official Comic-Con Trailer', youtubeId: 'R1v0uFms68U', description: 'Official Comic-Con trailer for The Walking Dead on AMC.' },
+      { title: 'The Walking Dead Final Season Trailer', youtubeId: 'JqFr-GwNxso', description: 'Official trailer for the final season of The Walking Dead.' }
+    ]
+  },
+  {
+    slug: 'only-murders',
+    title: 'Only Murders in the Building',
+    network: 'Hulu',
+    platform: 'Hulu',
+    genre: ['Comedy', 'Mystery', 'Crime'],
+    years: '2021–present',
+    status: 'Ongoing',
+    seasons: 4,
+    episodes: 42,
+    creator: 'Steve Martin & John Hoffman',
+    synopsis: 'Only Murders in the Building follows three strangers — retired actor Charles-Haden Savage, struggling Broadway director Oliver Putnam, and young artist Mabel Mora — who share an obsession with true crime podcasts and live in the same Upper West Side apartment building, the Arconia. When a mysterious death occurs in their building, the trio decides to start their own true-crime podcast while investigating the murder. Each season brings a new mystery within and around the Arconia, attracting an ever-expanding cast of colorful suspects and celebrity guest stars. The show blends humor, heart, and genuine whodunit suspense in a love letter to New York City and the art of storytelling.',
+    synopsisShort: 'Three true-crime-obsessed neighbors investigate murders in their Upper West Side apartment building while recording a podcast.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Placeholder.svg/512px-Placeholder.svg.png', alt: 'Only Murders in the Building logo', attribution: 'Hulu / 20th Television', width: 512, height: 186 },
+    characterSlugs: ['charles-haden-savage', 'oliver-putnam', 'mabel-mora', 'howard-morris'],
+    fanHeatScore: 84,
+    tags: ['comedy', 'mystery', 'crime', 'ongoing', 'ensemble', 'new-york', 'critically-acclaimed'],
+    relatedShowSlugs: ['fleabag', 'ted-lasso', 'abbott-elementary', 'schitts-creek'],
+    faqs: [
+      { question: 'How many seasons does Only Murders in the Building have?', answer: 'Only Murders in the Building has 4 seasons as of 2024, with a total of approximately 42 episodes. The show premiered on Hulu on August 31, 2021, and has been renewed for additional seasons.' },
+      { question: 'Where can I watch Only Murders in the Building?', answer: 'Only Murders in the Building is available exclusively on Hulu in the United States and on Disney+ internationally.' },
+      { question: 'Who created Only Murders in the Building?', answer: 'Only Murders in the Building was created by Steve Martin and John Hoffman. Steve Martin also stars in the series alongside Martin Short and Selena Gomez.' },
+      { question: 'Is Only Murders in the Building a true story?', answer: 'No, Only Murders in the Building is entirely fictional, though it draws on the real atmosphere of New York City\'s Upper West Side and the cultural phenomenon of true-crime podcasts.' }
+    ],
+    videos: [
+      { title: 'Only Murders in the Building Season 1 Trailer', youtubeId: 'BtVn8kPJBPo', description: 'Official trailer for Season 1 of Only Murders in the Building on Hulu.' },
+      { title: 'Only Murders in the Building Season 4 Trailer', youtubeId: 'HQYqpJoRZxk', description: 'Official trailer for Season 4 of Only Murders in the Building.' }
+    ]
+  },
+  {
+    slug: 'loki',
+    title: 'Loki',
+    network: 'Disney+',
+    platform: 'Disney+',
+    genre: ['Sci-Fi', 'Fantasy', 'Adventure'],
+    years: '2021–2023',
+    status: 'Ended',
+    seasons: 2,
+    episodes: 12,
+    creator: 'Michael Waldron',
+    synopsis: 'Loki follows a variant of the God of Mischief after he escapes with the Tesseract during the time heist in Avengers: Endgame, creating an alternate timeline. Captured by the Time Variance Authority (TVA), an organization that exists outside of time and monitors the timeline, Loki is recruited to help fix the timeline and stop a greater threat. The series explores themes of identity, free will, and destiny as Loki confronts alternate versions of himself and uncovers the truth behind the TVA. In its second season, Loki faces the unraveling of the multiverse and must make the ultimate sacrifice to protect all of reality.',
+    synopsisShort: 'The God of Mischief is recruited by the Time Variance Authority to fix the timeline and discovers the truth about the multiverse.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Placeholder.svg/512px-Placeholder.svg.png', alt: 'Loki Disney+ logo', attribution: 'Marvel Studios / Disney+', width: 512, height: 186 },
+    characterSlugs: ['loki-laufeyson', 'mobius-mmarvel', 'sylvie', 'he-who-remains'],
+    fanHeatScore: 89,
+    tags: ['sci-fi', 'fantasy', 'mcu', 'complete-series', 'time-travel', 'multiverse', 'superhero'],
+    relatedShowSlugs: ['the-mandalorian', 'andor', 'stranger-things', 'arcane'],
+    faqs: [
+      { question: 'How many seasons does Loki have?', answer: 'Loki has 2 seasons with a total of 12 episodes. Season 1 premiered on June 9, 2021, and Season 2 premiered on October 5, 2023, on Disney+.' },
+      { question: 'Where can I watch Loki?', answer: 'Loki is available exclusively on Disney+. It is a Marvel Studios production and part of the Marvel Cinematic Universe.' },
+      { question: 'Do I need to watch the MCU movies to understand Loki?', answer: 'While Loki can be enjoyed on its own, familiarity with the MCU — particularly the Avengers films and Thor movies — enriches the viewing experience. The series begins directly after events in Avengers: Endgame.' },
+      { question: 'Is there a Loki Season 3?', answer: 'Loki Season 2 concluded with what appears to be a definitive ending for the character\'s arc. While Marvel has not officially announced a third season, the events of Loki Season 2 will impact other MCU projects.' }
+    ],
+    videos: [
+      { title: 'Loki Official Trailer — Disney+', youtubeId: 'nW948Va-l10', description: 'Official trailer for Marvel Studios\' Loki on Disney+.' },
+      { title: 'Loki Season 2 Official Trailer', youtubeId: 'bT7BjVJAvNs', description: 'Official trailer for Loki Season 2 on Disney+.' }
+    ]
+  },
+  {
+    slug: 'andor',
+    title: 'Andor',
+    network: 'Disney+',
+    platform: 'Disney+',
+    genre: ['Sci-Fi', 'Drama', 'Thriller'],
+    years: '2022–present',
+    status: 'Ongoing',
+    seasons: 1,
+    episodes: 12,
+    creator: 'Tony Gilroy',
+    synopsis: 'Andor is a prequel series set in the Star Wars universe, following Cassian Andor in the five years leading up to the events of Rogue One: A Star Wars Story. The series chronicles the birth of the Rebel Alliance, exploring how ordinary people are radicalized into fighting against the oppressive Galactic Empire. Through intersecting storylines, it follows Cassian\'s transformation from a cynical thief into a committed revolutionary, while also examining the Empire\'s growing authoritarianism through the eyes of ambitious Imperial Security Bureau officer Dedra Meero. Widely praised as one of the most mature and politically sophisticated Star Wars stories ever told.',
+    synopsisShort: 'A thief\'s journey from self-interest to rebellion against the Galactic Empire in the years before Rogue One.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Placeholder.svg/512px-Placeholder.svg.png', alt: 'Andor Disney+ logo', attribution: 'Lucasfilm / Disney+', width: 512, height: 186 },
+    characterSlugs: ['cassian-andor', 'luthen-rael', 'mon-mothma', 'dedra-meero'],
+    fanHeatScore: 87,
+    tags: ['sci-fi', 'star-wars', 'ongoing', 'critically-acclaimed', 'political', 'rebellion', 'prequel'],
+    relatedShowSlugs: ['the-mandalorian', 'loki', 'severance'],
+    faqs: [
+      { question: 'How many seasons does Andor have?', answer: 'Andor has 1 season with 12 episodes so far. Season 1 premiered on September 21, 2022 on Disney+. Season 2, which will be the final season, is expected to cover the remaining years before Rogue One.' },
+      { question: 'Where can I watch Andor?', answer: 'Andor is available exclusively on Disney+. It is produced by Lucasfilm as part of the Star Wars franchise.' },
+      { question: 'Do I need to watch other Star Wars content to understand Andor?', answer: 'No, Andor is designed to be accessible to newcomers. While it connects to Rogue One and the broader Star Wars universe, it tells a self-contained story about political resistance and personal transformation.' },
+      { question: 'Who created Andor?', answer: 'Andor was created by Tony Gilroy, who also co-wrote Rogue One: A Star Wars Story. Gilroy is known for writing the Bourne franchise and directing Michael Clayton.' }
+    ],
+    videos: [
+      { title: 'Andor Official Trailer — Disney+', youtubeId: 'cKOegEuCcfw', description: 'Official trailer for Andor on Disney+.' },
+      { title: 'Andor Season 2 Announcement Trailer', youtubeId: 'x0kSBTx2OOA', description: 'Official announcement trailer for Andor Season 2.' }
+    ]
+  },
+  {
+    slug: 'true-detective',
+    title: 'True Detective',
+    network: 'HBO',
+    platform: 'Max',
+    genre: ['Drama', 'Crime', 'Mystery'],
+    years: '2014–2024',
+    status: 'Ended',
+    seasons: 4,
+    episodes: 30,
+    creator: 'Nic Pizzolatto',
+    synopsis: 'True Detective is an anthology crime drama series that tells self-contained stories across seasons, each set in a different location with new characters and casts. Season 1, widely regarded as a landmark in television, follows Louisiana detectives Rust Cohle and Marty Hart as they pursue a serial killer over seventeen years. Season 2 shifts to California\'s industrial corridor; Season 3 examines a child abduction case in the Ozarks; and Season 4, subtitled Night Country, follows two detectives investigating the disappearance of research scientists in Alaska. The series is renowned for its literary storytelling, philosophical depth, and atmospheric cinematography.',
+    synopsisShort: 'An anthology series where detectives unravel dark crimes across different American landscapes and time periods.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Placeholder.svg/512px-Placeholder.svg.png', alt: 'True Detective logo', attribution: 'HBO', width: 512, height: 186 },
+    characterSlugs: ['rust-cohle', 'marty-hart', 'liz-danvers'],
+    fanHeatScore: 86,
+    tags: ['crime', 'mystery', 'anthology', 'complete-series', 'critically-acclaimed', 'philosophical', 'noir'],
+    relatedShowSlugs: ['the-sopranos', 'breaking-bad', 'homeland', 'dexter'],
+    faqs: [
+      { question: 'How many seasons does True Detective have?', answer: 'True Detective has 4 seasons with 30 episodes total. It premiered on HBO on January 12, 2014. Each season is a self-contained story with different characters and settings.' },
+      { question: 'Where can I watch True Detective?', answer: 'True Detective is available on Max (formerly HBO Max). It originally aired on HBO and can also be purchased on Amazon Prime Video, Apple TV+, and Google Play.' },
+      { question: 'Do you need to watch True Detective seasons in order?', answer: 'No, each season of True Detective is a standalone story with entirely new characters, settings, and mysteries. You can watch any season independently, though Season 1 is widely considered the best starting point.' },
+      { question: 'Why is True Detective Season 1 so highly regarded?', answer: 'True Detective Season 1 is considered a landmark in television thanks to its atmospheric direction by Cary Joji Fukunaga, career-best performances by Matthew McConaughey and Woody Harrelson, philosophical dialogue, and the iconic six-minute tracking shot in episode 4.' }
+    ],
+    videos: [
+      { title: 'True Detective Season 1 Official Trailer — HBO', youtubeId: 'fVQUcaO4AvE', description: 'Official trailer for True Detective Season 1 on HBO.' },
+      { title: 'True Detective: Night Country Official Trailer', youtubeId: '_mhKgCTbYMk', description: 'Official trailer for True Detective Season 4: Night Country starring Jodie Foster.' }
+    ]
+  },
+  {
+    slug: 'black-mirror',
+    title: 'Black Mirror',
+    network: 'Channel 4 / Netflix',
+    platform: 'Netflix',
+    genre: ['Sci-Fi', 'Drama', 'Thriller'],
+    years: '2011–present',
+    status: 'Ongoing',
+    seasons: 7,
+    episodes: 27,
+    creator: 'Charlie Brooker',
+    synopsis: 'Black Mirror is a British anthology series that explores the dark side of technology and modern society. Each standalone episode presents a self-contained story set in an alternative present or near future, examining how technology can amplify humanity\'s worst instincts. From social media obsession and surveillance states to artificial intelligence and virtual reality, the show holds up a dark mirror to the ways technology reshapes human behavior, relationships, and society. Created by satirist Charlie Brooker, the series is celebrated for its prescient themes, twist endings, and ability to make viewers question their own relationship with technology.',
+    synopsisShort: 'A dark anthology series exploring the unintended consequences of technology on humanity.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Placeholder.svg/512px-Placeholder.svg.png', alt: 'Black Mirror logo', attribution: 'Netflix / Endemol Shine Group', width: 512, height: 186 },
+    characterSlugs: ['bee-black-mirror', 'lacie-pound', 'ash-starr'],
+    fanHeatScore: 83,
+    tags: ['sci-fi', 'anthology', 'ongoing', 'technology', 'dystopian', 'critically-acclaimed', 'british'],
+    relatedShowSlugs: ['stranger-things', 'severance', 'loki'],
+    faqs: [
+      { question: 'How many seasons does Black Mirror have?', answer: 'Black Mirror has 7 seasons (called "series" in British television) with 27 episodes plus an interactive film, Bandersnatch. It originally aired on Channel 4 (2011-2014) before moving to Netflix (2016-present).' },
+      { question: 'Where can I watch Black Mirror?', answer: 'Black Mirror is available on Netflix globally. The first two series originally aired on Channel 4 in the UK before the show moved to Netflix starting with Series 3.' },
+      { question: 'Do you need to watch Black Mirror in order?', answer: 'No, each episode of Black Mirror is a standalone story with different characters, settings, and themes. You can watch episodes in any order, though some fans recommend starting with standout episodes like "The Entire History of You," "White Bear," or "Nosedive."' },
+      { question: 'Who created Black Mirror?', answer: 'Black Mirror was created by Charlie Brooker, a British broadcaster, writer, and satirist. Brooker writes or co-writes most episodes and serves as executive producer alongside Annabel Jones.' }
+    ],
+    videos: [
+      { title: 'Black Mirror Season 6 Official Trailer', youtubeId: 'kXikNxOjA3c', description: 'Official trailer for Black Mirror Season 6 on Netflix.' },
+      { title: 'Black Mirror — Nosedive Clip', youtubeId: 'R32qWdOWrTo', description: 'Clip from the acclaimed episode Nosedive starring Bryce Dallas Howard.' }
+    ]
+  },
+  {
+    slug: 'homeland',
+    title: 'Homeland',
+    network: 'Showtime',
+    platform: 'Paramount+',
+    genre: ['Drama', 'Thriller', 'Espionage'],
+    years: '2011–2020',
+    status: 'Ended',
+    seasons: 8,
+    episodes: 96,
+    creator: 'Howard Gordon & Alex Gansa',
+    synopsis: 'Homeland follows CIA officer Carrie Mathison, who, while battling bipolar disorder, becomes convinced that Marine Sergeant Nicholas Brody has been turned by al-Qaeda during his eight years in captivity. Her obsessive investigation sets off a chain of events spanning eight seasons of geopolitical intrigue, counterterrorism operations, and personal sacrifice. Under the mentorship of veteran CIA officer Saul Berenson, Carrie navigates the morally ambiguous world of intelligence gathering, from the streets of Beirut to the corridors of power in Washington, D.C. Based on the Israeli series Prisoners of War, Homeland earned widespread acclaim for its nuanced portrayal of the War on Terror and its complex, flawed protagonist.',
+    synopsisShort: 'A brilliant but volatile CIA officer pursues terrorists while battling her own mental health challenges.',
+    image: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Placeholder.svg/512px-Placeholder.svg.png', alt: 'Homeland logo', attribution: 'Showtime Networks', width: 512, height: 186 },
+    characterSlugs: ['carrie-mathison', 'nicholas-brody', 'saul-berenson', 'peter-quinn'],
+    fanHeatScore: 81,
+    tags: ['thriller', 'espionage', 'complete-series', 'critically-acclaimed', 'cia', 'political', 'award-winning'],
+    relatedShowSlugs: ['breaking-bad', 'true-detective', 'dexter', 'the-sopranos'],
+    faqs: [
+      { question: 'How many seasons does Homeland have?', answer: 'Homeland has 8 seasons with 96 episodes total. The series aired on Showtime from October 2, 2011 to April 26, 2020.' },
+      { question: 'Where can I watch Homeland?', answer: 'Homeland is available on Paramount+ in the US. It can also be purchased on Amazon Prime Video, Apple TV+, and Google Play.' },
+      { question: 'Is Homeland based on a true story?', answer: 'No, Homeland is based on the Israeli television series Prisoners of War (Hatufim) created by Gideon Raff. While it draws on real-world geopolitics and the War on Terror, the characters and specific events are fictional.' },
+      { question: 'Did Homeland win any awards?', answer: 'Yes, Homeland won numerous awards including the Emmy Award for Outstanding Drama Series (2012), Golden Globe for Best Television Series – Drama (2012 and 2013), and Claire Danes won the Emmy for Outstanding Lead Actress in a Drama Series twice.' }
+    ],
+    videos: [
+      { title: 'Homeland Season 1 Official Trailer — Showtime', youtubeId: 'KZRpZCBiXMU', description: 'Official trailer for Homeland Season 1 on Showtime.' },
+      { title: 'Homeland Final Season Trailer', youtubeId: 'lxHWaIE8tVg', description: 'Official trailer for the eighth and final season of Homeland.' }
     ]
   }
 ];
