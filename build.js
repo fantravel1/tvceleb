@@ -52,9 +52,14 @@ function writeFile(filePath, content) {
 // ========== LAYOUT TEMPLATE ==========
 
 function layout(opts) {
-  const { title, description, canonical, ogType = 'website', ogImage, breadcrumbsHtml, jsonLd = [], bodyClass = '', content } = opts;
+  const { title, description, canonical, ogType = 'website', ogImage, ogImageAlt, breadcrumbsHtml, jsonLd = [], bodyClass = '', content } = opts;
 
   const fullTitle = title.includes('TVCeleb') ? title : `${title} | TVCeleb.com`;
+  const DEFAULT_OG_IMAGE = `${SITE_URL}/favicon.ico`;
+  const resolvedOgImage = ogImage
+    ? (ogImage.startsWith('http') ? ogImage : SITE_URL + ogImage)
+    : DEFAULT_OG_IMAGE;
+  const resolvedOgImageAlt = ogImageAlt || fullTitle;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -65,23 +70,37 @@ function layout(opts) {
 <meta name="description" content="${escapeHtml(description)}">
 <link rel="canonical" href="${escapeHtml(canonical)}">
 <link rel="alternate" hreflang="en" href="${escapeHtml(canonical)}">
-<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="theme-color" content="#6366f1">
 <meta property="og:title" content="${escapeHtml(fullTitle)}">
 <meta property="og:description" content="${escapeHtml(description)}">
 <meta property="og:url" content="${escapeHtml(canonical)}">
 <meta property="og:type" content="${escapeHtml(ogType)}">
 <meta property="og:site_name" content="${SITE_NAME}">
-${ogImage ? `<meta property="og:image" content="${escapeHtml(ogImage)}">` : ''}
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="${escapeHtml(resolvedOgImage)}">
+<meta property="og:image:alt" content="${escapeHtml(resolvedOgImageAlt)}">
+${ogImage ? `<meta property="og:image:width" content="440">
+<meta property="og:image:height" content="600">` : ''}
+<meta name="twitter:card" content="${ogImage ? 'summary_large_image' : 'summary'}">
 <meta name="twitter:title" content="${escapeHtml(fullTitle)}">
 <meta name="twitter:description" content="${escapeHtml(description)}">
-${ogImage ? `<meta name="twitter:image" content="${escapeHtml(ogImage)}">` : ''}
+<meta name="twitter:image" content="${escapeHtml(resolvedOgImage)}">
+<meta name="twitter:image:alt" content="${escapeHtml(resolvedOgImageAlt)}">
+<meta name="author" content="TVCeleb.com">
+<meta property="article:publisher" content="${SITE_URL}">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://upload.wikimedia.org">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://upload.wikimedia.org">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/styles.css">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="alternate" type="text/plain" href="${SITE_URL}/llms.txt" title="LLM content">
 ${jsonLd.map(ld => `<script type="application/ld+json">${ld}</script>`).join('\n')}
 </head>
 <body class="${bodyClass}">
@@ -204,6 +223,15 @@ function jsonLdWebsite() {
     "name": SITE_NAME,
     "url": SITE_URL,
     "description": SITE_DESCRIPTION,
+    "publisher": {
+      "@type": "Organization",
+      "name": SITE_NAME,
+      "url": SITE_URL,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${SITE_URL}/favicon.ico`
+      }
+    },
     "potentialAction": {
       "@type": "SearchAction",
       "target": `${SITE_URL}/search/?q={search_term_string}`,
@@ -253,16 +281,20 @@ function jsonLdTvSeries(show) {
     } : null;
   }).filter(Boolean);
 
+  const today = new Date().toISOString().split('T')[0];
   return JSON.stringify({
     "@context": "https://schema.org",
     "@type": "TVSeries",
     "name": show.title,
     "url": `${SITE_URL}/shows/${show.slug}/`,
     "description": show.synopsisShort || show.synopsis,
+    "inLanguage": "en",
     "genre": show.genre,
     "numberOfSeasons": show.seasons,
     "numberOfEpisodes": show.episodes,
     "startDate": show.years.split('–')[0],
+    "datePublished": today,
+    "dateModified": today,
     "productionCompany": { "@type": "Organization", "name": show.network },
     ...(charActors.length > 0 ? { "actor": charActors } : {}),
     "aggregateRating": { "@type": "AggregateRating", "ratingValue": (show.fanHeatScore / 10).toFixed(1), "bestRating": "10", "ratingCount": Math.floor(show.fanHeatScore * 100) }
@@ -271,12 +303,16 @@ function jsonLdTvSeries(show) {
 
 function jsonLdCharacter(character) {
   const actor = getActor(character.actorSlug);
+  const today = new Date().toISOString().split('T')[0];
   return JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Person",
     "name": character.name,
     "url": `${SITE_URL}/characters/${character.slug}/`,
     "description": character.characterArc ? character.characterArc.substring(0, 200) + '...' : '',
+    "datePublished": today,
+    "dateModified": today,
+    "mainEntityOfPage": `${SITE_URL}/characters/${character.slug}/`,
     "performerIn": {
       "@type": "TVSeries",
       "name": character.showTitle,
@@ -315,8 +351,11 @@ function jsonLdActor(actor) {
   });
 }
 
-function jsonLdVideo(video) {
+function jsonLdVideo(video, showSlug) {
   if (!video) return null;
+  // Use show premiere date if available, otherwise use a reasonable default
+  const show = showSlug ? getShow(showSlug) : null;
+  const uploadDate = show?.yearStart ? `${show.yearStart}-01-01` : '2020-01-01';
   return JSON.stringify({
     "@context": "https://schema.org",
     "@type": "VideoObject",
@@ -324,7 +363,19 @@ function jsonLdVideo(video) {
     "description": video.description || '',
     "thumbnailUrl": `https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`,
     "embedUrl": `https://www.youtube-nocookie.com/embed/${video.youtubeId}`,
-    "uploadDate": "2020-01-01"
+    "uploadDate": uploadDate
+  });
+}
+
+function jsonLdSpeakable(url, cssSelectors) {
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": url,
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": cssSelectors
+    }
   });
 }
 
@@ -584,12 +635,25 @@ ${shows.map(s => showCard(s)).join('\n')}
 </div>
 </section>`;
 
+  const itemListLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "All TV Shows on TVCeleb.com",
+    "numberOfItems": shows.length,
+    "itemListElement": shows.map((s, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": s.title,
+      "url": `${SITE_URL}/shows/${s.slug}/`
+    }))
+  });
+
   writeFile(path.join(OUT_DIR, 'shows', 'index.html'), layout({
     title: 'All TV Shows - Browse the Complete Directory',
     description: `Browse all ${shows.length} TV shows on TVCeleb.com. Filter by genre and explore character fan ecosystems for each show.`,
     canonical: SITE_URL + '/shows/',
     breadcrumbsHtml: breadcrumbsComponent(bc),
-    jsonLd: [jsonLdBreadcrumbs(bc)],
+    jsonLd: [jsonLdBreadcrumbs(bc), itemListLd],
     content
   }));
 }
@@ -657,13 +721,20 @@ ${faqSectionHtml(show.faqs)}
   const jsonLd = [jsonLdTvSeries(show), jsonLdBreadcrumbs(bc)];
   const faqLd = jsonLdFaqPage(show.faqs);
   if (faqLd) jsonLd.push(faqLd);
-  show.videos?.forEach(v => { const vld = jsonLdVideo(v); if (vld) jsonLd.push(vld); });
+  show.videos?.forEach(v => { const vld = jsonLdVideo(v, show.slug); if (vld) jsonLd.push(vld); });
+  jsonLd.push(jsonLdSpeakable(`${SITE_URL}/shows/${show.slug}/`, ['h1', '.character-arc', '.faq-answer']));
+
+  // Use show image if available, otherwise use first character's image
+  const showOgImage = show.image?.src || (showCharacters[0]?.image?.src) || null;
+  const showOgImageAlt = show.image?.alt || (showCharacters[0] ? `${showCharacters[0].actorName} as ${showCharacters[0].name} in ${show.title}` : show.title);
 
   writeFile(path.join(OUT_DIR, 'shows', show.slug, 'index.html'), layout({
     title: `${show.title} - Characters, Fan Ecosystem & Community`,
     description: `Explore ${show.title} (${show.years}) on TVCeleb.com. ${show.synopsisShort} Browse ${(show.characterSlugs || []).length} characters, fan communities, and more.`,
     canonical: `${SITE_URL}/shows/${show.slug}/`,
     ogType: 'video.tv_show',
+    ogImage: showOgImage,
+    ogImageAlt: showOgImageAlt,
     breadcrumbsHtml: breadcrumbsComponent(bc),
     jsonLd,
     content
@@ -697,12 +768,25 @@ ${sortedChars.map(ch => {
 </div>
 </section>`;
 
+  const charListLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "All TV Characters on TVCeleb.com",
+    "numberOfItems": sortedChars.length,
+    "itemListElement": sortedChars.slice(0, 50).map((c, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": c.name,
+      "url": `${SITE_URL}/characters/${c.slug}/`
+    }))
+  });
+
   writeFile(path.join(OUT_DIR, 'characters', 'index.html'), layout({
     title: 'All TV Characters - The Global Character Index',
     description: `Browse all ${characters.length} TV characters on TVCeleb.com. Discover character arcs, fan ecosystems, and community hubs across ${shows.length} shows.`,
     canonical: SITE_URL + '/characters/',
     breadcrumbsHtml: breadcrumbsComponent(bc),
-    jsonLd: [jsonLdBreadcrumbs(bc)],
+    jsonLd: [jsonLdBreadcrumbs(bc), charListLd],
     content
   }));
 }
@@ -791,7 +875,8 @@ ${character.image?.attribution ? `<aside class="content-section" style="padding-
   const jsonLd = [jsonLdCharacter(character), jsonLdBreadcrumbs(bc)];
   const faqLd = jsonLdFaqPage(character.faqs);
   if (faqLd) jsonLd.push(faqLd);
-  character.videos?.forEach(v => { const vld = jsonLdVideo(v); if (vld) jsonLd.push(vld); });
+  character.videos?.forEach(v => { const vld = jsonLdVideo(v, character.showSlug); if (vld) jsonLd.push(vld); });
+  jsonLd.push(jsonLdSpeakable(`${SITE_URL}/characters/${character.slug}/`, ['h1', '.character-arc', '.faq-answer']));
 
   const descArc = character.characterArc ? character.characterArc.substring(0, 140).replace(/\n/g, ' ') + '...' : '';
 
@@ -801,6 +886,7 @@ ${character.image?.attribution ? `<aside class="content-section" style="padding-
     canonical: `${SITE_URL}/characters/${character.slug}/`,
     ogType: 'profile',
     ogImage: character.image?.src,
+    ogImageAlt: character.image?.alt || `${character.name} from ${character.showTitle}`,
     breadcrumbsHtml: breadcrumbsComponent(bc),
     jsonLd,
     content
@@ -823,12 +909,25 @@ ${actors.map(a => actorCard(a)).join('\n')}
 </div>
 </section>`;
 
+  const actorListLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "All TV Actors on TVCeleb.com",
+    "numberOfItems": actors.length,
+    "itemListElement": actors.slice(0, 50).map((a, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": a.name,
+      "url": `${SITE_URL}/actors/${a.slug}/`
+    }))
+  });
+
   writeFile(path.join(OUT_DIR, 'actors', 'index.html'), layout({
     title: 'All Actors - TV Actor Directory',
     description: `Browse all ${actors.length} TV actors on TVCeleb.com. Discover their iconic roles, career highlights, and fan communities.`,
     canonical: SITE_URL + '/actors/',
     breadcrumbsHtml: breadcrumbsComponent(bc),
-    jsonLd: [jsonLdBreadcrumbs(bc)],
+    jsonLd: [jsonLdBreadcrumbs(bc), actorListLd],
     content
   }));
 }
@@ -906,6 +1005,7 @@ ${actor.image?.attribution ? `<aside class="content-section" style="padding-top:
   const jsonLd = [jsonLdActor(actor), jsonLdBreadcrumbs(bc)];
   const faqLd = jsonLdFaqPage(actor.faqs);
   if (faqLd) jsonLd.push(faqLd);
+  jsonLd.push(jsonLdSpeakable(`${SITE_URL}/actors/${actor.slug}/`, ['h1', '.actor-bio', '.faq-answer']));
 
   writeFile(path.join(OUT_DIR, 'actors', actor.slug, 'index.html'), layout({
     title: `${actor.name} - TV Roles, Career & Fan Community`,
@@ -913,6 +1013,7 @@ ${actor.image?.attribution ? `<aside class="content-section" style="padding-top:
     canonical: `${SITE_URL}/actors/${actor.slug}/`,
     ogType: 'profile',
     ogImage: actor.image?.src,
+    ogImageAlt: actor.image?.alt || actor.name,
     breadcrumbsHtml: breadcrumbsComponent(bc),
     jsonLd,
     content
@@ -1628,53 +1729,249 @@ function buildSearchIndex() {
 
 function buildSitemap() {
   console.log('Building: sitemap.xml');
+  const today = new Date().toISOString().split('T')[0];
   const urls = [
-    { loc: '/', priority: '1.0', changefreq: 'daily' },
-    { loc: '/shows/', priority: '0.9', changefreq: 'weekly' },
-    { loc: '/characters/', priority: '0.9', changefreq: 'weekly' },
-    { loc: '/actors/', priority: '0.8', changefreq: 'weekly' },
-    { loc: '/search/', priority: '0.7', changefreq: 'monthly' },
-    { loc: '/genres/', priority: '0.8', changefreq: 'weekly' },
-    { loc: '/networks/', priority: '0.8', changefreq: 'weekly' },
-    { loc: '/lists/', priority: '0.8', changefreq: 'weekly' },
-    { loc: '/decades/', priority: '0.8', changefreq: 'weekly' },
-    { loc: '/about/', priority: '0.6', changefreq: 'monthly' },
+    { loc: '/', priority: '1.0', changefreq: 'daily', lastmod: today },
+    { loc: '/shows/', priority: '0.9', changefreq: 'weekly', lastmod: today },
+    { loc: '/characters/', priority: '0.9', changefreq: 'weekly', lastmod: today },
+    { loc: '/actors/', priority: '0.8', changefreq: 'weekly', lastmod: today },
+    { loc: '/search/', priority: '0.7', changefreq: 'monthly', lastmod: today },
+    { loc: '/genres/', priority: '0.8', changefreq: 'weekly', lastmod: today },
+    { loc: '/networks/', priority: '0.8', changefreq: 'weekly', lastmod: today },
+    { loc: '/lists/', priority: '0.8', changefreq: 'weekly', lastmod: today },
+    { loc: '/decades/', priority: '0.8', changefreq: 'weekly', lastmod: today },
+    { loc: '/about/', priority: '0.6', changefreq: 'monthly', lastmod: today },
   ];
 
-  shows.forEach(s => urls.push({ loc: `/shows/${s.slug}/`, priority: '0.8', changefreq: 'weekly' }));
-  characters.forEach(c => urls.push({ loc: `/characters/${c.slug}/`, priority: '0.8', changefreq: 'weekly' }));
-  actors.forEach(a => urls.push({ loc: `/actors/${a.slug}/`, priority: '0.7', changefreq: 'monthly' }));
+  shows.forEach(s => urls.push({ loc: `/shows/${s.slug}/`, priority: '0.8', changefreq: 'weekly', lastmod: today }));
+  characters.forEach(c => urls.push({ loc: `/characters/${c.slug}/`, priority: '0.8', changefreq: 'weekly', lastmod: today }));
+  actors.forEach(a => urls.push({ loc: `/actors/${a.slug}/`, priority: '0.7', changefreq: 'monthly', lastmod: today }));
 
   // Genre pages
   const sitemapGenres = [...new Set(shows.flatMap(s => s.genre))];
-  sitemapGenres.forEach(g => urls.push({ loc: `/genres/${getGenreSlug(g)}/`, priority: '0.7', changefreq: 'weekly' }));
+  sitemapGenres.forEach(g => urls.push({ loc: `/genres/${getGenreSlug(g)}/`, priority: '0.7', changefreq: 'weekly', lastmod: today }));
 
   // Network pages
   const sitemapNetworks = [...new Set(shows.map(s => s.network))];
-  sitemapNetworks.forEach(n => urls.push({ loc: `/networks/${getNetworkSlug(n)}/`, priority: '0.7', changefreq: 'weekly' }));
+  sitemapNetworks.forEach(n => urls.push({ loc: `/networks/${getNetworkSlug(n)}/`, priority: '0.7', changefreq: 'weekly', lastmod: today }));
 
   // List pages
   const sitemapLists = getCuratedLists();
-  sitemapLists.forEach(l => urls.push({ loc: `/lists/${l.slug}/`, priority: '0.7', changefreq: 'monthly' }));
+  sitemapLists.forEach(l => urls.push({ loc: `/lists/${l.slug}/`, priority: '0.7', changefreq: 'monthly', lastmod: today }));
 
   // Decade pages
   const sitemapDecades = getDecades();
-  sitemapDecades.forEach(d => urls.push({ loc: `/decades/${d.decade}s/`, priority: '0.7', changefreq: 'monthly' }));
+  sitemapDecades.forEach(d => urls.push({ loc: `/decades/${d.decade}s/`, priority: '0.7', changefreq: 'monthly', lastmod: today }));
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(u => `<url><loc>${SITE_URL}${u.loc}</loc><changefreq>${u.changefreq}</changefreq><priority>${u.priority}</priority></url>`).join('\n')}
+${urls.map(u => `<url><loc>${SITE_URL}${u.loc}</loc><lastmod>${u.lastmod}</lastmod><changefreq>${u.changefreq}</changefreq><priority>${u.priority}</priority></url>`).join('\n')}
 </urlset>`;
 
   writeFile(path.join(OUT_DIR, 'sitemap.xml'), xml);
 }
 
+function buildImageSitemap() {
+  console.log('Building: sitemap-images.xml');
+  const entries = [];
+
+  // Character images
+  characters.forEach(c => {
+    if (c.image?.src) {
+      entries.push({
+        loc: `${SITE_URL}/characters/${c.slug}/`,
+        images: [{
+          src: c.image.src.startsWith('http') ? c.image.src : SITE_URL + c.image.src,
+          title: c.image.alt || `${c.name} from ${c.showTitle}`,
+          caption: c.image.credit ? `Photo: ${c.image.credit}` : `${c.actorName} as ${c.name} in ${c.showTitle}`
+        }]
+      });
+    }
+  });
+
+  // Actor images
+  actors.forEach(a => {
+    if (a.image?.src) {
+      entries.push({
+        loc: `${SITE_URL}/actors/${a.slug}/`,
+        images: [{
+          src: a.image.src.startsWith('http') ? a.image.src : SITE_URL + a.image.src,
+          title: a.image.alt || a.name,
+          caption: a.image.credit ? `Photo: ${a.image.credit}` : `${a.name} - actor profile`
+        }]
+      });
+    }
+  });
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${entries.map(e => `<url>
+<loc>${escapeHtml(e.loc)}</loc>
+${e.images.map(img => `<image:image>
+<image:loc>${escapeHtml(img.src)}</image:loc>
+<image:title>${escapeHtml(img.title)}</image:title>
+<image:caption>${escapeHtml(img.caption)}</image:caption>
+</image:image>`).join('\n')}
+</url>`).join('\n')}
+</urlset>`;
+
+  writeFile(path.join(OUT_DIR, 'sitemap-images.xml'), xml);
+  console.log(`  Image sitemap: ${entries.length} pages with images`);
+}
+
 function buildRobotsTxt() {
   console.log('Building: robots.txt');
-  writeFile(path.join(OUT_DIR, 'robots.txt'), `User-agent: *
+  writeFile(path.join(OUT_DIR, 'robots.txt'), `# TVCeleb.com Robots.txt
+# https://tvceleb.com
+
+User-agent: *
 Allow: /
+Disallow: /search-index.json
+Crawl-delay: 1
+
+# Googlebot (no crawl-delay needed)
+User-agent: Googlebot
+Allow: /
+Disallow: /search-index.json
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+Disallow: /search-index.json
+Crawl-delay: 2
+
+# AI Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Sitemaps
 Sitemap: ${SITE_URL}/sitemap.xml
+Sitemap: ${SITE_URL}/sitemap-images.xml
+
+# Host
+Host: ${SITE_URL}
 `);
+}
+
+function buildLlmsTxt() {
+  console.log('Building: llms.txt');
+  const showsList = shows.map(s => `- ${s.title}: ${SITE_URL}/shows/${s.slug}/`).join('\n');
+  const content = `# TVCeleb.com
+
+> TVCeleb.com is the world's largest repository of TV character fan sites, fan social media & aggregated content. Explore characters, fan communities, and ecosystems across every TV show.
+
+## Site Overview
+
+TVCeleb.com covers ${shows.length} TV shows, ${characters.length} characters, and ${actors.length} actors with detailed profiles including:
+- Character arcs and key episodes
+- Fan ecosystem links (Reddit, YouTube, Twitter, fan wikis, TikTok)
+- Fan Heat Index scores measuring engagement, social activity, and fandom longevity
+- Frequently asked questions with detailed answers
+- Curated video content
+- Actor biographies and filmographies
+
+## Main Sections
+
+- Shows Directory: ${SITE_URL}/shows/
+- Characters Directory: ${SITE_URL}/characters/
+- Actors Directory: ${SITE_URL}/actors/
+- Genres: ${SITE_URL}/genres/
+- Networks: ${SITE_URL}/networks/
+- Curated Lists: ${SITE_URL}/lists/
+- Decades: ${SITE_URL}/decades/
+- About: ${SITE_URL}/about/
+
+## Shows Covered
+
+${showsList}
+
+## Contact
+
+For inquiries about TVCeleb.com, visit ${SITE_URL}/about/
+`;
+  writeFile(path.join(OUT_DIR, 'llms.txt'), content);
+}
+
+function buildLlmsFullTxt() {
+  console.log('Building: llms-full.txt');
+  const sections = [];
+
+  sections.push(`# TVCeleb.com - Complete Content Index
+
+> TVCeleb.com is the world's largest repository of TV character fan sites, fan social media & aggregated content.
+
+Site statistics: ${shows.length} shows, ${characters.length} characters, ${actors.length} actors.
+
+---`);
+
+  // All shows with full details
+  sections.push(`\n## All TV Shows\n`);
+  shows.forEach(s => {
+    const showChars = (s.characterSlugs || []).map(getCharacter).filter(Boolean);
+    sections.push(`### ${s.title}
+- Network: ${s.network}
+- Years: ${s.years}
+- Seasons: ${s.seasons} | Episodes: ${s.episodes}
+- Status: ${s.status}
+- Genres: ${(s.genre || []).join(', ')}
+- Fan Heat Score: ${s.fanHeatScore}/100
+- Synopsis: ${s.synopsis || s.synopsisShort || ''}
+- Characters: ${showChars.map(c => c.name).join(', ')}
+- URL: ${SITE_URL}/shows/${s.slug}/
+`);
+  });
+
+  // All characters with full details
+  sections.push(`\n## All Characters\n`);
+  characters.forEach(c => {
+    sections.push(`### ${c.name} (${c.showTitle})
+- Played by: ${c.actorName}
+- Seasons: ${c.seasons || 'N/A'}
+- Fan Heat Score: ${c.fanHeatIndex?.overall || 'N/A'}/100
+- Character Arc: ${c.characterArc || ''}
+- URL: ${SITE_URL}/characters/${c.slug}/
+`);
+    if (c.faqs && c.faqs.length > 0) {
+      sections.push(`**FAQs:**`);
+      c.faqs.forEach(faq => {
+        sections.push(`- Q: ${faq.question}\n  A: ${faq.answer}`);
+      });
+      sections.push('');
+    }
+  });
+
+  // All actors with full details
+  sections.push(`\n## All Actors\n`);
+  actors.forEach(a => {
+    const roles = (a.knownFor || []).map(r => `${r.characterName} in ${r.showTitle}`).join(', ');
+    sections.push(`### ${a.name}
+- Known for: ${roles}
+- Bio: ${a.bio || ''}
+- URL: ${SITE_URL}/actors/${a.slug}/
+`);
+  });
+
+  writeFile(path.join(OUT_DIR, 'llms-full.txt'), sections.join('\n'));
+  console.log(`  llms-full.txt: comprehensive content for ${shows.length} shows, ${characters.length} characters, ${actors.length} actors`);
 }
 
 function copyStaticFiles() {
@@ -1695,6 +1992,32 @@ function copyStaticFiles() {
 
   // Favicon (simple placeholder SVG converted to base64 ICO substitute)
   writeFile(path.join(OUT_DIR, 'favicon.ico'), '');
+
+  // manifest.json (PWA)
+  writeFile(path.join(OUT_DIR, 'manifest.json'), JSON.stringify({
+    "name": "TVCeleb.com",
+    "short_name": "TVCeleb",
+    "description": SITE_DESCRIPTION,
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#6366f1",
+    "icons": [{ "src": "/favicon.ico", "sizes": "48x48", "type": "image/x-icon" }]
+  }, null, 2));
+
+  // humans.txt
+  writeFile(path.join(OUT_DIR, 'humans.txt'), `/* TEAM */
+Site: TVCeleb.com
+URL: ${SITE_URL}
+Description: ${SITE_DESCRIPTION}
+
+/* SITE */
+Standards: HTML5, CSS3, JavaScript
+Components: Static Site Generator (Node.js)
+Software: GitHub Pages
+Language: English
+Doctype: HTML5
+`);
 }
 
 // ========== MAIN BUILD ==========
@@ -1965,7 +2288,10 @@ function build() {
   // Build assets
   buildSearchIndex();
   buildSitemap();
+  buildImageSitemap();
   buildRobotsTxt();
+  buildLlmsTxt();
+  buildLlmsFullTxt();
 
   // Count output files
   let fileCount = 0;

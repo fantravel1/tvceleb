@@ -1,0 +1,69 @@
+# TVCeleb.com
+
+> TVCeleb.com is the world's largest repository of TV character fan sites, fan social media & aggregated content. Explore characters, fan communities, and ecosystems across every TV show.
+
+## Site Overview
+
+TVCeleb.com covers 38 TV shows, 205 characters, and 153 actors with detailed profiles including:
+- Character arcs and key episodes
+- Fan ecosystem links (Reddit, YouTube, Twitter, fan wikis, TikTok)
+- Fan Heat Index scores measuring engagement, social activity, and fandom longevity
+- Frequently asked questions with detailed answers
+- Curated video content
+- Actor biographies and filmographies
+
+## Main Sections
+
+- Shows Directory: https://tvceleb.com/shows/
+- Characters Directory: https://tvceleb.com/characters/
+- Actors Directory: https://tvceleb.com/actors/
+- Genres: https://tvceleb.com/genres/
+- Networks: https://tvceleb.com/networks/
+- Curated Lists: https://tvceleb.com/lists/
+- Decades: https://tvceleb.com/decades/
+- About: https://tvceleb.com/about/
+
+## Shows Covered
+
+- Breaking Bad: https://tvceleb.com/shows/breaking-bad/
+- Game of Thrones: https://tvceleb.com/shows/game-of-thrones/
+- Stranger Things: https://tvceleb.com/shows/stranger-things/
+- The Office (US): https://tvceleb.com/shows/the-office/
+- Succession: https://tvceleb.com/shows/succession/
+- Wednesday: https://tvceleb.com/shows/wednesday/
+- The Bear: https://tvceleb.com/shows/the-bear/
+- Squid Game: https://tvceleb.com/shows/squid-game/
+- Bridgerton: https://tvceleb.com/shows/bridgerton/
+- The Last of Us: https://tvceleb.com/shows/the-last-of-us/
+- Friends: https://tvceleb.com/shows/friends/
+- The Sopranos: https://tvceleb.com/shows/the-sopranos/
+- Ozark: https://tvceleb.com/shows/ozark/
+- Ted Lasso: https://tvceleb.com/shows/ted-lasso/
+- Euphoria: https://tvceleb.com/shows/euphoria/
+- The Mandalorian: https://tvceleb.com/shows/the-mandalorian/
+- Peaky Blinders: https://tvceleb.com/shows/peaky-blinders/
+- The Crown: https://tvceleb.com/shows/the-crown/
+- Yellowstone: https://tvceleb.com/shows/yellowstone/
+- Schitt's Creek: https://tvceleb.com/shows/schitts-creek/
+- Severance: https://tvceleb.com/shows/severance/
+- House of the Dragon: https://tvceleb.com/shows/house-of-the-dragon/
+- The White Lotus: https://tvceleb.com/shows/the-white-lotus/
+- Suits: https://tvceleb.com/shows/suits/
+- Better Call Saul: https://tvceleb.com/shows/better-call-saul/
+- The Boys: https://tvceleb.com/shows/the-boys/
+- Fleabag: https://tvceleb.com/shows/fleabag/
+- Abbott Elementary: https://tvceleb.com/shows/abbott-elementary/
+- Arcane: https://tvceleb.com/shows/arcane/
+- Shogun: https://tvceleb.com/shows/shogun/
+- Dexter: https://tvceleb.com/shows/dexter/
+- The Walking Dead: https://tvceleb.com/shows/the-walking-dead/
+- Only Murders in the Building: https://tvceleb.com/shows/only-murders/
+- Loki: https://tvceleb.com/shows/loki/
+- Andor: https://tvceleb.com/shows/andor/
+- True Detective: https://tvceleb.com/shows/true-detective/
+- Black Mirror: https://tvceleb.com/shows/black-mirror/
+- Homeland: https://tvceleb.com/shows/homeland/
+
+## Contact
+
+For inquiries about TVCeleb.com, visit https://tvceleb.com/about/

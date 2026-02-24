@@ -30,6 +30,10 @@ const charBatches = [
   { file: 'characters-sev-hotd-wl.js', keys: ['severanceCharacters', 'hotdCharacters', 'whiteLotusCharacters'] },
   { file: 'characters-suits-bcs-boys.js', keys: ['suitsCharacters', 'bcsCharacters', 'boysCharacters'] },
   { file: 'characters-fleabag-abbott-arcane-shogun.js', keys: ['fleabagCharacters', 'abbottCharacters', 'arcaneCharacters', 'shogunCharacters'] },
+  // Batch 4 - eight new shows
+  { file: 'characters-td-bm-homeland.js', keys: ['trueDetectiveCharacters', 'blackMirrorCharacters', 'homelandCharacters'] },
+  { file: 'characters-dexter-twd.js', keys: ['dexterCharacters', 'twdCharacters'] },
+  { file: 'characters-omitb-loki-andor.js', keys: ['omitbCharacters', 'lokiCharacters', 'andorCharacters'] },
 ];
 
 console.log('=== Combining Character Data ===');
@@ -82,6 +86,7 @@ const actorBatches = [
   { file: 'actors.js', key: 'actors' },
   { file: 'actors-batch2.js', key: 'actors2' },
   { file: 'actors-batch3.js', key: 'actors3' },
+  { file: 'actors-batch4.js', key: 'actors4' },
 ];
 
 console.log('=== Combining Actor Data ===');
