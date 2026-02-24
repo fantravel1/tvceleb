@@ -71,11 +71,15 @@ function layout(opts) {
 <meta property="og:url" content="${escapeHtml(canonical)}">
 <meta property="og:type" content="${escapeHtml(ogType)}">
 <meta property="og:site_name" content="${SITE_NAME}">
-${ogImage ? `<meta property="og:image" content="${escapeHtml(ogImage)}">` : ''}
+${ogImage ? `<meta property="og:image" content="${escapeHtml(ogImage.startsWith('http') ? ogImage : SITE_URL + ogImage)}">
+<meta property="og:image:width" content="440">
+<meta property="og:image:height" content="600">` : ''}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${escapeHtml(fullTitle)}">
 <meta name="twitter:description" content="${escapeHtml(description)}">
-${ogImage ? `<meta name="twitter:image" content="${escapeHtml(ogImage)}">` : ''}
+${ogImage ? `<meta name="twitter:image" content="${escapeHtml(ogImage.startsWith('http') ? ogImage : SITE_URL + ogImage)}">` : ''}
+<meta name="author" content="TVCeleb.com">
+<meta property="article:publisher" content="${SITE_URL}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://upload.wikimedia.org">
@@ -204,6 +208,15 @@ function jsonLdWebsite() {
     "name": SITE_NAME,
     "url": SITE_URL,
     "description": SITE_DESCRIPTION,
+    "publisher": {
+      "@type": "Organization",
+      "name": SITE_NAME,
+      "url": SITE_URL,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${SITE_URL}/favicon.ico`
+      }
+    },
     "potentialAction": {
       "@type": "SearchAction",
       "target": `${SITE_URL}/search/?q={search_term_string}`,
@@ -1628,42 +1641,43 @@ function buildSearchIndex() {
 
 function buildSitemap() {
   console.log('Building: sitemap.xml');
+  const today = new Date().toISOString().split('T')[0];
   const urls = [
-    { loc: '/', priority: '1.0', changefreq: 'daily' },
-    { loc: '/shows/', priority: '0.9', changefreq: 'weekly' },
-    { loc: '/characters/', priority: '0.9', changefreq: 'weekly' },
-    { loc: '/actors/', priority: '0.8', changefreq: 'weekly' },
-    { loc: '/search/', priority: '0.7', changefreq: 'monthly' },
-    { loc: '/genres/', priority: '0.8', changefreq: 'weekly' },
-    { loc: '/networks/', priority: '0.8', changefreq: 'weekly' },
-    { loc: '/lists/', priority: '0.8', changefreq: 'weekly' },
-    { loc: '/decades/', priority: '0.8', changefreq: 'weekly' },
-    { loc: '/about/', priority: '0.6', changefreq: 'monthly' },
+    { loc: '/', priority: '1.0', changefreq: 'daily', lastmod: today },
+    { loc: '/shows/', priority: '0.9', changefreq: 'weekly', lastmod: today },
+    { loc: '/characters/', priority: '0.9', changefreq: 'weekly', lastmod: today },
+    { loc: '/actors/', priority: '0.8', changefreq: 'weekly', lastmod: today },
+    { loc: '/search/', priority: '0.7', changefreq: 'monthly', lastmod: today },
+    { loc: '/genres/', priority: '0.8', changefreq: 'weekly', lastmod: today },
+    { loc: '/networks/', priority: '0.8', changefreq: 'weekly', lastmod: today },
+    { loc: '/lists/', priority: '0.8', changefreq: 'weekly', lastmod: today },
+    { loc: '/decades/', priority: '0.8', changefreq: 'weekly', lastmod: today },
+    { loc: '/about/', priority: '0.6', changefreq: 'monthly', lastmod: today },
   ];
 
-  shows.forEach(s => urls.push({ loc: `/shows/${s.slug}/`, priority: '0.8', changefreq: 'weekly' }));
-  characters.forEach(c => urls.push({ loc: `/characters/${c.slug}/`, priority: '0.8', changefreq: 'weekly' }));
-  actors.forEach(a => urls.push({ loc: `/actors/${a.slug}/`, priority: '0.7', changefreq: 'monthly' }));
+  shows.forEach(s => urls.push({ loc: `/shows/${s.slug}/`, priority: '0.8', changefreq: 'weekly', lastmod: today }));
+  characters.forEach(c => urls.push({ loc: `/characters/${c.slug}/`, priority: '0.8', changefreq: 'weekly', lastmod: today }));
+  actors.forEach(a => urls.push({ loc: `/actors/${a.slug}/`, priority: '0.7', changefreq: 'monthly', lastmod: today }));
 
   // Genre pages
   const sitemapGenres = [...new Set(shows.flatMap(s => s.genre))];
-  sitemapGenres.forEach(g => urls.push({ loc: `/genres/${getGenreSlug(g)}/`, priority: '0.7', changefreq: 'weekly' }));
+  sitemapGenres.forEach(g => urls.push({ loc: `/genres/${getGenreSlug(g)}/`, priority: '0.7', changefreq: 'weekly', lastmod: today }));
 
   // Network pages
   const sitemapNetworks = [...new Set(shows.map(s => s.network))];
-  sitemapNetworks.forEach(n => urls.push({ loc: `/networks/${getNetworkSlug(n)}/`, priority: '0.7', changefreq: 'weekly' }));
+  sitemapNetworks.forEach(n => urls.push({ loc: `/networks/${getNetworkSlug(n)}/`, priority: '0.7', changefreq: 'weekly', lastmod: today }));
 
   // List pages
   const sitemapLists = getCuratedLists();
-  sitemapLists.forEach(l => urls.push({ loc: `/lists/${l.slug}/`, priority: '0.7', changefreq: 'monthly' }));
+  sitemapLists.forEach(l => urls.push({ loc: `/lists/${l.slug}/`, priority: '0.7', changefreq: 'monthly', lastmod: today }));
 
   // Decade pages
   const sitemapDecades = getDecades();
-  sitemapDecades.forEach(d => urls.push({ loc: `/decades/${d.decade}s/`, priority: '0.7', changefreq: 'monthly' }));
+  sitemapDecades.forEach(d => urls.push({ loc: `/decades/${d.decade}s/`, priority: '0.7', changefreq: 'monthly', lastmod: today }));
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(u => `<url><loc>${SITE_URL}${u.loc}</loc><changefreq>${u.changefreq}</changefreq><priority>${u.priority}</priority></url>`).join('\n')}
+${urls.map(u => `<url><loc>${SITE_URL}${u.loc}</loc><lastmod>${u.lastmod}</lastmod><changefreq>${u.changefreq}</changefreq><priority>${u.priority}</priority></url>`).join('\n')}
 </urlset>`;
 
   writeFile(path.join(OUT_DIR, 'sitemap.xml'), xml);
@@ -1671,10 +1685,92 @@ ${urls.map(u => `<url><loc>${SITE_URL}${u.loc}</loc><changefreq>${u.changefreq}<
 
 function buildRobotsTxt() {
   console.log('Building: robots.txt');
-  writeFile(path.join(OUT_DIR, 'robots.txt'), `User-agent: *
+  writeFile(path.join(OUT_DIR, 'robots.txt'), `# TVCeleb.com Robots.txt
+# https://tvceleb.com
+
+User-agent: *
 Allow: /
+Disallow: /search-index.json
+Crawl-delay: 1
+
+# Googlebot (no crawl-delay needed)
+User-agent: Googlebot
+Allow: /
+Disallow: /search-index.json
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+Disallow: /search-index.json
+Crawl-delay: 2
+
+# AI Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Sitemaps
 Sitemap: ${SITE_URL}/sitemap.xml
+
+# Host
+Host: ${SITE_URL}
 `);
+}
+
+function buildLlmsTxt() {
+  console.log('Building: llms.txt');
+  const showsList = shows.map(s => `- ${s.title}: ${SITE_URL}/shows/${s.slug}/`).join('\n');
+  const content = `# TVCeleb.com
+
+> TVCeleb.com is the world's largest repository of TV character fan sites, fan social media & aggregated content. Explore characters, fan communities, and ecosystems across every TV show.
+
+## Site Overview
+
+TVCeleb.com covers ${shows.length} TV shows, ${characters.length} characters, and ${actors.length} actors with detailed profiles including:
+- Character arcs and key episodes
+- Fan ecosystem links (Reddit, YouTube, Twitter, fan wikis, TikTok)
+- Fan Heat Index scores measuring engagement, social activity, and fandom longevity
+- Frequently asked questions with detailed answers
+- Curated video content
+- Actor biographies and filmographies
+
+## Main Sections
+
+- Shows Directory: ${SITE_URL}/shows/
+- Characters Directory: ${SITE_URL}/characters/
+- Actors Directory: ${SITE_URL}/actors/
+- Genres: ${SITE_URL}/genres/
+- Networks: ${SITE_URL}/networks/
+- Curated Lists: ${SITE_URL}/lists/
+- Decades: ${SITE_URL}/decades/
+- About: ${SITE_URL}/about/
+
+## Shows Covered
+
+${showsList}
+
+## Contact
+
+For inquiries about TVCeleb.com, visit ${SITE_URL}/about/
+`;
+  writeFile(path.join(OUT_DIR, 'llms.txt'), content);
 }
 
 function copyStaticFiles() {
@@ -1966,6 +2062,7 @@ function build() {
   buildSearchIndex();
   buildSitemap();
   buildRobotsTxt();
+  buildLlmsTxt();
 
   // Count output files
   let fileCount = 0;

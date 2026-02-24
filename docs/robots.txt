@@ -1,3 +1,46 @@
+# TVCeleb.com Robots.txt
+# https://tvceleb.com
+
 User-agent: *
 Allow: /
+Disallow: /search-index.json
+Crawl-delay: 1
+
+# Googlebot (no crawl-delay needed)
+User-agent: Googlebot
+Allow: /
+Disallow: /search-index.json
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+Disallow: /search-index.json
+Crawl-delay: 2
+
+# AI Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Sitemaps
 Sitemap: https://tvceleb.com/sitemap.xml
+
+# Host
+Host: https://tvceleb.com
