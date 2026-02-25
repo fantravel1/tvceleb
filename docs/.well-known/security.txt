@@ -1,0 +1,5 @@
+# TVCeleb.com Security Policy
+Contact: https://tvceleb.com/about/
+Preferred-Languages: en
+Canonical: https://tvceleb.com/.well-known/security.txt
+Expires: 2027-02-25T00:00:00.000Z

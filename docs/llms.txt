@@ -2,67 +2,166 @@
 
 > TVCeleb.com is the world's largest repository of TV character fan sites, fan social media & aggregated content. Explore characters, fan communities, and ecosystems across every TV show.
 
-## Site Overview
+## Site Statistics
 
-TVCeleb.com covers 38 TV shows, 205 characters, and 153 actors with detailed profiles including:
-- Character arcs and key episodes
-- Fan ecosystem links (Reddit, YouTube, Twitter, fan wikis, TikTok)
-- Fan Heat Index scores measuring engagement, social activity, and fandom longevity
-- Frequently asked questions with detailed answers
-- Curated video content
-- Actor biographies and filmographies
+- 38 TV shows across 24 genres
+- 205 character profiles with fan ecosystem mapping
+- 153 actor profiles with biographies and filmographies
+- 16 networks and streaming platforms covered
+- Decades covered: 1990s, 2000s, 2010s, 2020s
 
 ## Main Sections
 
-- Shows Directory: https://tvceleb.com/shows/
-- Characters Directory: https://tvceleb.com/characters/
-- Actors Directory: https://tvceleb.com/actors/
-- Genres: https://tvceleb.com/genres/
-- Networks: https://tvceleb.com/networks/
+- Homepage: https://tvceleb.com/
+- Shows Directory (38 shows): https://tvceleb.com/shows/
+- Characters Directory (205 characters): https://tvceleb.com/characters/
+- Actors Directory (153 actors): https://tvceleb.com/actors/
+- Genres (24 genres): https://tvceleb.com/genres/
+- Networks (16 networks): https://tvceleb.com/networks/
 - Curated Lists: https://tvceleb.com/lists/
 - Decades: https://tvceleb.com/decades/
 - About: https://tvceleb.com/about/
+- Search: https://tvceleb.com/search/
+
+## What Each Page Includes
+
+- **Show Pages**: Synopsis, character roster, fan heat scores, videos, related shows, FAQs
+- **Character Pages**: Character arc narrative, key episodes, fan ecosystem links (Reddit, YouTube, TikTok, Instagram, Twitter, fan sites), Fan Heat Index breakdown, related characters, quotes, trivia, FAQs
+- **Actor Pages**: Biography, known roles, awards, social media links (IMDb, Wikipedia, Instagram, Twitter), FAQs
+
+## Fan Heat Index
+
+The Fan Heat Index (0-100) measures fandom vitality across five dimensions:
+1. Engagement - Community activity levels
+2. Social Activity - Social media presence
+3. Meme Velocity - Viral content spread rate
+4. Fan Art Density - Fan-created content volume
+5. Fandom Longevity - Sustained interest over time
+
+## Top Characters by Fan Heat Index
+
+1. Grogu / Baby Yoda (The Mandalorian) - Score: 98/100 - https://tvceleb.com/characters/grogu/
+2. Walter White (Breaking Bad) - Score: 97/100 - https://tvceleb.com/characters/walter-white/
+3. Tony Soprano (The Sopranos) - Score: 97/100 - https://tvceleb.com/characters/tony-soprano/
+4. Jon Snow (Game of Thrones) - Score: 96/100 - https://tvceleb.com/characters/jon-snow/
+5. Thomas Shelby (Peaky Blinders) - Score: 96/100 - https://tvceleb.com/characters/thomas-shelby/
+6. Daemon Targaryen (House of the Dragon) - Score: 96/100 - https://tvceleb.com/characters/daemon-targaryen/
+7. Eleven / Jane Hopper (Stranger Things) - Score: 95/100 - https://tvceleb.com/characters/eleven-jane-hopper/
+8. Rue Bennett (Euphoria) - Score: 95/100 - https://tvceleb.com/characters/rue-bennett/
+9. Rhaenyra Targaryen (House of the Dragon) - Score: 95/100 - https://tvceleb.com/characters/rhaenyra-targaryen/
+10. Homelander (The Boys) - Score: 95/100 - https://tvceleb.com/characters/homelander/
+11. Jinx / Powder (Arcane) - Score: 95/100 - https://tvceleb.com/characters/jinx/
+12. Jesse Pinkman (Breaking Bad) - Score: 94/100 - https://tvceleb.com/characters/jesse-pinkman/
+13. Daenerys Targaryen (Game of Thrones) - Score: 94/100 - https://tvceleb.com/characters/daenerys-targaryen/
+14. Michael Scott (The Office (US)) - Score: 94/100 - https://tvceleb.com/characters/michael-scott/
+15. Chandler Bing (Friends) - Score: 94/100 - https://tvceleb.com/characters/chandler-bing/
+16. Din Djarin / The Mandalorian (The Mandalorian) - Score: 94/100 - https://tvceleb.com/characters/din-djarin/
+17. Tanya McQuoid (The White Lotus) - Score: 94/100 - https://tvceleb.com/characters/tanya-mcquoid/
+18. Jimmy McGill / Saul Goodman (Better Call Saul) - Score: 94/100 - https://tvceleb.com/characters/jimmy-mcgill/
+19. Daryl Dixon (The Walking Dead) - Score: 94/100 - https://tvceleb.com/characters/daryl-dixon/
+20. Loki Laufeyson (Loki) - Score: 94/100 - https://tvceleb.com/characters/loki-laufeyson/
 
 ## Shows Covered
 
-- Breaking Bad: https://tvceleb.com/shows/breaking-bad/
-- Game of Thrones: https://tvceleb.com/shows/game-of-thrones/
-- Stranger Things: https://tvceleb.com/shows/stranger-things/
-- The Office (US): https://tvceleb.com/shows/the-office/
-- Succession: https://tvceleb.com/shows/succession/
-- Wednesday: https://tvceleb.com/shows/wednesday/
-- The Bear: https://tvceleb.com/shows/the-bear/
-- Squid Game: https://tvceleb.com/shows/squid-game/
-- Bridgerton: https://tvceleb.com/shows/bridgerton/
-- The Last of Us: https://tvceleb.com/shows/the-last-of-us/
-- Friends: https://tvceleb.com/shows/friends/
-- The Sopranos: https://tvceleb.com/shows/the-sopranos/
-- Ozark: https://tvceleb.com/shows/ozark/
-- Ted Lasso: https://tvceleb.com/shows/ted-lasso/
-- Euphoria: https://tvceleb.com/shows/euphoria/
-- The Mandalorian: https://tvceleb.com/shows/the-mandalorian/
-- Peaky Blinders: https://tvceleb.com/shows/peaky-blinders/
-- The Crown: https://tvceleb.com/shows/the-crown/
-- Yellowstone: https://tvceleb.com/shows/yellowstone/
-- Schitt's Creek: https://tvceleb.com/shows/schitts-creek/
-- Severance: https://tvceleb.com/shows/severance/
-- House of the Dragon: https://tvceleb.com/shows/house-of-the-dragon/
-- The White Lotus: https://tvceleb.com/shows/the-white-lotus/
-- Suits: https://tvceleb.com/shows/suits/
-- Better Call Saul: https://tvceleb.com/shows/better-call-saul/
-- The Boys: https://tvceleb.com/shows/the-boys/
-- Fleabag: https://tvceleb.com/shows/fleabag/
-- Abbott Elementary: https://tvceleb.com/shows/abbott-elementary/
-- Arcane: https://tvceleb.com/shows/arcane/
-- Shogun: https://tvceleb.com/shows/shogun/
-- Dexter: https://tvceleb.com/shows/dexter/
-- The Walking Dead: https://tvceleb.com/shows/the-walking-dead/
-- Only Murders in the Building: https://tvceleb.com/shows/only-murders/
-- Loki: https://tvceleb.com/shows/loki/
-- Andor: https://tvceleb.com/shows/andor/
-- True Detective: https://tvceleb.com/shows/true-detective/
-- Black Mirror: https://tvceleb.com/shows/black-mirror/
-- Homeland: https://tvceleb.com/shows/homeland/
+- Breaking Bad (AMC, 2008–2013): https://tvceleb.com/shows/breaking-bad/
+- Game of Thrones (HBO, 2011–2019): https://tvceleb.com/shows/game-of-thrones/
+- Stranger Things (Netflix, 2016–2025): https://tvceleb.com/shows/stranger-things/
+- The Office (US) (NBC, 2005–2013): https://tvceleb.com/shows/the-office/
+- Succession (HBO, 2018–2023): https://tvceleb.com/shows/succession/
+- Wednesday (Netflix, 2022–present): https://tvceleb.com/shows/wednesday/
+- The Bear (FX, 2022–present): https://tvceleb.com/shows/the-bear/
+- Squid Game (Netflix, 2021–present): https://tvceleb.com/shows/squid-game/
+- Bridgerton (Netflix, 2020–present): https://tvceleb.com/shows/bridgerton/
+- The Last of Us (HBO, 2023–present): https://tvceleb.com/shows/the-last-of-us/
+- Friends (NBC, 1994–2004): https://tvceleb.com/shows/friends/
+- The Sopranos (HBO, 1999–2007): https://tvceleb.com/shows/the-sopranos/
+- Ozark (Netflix, 2017–2022): https://tvceleb.com/shows/ozark/
+- Ted Lasso (Apple TV+, 2020–2023): https://tvceleb.com/shows/ted-lasso/
+- Euphoria (HBO, 2019–present): https://tvceleb.com/shows/euphoria/
+- The Mandalorian (Disney+, 2019–present): https://tvceleb.com/shows/the-mandalorian/
+- Peaky Blinders (BBC, 2013–2022): https://tvceleb.com/shows/peaky-blinders/
+- The Crown (Netflix, 2016–2023): https://tvceleb.com/shows/the-crown/
+- Yellowstone (Paramount Network, 2018–2024): https://tvceleb.com/shows/yellowstone/
+- Schitt's Creek (CBC/Pop TV, 2015–2020): https://tvceleb.com/shows/schitts-creek/
+- Severance (Apple TV+, 2022–present): https://tvceleb.com/shows/severance/
+- House of the Dragon (HBO, 2022–present): https://tvceleb.com/shows/house-of-the-dragon/
+- The White Lotus (HBO, 2021–present): https://tvceleb.com/shows/the-white-lotus/
+- Suits (USA Network, 2011–2019): https://tvceleb.com/shows/suits/
+- Better Call Saul (AMC, 2015–2022): https://tvceleb.com/shows/better-call-saul/
+- The Boys (Amazon Prime Video, 2019–present): https://tvceleb.com/shows/the-boys/
+- Fleabag (Amazon Prime Video, 2016–2019): https://tvceleb.com/shows/fleabag/
+- Abbott Elementary (ABC, 2021–present): https://tvceleb.com/shows/abbott-elementary/
+- Arcane (Netflix, 2021–present): https://tvceleb.com/shows/arcane/
+- Shogun (FX, 2024–present): https://tvceleb.com/shows/shogun/
+- Dexter (Showtime, 2006–2013): https://tvceleb.com/shows/dexter/
+- The Walking Dead (AMC, 2010–2022): https://tvceleb.com/shows/the-walking-dead/
+- Only Murders in the Building (Hulu, 2021–present): https://tvceleb.com/shows/only-murders/
+- Loki (Disney+, 2021–2023): https://tvceleb.com/shows/loki/
+- Andor (Disney+, 2022–present): https://tvceleb.com/shows/andor/
+- True Detective (HBO, 2014–2024): https://tvceleb.com/shows/true-detective/
+- Black Mirror (Channel 4 / Netflix, 2011–present): https://tvceleb.com/shows/black-mirror/
+- Homeland (Showtime, 2011–2020): https://tvceleb.com/shows/homeland/
+
+## Genres Covered
+
+- Action: https://tvceleb.com/genres/action/
+- Adventure: https://tvceleb.com/genres/adventure/
+- Animation: https://tvceleb.com/genres/animation/
+- Biography: https://tvceleb.com/genres/biography/
+- Comedy: https://tvceleb.com/genres/comedy/
+- Crime: https://tvceleb.com/genres/crime/
+- Drama: https://tvceleb.com/genres/drama/
+- Espionage: https://tvceleb.com/genres/espionage/
+- Fantasy: https://tvceleb.com/genres/fantasy/
+- Horror: https://tvceleb.com/genres/horror/
+- Legal: https://tvceleb.com/genres/legal/
+- Mockumentary: https://tvceleb.com/genres/mockumentary/
+- Mystery: https://tvceleb.com/genres/mystery/
+- Period Drama: https://tvceleb.com/genres/period-drama/
+- Post-Apocalyptic: https://tvceleb.com/genres/post-apocalyptic/
+- Romance: https://tvceleb.com/genres/romance/
+- Satire: https://tvceleb.com/genres/satire/
+- Sci-Fi: https://tvceleb.com/genres/sci-fi/
+- Sports: https://tvceleb.com/genres/sports/
+- Survival: https://tvceleb.com/genres/survival/
+- Teen: https://tvceleb.com/genres/teen/
+- Thriller: https://tvceleb.com/genres/thriller/
+- War: https://tvceleb.com/genres/war/
+- Western: https://tvceleb.com/genres/western/
+
+## Networks Covered
+
+- ABC: https://tvceleb.com/networks/abc/
+- AMC: https://tvceleb.com/networks/amc/
+- Amazon Prime Video: https://tvceleb.com/networks/amazon-prime-video/
+- Apple TV+: https://tvceleb.com/networks/apple-tv/
+- BBC: https://tvceleb.com/networks/bbc/
+- CBC/Pop TV: https://tvceleb.com/networks/cbc-pop-tv/
+- Channel 4 / Netflix: https://tvceleb.com/networks/channel-4-netflix/
+- Disney+: https://tvceleb.com/networks/disney/
+- FX: https://tvceleb.com/networks/fx/
+- HBO: https://tvceleb.com/networks/hbo/
+- Hulu: https://tvceleb.com/networks/hulu/
+- NBC: https://tvceleb.com/networks/nbc/
+- Netflix: https://tvceleb.com/networks/netflix/
+- Paramount Network: https://tvceleb.com/networks/paramount-network/
+- Showtime: https://tvceleb.com/networks/showtime/
+- USA Network: https://tvceleb.com/networks/usa-network/
+
+## Frequently Asked Questions
+
+Q: What is TVCeleb.com?
+A: TVCeleb.com is the world's largest repository of TV character fan sites, fan social media, and aggregated content covering 38 shows and 205+ characters.
+
+Q: What is the Fan Heat Index?
+A: A proprietary 0-100 scoring system measuring fandom vitality across engagement, social activity, meme velocity, fan art density, and fandom longevity.
+
+Q: Is TVCeleb.com free?
+A: Yes, completely free with no registration required.
+
+## Full Content Available
+
+For complete content export, see: https://tvceleb.com/llms-full.txt
 
 ## Contact
 

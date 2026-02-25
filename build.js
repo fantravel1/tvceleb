@@ -52,7 +52,7 @@ function writeFile(filePath, content) {
 // ========== LAYOUT TEMPLATE ==========
 
 function layout(opts) {
-  const { title, description, canonical, ogType = 'website', ogImage, ogImageAlt, breadcrumbsHtml, jsonLd = [], bodyClass = '', content } = opts;
+  const { title, description, canonical, ogType = 'website', ogImage, ogImageAlt, breadcrumbsHtml, jsonLd = [], bodyClass = '', content, datePublished, dateModified } = opts;
 
   const fullTitle = title.includes('TVCeleb') ? title : `${title} | TVCeleb.com`;
   const DEFAULT_OG_IMAGE = `${SITE_URL}/favicon.ico`;
@@ -60,18 +60,28 @@ function layout(opts) {
     ? (ogImage.startsWith('http') ? ogImage : SITE_URL + ogImage)
     : DEFAULT_OG_IMAGE;
   const resolvedOgImageAlt = ogImageAlt || fullTitle;
+  const today = new Date().toISOString().split('T')[0];
+  const pubDate = datePublished || today;
+  const modDate = dateModified || today;
 
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>${escapeHtml(fullTitle)}</title>
 <meta name="description" content="${escapeHtml(description)}">
 <link rel="canonical" href="${escapeHtml(canonical)}">
 <link rel="alternate" hreflang="en" href="${escapeHtml(canonical)}">
+<link rel="alternate" hreflang="x-default" href="${escapeHtml(canonical)}">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-<meta name="theme-color" content="#6366f1">
+<meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="bingbot" content="index,follow">
+<meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<meta name="format-detection" content="telephone=no">
 <meta property="og:title" content="${escapeHtml(fullTitle)}">
 <meta property="og:description" content="${escapeHtml(description)}">
 <meta property="og:url" content="${escapeHtml(canonical)}">
@@ -81,12 +91,16 @@ function layout(opts) {
 <meta property="og:image" content="${escapeHtml(resolvedOgImage)}">
 <meta property="og:image:alt" content="${escapeHtml(resolvedOgImageAlt)}">
 ${ogImage ? `<meta property="og:image:width" content="440">
-<meta property="og:image:height" content="600">` : ''}
+<meta property="og:image:height" content="600">
+<meta property="og:image:type" content="image/jpeg">` : ''}
+<meta property="article:published_time" content="${pubDate}">
+<meta property="article:modified_time" content="${modDate}">
 <meta name="twitter:card" content="${ogImage ? 'summary_large_image' : 'summary'}">
 <meta name="twitter:title" content="${escapeHtml(fullTitle)}">
 <meta name="twitter:description" content="${escapeHtml(description)}">
 <meta name="twitter:image" content="${escapeHtml(resolvedOgImage)}">
 <meta name="twitter:image:alt" content="${escapeHtml(resolvedOgImageAlt)}">
+<meta name="twitter:site" content="@tvceleb">
 <meta name="author" content="TVCeleb.com">
 <meta property="article:publisher" content="${SITE_URL}">
 <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -97,6 +111,9 @@ ${ogImage ? `<meta property="og:image:width" content="440">
 <link rel="preconnect" href="https://upload.wikimedia.org">
 <link rel="manifest" href="/manifest.json">
 <link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="sitemap" type="application/xml" href="/sitemap-index.xml">
+<link rel="alternate" type="application/rss+xml" href="${SITE_URL}/feed.xml" title="TVCeleb.com RSS Feed">
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="TVCeleb.com Search">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/styles.css">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -216,27 +233,54 @@ function breadcrumbsComponent(items) {
 
 // ========== JSON-LD GENERATORS ==========
 
+function jsonLdOrganization() {
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
+    "name": SITE_NAME,
+    "url": SITE_URL,
+    "description": SITE_DESCRIPTION,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${SITE_URL}/favicon.ico`,
+      "width": 48,
+      "height": 48
+    },
+    "foundingDate": "2024",
+    "sameAs": [],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "url": `${SITE_URL}/about/`,
+      "availableLanguage": "English"
+    }
+  });
+}
+
 function jsonLdWebsite() {
   return JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
     "name": SITE_NAME,
+    "alternateName": "TVCeleb",
     "url": SITE_URL,
     "description": SITE_DESCRIPTION,
+    "inLanguage": "en-US",
     "publisher": {
-      "@type": "Organization",
-      "name": SITE_NAME,
-      "url": SITE_URL,
-      "logo": {
-        "@type": "ImageObject",
-        "url": `${SITE_URL}/favicon.ico`
-      }
+      "@id": `${SITE_URL}/#organization`
     },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": `${SITE_URL}/search/?q={search_term_string}`,
-      "query-input": "required name=search_term_string"
-    }
+    "potentialAction": [
+      {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": `${SITE_URL}/search/?q={search_term_string}`
+        },
+        "query-input": "required name=search_term_string"
+      }
+    ]
   });
 }
 
@@ -521,12 +565,16 @@ function buildHomepage() {
   const trendingChars = [...characters].sort((a, b) => (b.fanHeatIndex?.overall || 0) - (a.fanHeatIndex?.overall || 0)).slice(0, 10);
   const topShows = [...shows].sort((a, b) => b.fanHeatScore - a.fanHeatScore);
 
+  const allGenresList = [...new Set(shows.flatMap(s => s.genre))].sort();
+  const allNetworksList = [...new Set(shows.map(s => s.network))].sort();
   const homeFaqs = [
-    { question: 'What is TVCeleb.com?', answer: 'TVCeleb.com is the world\'s largest repository of TV character fan sites, fan social media, and aggregated content. It provides character-centric indexing, fan ecosystem mapping, and aggregated fan-generated content for every major TV show.' },
-    { question: 'How is TVCeleb.com different from other TV databases?', answer: 'Unlike traditional TV databases that focus on cast lists and episode guides, TVCeleb.com is character-first. We map entire fan ecosystems including fan sites, social accounts, fan art communities, and discussion hubs for every character across every show.' },
-    { question: 'What is the Fan Heat Index?', answer: 'The Fan Heat Index is TVCeleb.com\'s proprietary scoring system that measures a character\'s fandom activity. It combines engagement scores, social activity, meme velocity, fan art density, and fandom longevity into a single 0-100 score.' },
-    { question: 'How many TV shows does TVCeleb.com cover?', answer: 'TVCeleb.com currently covers 10 major TV shows across multiple genres including drama, comedy, fantasy, sci-fi, thriller, and romance, with over 60 character profiles and 50 actor pages. We are constantly expanding our coverage.' },
-    { question: 'Can I search for specific characters or shows on TVCeleb.com?', answer: 'Yes! TVCeleb.com features a comprehensive search function that lets you find characters by name, show, actor, genre, or tags. You can search from the homepage or use the dedicated search page.' },
+    { question: 'What is TVCeleb.com?', answer: `TVCeleb.com is the world's largest repository of TV character fan sites, fan social media, and aggregated content. It provides character-centric indexing, fan ecosystem mapping, and aggregated fan-generated content covering ${shows.length} TV shows, ${characters.length}+ characters, and ${actors.length}+ actors.` },
+    { question: 'How is TVCeleb.com different from other TV databases?', answer: 'Unlike traditional TV databases that focus on cast lists and episode guides, TVCeleb.com is character-first. We map entire fan ecosystems including Reddit communities, YouTube channels, TikTok creators, Instagram fan accounts, Twitter/X accounts, fan wikis, and discussion hubs for every character across every show.' },
+    { question: 'What is the Fan Heat Index?', answer: 'The Fan Heat Index is TVCeleb.com\'s proprietary scoring system that measures a character\'s fandom activity on a scale of 0 to 100. It combines five dimensions: engagement (community activity), social activity (social media presence), meme velocity (viral content spread), fan art density (creative output), and fandom longevity (sustained interest over time).' },
+    { question: 'How many TV shows does TVCeleb.com cover?', answer: `TVCeleb.com currently covers ${shows.length} major TV shows across ${allGenresList.length} genres from ${allNetworksList.length} networks, with ${characters.length}+ character profiles and ${actors.length}+ actor pages. Shows span from the 1990s to the 2020s across drama, comedy, fantasy, sci-fi, thriller, romance, and more. We are constantly expanding our coverage.` },
+    { question: 'Can I search for specific characters or shows on TVCeleb.com?', answer: `Yes! TVCeleb.com features a comprehensive search function that lets you find characters, shows, actors, genres, networks, and curated lists. You can search from the homepage or use the dedicated search page at ${SITE_URL}/search/.` },
+    { question: 'What TV shows are covered on TVCeleb.com?', answer: `TVCeleb.com covers popular shows including ${shows.slice(0, 10).map(s => s.title).join(', ')}, and ${shows.length - 10} more. Each show page features character profiles, fan ecosystem links, videos, and FAQs.` },
+    { question: 'Is TVCeleb.com free to use?', answer: 'Yes, TVCeleb.com is completely free and open to everyone. All character profiles, fan ecosystem links, quotes, trivia, and curated content are available without registration or subscription.' },
   ];
 
   const content = `
@@ -601,13 +649,14 @@ ${homeFaqs.map(faq => `<div class="faq-item">
 </div>
 </section>`;
 
-  const jsonLd = [jsonLdWebsite()];
+  const jsonLd = [jsonLdOrganization(), jsonLdWebsite()];
   const faqLd = jsonLdFaqPage(homeFaqs);
   if (faqLd) jsonLd.push(faqLd);
+  jsonLd.push(jsonLdSpeakable(`${SITE_URL}/`, ['.hero h1', '.hero-description', '.faq-answer']));
 
   writeFile(path.join(OUT_DIR, 'index.html'), layout({
-    title: 'TVCeleb.com - The Living Archive of TV Fandom',
-    description: SITE_DESCRIPTION,
+    title: 'TVCeleb.com - The Living Archive of TV Fandom Worldwide',
+    description: `The world's largest TV character fan ecosystem directory. Explore ${shows.length} shows, ${characters.length}+ characters, and ${actors.length}+ actors with fan communities, quotes, trivia, and Fan Heat Index scores.`,
     canonical: SITE_URL + '/',
     jsonLd,
     content
@@ -635,26 +684,42 @@ ${shows.map(s => showCard(s)).join('\n')}
 </div>
 </section>`;
 
+  const showsFaqs = [
+    { question: `How many TV shows are on TVCeleb.com?`, answer: `TVCeleb.com currently features ${shows.length} TV shows spanning multiple decades and genres, from classic series like Friends and The Sopranos to modern hits like Severance and Shogun.` },
+    { question: 'What information is available for each TV show?', answer: 'Each show page on TVCeleb.com includes a full synopsis, character profiles with fan ecosystem links, Fan Heat Index scores, related shows, video content, and frequently asked questions about the series.' },
+    { question: 'Can I filter shows by genre?', answer: `Yes! The shows directory features a genre filter bar with ${[...new Set(shows.flatMap(s => s.genre))].length} genres. You can also browse shows by network, decade, or use the search function to find specific series.` },
+  ];
+
   const itemListLd = JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "ItemList",
+    "@type": "CollectionPage",
     "name": "All TV Shows on TVCeleb.com",
-    "numberOfItems": shows.length,
-    "itemListElement": shows.map((s, i) => ({
-      "@type": "ListItem",
-      "position": i + 1,
-      "name": s.title,
-      "url": `${SITE_URL}/shows/${s.slug}/`
-    }))
+    "description": `Browse all ${shows.length} TV shows on TVCeleb.com with character profiles and fan ecosystems.`,
+    "url": `${SITE_URL}/shows/`,
+    "mainEntity": {
+      "@type": "ItemList",
+      "name": "All TV Shows on TVCeleb.com",
+      "numberOfItems": shows.length,
+      "itemListElement": shows.map((s, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": s.title,
+        "url": `${SITE_URL}/shows/${s.slug}/`
+      }))
+    }
   });
 
+  const showsJsonLd = [jsonLdBreadcrumbs(bc), itemListLd];
+  const showsFaqLd = jsonLdFaqPage(showsFaqs);
+  if (showsFaqLd) showsJsonLd.push(showsFaqLd);
+
   writeFile(path.join(OUT_DIR, 'shows', 'index.html'), layout({
-    title: 'All TV Shows - Browse the Complete Directory',
-    description: `Browse all ${shows.length} TV shows on TVCeleb.com. Filter by genre and explore character fan ecosystems for each show.`,
+    title: `All ${shows.length} TV Shows - Browse the Complete Directory`,
+    description: `Browse all ${shows.length} TV shows on TVCeleb.com. Filter by genre and explore character fan ecosystems, Fan Heat Index scores, and community hubs for each show.`,
     canonical: SITE_URL + '/shows/',
     breadcrumbsHtml: breadcrumbsComponent(bc),
-    jsonLd: [jsonLdBreadcrumbs(bc), itemListLd],
-    content
+    jsonLd: showsJsonLd,
+    content: content + faqSectionHtml(showsFaqs)
   }));
 }
 
@@ -768,26 +833,43 @@ ${sortedChars.map(ch => {
 </div>
 </section>`;
 
+  const charFaqs = [
+    { question: 'How many TV characters are on TVCeleb.com?', answer: `TVCeleb.com features ${characters.length} TV characters from ${shows.length} shows, each with detailed character arcs, fan ecosystem links, Fan Heat Index scores, quotes, and trivia.` },
+    { question: 'What information does each character profile include?', answer: 'Each character profile on TVCeleb.com includes a character arc narrative, key episodes, fan ecosystem links (Reddit, YouTube, TikTok, Instagram, Twitter, fan sites), Fan Heat Index breakdown, related characters, memorable quotes, trivia, and frequently asked questions.' },
+    { question: 'How are characters ranked on TVCeleb.com?', answer: 'Characters are ranked by their Fan Heat Index score, a 0-100 metric measuring fandom vitality across five dimensions: engagement, social activity, meme velocity, fan art density, and fandom longevity.' },
+    { question: 'Can I filter characters by TV show?', answer: `Yes! The characters directory includes a filter bar that lets you filter characters by their TV show. You can also browse characters via individual show pages or use the search function to find specific characters.` },
+  ];
+
   const charListLd = JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "ItemList",
+    "@type": "CollectionPage",
     "name": "All TV Characters on TVCeleb.com",
-    "numberOfItems": sortedChars.length,
-    "itemListElement": sortedChars.slice(0, 50).map((c, i) => ({
-      "@type": "ListItem",
-      "position": i + 1,
-      "name": c.name,
-      "url": `${SITE_URL}/characters/${c.slug}/`
-    }))
+    "description": `Browse all ${characters.length} TV characters on TVCeleb.com with character arcs, fan ecosystems, and community hubs.`,
+    "url": `${SITE_URL}/characters/`,
+    "mainEntity": {
+      "@type": "ItemList",
+      "name": "All TV Characters on TVCeleb.com",
+      "numberOfItems": sortedChars.length,
+      "itemListElement": sortedChars.slice(0, 50).map((c, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": c.name,
+        "url": `${SITE_URL}/characters/${c.slug}/`
+      }))
+    }
   });
 
+  const charJsonLd = [jsonLdBreadcrumbs(bc), charListLd];
+  const charFaqLd = jsonLdFaqPage(charFaqs);
+  if (charFaqLd) charJsonLd.push(charFaqLd);
+
   writeFile(path.join(OUT_DIR, 'characters', 'index.html'), layout({
-    title: 'All TV Characters - The Global Character Index',
-    description: `Browse all ${characters.length} TV characters on TVCeleb.com. Discover character arcs, fan ecosystems, and community hubs across ${shows.length} shows.`,
+    title: `All ${characters.length} TV Characters - The Global Character Index`,
+    description: `Browse all ${characters.length} TV characters on TVCeleb.com. Discover character arcs, fan ecosystems, Fan Heat Index scores, and community hubs across ${shows.length} shows.`,
     canonical: SITE_URL + '/characters/',
     breadcrumbsHtml: breadcrumbsComponent(bc),
-    jsonLd: [jsonLdBreadcrumbs(bc), charListLd],
-    content
+    jsonLd: charJsonLd,
+    content: content + faqSectionHtml(charFaqs)
   }));
 }
 
@@ -909,26 +991,42 @@ ${actors.map(a => actorCard(a)).join('\n')}
 </div>
 </section>`;
 
+  const actorFaqs = [
+    { question: `How many actors are featured on TVCeleb.com?`, answer: `TVCeleb.com features ${actors.length} actors who have brought iconic TV characters to life, with detailed biographies, filmographies, awards, social media links, and connections to their character profiles.` },
+    { question: 'What information does each actor profile include?', answer: 'Each actor profile on TVCeleb.com includes a biography, known roles with links to character profiles, other notable roles, awards and recognition, social media links (IMDb, Wikipedia, Instagram, Twitter/X), and frequently asked questions.' },
+    { question: 'Can I find an actor by the character they played?', answer: 'Yes! Each character profile links to the actor who portrayed them, and each actor profile links back to their character pages. You can also use the search function to find actors by name or character.' },
+  ];
+
   const actorListLd = JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "ItemList",
+    "@type": "CollectionPage",
     "name": "All TV Actors on TVCeleb.com",
-    "numberOfItems": actors.length,
-    "itemListElement": actors.slice(0, 50).map((a, i) => ({
-      "@type": "ListItem",
-      "position": i + 1,
-      "name": a.name,
-      "url": `${SITE_URL}/actors/${a.slug}/`
-    }))
+    "description": `Browse all ${actors.length} TV actors on TVCeleb.com with biographies, roles, and awards.`,
+    "url": `${SITE_URL}/actors/`,
+    "mainEntity": {
+      "@type": "ItemList",
+      "name": "All TV Actors on TVCeleb.com",
+      "numberOfItems": actors.length,
+      "itemListElement": actors.slice(0, 50).map((a, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": a.name,
+        "url": `${SITE_URL}/actors/${a.slug}/`
+      }))
+    }
   });
 
+  const actorsJsonLd = [jsonLdBreadcrumbs(bc), actorListLd];
+  const actorFaqLd = jsonLdFaqPage(actorFaqs);
+  if (actorFaqLd) actorsJsonLd.push(actorFaqLd);
+
   writeFile(path.join(OUT_DIR, 'actors', 'index.html'), layout({
-    title: 'All Actors - TV Actor Directory',
-    description: `Browse all ${actors.length} TV actors on TVCeleb.com. Discover their iconic roles, career highlights, and fan communities.`,
+    title: `All ${actors.length} Actors - TV Actor Directory & Profiles`,
+    description: `Browse all ${actors.length} TV actors on TVCeleb.com. Discover their iconic roles, career highlights, awards, and fan communities across ${shows.length} shows.`,
     canonical: SITE_URL + '/actors/',
     breadcrumbsHtml: breadcrumbsComponent(bc),
-    jsonLd: [jsonLdBreadcrumbs(bc), actorListLd],
-    content
+    jsonLd: actorsJsonLd,
+    content: content + faqSectionHtml(actorFaqs)
   }));
 }
 
@@ -1038,13 +1136,22 @@ function buildSearchPage() {
 </div>
 </section>`;
 
+  const searchFaqs = [
+    { question: 'What can I search for on TVCeleb.com?', answer: `You can search for TV characters, shows, actors, genres, networks, decades, and curated lists. TVCeleb.com indexes ${characters.length}+ characters, ${shows.length} shows, and ${actors.length}+ actors for instant search results.` },
+    { question: 'How does the TVCeleb.com search work?', answer: 'TVCeleb.com uses a client-side search engine that instantly matches your query against character names, show titles, actor names, genres, networks, and tags. Results are ranked by relevance and displayed in real time as you type.' },
+  ];
+
+  const searchJsonLd = [jsonLdBreadcrumbs(bc)];
+  const searchFaqLd = jsonLdFaqPage(searchFaqs);
+  if (searchFaqLd) searchJsonLd.push(searchFaqLd);
+
   writeFile(path.join(OUT_DIR, 'search', 'index.html'), layout({
-    title: 'Search - Find Characters, Shows & Actors',
-    description: 'Search TVCeleb.com to find TV characters, shows, actors, and fan communities. The most comprehensive TV character search engine.',
+    title: 'Search TVCeleb - Find Characters, Shows & Actors',
+    description: `Search TVCeleb.com to find ${characters.length}+ TV characters, ${shows.length} shows, ${actors.length}+ actors, and fan communities. The most comprehensive TV character search engine.`,
     canonical: SITE_URL + '/search/',
     breadcrumbsHtml: breadcrumbsComponent(bc),
-    jsonLd: [jsonLdBreadcrumbs(bc)],
-    content
+    jsonLd: searchJsonLd,
+    content: content + faqSectionHtml(searchFaqs)
   }));
 }
 
@@ -1265,13 +1372,23 @@ ${networkShows.slice(0, 3).map(s => `<span class="tag">${escapeHtml(s.title)}</s
 </div>
 </section>`;
 
+  const networkFaqs = [
+    { question: 'What TV networks and streaming platforms does TVCeleb.com cover?', answer: `TVCeleb.com covers ${allNetworks.length} networks and streaming platforms including ${allNetworks.slice(0, 5).join(', ')}, and more. Each network page shows all covered series and their most popular characters.` },
+    { question: 'Which network has the most shows on TVCeleb.com?', answer: `The networks with the most coverage include HBO, Netflix, and AMC, each with multiple acclaimed series. Browse individual network pages to see complete show listings and character rankings.` },
+    { question: 'Can I browse TV shows by streaming platform?', answer: 'Yes! TVCeleb.com organizes shows by their original network or streaming platform. Whether you subscribe to Netflix, HBO, Disney+, Apple TV+, or others, you can find all covered shows from your preferred platform.' },
+  ];
+
+  const netJsonLd = [jsonLdBreadcrumbs(bc)];
+  const netFaqLd = jsonLdFaqPage(networkFaqs);
+  if (netFaqLd) netJsonLd.push(netFaqLd);
+
   writeFile(path.join(OUT_DIR, 'networks', 'index.html'), layout({
-    title: 'TV Networks - Browse Shows by Network & Platform',
-    description: `Browse TV shows by network on TVCeleb.com. Explore series from HBO, Netflix, NBC, AMC, and more with full character and fan ecosystem coverage.`,
+    title: `TV Networks & Streaming Platforms - Browse ${allNetworks.length} Networks`,
+    description: `Browse TV shows by network on TVCeleb.com. Explore series from ${allNetworks.slice(0, 5).join(', ')}, and more with full character and fan ecosystem coverage.`,
     canonical: SITE_URL + '/networks/',
     breadcrumbsHtml: breadcrumbsComponent(bc),
-    jsonLd: [jsonLdBreadcrumbs(bc)],
-    content
+    jsonLd: netJsonLd,
+    content: content + faqSectionHtml(networkFaqs)
   }));
 }
 
@@ -1535,13 +1652,23 @@ ${lists.map(list => `<a href="/lists/${list.slug}/" class="card">
 </div>
 </section>`;
 
+  const listsFaqs = [
+    { question: `How many curated lists does TVCeleb.com have?`, answer: `TVCeleb.com features ${lists.length} handpicked curated lists including ${lists.slice(0, 4).map(l => l.title).join(', ')}, and more. Each list features ranked characters with Fan Heat Index scores and detailed descriptions.` },
+    { question: 'How are the curated lists created?', answer: 'Our curated lists are carefully assembled based on character significance, cultural impact, Fan Heat Index scores, and critical reception. Each list represents a meaningful category that helps fans discover and compare characters across shows.' },
+    { question: 'Can I suggest a new curated list?', answer: 'TVCeleb.com is an open-source project and we welcome suggestions from the fan community. We are always looking for new angles to explore and celebrate TV characters.' },
+  ];
+
+  const listsJsonLd = [jsonLdBreadcrumbs(bc)];
+  const listsFaqLd = jsonLdFaqPage(listsFaqs);
+  if (listsFaqLd) listsJsonLd.push(listsFaqLd);
+
   writeFile(path.join(OUT_DIR, 'lists', 'index.html'), layout({
-    title: 'Curated TV Lists - Best Characters, Duos, Villains & More',
-    description: 'Explore curated lists of the greatest TV characters, iconic duos, best villain, top antiheroes, and more on TVCeleb.com.',
+    title: `${lists.length} Curated TV Lists - Best Characters, Duos, Villains & More`,
+    description: `Explore ${lists.length} curated lists of the greatest TV characters, iconic duos, best villains, top antiheroes, funniest characters, and more on TVCeleb.com.`,
     canonical: SITE_URL + '/lists/',
     breadcrumbsHtml: breadcrumbsComponent(bc),
-    jsonLd: [jsonLdBreadcrumbs(bc)],
-    content
+    jsonLd: listsJsonLd,
+    content: content + faqSectionHtml(listsFaqs)
   }));
 }
 
@@ -1727,48 +1854,132 @@ function buildSearchIndex() {
   writeFile(path.join(OUT_DIR, 'search-index.json'), JSON.stringify(index));
 }
 
+function buildSitemapXml(filename, urls) {
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.map(u => `<url><loc>${SITE_URL}${u.loc}</loc><lastmod>${u.lastmod}</lastmod><changefreq>${u.changefreq}</changefreq><priority>${u.priority}</priority></url>`).join('\n')}
+</urlset>`;
+  writeFile(path.join(OUT_DIR, filename), xml);
+  return urls.length;
+}
+
 function buildSitemap() {
-  console.log('Building: sitemap.xml');
+  console.log('Building: Sitemaps (index + sub-sitemaps)');
   const today = new Date().toISOString().split('T')[0];
-  const urls = [
+
+  // 1. Core pages sitemap
+  const coreUrls = [
     { loc: '/', priority: '1.0', changefreq: 'daily', lastmod: today },
     { loc: '/shows/', priority: '0.9', changefreq: 'weekly', lastmod: today },
     { loc: '/characters/', priority: '0.9', changefreq: 'weekly', lastmod: today },
     { loc: '/actors/', priority: '0.8', changefreq: 'weekly', lastmod: today },
-    { loc: '/search/', priority: '0.7', changefreq: 'monthly', lastmod: today },
     { loc: '/genres/', priority: '0.8', changefreq: 'weekly', lastmod: today },
     { loc: '/networks/', priority: '0.8', changefreq: 'weekly', lastmod: today },
     { loc: '/lists/', priority: '0.8', changefreq: 'weekly', lastmod: today },
     { loc: '/decades/', priority: '0.8', changefreq: 'weekly', lastmod: today },
     { loc: '/about/', priority: '0.6', changefreq: 'monthly', lastmod: today },
+    { loc: '/search/', priority: '0.5', changefreq: 'monthly', lastmod: today },
   ];
+  buildSitemapXml('sitemap-core.xml', coreUrls);
 
-  shows.forEach(s => urls.push({ loc: `/shows/${s.slug}/`, priority: '0.8', changefreq: 'weekly', lastmod: today }));
-  characters.forEach(c => urls.push({ loc: `/characters/${c.slug}/`, priority: '0.8', changefreq: 'weekly', lastmod: today }));
-  actors.forEach(a => urls.push({ loc: `/actors/${a.slug}/`, priority: '0.7', changefreq: 'monthly', lastmod: today }));
+  // 2. Shows sitemap
+  const showUrls = shows.map(s => ({ loc: `/shows/${s.slug}/`, priority: '0.8', changefreq: 'weekly', lastmod: today }));
+  buildSitemapXml('sitemap-shows.xml', showUrls);
 
-  // Genre pages
+  // 3. Characters sitemap
+  const charUrls = characters.map(c => ({ loc: `/characters/${c.slug}/`, priority: '0.8', changefreq: 'weekly', lastmod: today }));
+  buildSitemapXml('sitemap-characters.xml', charUrls);
+
+  // 4. Actors sitemap
+  const actorUrls = actors.map(a => ({ loc: `/actors/${a.slug}/`, priority: '0.7', changefreq: 'monthly', lastmod: today }));
+  buildSitemapXml('sitemap-actors.xml', actorUrls);
+
+  // 5. Taxonomy sitemap (genres, networks, decades, lists)
+  const taxUrls = [];
   const sitemapGenres = [...new Set(shows.flatMap(s => s.genre))];
-  sitemapGenres.forEach(g => urls.push({ loc: `/genres/${getGenreSlug(g)}/`, priority: '0.7', changefreq: 'weekly', lastmod: today }));
-
-  // Network pages
+  sitemapGenres.forEach(g => taxUrls.push({ loc: `/genres/${getGenreSlug(g)}/`, priority: '0.7', changefreq: 'weekly', lastmod: today }));
   const sitemapNetworks = [...new Set(shows.map(s => s.network))];
-  sitemapNetworks.forEach(n => urls.push({ loc: `/networks/${getNetworkSlug(n)}/`, priority: '0.7', changefreq: 'weekly', lastmod: today }));
-
-  // List pages
+  sitemapNetworks.forEach(n => taxUrls.push({ loc: `/networks/${getNetworkSlug(n)}/`, priority: '0.7', changefreq: 'weekly', lastmod: today }));
   const sitemapLists = getCuratedLists();
-  sitemapLists.forEach(l => urls.push({ loc: `/lists/${l.slug}/`, priority: '0.7', changefreq: 'monthly', lastmod: today }));
-
-  // Decade pages
+  sitemapLists.forEach(l => taxUrls.push({ loc: `/lists/${l.slug}/`, priority: '0.7', changefreq: 'monthly', lastmod: today }));
   const sitemapDecades = getDecades();
-  sitemapDecades.forEach(d => urls.push({ loc: `/decades/${d.decade}s/`, priority: '0.7', changefreq: 'monthly', lastmod: today }));
+  sitemapDecades.forEach(d => taxUrls.push({ loc: `/decades/${d.decade}s/`, priority: '0.7', changefreq: 'monthly', lastmod: today }));
+  buildSitemapXml('sitemap-taxonomies.xml', taxUrls);
+
+  // 6. Sitemap Index
+  const sitemapFiles = ['sitemap-core.xml', 'sitemap-shows.xml', 'sitemap-characters.xml', 'sitemap-actors.xml', 'sitemap-taxonomies.xml', 'sitemap-images.xml', 'sitemap-video.xml'];
+  const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapFiles.map(f => `<sitemap><loc>${SITE_URL}/${f}</loc><lastmod>${today}</lastmod></sitemap>`).join('\n')}
+</sitemapindex>`;
+  writeFile(path.join(OUT_DIR, 'sitemap-index.xml'), indexXml);
+
+  // 7. Legacy sitemap.xml (flat, for backwards compatibility with any existing GSC submissions)
+  const allUrls = [...coreUrls, ...showUrls, ...charUrls, ...actorUrls, ...taxUrls];
+  buildSitemapXml('sitemap.xml', allUrls);
+
+  console.log(`  Sitemap index: ${sitemapFiles.length} sub-sitemaps, ${allUrls.length} total URLs`);
+}
+
+function buildVideoSitemap() {
+  console.log('Building: sitemap-video.xml');
+  const entries = [];
+
+  // Show videos
+  shows.forEach(s => {
+    if (s.videos && s.videos.length > 0) {
+      s.videos.forEach(v => {
+        if (v.youtubeId) {
+          entries.push({
+            loc: `${SITE_URL}/shows/${s.slug}/`,
+            title: escapeHtml(v.title || `${s.title} Video`),
+            description: escapeHtml(v.description || `Watch ${v.title || 'video content'} for ${s.title} on TVCeleb.com`),
+            thumbnailUrl: `https://img.youtube.com/vi/${v.youtubeId}/maxresdefault.jpg`,
+            playerUrl: `https://www.youtube-nocookie.com/embed/${v.youtubeId}`,
+            uploadDate: s.years ? s.years.match(/(\d{4})/)?.[1] + '-01-01' : '2020-01-01'
+          });
+        }
+      });
+    }
+  });
+
+  // Character videos
+  characters.forEach(c => {
+    if (c.videos && c.videos.length > 0) {
+      c.videos.forEach(v => {
+        if (v.youtubeId) {
+          const show = getShow(c.showSlug);
+          entries.push({
+            loc: `${SITE_URL}/characters/${c.slug}/`,
+            title: escapeHtml(v.title || `${c.name} Video`),
+            description: escapeHtml(v.description || `Watch ${v.title || 'video content'} featuring ${c.name} from ${c.showTitle} on TVCeleb.com`),
+            thumbnailUrl: `https://img.youtube.com/vi/${v.youtubeId}/maxresdefault.jpg`,
+            playerUrl: `https://www.youtube-nocookie.com/embed/${v.youtubeId}`,
+            uploadDate: show?.years ? show.years.match(/(\d{4})/)?.[1] + '-01-01' : '2020-01-01'
+          });
+        }
+      });
+    }
+  });
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(u => `<url><loc>${SITE_URL}${u.loc}</loc><lastmod>${u.lastmod}</lastmod><changefreq>${u.changefreq}</changefreq><priority>${u.priority}</priority></url>`).join('\n')}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+${entries.map(e => `<url>
+<loc>${e.loc}</loc>
+<video:video>
+<video:thumbnail_loc>${e.thumbnailUrl}</video:thumbnail_loc>
+<video:title>${e.title}</video:title>
+<video:description>${e.description}</video:description>
+<video:player_loc>${e.playerUrl}</video:player_loc>
+<video:publication_date>${e.uploadDate}</video:publication_date>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
+</url>`).join('\n')}
 </urlset>`;
 
-  writeFile(path.join(OUT_DIR, 'sitemap.xml'), xml);
+  writeFile(path.join(OUT_DIR, 'sitemap-video.xml'), xml);
+  console.log(`  Video sitemap: ${entries.length} videos indexed`);
 }
 
 function buildImageSitemap() {
@@ -1824,24 +2035,48 @@ function buildRobotsTxt() {
   console.log('Building: robots.txt');
   writeFile(path.join(OUT_DIR, 'robots.txt'), `# TVCeleb.com Robots.txt
 # https://tvceleb.com
+# Last updated: ${new Date().toISOString().split('T')[0]}
 
+# Default rules for all crawlers
 User-agent: *
 Allow: /
 Disallow: /search-index.json
 Crawl-delay: 1
 
-# Googlebot (no crawl-delay needed)
+# Google (no crawl-delay needed, supports advanced features)
 User-agent: Googlebot
 Allow: /
 Disallow: /search-index.json
 
-# Bingbot
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+# Bing
 User-agent: Bingbot
 Allow: /
 Disallow: /search-index.json
 Crawl-delay: 2
 
-# AI Crawlers
+# Yandex
+User-agent: Yandex
+Allow: /
+Disallow: /search-index.json
+Crawl-delay: 2
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /search-index.json
+
+# Apple
+User-agent: Applebot
+Allow: /
+Disallow: /search-index.json
+
+# AI Crawlers - allowed for AEO visibility
 User-agent: GPTBot
 Allow: /
 
@@ -1857,52 +2092,182 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
-User-agent: Bytespider
+User-agent: Claude-Web
 Allow: /
 
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: Bytespider
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: AI2Bot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
 # Sitemaps
+Sitemap: ${SITE_URL}/sitemap-index.xml
 Sitemap: ${SITE_URL}/sitemap.xml
 Sitemap: ${SITE_URL}/sitemap-images.xml
+Sitemap: ${SITE_URL}/sitemap-video.xml
 
 # Host
 Host: ${SITE_URL}
 `);
 }
 
+function buildSecurityTxt() {
+  console.log('Building: .well-known/security.txt');
+  ensureDir(path.join(OUT_DIR, '.well-known'));
+  writeFile(path.join(OUT_DIR, '.well-known', 'security.txt'), `# TVCeleb.com Security Policy
+Contact: ${SITE_URL}/about/
+Preferred-Languages: en
+Canonical: ${SITE_URL}/.well-known/security.txt
+Expires: ${new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]}T00:00:00.000Z
+`);
+}
+
+function buildRssFeed() {
+  console.log('Building: feed.xml (RSS)');
+  const today = new Date().toUTCString();
+  const topChars = [...characters].sort((a, b) => (b.fanHeatIndex?.overall || 0) - (a.fanHeatIndex?.overall || 0)).slice(0, 30);
+
+  const items = topChars.map(c => {
+    const desc = c.characterArc ? c.characterArc.substring(0, 300).replace(/\n/g, ' ') + '...' : `${c.name} from ${c.showTitle}, played by ${c.actorName}.`;
+    return `<item>
+<title>${escapeHtml(c.name)} - ${escapeHtml(c.showTitle)}</title>
+<link>${SITE_URL}/characters/${c.slug}/</link>
+<guid isPermaLink="true">${SITE_URL}/characters/${c.slug}/</guid>
+<description>${escapeHtml(desc)}</description>
+<category>${escapeHtml(c.showTitle)}</category>
+<pubDate>${today}</pubDate>
+</item>`;
+  });
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>TVCeleb.com - The Living Archive of TV Fandom</title>
+<link>${SITE_URL}</link>
+<description>${escapeHtml(SITE_DESCRIPTION)}</description>
+<language>en-us</language>
+<lastBuildDate>${today}</lastBuildDate>
+<atom:link href="${SITE_URL}/feed.xml" rel="self" type="application/rss+xml"/>
+<image>
+<url>${SITE_URL}/favicon.ico</url>
+<title>TVCeleb.com</title>
+<link>${SITE_URL}</link>
+</image>
+${items.join('\n')}
+</channel>
+</rss>`;
+
+  writeFile(path.join(OUT_DIR, 'feed.xml'), xml);
+}
+
+function buildOpenSearch() {
+  console.log('Building: opensearch.xml');
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+<ShortName>TVCeleb</ShortName>
+<Description>Search TV characters, shows, and actors on TVCeleb.com</Description>
+<Url type="text/html" template="${SITE_URL}/search/?q={searchTerms}"/>
+<Image width="48" height="48" type="image/x-icon">${SITE_URL}/favicon.ico</Image>
+<InputEncoding>UTF-8</InputEncoding>
+<Language>en-us</Language>
+</OpenSearchDescription>`;
+
+  writeFile(path.join(OUT_DIR, 'opensearch.xml'), xml);
+}
+
 function buildLlmsTxt() {
   console.log('Building: llms.txt');
-  const showsList = shows.map(s => `- ${s.title}: ${SITE_URL}/shows/${s.slug}/`).join('\n');
+  const showsList = shows.map(s => `- ${s.title} (${s.network}, ${s.years}): ${SITE_URL}/shows/${s.slug}/`).join('\n');
+  const allGenresList = [...new Set(shows.flatMap(s => s.genre))].sort();
+  const allNetworksList = [...new Set(shows.map(s => s.network))].sort();
+  const topChars = [...characters].sort((a, b) => (b.fanHeatIndex?.overall || 0) - (a.fanHeatIndex?.overall || 0)).slice(0, 20);
+
   const content = `# TVCeleb.com
 
 > TVCeleb.com is the world's largest repository of TV character fan sites, fan social media & aggregated content. Explore characters, fan communities, and ecosystems across every TV show.
 
-## Site Overview
+## Site Statistics
 
-TVCeleb.com covers ${shows.length} TV shows, ${characters.length} characters, and ${actors.length} actors with detailed profiles including:
-- Character arcs and key episodes
-- Fan ecosystem links (Reddit, YouTube, Twitter, fan wikis, TikTok)
-- Fan Heat Index scores measuring engagement, social activity, and fandom longevity
-- Frequently asked questions with detailed answers
-- Curated video content
-- Actor biographies and filmographies
+- ${shows.length} TV shows across ${allGenresList.length} genres
+- ${characters.length} character profiles with fan ecosystem mapping
+- ${actors.length} actor profiles with biographies and filmographies
+- ${allNetworksList.length} networks and streaming platforms covered
+- Decades covered: 1990s, 2000s, 2010s, 2020s
 
 ## Main Sections
 
-- Shows Directory: ${SITE_URL}/shows/
-- Characters Directory: ${SITE_URL}/characters/
-- Actors Directory: ${SITE_URL}/actors/
-- Genres: ${SITE_URL}/genres/
-- Networks: ${SITE_URL}/networks/
+- Homepage: ${SITE_URL}/
+- Shows Directory (${shows.length} shows): ${SITE_URL}/shows/
+- Characters Directory (${characters.length} characters): ${SITE_URL}/characters/
+- Actors Directory (${actors.length} actors): ${SITE_URL}/actors/
+- Genres (${allGenresList.length} genres): ${SITE_URL}/genres/
+- Networks (${allNetworksList.length} networks): ${SITE_URL}/networks/
 - Curated Lists: ${SITE_URL}/lists/
 - Decades: ${SITE_URL}/decades/
 - About: ${SITE_URL}/about/
+- Search: ${SITE_URL}/search/
+
+## What Each Page Includes
+
+- **Show Pages**: Synopsis, character roster, fan heat scores, videos, related shows, FAQs
+- **Character Pages**: Character arc narrative, key episodes, fan ecosystem links (Reddit, YouTube, TikTok, Instagram, Twitter, fan sites), Fan Heat Index breakdown, related characters, quotes, trivia, FAQs
+- **Actor Pages**: Biography, known roles, awards, social media links (IMDb, Wikipedia, Instagram, Twitter), FAQs
+
+## Fan Heat Index
+
+The Fan Heat Index (0-100) measures fandom vitality across five dimensions:
+1. Engagement - Community activity levels
+2. Social Activity - Social media presence
+3. Meme Velocity - Viral content spread rate
+4. Fan Art Density - Fan-created content volume
+5. Fandom Longevity - Sustained interest over time
+
+## Top Characters by Fan Heat Index
+
+${topChars.map((c, i) => `${i + 1}. ${c.name} (${c.showTitle}) - Score: ${c.fanHeatIndex?.overall || 0}/100 - ${SITE_URL}/characters/${c.slug}/`).join('\n')}
 
 ## Shows Covered
 
 ${showsList}
+
+## Genres Covered
+
+${allGenresList.map(g => `- ${g}: ${SITE_URL}/genres/${getGenreSlug(g)}/`).join('\n')}
+
+## Networks Covered
+
+${allNetworksList.map(n => `- ${n}: ${SITE_URL}/networks/${getNetworkSlug(n)}/`).join('\n')}
+
+## Frequently Asked Questions
+
+Q: What is TVCeleb.com?
+A: TVCeleb.com is the world's largest repository of TV character fan sites, fan social media, and aggregated content covering ${shows.length} shows and ${characters.length}+ characters.
+
+Q: What is the Fan Heat Index?
+A: A proprietary 0-100 scoring system measuring fandom vitality across engagement, social activity, meme velocity, fan art density, and fandom longevity.
+
+Q: Is TVCeleb.com free?
+A: Yes, completely free with no registration required.
+
+## Full Content Available
+
+For complete content export, see: ${SITE_URL}/llms-full.txt
 
 ## Contact
 
@@ -1938,6 +2303,13 @@ Site statistics: ${shows.length} shows, ${characters.length} characters, ${actor
 - Characters: ${showChars.map(c => c.name).join(', ')}
 - URL: ${SITE_URL}/shows/${s.slug}/
 `);
+    if (s.faqs && s.faqs.length > 0) {
+      sections.push(`**FAQs:**`);
+      s.faqs.forEach(faq => {
+        sections.push(`- Q: ${faq.question}\n  A: ${faq.answer}`);
+      });
+      sections.push('');
+    }
   });
 
   // All characters with full details
@@ -2071,13 +2443,22 @@ ${decades.map(d => `<a href="/decades/${d.decade}s/" class="card">
 </div>
 </section>`;
 
+  const decadeFaqs = [
+    { question: 'What decades of TV shows does TVCeleb.com cover?', answer: `TVCeleb.com covers TV shows from ${decades.length} decades: ${decades.map(d => 'the ' + d.label).join(', ')}. Each decade page features all shows that premiered during that era, along with top characters ranked by Fan Heat Index.` },
+    { question: 'How are TV shows organized by decade?', answer: 'Shows are organized by the decade in which they premiered. For example, a show that debuted in 2019 appears in the 2010s. Each decade page provides context about the era\'s television landscape and trends.' },
+  ];
+
+  const decadesJsonLd = [jsonLdBreadcrumbs(bc)];
+  const decadeFaqLd = jsonLdFaqPage(decadeFaqs);
+  if (decadeFaqLd) decadesJsonLd.push(decadeFaqLd);
+
   writeFile(path.join(OUT_DIR, 'decades', 'index.html'), layout({
-    title: 'Browse TV Shows by Decade',
-    description: 'Explore TV shows organized by decade. From 1990s classics to 2020s hits, browse the best television from every era.',
+    title: 'Browse TV Shows by Decade - 1990s to 2020s',
+    description: `Explore TV shows organized by decade on TVCeleb.com. From 1990s classics to 2020s hits, browse ${shows.length} shows and ${characters.length}+ characters from every era of television.`,
     canonical: SITE_URL + '/decades/',
     breadcrumbsHtml: breadcrumbsComponent(bc),
-    jsonLd: [jsonLdBreadcrumbs(bc)],
-    content
+    jsonLd: decadesJsonLd,
+    content: content + faqSectionHtml(decadeFaqs)
   }));
 }
 
@@ -2226,6 +2607,7 @@ ${faqSectionHtml(faqs)}
   const jsonLd = [jsonLdBreadcrumbs(bc)];
   const faqLd = jsonLdFaqPage(faqs);
   if (faqLd) jsonLd.push(faqLd);
+  jsonLd.push(jsonLdSpeakable(`${SITE_URL}/about/`, ['h1', '.hero-description', '.faq-answer', '#mission']));
 
   writeFile(path.join(OUT_DIR, 'about', 'index.html'), layout({
     title: 'About TVCeleb.com - The Living Archive of TV Fandom',
@@ -2287,9 +2669,13 @@ function build() {
 
   // Build assets
   buildSearchIndex();
-  buildSitemap();
+  buildVideoSitemap();
   buildImageSitemap();
+  buildSitemap();
   buildRobotsTxt();
+  buildSecurityTxt();
+  buildRssFeed();
+  buildOpenSearch();
   buildLlmsTxt();
   buildLlmsFullTxt();
 

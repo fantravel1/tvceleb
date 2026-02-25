@@ -1,23 +1,47 @@
 # TVCeleb.com Robots.txt
 # https://tvceleb.com
+# Last updated: 2026-02-25
 
+# Default rules for all crawlers
 User-agent: *
 Allow: /
 Disallow: /search-index.json
 Crawl-delay: 1
 
-# Googlebot (no crawl-delay needed)
+# Google (no crawl-delay needed, supports advanced features)
 User-agent: Googlebot
 Allow: /
 Disallow: /search-index.json
 
-# Bingbot
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+# Bing
 User-agent: Bingbot
 Allow: /
 Disallow: /search-index.json
 Crawl-delay: 2
 
-# AI Crawlers
+# Yandex
+User-agent: Yandex
+Allow: /
+Disallow: /search-index.json
+Crawl-delay: 2
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /search-index.json
+
+# Apple
+User-agent: Applebot
+Allow: /
+Disallow: /search-index.json
+
+# AI Crawlers - allowed for AEO visibility
 User-agent: GPTBot
 Allow: /
 
@@ -33,15 +57,35 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
-User-agent: Bytespider
+User-agent: Claude-Web
 Allow: /
 
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: Bytespider
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: AI2Bot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
 # Sitemaps
+Sitemap: https://tvceleb.com/sitemap-index.xml
 Sitemap: https://tvceleb.com/sitemap.xml
 Sitemap: https://tvceleb.com/sitemap-images.xml
+Sitemap: https://tvceleb.com/sitemap-video.xml
 
 # Host
 Host: https://tvceleb.com

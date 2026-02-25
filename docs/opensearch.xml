@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+<ShortName>TVCeleb</ShortName>
+<Description>Search TV characters, shows, and actors on TVCeleb.com</Description>
+<Url type="text/html" template="https://tvceleb.com/search/?q={searchTerms}"/>
+<Image width="48" height="48" type="image/x-icon">https://tvceleb.com/favicon.ico</Image>
+<InputEncoding>UTF-8</InputEncoding>
+<Language>en-us</Language>
+</OpenSearchDescription>
