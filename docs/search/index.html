@@ -1,28 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Search - Find Characters, Shows &amp; Actors | TVCeleb.com</title>
-<meta name="description" content="Search TVCeleb.com to find TV characters, shows, actors, and fan communities. The most comprehensive TV character search engine.">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Search TVCeleb - Find Characters, Shows &amp; Actors</title>
+<meta name="description" content="Search TVCeleb.com to find 205+ TV characters, 38 shows, 153+ actors, and fan communities. The most comprehensive TV character search engine.">
 <link rel="canonical" href="https://tvceleb.com/search/">
 <link rel="alternate" hreflang="en" href="https://tvceleb.com/search/">
+<link rel="alternate" hreflang="x-default" href="https://tvceleb.com/search/">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-<meta name="theme-color" content="#6366f1">
-<meta property="og:title" content="Search - Find Characters, Shows &amp; Actors | TVCeleb.com">
-<meta property="og:description" content="Search TVCeleb.com to find TV characters, shows, actors, and fan communities. The most comprehensive TV character search engine.">
+<meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="bingbot" content="index,follow">
+<meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:title" content="Search TVCeleb - Find Characters, Shows &amp; Actors">
+<meta property="og:description" content="Search TVCeleb.com to find 205+ TV characters, 38 shows, 153+ actors, and fan communities. The most comprehensive TV character search engine.">
 <meta property="og:url" content="https://tvceleb.com/search/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="TVCeleb.com">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://tvceleb.com/favicon.ico">
-<meta property="og:image:alt" content="Search - Find Characters, Shows &amp; Actors | TVCeleb.com">
+<meta property="og:image:alt" content="Search TVCeleb - Find Characters, Shows &amp; Actors">
 
+<meta property="article:published_time" content="2026-02-25">
+<meta property="article:modified_time" content="2026-02-25">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Search - Find Characters, Shows &amp; Actors | TVCeleb.com">
-<meta name="twitter:description" content="Search TVCeleb.com to find TV characters, shows, actors, and fan communities. The most comprehensive TV character search engine.">
+<meta name="twitter:title" content="Search TVCeleb - Find Characters, Shows &amp; Actors">
+<meta name="twitter:description" content="Search TVCeleb.com to find 205+ TV characters, 38 shows, 153+ actors, and fan communities. The most comprehensive TV character search engine.">
 <meta name="twitter:image" content="https://tvceleb.com/favicon.ico">
-<meta name="twitter:image:alt" content="Search - Find Characters, Shows &amp; Actors | TVCeleb.com">
+<meta name="twitter:image:alt" content="Search TVCeleb - Find Characters, Shows &amp; Actors">
+<meta name="twitter:site" content="@tvceleb">
 <meta name="author" content="TVCeleb.com">
 <meta property="article:publisher" content="https://tvceleb.com">
 <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -33,11 +43,15 @@
 <link rel="preconnect" href="https://upload.wikimedia.org">
 <link rel="manifest" href="/manifest.json">
 <link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="sitemap" type="application/xml" href="/sitemap-index.xml">
+<link rel="alternate" type="application/rss+xml" href="https://tvceleb.com/feed.xml" title="TVCeleb.com RSS Feed">
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="TVCeleb.com Search">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/styles.css">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <link rel="alternate" type="text/plain" href="https://tvceleb.com/llms.txt" title="LLM content">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tvceleb.com/"},{"@type":"ListItem","position":2,"name":"Search"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What can I search for on TVCeleb.com?","acceptedAnswer":{"@type":"Answer","text":"You can search for TV characters, shows, actors, genres, networks, decades, and curated lists. TVCeleb.com indexes 205+ characters, 38 shows, and 153+ actors for instant search results."}},{"@type":"Question","name":"How does the TVCeleb.com search work?","acceptedAnswer":{"@type":"Answer","text":"TVCeleb.com uses a client-side search engine that instantly matches your query against character names, show titles, actor names, genres, networks, and tags. Results are ranked by relevance and displayed in real time as you type."}}]}</script>
 </head>
 <body class="">
 <header class="header" role="banner">
@@ -82,6 +96,18 @@
 <input type="search" id="search-input" class="search-input" placeholder="Search characters, shows, actors..." aria-label="Search TVCeleb" autocomplete="off">
 </div>
 <div id="search-results"></div>
+</div>
+</section><section class="content-section" id="faqs" aria-labelledby="faq-heading">
+<h2 id="faq-heading"><span class="section-icon" style="background:rgba(124,58,237,0.15);color:#a78bfa;">?</span> Frequently Asked Questions</h2>
+<div class="faq-list">
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">What can I search for on TVCeleb.com?<span class="faq-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+<div class="faq-answer"><p>You can search for TV characters, shows, actors, genres, networks, decades, and curated lists. TVCeleb.com indexes 205+ characters, 38 shows, and 153+ actors for instant search results.</p></div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">How does the TVCeleb.com search work?<span class="faq-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+<div class="faq-answer"><p>TVCeleb.com uses a client-side search engine that instantly matches your query against character names, show titles, actor names, genres, networks, and tags. Results are ranked by relevance and displayed in real time as you type.</p></div>
+</div>
 </div>
 </section>
 </main>
